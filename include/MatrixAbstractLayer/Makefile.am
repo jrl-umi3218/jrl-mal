@@ -13,6 +13,6 @@ MatrixAbstractLayer_HEADERS = \
 	MatrixAbstractLayerSmallVector3Default.h \
 	MatrixAbstractLayerSmallVector4Default.h \
 	MatrixAbstractLayerVNL.h \
-	configMAL.h
+	MatrixAbstractLayerT3D.h 
 	
 

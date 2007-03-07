@@ -7,8 +7,6 @@
 #ifndef _MATRIX3D_PATTERNGENERATOR_JRL_
 #define _MATRIX3D_PATTERNGENERATOR_JRL_
 
-#ifdef _DEFAULT_MATRIX3x3_
-
 namespace PatternGeneratorJRL
 {
   /*! Template to handle a  3x3 matrix*/
@@ -260,7 +258,9 @@ namespace PatternGeneratorJRL
 
     };
 
-  
+
+typedef PatternGeneratorJRL::Matrix3x3<double> matrix3d;
+
 #define MAL_S3x3_MATRIX(name,type) \
   PatternGeneratorJRL::Matrix3x3<type> name
 
@@ -284,9 +284,15 @@ namespace PatternGeneratorJRL
 
 #define MAL_S3x3_C_eq_A_by_B(C,A,B) \
   A.CeqthismulB(B,C);
-  
-  
+
+#define MAL_S3x3_MATRIX_ACCESS_I(name, i) \
+  name[i]
+
+#define MAL_S3x3_MATRIX_ACCESS_I_J(name, i, j) \
+  name(i,j)
+
+
 };
 #endif
 
-#endif
+

@@ -10,8 +10,6 @@
  * (c) 2006 , Olivier Stasse JRL-Japan, CNRS-AIST, ISRI.
  */
 
-#ifdef _VNL_MATRIX_
-
 #include <VNL/matrix.h>
 #include <VNL/vector.h>
 #include <VNL/Algo/matrixinverse.h>
@@ -24,6 +22,9 @@
  * @ingroup linearalgebra
  * 
  */
+
+typedef VNL::Vector<double> vectorN;
+
 #define MAL_VECTOR(name, type)	\
   VNL::Vector<type> name
 
@@ -48,6 +49,8 @@
   
 #define MAL_RET_VECTOR_DATABLOCK(vector)\
   vector.DataBlock()
+
+typedef VNL::Matrix<double> matrixNxP;
 
 #define MAL_MATRIX(name, type)	\
   VNL::Matrix<type> name
@@ -105,5 +108,4 @@
 #define MAL_MATRIX_RET_DETERMINANT(name)	\
   Determinant(name)
 
-#endif
 

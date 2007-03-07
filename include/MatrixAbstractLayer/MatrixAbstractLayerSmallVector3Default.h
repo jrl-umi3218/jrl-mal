@@ -10,7 +10,6 @@
 #include <iostream>
 
 using namespace std;
-#ifdef _DEFAULT_VECTOR3D_
 
 namespace PatternGeneratorJRL
 {
@@ -177,6 +176,7 @@ namespace PatternGeneratorJRL
     };
 };
 
+typedef PatternGeneratorJRL::Vector3D<double> vector3d;
 
 #define MAL_S3_VECTOR(name,type)		\
   PatternGeneratorJRL::Vector3D<type> name
@@ -198,6 +198,7 @@ namespace PatternGeneratorJRL
 #define MAL_S3_RET_VECTOR_DATABLOCK(name)	\
   &name
 
-#endif
+#define MAL_S3_VECTOR_ACCESS(name, i)  		\
+  name[i]
 
 #endif /* _VECTOR3D_PATTERNGENERATOR_JRL_ */

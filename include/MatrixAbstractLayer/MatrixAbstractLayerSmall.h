@@ -65,6 +65,14 @@
 #define MAL_S3_RET_VECTOR_DATABLOCK(name)
 #undef MAL_S3_RET_VECTOR_DATABLOCK
 
+
+/*! \brief Returns a reference to the element at position i
+ * name(i)
+ * @ingroup vector
+ */
+#define MAL_S3_VECTOR_ACCESS(name, i)
+#undef  MAL_S3_VECTOR_ACCESS
+
 /*!
  *@}
  */
@@ -245,6 +253,20 @@
 #define MAL_S3x3_MATRIX_RET_DETERMINANT(name,type)
 #undef MAL_S3x3_MATRIX_RET_DETERMINANT
 
+/*! \brief This macro returns the element at position i
+  * name(i) 
+  * @ingroup matrix
+ */
+#define MAL_S3x3_MATRIX_ACCESS_I(name, i)
+#undef MAL_S3x3_MATRIX_ACCESS_I
+
+/*! \brief This macro returns element at pos (i,j)
+  
+ * name(i,j)
+ * @ingroup matrix
+ */
+#define MAL_S3x3_MATRIX_ACCESS_I_J(name, i, j)
+#undef MAL_S3x3_MATRIX_ACCESS_I_J
 
 /*!
  * @defgroup matrix
@@ -422,4 +444,20 @@
 #define MAL_S4x4_MATRIX_RET_DETERMINANT(name,type)
 #undef MAL_S4x4_MATRIX_RET_DETERMINANT
 
+
+/*! \brief This macro returns the element at position i
+  * name(i) 
+  * @ingroup matrix
+ */
+#define MAL_S4x4_MATRIX_ACCESS_I(name, i)
+#undef MAL_S4x4_MATRIX_ACCESS_I
+
+
+/*! \brief This macro returns element at pos (i,j)
+  
+ * name(i,j)
+ * @ingroup matrix
+ */
+#define MAL_S4x4_MATRIX_ACCESS_I_J(name, i, j)
+#undef MAL_S4x4_MATRIX_ACCESS_I_J
 

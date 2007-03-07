@@ -11,8 +11,6 @@
  */
 
 
-#ifdef _BOOST_MATRIX_
-
 /*!
  * @defgroup Boost
  * @ingroup linearalgebra
@@ -20,22 +18,22 @@
  */
 
 #include <cstring>
-//#include <boost/numeric/bindings/atlas/clapack.hpp>
-#include <boost/numeric/bindings/traits/ublas_matrix.hpp>
-#include <boost/numeric/bindings/traits/std_vector.hpp>
-#include <boost/numeric/bindings/traits/std_vector.hpp>
+//#include "boost/numeric/bindings/atlas/clapack.hpp"
+#include "boost/numeric/bindings/traits/ublas_matrix.hpp"
+#include "boost/numeric/bindings/traits/std_vector.hpp"
+#include "boost/numeric/bindings/traits/std_vector.hpp"
 
-#include <boost/numeric/ublas/matrix_proxy.hpp>
-#include <boost/numeric/ublas/matrix.hpp>
-#include <boost/numeric/ublas/io.hpp>
-#include <boost/numeric/bindings/lapack/gesvd.hpp>
-#include <boost/numeric/ublas/operation.hpp>
-#include <boost/numeric/ublas/vector.hpp>
-#include <boost/numeric/ublas/vector_proxy.hpp>
-#include <boost/numeric/ublas/triangular.hpp>
-#include <boost/numeric/ublas/lu.hpp>
+#include "boost/numeric/ublas/matrix_proxy.hpp"
+#include "boost/numeric/ublas/matrix.hpp"
+#include "boost/numeric/ublas/io.hpp"
+#include "boost/numeric/bindings/lapack/gesvd.hpp"
+#include "boost/numeric/ublas/operation.hpp"
+#include "boost/numeric/ublas/vector.hpp"
+#include "boost/numeric/ublas/vector_proxy.hpp"
+#include "boost/numeric/ublas/triangular.hpp"
+#include "boost/numeric/ublas/lu.hpp"
 
-#include <f2c.h>
+#include "f2c.h"
 //#include <cblas.h>
 //#include <clapack.h>
 
@@ -43,6 +41,8 @@ namespace ublas = boost::numeric::ublas;
 //namespace atlas = boost::numeric::bindings::atlas;
 namespace traits = boost::numeric::bindings::traits;
 namespace lapack = boost::numeric::bindings::lapack;
+
+typedef ublas::vector<double> vectorN;
 
 #define MAL_VECTOR(name, type)	\
   ublas::vector<type> name
@@ -72,6 +72,8 @@ namespace lapack = boost::numeric::bindings::lapack;
 
 #define MAL_RET_VECTOR_DATABLOCK(name)\
   traits::vector_storage(name)
+
+typedef ublas::matrix<double> matrixNxP;
 
 #define MAL_MATRIX(name, type)			\
   ublas::matrix<type> name
@@ -201,8 +203,9 @@ template<class type> inline double __ret_mal_matrix_ret_determinant(ublas::matri
 #endif
   };
 
+
 #define _MAL_VERSION_ 1
-#endif
+
 
 
 

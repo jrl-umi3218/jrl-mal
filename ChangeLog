@@ -1,1 +1,50 @@
-Write in this file the modifications you commit.
+2007/03/07
+	7. At Makefile.am MatrixAbstractLayerT3D.h have been added and
+	configMal.h have been deleted.
+
+	6. The typedef have been defined in the:
+	MatrixAbstractLayerBoost.h
+	MatrixAbstractLayerVNL.h
+	MatrixAbstractLayerSmallMatrix3x3Default.h,
+	MatrixAbstractLayerSmallMatrix4x4Default.h,
+	MatrixAbstractLayerSmallVector3Default.h,
+	MatrixAbstractLayerSmallVector4Default.h,
+	MatrixAbstractLayerT3D.h.
+	
+	
+	5. The file MatrixAbstractLayerT3D.h have been created. This file
+	has the macros to allow the use of T3D has smallVector and
+	smallMatrix. 
+	- The MAL_S4x4_* have been implemented using T3D. 
+	- The MAL_S3_VECTOR* have been implemented by V3D.
+	- The MAL_S4_VECTOR* have been implementd by V3D.
+	- The MAL_S3x3_* have been implemented by the default Matrix3x3
+	implementation (PatternGeneratorJRL::Matrix3x3<double>) (It shoud
+	be changed by the R3D implementation once it'd been created).
+
+	
+	4. The <> of the includes of MatrixAbstractLayerBoost.h have been
+	replaced by "". 
+	
+	3. The new macros added in (2) have been implemented in
+	MatrixAbstractLayerSmallMatrix3x3Default.h,
+	MatrixAbstractLayerSmallMatrix4x4Default.h,
+	MatrixAbstractLayerSmallVector3Default.h,
+	MatrixAbstractLayerSmallVector4Default.h.
+	
+	2. In MatrixAbstractLayerSmall.h have been added the documentation
+	of five news macros to acces to the elements of a smallVector and
+	of a smallMatrix: 
+	MAL_S4x4_MATRIX_ACCESS_I(name,i),
+	MAL_S4x4_MATRIX_ACCESS_I_J(name,i,j),
+	MAL_S3x3_MATRIX_ACCESS_I(name,i),         
+	MAL_S3x3_MATRIX_ACCESS_I_J(name,i,j), 
+	MAL_S3_VECTOR_ACCESS(name, i).
+	
+	1. MatrixAbstractLayer.h have been modified to allow the choice of
+	T3D,R3D and V3D as Smallmatrix and SmallVector implementation. The
+	file have been simplified, now if not special SmallVector or
+	SmallMatrix is selected then the SmallVector and the SmallMatrix
+	by default are used so it's avoided the declaration of
+	DEFAULT_VECTOR3D, DEFAULT_VECTOR4D, DEFAULT_MATRIX3x3 and
+	DEFAULT_MATRIX4x4 and the use of configMal.h. 

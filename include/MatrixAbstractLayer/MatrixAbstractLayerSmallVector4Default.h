@@ -12,7 +12,6 @@
 #include <iostream>
 
 using namespace std;
-#ifdef _DEFAULT_VECTOR4D_
 
 namespace PatternGeneratorJRL
 {
@@ -182,6 +181,8 @@ namespace PatternGeneratorJRL
 };
 
 
+typedef PatternGeneratorJRL::Vector4D<double> vector4d;
+
 #define MAL_S4_VECTOR(name,type)		\
   PatternGeneratorJRL::Vector4D<type> name
 
@@ -200,6 +201,7 @@ namespace PatternGeneratorJRL
 #define MAL_S4_RET_VECTOR_DATABLOCK(name)	\
   &name
 
-#endif /* _DEFAULT_VECTOR4D_ */
+#define MAL_S4_VECTOR_ACCESS(name, i)  		\
+  name[i]
 
 #endif /* _VECTOR4D_PATTERNGENERATOR_JRL_ */

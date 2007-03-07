@@ -7,7 +7,6 @@
 #ifndef _MATRIX4D_PATTERNGENERATOR_JRL_
 #define _MATRIX4D_PATTERNGENERATOR_JRL_
 
-#ifdef _DEFAULT_MATRIX4x4_
 
 namespace PatternGeneratorJRL
 {
@@ -328,7 +327,9 @@ namespace PatternGeneratorJRL
 
     };
 
-  
+
+typedef PatternGeneratorJRL::Matrix4x4<double> matrix4d;
+
 #define MAL_S4x4_MATRIX(name,type) \
   PatternGeneratorJRL::Matrix4x4<type> name
 
@@ -352,9 +353,12 @@ namespace PatternGeneratorJRL
 
 #define MAL_S4x4_C_eq_A_by_B(C,A,B) \
   A.CeqthismulB(B,C)
-  
+
+#define MAL_S4x4_MATRIX_ACCESS_I(name, i) \
+  name[i]
+
+#define MAL_S4x4_MATRIX_ACCESS_I_J(name, i, j) \
+  name(i,j)  
   
 };
-#endif
-
 #endif
