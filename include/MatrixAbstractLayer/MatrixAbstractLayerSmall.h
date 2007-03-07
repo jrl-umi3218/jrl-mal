@@ -49,7 +49,7 @@
 /*! \brief Returns in \a res the cross product of two vectors \f$ v_1,v_2 \in \mathbb{R}^3 \f$.
  * The cross product \f$ res = v_1 \times v_2 \f$ is defined as:
  * \f{eqnarray*}
- * res^x &=  v_1^y v_2^z  - v_2^y v_1^x \\
+ * res^x &=  v_1^y v_2^z  - v_2^y v_1^z \\
  * res^y &=  v_1^z v_2^x  - v_2^z v_1^x \\
  * res^z &=  v_1^x v_2^y  - v_2^x v_1^y \\
  * \f}
