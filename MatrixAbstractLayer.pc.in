@@ -4,8 +4,8 @@ libdir=@libdir@
 includedir=@includedir@
 
 Name: @PACKAGE@
-Description: 
+Description: Definition of macro for versatile matrix and vector definitions and operations
 Version: @VERSION@
 Requires: 
-Libs: -L${libdir} -lMatrixAbstractLayer
+Libs: 
 Cflags: -I${includedir}
