@@ -8,6 +8,7 @@
 #define _VECTOR3D_PATTERNGENERATOR_JRL_
 
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 

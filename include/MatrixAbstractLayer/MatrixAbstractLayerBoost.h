@@ -18,7 +18,6 @@
  */
 
 #include <cstring>
-//#include "boost/numeric/bindings/atlas/clapack.hpp"
 #include "boost/numeric/bindings/traits/ublas_matrix.hpp"
 #include "boost/numeric/bindings/traits/std_vector.hpp"
 #include "boost/numeric/bindings/traits/std_vector.hpp"
@@ -33,12 +32,7 @@
 #include "boost/numeric/ublas/triangular.hpp"
 #include "boost/numeric/ublas/lu.hpp"
 
-#include "f2c.h"
-//#include <cblas.h>
-//#include <clapack.h>
-
 namespace ublas = boost::numeric::ublas;
-//namespace atlas = boost::numeric::bindings::atlas;
 namespace traits = boost::numeric::bindings::traits;
 namespace lapack = boost::numeric::bindings::lapack;
 
@@ -188,6 +182,9 @@ template<class type> inline double __ret_mal_matrix_ret_determinant(ublas::matri
 #define MAL_MATRIX_RET_DETERMINANT(name,type)	\
   __ret_mal_matrix_ret_determinant<type>(name)
 
+
+#if 0 /* XXX I claim that this does not belong to MAL */
+
 /* This specific externalisation is for a direct access to
    lapack : should be later on integrated inside boost */
   extern "C"
@@ -195,13 +192,13 @@ template<class type> inline double __ret_mal_matrix_ret_determinant(ublas::matri
     double dlapy2_(double *, double *);
     double dlamch_(char *);
     void dgges_(char *jobvsl, char *jobvsr, char *sort,/* logical (*delctg)(double*,double*,double*),*/
-#if 1 
    logical (*delctg)(...),
 		int *n, double *a, int *lda, double *b, int *ldb, int *sdim, double *alphar, double *alphai, double *beta,
 		double *vsl, int *ldvsl, double *vsr, int *ldvsr, double *work, int *lwork, logical *bwork, int *info);
     
-#endif
   };
+
+#endif
 
 
 #define _MAL_VERSION_ 1
