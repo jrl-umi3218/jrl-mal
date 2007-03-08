@@ -3,10 +3,10 @@
 # 
 
 
-noinst_PROGRAMS = testMatrixAbstractLayer
-testMatrixAbstractLayer_SOURCES = main.cpp \
+check_PROGRAMS = testMatrixAbstractLayer
+
+testMatrixAbstractLayer_SOURCES =\
+	main.cpp 			\
 	MatrixAbstractLayerTest.cpp
 
-testMatrixAbstractLayer_CPPFLAGS = -I$(srcdir)/../include
-
-testMatrixAbstractLayer_LDADD = -L../src -lMatrixAbstractLayer
+testMatrixAbstractLayer_CPPFLAGS = -I$(top_srcdir)/include -I../include
