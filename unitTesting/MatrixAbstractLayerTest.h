@@ -15,6 +15,8 @@ public:
   */
   CMatrixAbstractLayerTest();
 private:
-  CMatrixAbstractLayer attCMatrixAbstractLayer;
+
+  // XXX what's this?
+  // CMatrixAbstractLayer attCMatrixAbstractLayer;
 };
 
