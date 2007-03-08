@@ -12,10 +12,7 @@ EXTRA_DIST = \
 	pictures/footer.jpg \
 	additionalDoc/package.h 
 
-
-all:html
-
-install: 
+install-data-hook: html
 	mkdir -p $(MatrixAbstractLayerdir)
 	$(INSTALL_DATA) html/* $(MatrixAbstractLayerdir)
 	mkdir -p $(MatrixAbstractLayerdir)/pictures
