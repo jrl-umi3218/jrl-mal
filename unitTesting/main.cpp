@@ -12,7 +12,6 @@ int main (int argc, char** argv)
 
   //T3D m1 = T3D(T3D_MATRIX,0);
 
-  matrix4x4 *m1 = new matrix4x4;
   MAL_S4x4_MATRIX((*m1),double) = new MAL_S4x4_MATRIX(,double);
   MAL_S4x4_MATRIX(inv_m1,double);
   MAL_S4x4_INVERSE((*m1),inv_m1,double)
