@@ -1244,6 +1244,7 @@ Optional Packages:
   --without-PACKAGE       do not use PACKAGE (same as --with-PACKAGE=no)
   --with-boost            use boost for generic NxP matrix implementation
   --with-vnl              use VNL for generic NxP matrix implementation
+  --with-lapack           prefix of lapack installation
   --with-t3d              use t3d for rigid body transformations
 
 Some influential environment variables:
@@ -3125,6 +3126,14 @@ else
 fi
 
 
+# Check whether --with-lapack was given.
+if test "${with_lapack+set}" = set; then
+  withval=$with_lapack;
+else
+  with_lapack=no
+fi
+
+
 if test x${with_boost} = xno -a x${with_vnl} = xno; then
 	{ { echo "$as_me:$LINENO: error: please configure either --with-boost or --with-vnl" >&5
 echo "$as_me: error: please configure either --with-boost or --with-vnl" >&2;}
@@ -3143,6 +3152,7 @@ if test x${with_boost} != xno; then
 	if test x${with_boost} != xyes; then
 		MATRIX_CFLAGS="${MATRIX_CFLAGS} -I${with_boost}/include"
 	fi
+	MATRIX_LDFLAGS="${MATRIX_LDLAGS} -llapack"
 fi
 
 if test x${with_vnl} != xno; then
@@ -3150,9 +3160,20 @@ if test x${with_vnl} != xno; then
 	_VNL_MATRIX_=1
 
 	if test x${with_vnl} != xyes; then
-		MATRIX_CFLAGS="${MATRIX_CFLAGS} ${with_vnl}/include"
+		MATRIX_CFLAGS="${MATRIX_CFLAGS} -I${with_vnl}/include"
 	fi
 fi
+
+if test x${with_lapack} != xno ; then
+	if test x${with_lapack} = xyes ; then
+		{ { echo "$as_me:$LINENO: error: please specify path to lapack installation in --with-lapack" >&5
+echo "$as_me: error: please specify path to lapack installation in --with-lapack" >&2;}
+   { (exit 1); exit 1; }; }
+	fi
+	MATRIX_CFLAGS="${MATRIX_CFLAGS} -I${with_lapack}/include"
+	MATRIX_LDFLAGS="-Wl,-R${with_lapack} -L${with_lapack}/lib ${MATRIX_LDFLAGS}"
+fi
+
 
 
 

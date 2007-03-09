@@ -26,6 +26,8 @@ AC_ARG_WITH(boost, AC_HELP_STRING([--with-boost],
 	[use boost for generic NxP matrix implementation]),,with_boost=no)
 AC_ARG_WITH(vnl, AC_HELP_STRING([--with-vnl],
 	[use VNL for generic NxP matrix implementation]),,with_vnl=no)
+AC_ARG_WITH(lapack, AC_HELP_STRING([--with-lapack],
+	[prefix of lapack installation]),,with_lapack=no)
 
 if test x${with_boost} = xno -a x${with_vnl} = xno; then
 	AC_ERROR([please configure either --with-boost or --with-vnl])
@@ -42,6 +44,7 @@ if test x${with_boost} != xno; then
 	if test x${with_boost} != xyes; then
 		MATRIX_CFLAGS="${MATRIX_CFLAGS} -I${with_boost}/include"
 	fi
+	MATRIX_LDFLAGS="${MATRIX_LDLAGS} -llapack"
 fi
 
 dnl use VNL
@@ -50,9 +53,19 @@ if test x${with_vnl} != xno; then
 	_VNL_MATRIX_=1
 
 	if test x${with_vnl} != xyes; then
-		MATRIX_CFLAGS="${MATRIX_CFLAGS} ${with_vnl}/include"
+		MATRIX_CFLAGS="${MATRIX_CFLAGS} -I${with_vnl}/include"
 	fi
 fi
+
+dnl lapack path
+if test x${with_lapack} != xno ; then
+	if test x${with_lapack} = xyes ; then
+		AC_ERROR([please specify path to lapack installation in --with-lapack])
+	fi
+	MATRIX_CFLAGS="${MATRIX_CFLAGS} -I${with_lapack}/include"
+	MATRIX_LDFLAGS="-Wl,-R${with_lapack} -L${with_lapack}/lib ${MATRIX_LDFLAGS}"
+fi
+
 
 dnl --- small matrices implementation --------------------------------
 
