@@ -258,7 +258,7 @@ namespace PatternGeneratorJRL
 
     };
 
-
+};
 typedef PatternGeneratorJRL::Matrix3x3<double> matrix3d;
 
 #define MAL_S3x3_MATRIX(name,type) \
@@ -292,7 +292,6 @@ typedef PatternGeneratorJRL::Matrix3x3<double> matrix3d;
   name(i,j)
 
 
-};
 #endif
 
 

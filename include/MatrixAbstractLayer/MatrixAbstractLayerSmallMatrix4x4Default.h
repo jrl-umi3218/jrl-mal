@@ -327,7 +327,7 @@ namespace PatternGeneratorJRL
 
     };
 
-
+};
 typedef PatternGeneratorJRL::Matrix4x4<double> matrix4d;
 
 #define MAL_S4x4_MATRIX(name,type) \
@@ -360,5 +360,4 @@ typedef PatternGeneratorJRL::Matrix4x4<double> matrix4d;
 #define MAL_S4x4_MATRIX_ACCESS_I_J(name, i, j) \
   name(i,j)  
   
-};
 #endif
