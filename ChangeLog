@@ -1,3 +1,6 @@
+2007/03/09
+	8. Added #include "configMal.h" in MatrixAbstractLayer.h".
+
 2007/03/07
 	7. At Makefile.am MatrixAbstractLayerT3D.h have been added and
 	configMal.h have been deleted.

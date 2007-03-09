@@ -33,6 +33,9 @@
 #ifndef _MATRIX_ABSTRACT_LAYER_H_
 #  define _MATRIX_ABSTRACT_LAYER_H_
 
+// Define which type of linear algebra package and which type of small matrix and vector package.
+#include "configMAL.h"
+
   /*Documentation*/
 #  include "MatrixAbstractLayer/MatrixAbstractLayerDoc.h"
 #  include "MatrixAbstractLayer/MatrixAbstractLayerSmall.h"
