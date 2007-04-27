@@ -11,3 +11,10 @@ cd build
 ../configure [OPTIONS]
 make 
 make install
+
+[OPTION] (see also configure.ac)
+--with-boost=PATH_TO_BOOST
+or
+--with-VNL=PATH_TO_VNL
+or 
+--with-lapack=PATH_TO_LAPACK
