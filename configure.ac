@@ -48,7 +48,7 @@ if test x${with_boost} != xno; then
 		AC_MSG_NOTICE([using boot in default location.])
 		AC_MSG_NOTICE([configure --with-boost=path to choose a specific location.])
 	fi
-	MATRIX_LDFLAGS="${MATRIX_LDLAGS} -llapack"
+	MATRIX_LDFLAGS="${MATRIX_LDLAGS} -llapack -lblas"
 fi
 
 dnl use VNL
