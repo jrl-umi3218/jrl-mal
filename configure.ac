@@ -3,14 +3,13 @@ dnl
 dnl configure.ac file for package MatrixAbstractLayer 
 dnl
 
-AC_INIT([MatrixAbstractLayer], [1.1], [olivier.stasse@aist.go.jp])
+AC_INIT([MatrixAbstractLayer], [1.2], [olivier.stasse@aist.go.jp])
 AC_PREREQ(2.59)
 
 AM_INIT_AUTOMAKE
 
 AC_PROG_CXX
 AC_PROG_INSTALL
-AC_PROG_LIBTOOL
 
 dnl defaults
 AC_SUBST(_BOOST_MATRIX_,	0)
@@ -44,6 +43,10 @@ if test x${with_boost} != xno; then
 
 	if test x${with_boost} != xyes; then
 		MATRIX_CFLAGS="${MATRIX_CFLAGS} -I${with_boost}/include"
+		AC_MSG_NOTICE([using boot in ${with_boost}/include.])
+	else
+		AC_MSG_NOTICE([using boot in default location.])
+		AC_MSG_NOTICE([configure --with-boost=path to choose a specific location.])
 	fi
 	MATRIX_LDFLAGS="${MATRIX_LDLAGS} -llapack"
 fi
@@ -55,6 +58,10 @@ if test x${with_vnl} != xno; then
 
 	if test x${with_vnl} != xyes; then
 		MATRIX_CFLAGS="${MATRIX_CFLAGS} -I${with_vnl}/include"
+		AC_MSG_NOTICE([using VNL in ${with_vnl}/include.])
+	else
+		AC_MSG_NOTICE([using VNL in default location.])
+		AC_MSG_NOTICE([configure --with-vnl=path to choose a specific location.])
 	fi
 fi
 
@@ -85,8 +92,10 @@ if test x${with_t3d} != xno; then
 	PKG_CHECK_MODULES(T3D, [t3d >= 2.2])
 	MATRIX_CFLAGS="${MATRIX_CFLAGS} ${T3D_CFLAGS}"
 	MATRIX_LDFLAGS="${MATRIX_LDFLAGS} ${T3D_LIBS}"
+	AC_MSG_NOTICE([using T3D small matrices implementation.])
 else
 	_T3D_R3D_V3D_=0
+	AC_MSG_NOTICE([using default small matrices implementation.])
 fi
 
 dnl --- output configuration files -----------------------------------

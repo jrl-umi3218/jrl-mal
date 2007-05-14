@@ -1,3 +1,8 @@
+MALJRL version 1.2 released May 14, 2007
+
+2007/05/14
+	9. Added some messages to configure script.
+	
 2007/03/09
 	8. Added #include "configMal.h" in MatrixAbstractLayer.h".
 
