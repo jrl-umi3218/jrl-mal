@@ -9,7 +9,7 @@ EXTRA_DIST = \
 	header.html \
 	footer.html \
 	package.css \
-	pictures/footer.jpg \
+	pictures/footer.txt \
 	additionalDoc/package.h 
 
 install-data-hook: html
