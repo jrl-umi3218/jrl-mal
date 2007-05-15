@@ -29,10 +29,10 @@ typedef T3D matrix4d;
   /*Transpose don't have any sense*/ 
 
 #define MAL_S4x4_RET_A_by_B(A,B) \
-  B*A
+  (A)*(B)
 
 #define MAL_S4x4_C_eq_A_by_B(C,A,B) \
-  C=B*A; 
+  (C)=(A)*(B)
 
 #define MAL_S4x4_MATRIX_ACCESS_I(name, i) \
   name.matrix[i]
