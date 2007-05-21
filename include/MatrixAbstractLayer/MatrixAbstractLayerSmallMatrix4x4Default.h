@@ -53,6 +53,10 @@ namespace PatternGeneratorJRL
       inline T& operator()(unsigned int i, unsigned int j)
       { return m[4*i+j]; }
       
+      /*! Access by giving the (i,j) element. */
+      inline T operator()(unsigned int i, unsigned int j) const
+      { return m[4*i+j]; }
+
       /*! Set to zero matrix */
       inline void setZero(void) 
       {
@@ -147,9 +151,18 @@ namespace PatternGeneratorJRL
 	C.m_y = m[4] * B.m_x + m[5] * B.m_y + m[6] * B.m_z + m[7] * B.m_w;
 	C.m_z = m[8] * B.m_x + m[9] * B.m_y + m[10] * B.m_z + m[11] * B.m_w;
 	C.m_w = m[12] * B.m_x + m[13] * B.m_y + m[14] * B.m_z + m[15] * B.m_w;
-
+	return C;
       }
 
+      /*! Multiplication operator with another vector */
+      Vector3D<T>  operator * (const Vector3D<T> &B) const
+      {
+	Vector3D<T> C;
+	C.m_x = m[0] * B.m_x + m[1] * B.m_y + m[2] * B.m_z + m[3];
+	C.m_y = m[4] * B.m_x + m[5] * B.m_y + m[6] * B.m_z + m[7];
+	C.m_z = m[8] * B.m_x + m[9] * B.m_y + m[10] * B.m_z + m[11];
+	
+      }
 
       /*! Multiplication operator with a constant */
       Matrix4x4<T> operator * (const double & r) 	

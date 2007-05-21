@@ -51,6 +51,12 @@ namespace PatternGeneratorJRL
       }
 
       /*! Array operator */
+      inline T operator[](unsigned i) const
+      {
+	return ((i==0) ? m_x: (i==1)? m_y:m_z);
+      }
+
+      /*! Array operator */
       inline T& operator()(unsigned i) 
       {
 	return ((i==0) ? m_x: (i==1)? m_y:m_z);
