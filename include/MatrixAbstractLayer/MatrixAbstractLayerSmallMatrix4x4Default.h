@@ -151,7 +151,6 @@ namespace PatternGeneratorJRL
 	C.m_y = m[4] * B.m_x + m[5] * B.m_y + m[6] * B.m_z + m[7] * B.m_w;
 	C.m_z = m[8] * B.m_x + m[9] * B.m_y + m[10] * B.m_z + m[11] * B.m_w;
 	C.m_w = m[12] * B.m_x + m[13] * B.m_y + m[14] * B.m_z + m[15] * B.m_w;
-	return C;
       }
 
       /*! Multiplication operator with another vector */
