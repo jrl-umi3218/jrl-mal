@@ -88,8 +88,8 @@ if test x${with_t3d} != xno; then
 		AC_ERROR([do not supply a path to --with-t3d: pkg-config is used])
 	fi
 
-	MATRIX_REQUIRE="t3d >= 2.2"
-	PKG_CHECK_MODULES(T3D, [t3d >= 2.2])
+	MATRIX_REQUIRE="t3d >= 2.3"
+	PKG_CHECK_MODULES(T3D, [t3d >= 2.3])
 	MATRIX_CFLAGS="${MATRIX_CFLAGS} ${T3D_CFLAGS}"
 	MATRIX_LDFLAGS="${MATRIX_LDFLAGS} ${T3D_LIBS}"
 	AC_MSG_NOTICE([using T3D small matrices implementation.])
