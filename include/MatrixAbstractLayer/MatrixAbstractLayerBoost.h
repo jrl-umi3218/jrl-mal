@@ -89,31 +89,26 @@ typedef ublas::matrix<double> matrixNxP;
 
 #define MAL_INVERSE(name, inv_matrix, type)		\
   {							\
-    ublas::matrix<type> U(name.size1(),name.size2());	\
-    ublas::matrix<type> VT(name.size1(),name.size2());	\
+    ublas::matrix<type,ublas::column_major> I = name;	\
+    ublas::matrix<type,ublas::column_major> U(name.size1(),name.size2()); \
+    ublas::matrix<type,ublas::column_major> VT(name.size1(),name.size2());	\
     ublas::vector<type> s(name.size1());		\
     char Jobu='A'; /* Compute complete U Matrix */	\
     char Jobvt='A'; /* Compute complete VT Matrix */	\
     char Lw='O'; /* Compute the optimal size for the working vector */ \
-    ublas::matrix<type> nametranspose;                  \
+    ublas::matrix<type,ublas::column_major> nametranspose;                  \
     nametranspose = trans(name);                        \
     int lw = lapack::gesvd_work(Lw,Jobu,Jobvt,nametranspose);    \
     ublas::vector<double> w(lw);		        \
-    lapack::gesvd(Jobu, Jobvt,name,s,U,VT,w);		\
+    lapack::gesvd(Jobu, Jobvt,I,s,U,VT,w);		\
     ublas::matrix<type> S(name.size1(),name.size2());	\
     for(unsigned int i=0;i<s.size();i++)		\
       for(unsigned int j=0;j<s.size();j++)              \
 	if (i==j) S(i,i)=1/s(i); else S(i,j)=0;		\
     ublas::matrix<type> tmp1;				\
-    /* It appears that getsvd return Ut and V instead   \
-       of U and VT as specified by the documentation*/	\
-    tmp1 = prod(S,U);					\
-    tmp1 = prod(VT,tmp1);				\
-    /* This transpose issue is probablue due to the     \
-       FORTRAN format of the matrices */                \
-    inv_matrix = trans(tmp1);                           \
+    tmp1 = prod(S,trans(U));				\
+    inv_matrix = prod(trans(VT),tmp1);			\
   }
-
 #define MAL_PSEUDOINVERSE(matrix, pinv_matrix, type)
 
 #define MAL_RET_TRANSPOSE(matrix) \
@@ -181,24 +176,6 @@ template<class type> inline double __ret_mal_matrix_ret_determinant(ublas::matri
 
 #define MAL_MATRIX_RET_DETERMINANT(name,type)	\
   __ret_mal_matrix_ret_determinant<type>(name)
-
-
-#if 0 /* XXX I claim that this does not belong to MAL */
-
-/* This specific externalisation is for a direct access to
-   lapack : should be later on integrated inside boost */
-  extern "C"
-  {
-    double dlapy2_(double *, double *);
-    double dlamch_(char *);
-    void dgges_(char *jobvsl, char *jobvsr, char *sort,/* logical (*delctg)(double*,double*,double*),*/
-   logical (*delctg)(...),
-		int *n, double *a, int *lda, double *b, int *ldb, int *sdim, double *alphar, double *alphai, double *beta,
-		double *vsl, int *ldvsl, double *vsr, int *ldvsr, double *work, int *lwork, logical *bwork, int *info);
-    
-  };
-
-#endif
 
 
 #define _MAL_VERSION_ 1

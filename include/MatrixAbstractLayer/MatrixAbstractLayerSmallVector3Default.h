@@ -130,9 +130,9 @@ namespace PatternGeneratorJRL
       /*! Binary operator *= */
       inline void operator*= (const T &t) 
       {
-	m_x = m_x/t;
-	m_y = m_y/t;
-	m_z = m_z/t;
+	m_x = m_x*t;
+	m_y = m_y*t;
+	m_z = m_z*t;
       }
     
       /*! Binary operator /= */
