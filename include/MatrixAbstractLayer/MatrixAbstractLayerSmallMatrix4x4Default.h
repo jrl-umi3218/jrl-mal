@@ -201,7 +201,7 @@ namespace PatternGeneratorJRL
       }
  
       /*! Inversion */
-      void Inversion(Matrix4x4 A)
+      void Inversion(Matrix4x4 &A)
       {
 	T det = 1/determinant();
 	A.m[0] = m[0];
