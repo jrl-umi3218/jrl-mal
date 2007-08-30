@@ -3,10 +3,10 @@ dnl
 dnl configure.ac file for package MatrixAbstractLayer 
 dnl
 
-AC_INIT([MatrixAbstractLayer], [1.2], [olivier.stasse@aist.go.jp])
+AC_INIT([MatrixAbstractLayer], [1.3], [olivier.stasse@aist.go.jp])
 AC_PREREQ(2.59)
 
-AM_INIT_AUTOMAKE
+AM_INIT_AUTOMAKE([foreign no-define])
 
 AC_PROG_CXX
 AC_PROG_INSTALL
