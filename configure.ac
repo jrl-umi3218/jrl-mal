@@ -43,12 +43,12 @@ if test x${with_boost} != xno; then
 
 	if test x${with_boost} != xyes; then
 		MATRIX_CFLAGS="${MATRIX_CFLAGS} -I${with_boost}/include"
-		AC_MSG_NOTICE([using boot in ${with_boost}/include.])
+		AC_MSG_NOTICE([using boost in ${with_boost}/include.])
 	else
-		AC_MSG_NOTICE([using boot in default location.])
+		AC_MSG_NOTICE([using boost in default location.])
 		AC_MSG_NOTICE([configure --with-boost=path to choose a specific location.])
 	fi
-	MATRIX_LDFLAGS="${MATRIX_LDLAGS} -llapack -lblas"
+	MATRIX_LDFLAGS="${MATRIX_LDFLAGS} -llapack -lblas"
 fi
 
 dnl use VNL
