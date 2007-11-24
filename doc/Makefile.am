@@ -17,6 +17,8 @@ install-data-hook: html
 	$(INSTALL_DATA) html/* $(MatrixAbstractLayerdir)
 	mkdir -p $(MatrixAbstractLayerdir)/pictures
 	$(INSTALL_DATA) $(srcdir)/pictures/* $(MatrixAbstractLayerdir)/pictures
+	mkdir -p $(datadir)/doc/doxytag
+	$(INSTALL_DATA) MatrixAbstractLayer.doxytag $(datadir)/doc/doxytag
 
 html: package.dox
 	doxygen $<
