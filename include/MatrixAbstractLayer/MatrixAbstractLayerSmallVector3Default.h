@@ -117,6 +117,17 @@ namespace PatternGeneratorJRL
       }
     
 
+      /*! Cross product operator */
+      inline Vector3D<T> operator* (const Vector3D<T>& inV) const
+      {
+	Vector3D<T> vr;
+	vr.m_x = m_y*inV.m_z - m_z*inV.m_y;
+	vr.m_y = m_z*inV.m_x - m_x*inV.m_z;
+	vr.m_z = m_x*inV.m_y - m_y*inV.m_x;
+	return vr;
+      }
+    
+
       /*! Binary operator / */
       inline Vector3D<T> operator/ (const T &t) const
       {
