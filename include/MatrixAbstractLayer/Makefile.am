@@ -14,4 +14,14 @@ MatrixAbstractLayer_HEADERS = \
 	MatrixAbstractLayerSmallVector3Default.h 	\
 	MatrixAbstractLayerSmallVector4Default.h 	\
 	MatrixAbstractLayerVNL.h 			\
-	MatrixAbstractLayerT3D.h
+	MatrixAbstractLayerT3D.h			\
+	abstract.h					\
+	abstractMatrix.h				\
+	abstractVector.h				\
+	boost.h						\
+	boostMacros.h					\
+	boostMatrix.h					\
+	boostspecific.h					\
+	boostSvd.h					\
+	boostVector.h					
+
