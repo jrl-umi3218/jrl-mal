@@ -597,13 +597,27 @@ namespace maal{  namespace boost {
  //@{
  
  inline Vector getDiagonal( void ) const  
-   { Vector res; ML_NOT_IMPLEMENTED(res) }
+   { Vector res; getDiagonal(res); return res; }
  inline Vector& getDiagonal( Vector& vector ) const  
-   { ML_NOT_IMPLEMENTED(vector) }
-
+   {
+     const unsigned int MIN = std::min(  matrix.size1(),matrix.size2() );
+     vector.resize( MIN );
+     for( unsigned int i=0;i<MIN;++i )
+       vector(i) = matrix(i,i);
+     return vector;
+   }
+ 
  inline Matrix& setDiagonal( const Vector& vector )
-   { ML_NOT_IMPLEMENTED(*this) }
-
+   { 
+     const unsigned int SIZE = vector.size() ;
+     matrix.resize( SIZE,SIZE ); fill(0.);
+     for( unsigned int i=0;i<SIZE;++i )
+       {
+	 matrix(i,i)=vector(i);
+       }
+     return *this;
+   }
+ 
  inline Matrix& stackMatrix( const Matrix& B,Matrix& C )  const 
    { ML_NOT_IMPLEMENTED(C) }
  inline Matrix stackMatrix( const Matrix& B ) const 
