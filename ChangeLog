@@ -1,5 +1,8 @@
 $Id: ChangeLog 2007/08/30 12:16:55 mallet $
 
+MALJRL 1.4 released February 16th, 2008
+
+	16. Introduce a new version of the Maal, based on C++-style semantics.
 	15. Added operator cross product in small vector 3d.
 	
 MALJRL 1.3 released August 30th, 2007
