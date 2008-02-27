@@ -155,6 +155,10 @@ namespace PatternGeneratorJRL
       inline T& operator()(unsigned int i, unsigned int j) 
       { return m[3*i+j]; }
       
+      /*! Access by giving the (i,j) element. */
+      inline const T operator()(unsigned int i, unsigned int j) const
+      { return m[3*i+j]; }
+      
       /*! Set to zero matrix */
       inline void setZero(void) 
       {
