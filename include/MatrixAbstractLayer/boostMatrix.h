@@ -27,29 +27,32 @@
  * \file boostMatrix.h Define maal::boost::Matrix
  */
 
-namespace maal{  namespace boost {
-
-
-  /* --- MATRIX --------------------------------------------------------- */
-  /* --- MATRIX --------------------------------------------------------- */
-  /* --- MATRIX --------------------------------------------------------- */
-
-  /** \brief Matrix class that include the boost::ublas::matrix.
-   *
-   * The class encapsulates the ublas::matrix object, and implement 
-   * a set of standard functions.
-   * When the maal::boost::Matrix object is constructed, it automatically 
-   * builds the internal ublas::matrix object. The internal object can be
-   * access through accessToMotherLib. Finally, it is possible to
-   * build the capsule around an existing boost ublas::matrix through the
-   * appropriate constructor. 
-   * 
-   */
-  
-  class Matrix
+namespace maal
+{
+  namespace boost 
     {
 
-    public://protected:
+
+      /* --- MATRIX --------------------------------------------------------- */
+      /* --- MATRIX --------------------------------------------------------- */
+      /* --- MATRIX --------------------------------------------------------- */
+      
+      /** \brief Matrix class that include the boost::ublas::matrix.
+       *
+       * The class encapsulates the ublas::matrix object, and implement 
+       * a set of standard functions.
+       * When the maal::boost::Matrix object is constructed, it automatically 
+       * builds the internal ublas::matrix object. The internal object can be
+       * access through accessToMotherLib. Finally, it is possible to
+       * build the capsule around an existing boost ublas::matrix through the
+       * appropriate constructor. 
+       * 
+       */
+  
+      class Matrix
+	{
+      
+	public://protected:
  typedef ublas::matrix<FloatType> InternalMatrix;
  InternalMatrix staticMatrix; 
  InternalMatrix* dynamicMatrix; 
@@ -58,7 +61,7 @@ namespace maal{  namespace boost {
  static const bool AUTORESIZE = true;
  static const bool CHECKRESIZE = true;
 
-    public: /* Constructors */
+	public: /* Constructors */
 
  /** @name Constructors */
  //@{
@@ -104,7 +107,7 @@ namespace maal{  namespace boost {
    { matrix = bv; return *this;}
  //@}
  
-    public:
+	public:
 
  /** @name Modifiors */
  //@{
@@ -221,53 +224,28 @@ namespace maal{  namespace boost {
    inverse( Matrix& invMatrix ) const 
    {							
      _resizeInv(invMatrix.matrix,matrix);
-	  
-     ublas::matrix<FloatType,ublas::column_major> I = matrix;	
-     ublas::matrix<FloatType,ublas::column_major> U(matrix.size1(),matrix.size2()); 
-     ublas::matrix<FloatType,ublas::column_major> VT(matrix.size1(),matrix.size2());	
-     ublas::vector<FloatType> s(matrix.size1());		
-     char Jobu='A'; /* Compute complete U Matrix */	
-     char Jobvt='A'; /* Compute complete VT Matrix */	
-     char Lw; Lw='O'; /* Compute the optimal size for the working vector */ 
 
-#ifdef WITH_OPENHRP
+     /* Create a working copy of the input. */
+     ublas::matrix<FloatType> A( matrix );
+     ublas::permutation_matrix<std::size_t>  pm(A.size1());
 
-     /* Presupposition: an external function jrlgesvd is defined
-      * and implemented in the calling library.
-      */
+     /* Perform LU-factorization. */
+     int res = lu_factorize(A,pm);
+     if( res!=0 ) 
+       {
+	 fprintf( stderr,"!! %s(#%d)\tError while LU: not invertible.\n", 
+		  __FUNCTION__,__LINE__); fflush(stderr);  
+	 invMatrix.matrix =  trans(matrix); 
+	 return invMatrix;
+       }
 
-     // get workspace size for svd
-     int lw=-1;
-     {
-       const int m = matrix.size1();
-       const int n = matrix.size2();
-       FloatType vw;
-       int linfo;
-       int lda = std::max(m,n);
-       InternalMatrix tmp(m,n); // matrix is const!
-       jrlgesvd_(&Jobu, &Jobvt, &m, &n, traits::matrix_storage(tmp), &lda, 
-		 0, 0, &m, 0, &n, &vw, &lw, &linfo); 
-       lw = int(vw);
-     }
-#else //#ifdef WITH_OPENHRP
-     int lw = lapack::gesvd_work(Lw,Jobu,Jobvt,matrix );
-#endif //#ifdef WITH_OPENHRP
-
-     ublas::vector<double> w(lw);		 
-     lapack::gesvd(Jobu, Jobvt,I,s,U,VT,w);		
-
-     const unsigned int nsv = s.size();
-     ublas::vector<FloatType> sp(nsv);
-     for( unsigned int i=0;i<nsv;++i )		
-       sp(i)=1/s(i);		
-  
-     invMatrix.matrix.resize(matrix.size2(),matrix.size1());
-     invMatrix.matrix.clear();
-     for( unsigned int i=0;i<VT.size2();++i )
-       for( unsigned int j=0;j<U.size1();++j )
-	 for( unsigned int k=0;k<nsv;++k )
-	   invMatrix.matrix(i,j)+=VT(k,i)*sp(k)*U(j,k);
-
+     
+     /* Create identity matrix of "inverse". */
+     invMatrix.matrix.assign( ublas::identity_matrix<FloatType>(matrix.size1()) );
+     
+     /* Backsubstitute to get the inverse. */
+     lu_substitute( (const InternalMatrix&)A,pm,invMatrix.matrix );
+     
      return invMatrix;
    }	
 
@@ -286,79 +264,118 @@ namespace maal{  namespace boost {
    pseudoInverse( Matrix& invMatrix,
 		  const FloatType threshold = 1e-6,
 		  Matrix* Uref = NULL,
-		  Matrix* Sref = NULL,
+		  Vector* Sref = NULL,
 		  Matrix* Vref = NULL)  const 
    {							
      _resizeInv(invMatrix.matrix,matrix);
-	  
+     const unsigned int NR=matrix.size1();
+     const unsigned int NC=matrix.size2();
+
+
      ublas::matrix<FloatType,ublas::column_major> I = matrix;	
-     ublas::matrix<FloatType,ublas::column_major> U(matrix.size1(),matrix.size1()); 
-     ublas::matrix<FloatType,ublas::column_major> VT(matrix.size2(),matrix.size2());	
-     ublas::vector<FloatType> s(std::min(matrix.size1(),matrix.size2()));		
+     ublas::matrix<FloatType,ublas::column_major> U(NR,NR); 
+     ublas::matrix<FloatType,ublas::column_major> VT(NC,NC);	
+     ublas::vector<FloatType> s(std::min(NR,NC));		
+
+ /*     ublas::matrix<FloatType> * Uptr;  */
+/*      ublas::matrix<FloatType> * Vptr;	 */
+/*      ublas::vector<FloatType> * Sptr; 		 */
+     
+/*      ublas::matrix<FloatType> Utmp;  */
+/*      ublas::matrix<FloatType> Vtmp;	 */
+/*      ublas::vector<FloatType> Stmp; 		 */
+
+/*      if( Uref ) Uptr=&Uref->matrix;  */
+/*      else { Utmp.resize(NR,NR); Uptr=&Utmp; } */
+/*      if( Vref ) Vptr=&Vref->matrix;  */
+/*      else { Vtmp.resize(NC,NC); Vptr=&Vtmp; } */
+/*      if( Sref ) Sptr=&Sref->vector;  */
+/*      else { Stmp.resize(std::min(NR,NC)); Sptr=&Stmp; } */
+
+/*      ublas::matrix<FloatType> & U = *Uptr;  */
+/*      ublas::matrix<FloatType> & VT = *Vptr;	 */
+/*      ublas::vector<FloatType> & s = *Sptr;		 */
+
      char Jobu='A'; /* Compute complete U Matrix */	
      char Jobvt='A'; /* Compute complete VT Matrix */	
      char Lw; Lw='O'; /* Compute the optimal size for the working vector */ 
 
+     /* Get workspace size for svd. */
 #ifdef WITH_OPENHRP
 
      /* Presupposition: an external function jrlgesvd is defined
       * and implemented in the calling library.
       */
 
-     // get workspace size for svd
      int lw=-1;
      {
-       const int m = matrix.size1();
-       const int n = matrix.size2();
+       const int m = NR;  const int n = NC;
        FloatType vw;
        int linfo;
        int lda = std::max(m,n);
-       InternalMatrix tmp(m,n); // matrix is const!
-       jrlgesvd_(&Jobu, &Jobvt, &m, &n, traits::matrix_storage(tmp), &lda, 
+       jrlgesvd_(&Jobu, &Jobvt, &m, &n, NULL, &lda, 
 		 0, 0, &m, 0, &n, &vw, &lw, &linfo); 
        lw = int(vw);
      }
 #else //#ifdef WITH_OPENHRP
      int lw;
-     if( matrix.size1()>matrix.size2() )
-       {
-	 ublas::matrix<FloatType,ublas::column_major> matrixtranspose;  
-	 matrixtranspose = trans(matrix);
-	 lw = lapack::gesvd_work(Lw,Jobu,Jobvt,matrixtranspose); 
-       } else {
-	 lw = lapack::gesvd_work(Lw,Jobu,Jobvt,matrix); 
-       }
-
+     if( NR>NC )
+       { lw = lapack::gesvd_work(Lw,Jobu,Jobvt,I); } 
+     else 
+       { lw = lapack::gesvd_work(Lw,Jobu,Jobvt,matrix); }
 #endif //#ifdef WITH_OPENHRP
 
      ublas::vector<double> w(lw);		 
      lapack::gesvd(Jobu, Jobvt,I,s,U,VT,w);		
 
      const unsigned int nsv = s.size();
+     unsigned int rankJ = 0;
      ublas::vector<FloatType> sp(nsv);
      for( unsigned int i=0;i<nsv;++i )		
-       if( fabs(s(i))>threshold ) sp(i)=1/s(i); else sp(i)=0.;		
+       if( fabs(s(i))>threshold ) { sp(i)=1/s(i); rankJ++; }
+       else sp(i)=0.;		
 
      invMatrix.matrix.clear();
-     for( unsigned int i=0;i<VT.size2();++i )
-       for( unsigned int j=0;j<U.size1();++j )
-	 for( unsigned int k=0;k<nsv;++k )
-	   invMatrix.matrix(i,j)+=VT(k,i)*sp(k)*U(j,k);
+     {
+       double * pinv = traits::matrix_storage(invMatrix.matrix);
+       double * uptr;
+       double * uptrRow;
+       double * vptr;
+       double * vptrRow = traits::matrix_storage(VT);
+       
+       double * spptr;
+       
+       for( unsigned int i=0;i<NC;++i )
+	 {
+	   uptrRow = traits::matrix_storage(U);
+	   for( unsigned int j=0;j<NR;++j )
+	     {
+	       uptr = uptrRow;  vptr = vptrRow; 
+	       spptr = traits::vector_storage( sp );
+	       for( unsigned int k=0;k<rankJ;++k )
+		 {
+		   (*pinv) += (*vptr) * (*spptr) * (*uptr);
+		   uptr+=NR; vptr++; spptr++;
+		 }
+	       pinv++; uptrRow++; 
+	     }
+	   vptrRow += NC;
+	 }
+     }
+
 	  
      if( Uref ) Uref->matrix = U;
      if( Vref ) Vref->matrix = trans(VT);
-     if( Sref ) 
-       {
-	 Sref->resize(U.size2(),VT.size1()); Sref->fill(.0);
-	 for( unsigned int i=0;i<std::min(U.size2(),VT.size1());++i ) 
-	   Sref->matrix(i,i) = s(i);
-       }
+     if( Sref )  Sref->vector=s;
 
+ 
      return invMatrix;
    }
+
+
  inline Matrix pseudoInverse( const FloatType threshold = 1e-6,
 			      Matrix* U = NULL,
-			      Matrix* S = NULL,
+			      Vector* S = NULL,
 			      Matrix* V = NULL)  const 
    { Matrix Ainv(matrix.size2(),matrix.size1()); return pseudoInverse(Ainv,threshold,U,S,V); }
 
@@ -718,9 +735,9 @@ namespace maal{  namespace boost {
  /** @name Autoresize internal */
  //@{
 
-    public: 
+	public: 
  bool autoresize( void ) { return AUTORESIZE; }
-    protected:
+	protected:
  static inline void _resize( InternalMatrix& mat1,const InternalMatrix& mat2 )
    { if(AUTORESIZE) { mat1.resize( mat2.size1(),mat2.size2() ); } }
 
@@ -809,9 +826,9 @@ namespace maal{  namespace boost {
 
  //@}
 
-    };
+	};
 
-}}
+    }}
 
 
 
