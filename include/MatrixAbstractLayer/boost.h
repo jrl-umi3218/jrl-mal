@@ -22,7 +22,6 @@
 #define __MAAL_BOOST__
 
 
-#include <cstring>
 #include <iostream>
 
 

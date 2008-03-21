@@ -17,7 +17,6 @@
  * 
  */
 
-#include <cstring>
 #include "boost/numeric/bindings/traits/ublas_matrix.hpp"
 #include "boost/numeric/bindings/traits/std_vector.hpp"
 #include "boost/numeric/bindings/traits/std_vector.hpp"
