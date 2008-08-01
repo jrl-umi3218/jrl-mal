@@ -1,5 +1,6 @@
 #
-#  Copyright
+#  Copyright CNRS-AIST
+#  Authors: Olivier Stasse and Florent Lamiraux
 #
 
 MatrixAbstractLayerdir = @includedir@/MatrixAbstractLayer
@@ -9,10 +10,10 @@ MatrixAbstractLayer_HEADERS = \
 	MatrixAbstractLayerBoost.h 			\
 	MatrixAbstractLayerDoc.h 			\
 	MatrixAbstractLayerSmall.h 			\
-	MatrixAbstractLayerSmallMatrix3x3Default.h 	\
-	MatrixAbstractLayerSmallMatrix4x4Default.h 	\
-	MatrixAbstractLayerSmallVector3Default.h 	\
-	MatrixAbstractLayerSmallVector4Default.h 	\
+	MatrixAbstractLayerMatrix3x3JrlMath.h		\
+	MatrixAbstractLayerMatrix4x4JrlMath.h		\
+	MatrixAbstractLayerVector3JrlMath.h		\
+	MatrixAbstractLayerVector4JrlMath.h		\
 	MatrixAbstractLayerVNL.h 			\
 	MatrixAbstractLayerT3D.h			\
 	abstract.h					\
@@ -24,4 +25,3 @@ MatrixAbstractLayer_HEADERS = \
 	boostspecific.h					\
 	boostSvd.h					\
 	boostVector.h					
-
