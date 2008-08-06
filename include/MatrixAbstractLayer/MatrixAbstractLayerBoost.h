@@ -86,6 +86,52 @@ typedef ublas::matrix<double> matrixNxP;
 #define MAL_MATRIX_CLEAR(name) \
   name.clear()
 
+#ifdef WITH_OPENHRP                                     
+
+extern "C"
+{
+  void jrlgesvd_(char const* jobu, char const* jobvt,
+	       int const* m, int const* n, double* a, int const* lda,
+	       double* s, double* u, int const* ldu,
+	       double* vt, int const* ldvt,
+	       double* work, int const* lwork, int* info);
+}
+
+#define MAL_INVERSE(name, inv_matrix, type)		\
+  {							\
+    const unsigned int NR=name.size1();               \
+    const unsigned int NC=name.size2();               \
+                                                        \
+    ublas::matrix<type,ublas::column_major> I = name;	\
+    ublas::matrix<type,ublas::column_major> U(NR,NC); \
+    ublas::matrix<type,ublas::column_major> VT(NR,NC);	\
+    ublas::vector<type> s(std::min(NR,NC));		\
+    char Jobu='A'; /* Compute complete U Matrix */	\
+    char Jobvt='A'; /* Compute complete VT Matrix */	\
+    char Lw='O'; /* Compute the optimal size for the working vector */ \
+    ublas::matrix<type,ublas::column_major> nametranspose;                  \
+    nametranspose = trans(name);                        \
+    int lw=-1;                                          \
+     {                                                  \
+       const int m = NR;  const int n = NC;             \
+       double vw;                                       \
+       int linfo;                                       \
+       int lda = std::max(m,n);                         \
+       jrlgesvd_(&Jobu, &Jobvt, &m, &n, NULL, &lda,     \
+		 0, 0, &m, 0, &n, &vw, &lw, &linfo);    \
+       lw = int(vw);                                    \
+     }                                                  \
+    ublas::matrix<type> S(name.size1(),name.size2());	\
+    for(unsigned int i=0;i<s.size();i++)		\
+      for(unsigned int j=0;j<s.size();j++)              \
+	if (i==j) S(i,i)=1/s(i); else S(i,j)=0;		\
+    ublas::matrix<type> tmp1;				\
+    tmp1 = prod(S,trans(U));				\
+    inv_matrix = prod(trans(VT),tmp1);			\
+  }
+
+#else
+
 #define MAL_INVERSE(name, inv_matrix, type)		\
   {							\
     ublas::matrix<type,ublas::column_major> I = name;	\
@@ -108,6 +154,9 @@ typedef ublas::matrix<double> matrixNxP;
     tmp1 = prod(S,trans(U));				\
     inv_matrix = prod(trans(VT),tmp1);			\
   }
+
+#endif
+
 #define MAL_PSEUDOINVERSE(matrix, pinv_matrix, type)
 
 #define MAL_RET_TRANSPOSE(matrix) \
