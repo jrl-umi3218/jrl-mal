@@ -106,8 +106,6 @@ typedef V3D vector4d;
 
 typedef R3D matrix3d;
 
-typedef jrlMathTools::Matrix3x3<double> matrix3d;
-
 #define MAL_S3x3_MATRIX(name,type) \
   jrlMathTools::Matrix3x3<type> name
 
