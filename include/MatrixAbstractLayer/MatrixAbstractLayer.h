@@ -26,7 +26,7 @@
  * is based on C++ classes and has a sensible implementation
  * of matrix operators.
  *
- * (c) 2006 , Olivier Stasse JRL-Japan, CNRS-AIST, ISRI.
+ * (c) 2006 , Olivier Stasse and Florent Lamiraux JRL-Japan, CNRS-AIST, ISRI.
  */
 
 
@@ -52,10 +52,10 @@
 #  if _T3D_R3D_V3D_ == 1
 #    include "MatrixAbstractLayer/MatrixAbstractLayerT3D.h"
 #  else
-#    include "MatrixAbstractLayer/MatrixAbstractLayerSmallVector3Default.h"
-#    include "MatrixAbstractLayer/MatrixAbstractLayerSmallMatrix3x3Default.h"
-#    include "MatrixAbstractLayer/MatrixAbstractLayerSmallVector4Default.h"
-#    include "MatrixAbstractLayer/MatrixAbstractLayerSmallMatrix4x4Default.h"
+#    include "MatrixAbstractLayer/MatrixAbstractLayerVector3JrlMath.h"
+#    include "MatrixAbstractLayer/MatrixAbstractLayerVector4JrlMath.h"
+#    include "MatrixAbstractLayer/MatrixAbstractLayerMatrix3x3JrlMath.h"
+#    include "MatrixAbstractLayer/MatrixAbstractLayerMatrix4x4JrlMath.h"
 #  endif
 
 #  define MATRIX_VERSION 1

@@ -1,5 +1,5 @@
 #!/bin/sh
 aclocal
-libtoolize -f
+libtoolize -c
 automake -ca
 autoconf

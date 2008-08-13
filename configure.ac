@@ -78,26 +78,35 @@ fi
 
 dnl --- small matrices implementation --------------------------------
 
-AC_ARG_WITH(t3d, AC_HELP_STRING([--with-t3d],
-	[use t3d for rigid body transformations]),,with_t3d=no)
+AC_ARG_WITH(smallMatrix, AC_HELP_STRING([--with-smallMatrix],
+	[Choose implementation for rigid body transformations]),,with_smallMatrix=no)
+
+dnl test that small matrix implementation has been selected
+
+if test x${with_smallMatrix} == xno; then
+	AC_ERROR([Choose a small matrix and vector implementation --with-smallMatrix=[t3d,jrlMathTools]])
+fi
 
 dnl use t3d
-if test x${with_t3d} != xno; then
+if test x${with_smallMatrix} == xt3d; then
 	_T3D_R3D_V3D_=1
 
-	if test x${with_t3d} != xyes; then
-		AC_ERROR([do not supply a path to --with-t3d: pkg-config is used])
-	fi
-
 	MATRIX_REQUIRE="t3d >= 2.5"
-	PKG_CHECK_MODULES(T3D, [t3d >= 2.5])
-	MATRIX_CFLAGS="${MATRIX_CFLAGS} ${T3D_CFLAGS}"
-	MATRIX_LDFLAGS="${MATRIX_LDFLAGS} ${T3D_LIBS}"
 	AC_MSG_NOTICE([using T3D small matrices implementation.])
-else
+
+elif test  x${with_smallMatrix} == xjrlMathTools; then
 	_T3D_R3D_V3D_=0
-	AC_MSG_NOTICE([using default small matrices implementation.])
+
+	MATRIX_REQUIRE="jrlMathTools >= 1.0"
+	AC_MSG_NOTICE([using jrlMathTools small matrice and vector implementation.])
+
+else
+	AC_ERROR([Choose a small matrix and vector implementation --with-smallMatrix=[t3d or jrlMathTools]])
 fi
+
+PKG_CHECK_MODULES(SMALL_MATRIX_IMPL, [${MATRIX_REQUIRE}])
+MATRIX_CFLAGS="${MATRIX_CFLAGS} ${SMALL_MATRIX_IMPL_CFLAGS}"
+MATRIX_LDFLAGS="${MATRIX_LDFLAGS} ${SMALL_MATRIX_IMPL_LIBS}"
 
 dnl --- output configuration files -----------------------------------
 

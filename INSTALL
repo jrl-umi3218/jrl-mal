@@ -19,5 +19,9 @@ or
 or 
 --with-lapack=PATH_TO_LAPACK
 
---with-t3d if you want to use t3d for rigid-body transformations. Alternatively,
-           a local implementation will be used.
+--with-smallMatrix=t3d 
+	if you want to use t3d for rigid-body transformations. 
+
+--with-smallMatrix=jrlMathTools
+	if you want to use jrlMathTools implementation for rigid-body transformations.
+
