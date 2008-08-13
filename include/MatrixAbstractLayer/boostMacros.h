@@ -78,7 +78,7 @@ namespace maal{  namespace boost {
   /** \brief Modify the display type. */
   inline DisplayType setDisplayType( const DisplayType type, const bool read=false ) 
     {
-      static DisplayType memory = SIMPLE; // Memory kept in static memory. 
+      static DisplayType memory = MATLAB; // Memory kept in static memory. 
       // Used as a static global variable
       if(read)
 	return memory;

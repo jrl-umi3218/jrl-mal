@@ -352,7 +352,7 @@ namespace maal{  namespace boost {
 
       inline friend std::ostream& operator<< ( std::ostream& os,const Vector& v1 )
 	{
-	  os << "Display: "<< 0+getDisplayType()<<std::endl;
+	  //os << "Display: "<< 0+getDisplayType()<<std::endl;
 	  switch( getDisplayType() )
 	    {
 	    case SIMPLE:
