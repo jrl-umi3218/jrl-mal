@@ -99,9 +99,12 @@ extern "C"
 
 #define MAL_INVERSE(name, inv_matrix, type)		\
   {							\
+    bool totranspose=false;                             \
+    if (name.size1()<name.size2())                      \
+       { name=trans(name);totranspose=true;}            \
     const unsigned int NR=name.size1();                 \
     const unsigned int NC=name.size2();                 \
-    const double  threshold = 1e-6;                   \
+    const double  threshold = 1e-6;                     \
     ublas::matrix<type,ublas::column_major> I = name;	\
     ublas::matrix<type,ublas::column_major> U(NR,NR);   \
     ublas::matrix<type,ublas::column_major> VT(NC,NC);	\
@@ -109,8 +112,6 @@ extern "C"
     char Jobu='A'; /* Compute complete U Matrix */	\
     char Jobvt='A'; /* Compute complete VT Matrix */	\
     char Lw='O'; /* Compute the optimal size for the working vector */ \
-    ublas::matrix<type,ublas::column_major> nametranspose;                  \
-    nametranspose = trans(name);                        \
     const int m = NR;  const int n = NC;                \
     int linfo;                                          \
     int lda = std::max(m,n);                            \
@@ -120,7 +121,7 @@ extern "C"
        jrlgesvd_(&Jobu, &Jobvt, &m, &n,                 \
 		 traits::matrix_storage(I), &lda,       \
 		 0, 0, &m, 0, &n, &vw, &lw, &linfo);    \
-       lw = int(vw);                                    \
+       lw = int(vw)+5;                                  \
      }                                                  \
     ublas::vector<double> w(lw);		        \
     int lu = traits::leading_dimension(U);              \
@@ -135,12 +136,15 @@ extern "C"
 	      &lvt,                                     \
 	      traits::vector_storage(w),&lw,&linfo);	\
     ublas::matrix<type> S(name.size2(),name.size1());	\
-    for(unsigned int i=0;i<s.size();i++)		\
-      if (fabs(s(i))>threshold) S(i,i)=1/s(i);          \
-      else S(i,i)=0;		                       \
+    for(unsigned int i=0;i<name.size2();i++)		\
+      for(unsigned int j=0;j<name.size1();j++)		\
+        if ((i==j) && (fabs(s(i))>threshold))           \
+           S(i,i)=1/s(i);                               \
+        else S(i,j)=0;		                        \
     ublas::matrix<type> tmp1;				\
     tmp1 = prod(S,trans(U));				\
     inv_matrix = prod(trans(VT),tmp1);			\
+    if (totranspose) inv_matrix = trans(inv_matrix);    \
   }
 
 #else

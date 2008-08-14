@@ -90,7 +90,7 @@ int main( void )
 
 
   // Test pseudo-inverse
-  int r=7,c=6;
+  int r=7,c=16;
   ml::Matrix M0(r,c);
   ml::Matrix M1(r,c);
   ml::Matrix Minv(c,r);
