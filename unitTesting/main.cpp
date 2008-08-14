@@ -3,9 +3,8 @@
  */
 
 #include <iostream>
+
 #include <MatrixAbstractLayer/MatrixAbstractLayer.h>
-
-
 
 int main (int argc, char** argv)
 {
@@ -50,9 +49,7 @@ int main (int argc, char** argv)
 
   MAL_S4_RET_VECTOR_DATABLOCK(v4);
 
-
-
-   std::cout << "prueba" << std::endl;
+  std::cout << "prueba" << std::endl;
 }
 
 /*g++ -DPACKAGE_NAME=\"dynamics-JRLJapan\" -DPACKAGE_TARNAME=\"dynamics-jrljapan\" -DPACKAGE_VERSION=\"1.0\" "-DPACKAGE_STRING=\"dynamics-JRLJapan 1.0\"" -DPACKAGE_BUGREPORT=\"olivier.stasse@aist.go.jp\" -DPACKAGE=\"dynamics-jrljapan\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -I. -I../../src -I../../src/../include/robotDynamicsJRLJapan/ -g -O2 -I/home/ldelgado/openrobots/include -D_DEFAULT_MATRIX3x3_ -D_DEFAULT_VECTOR3D_ -MT libdynamicsJRLJapan_la-Joint.lo -MD -MP -MF .deps/libdynamicsJRLJapan_la-Joint.Tpo -c ../../src/Joint.cpp  -fPIC -DPIC -o .libs/libdynamicsJRLJapan_la-Joint.o

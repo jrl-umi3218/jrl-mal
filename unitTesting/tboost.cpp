@@ -18,6 +18,9 @@
  *
  * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
+#define WITH_OPENHRP
+#include <MatrixAbstractLayer/MatrixAbstractLayer.h>
+
 #include <MatrixAbstractLayer/boost.h>
 namespace ml = maal::boost;
 
@@ -85,6 +88,37 @@ int main( void )
   e2=J*e1-M*e1;
   cout << e2 << endl;
 
+
+  // Test pseudo-inverse
+  int r=7,c=6;
+  ml::Matrix M0(r,c);
+  ml::Matrix M1(r,c);
+  ml::Matrix Minv(c,r);
+  
+  ml::Matrix U,V,S;
+  
+  unsigned int nbzeros=0;
+  for( unsigned int j=0;j<c;++j )
+    {
+      if( (rand()+1.) / RAND_MAX > .8 )
+    { for( unsigned int i=0;i<r;++i ) M0(i,j) = 0.;
+    nbzeros++ ;}
+      else
+    for( unsigned int i=0;i<r;++i )
+      M0(i,j) = (rand()+1.) / RAND_MAX*2-1;
+    }
+  for( unsigned int i=0;i<r;++i )
+    for( unsigned int j=0;j<c;++j )
+      M1(i,j) = M0(i,j); //+ ((rand()+1.) / RAND_MAX*2-1) * 1e-28 ;
+
+  cout << ml::MATLAB <<"M0 = "<< M0 <<endl;
+  cout <<"M1 = " << M1<<endl;
+  cout <<"Nb zeros = " << nbzeros<<endl;
+
+  cout << "Display the pseudo inverse:" << endl;
+  cout << M0.pseudoInverse() <<endl;
+  MAL_INVERSE(M0.matrix,M1.matrix,double);
+  cout << ml::MATLAB << "M1 = "<< M1 << endl;
   return 0;
 }
 
