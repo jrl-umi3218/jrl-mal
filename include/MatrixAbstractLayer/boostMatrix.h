@@ -56,7 +56,7 @@ namespace maal
  typedef ublas::matrix<FloatType> InternalMatrix;
  InternalMatrix staticMatrix; 
  InternalMatrix* dynamicMatrix; 
- InternalMatrix matrix;
+ InternalMatrix & matrix;
  bool proprio; 
  static const bool AUTORESIZE = true;
  static const bool CHECKRESIZE = true;
@@ -403,7 +403,8 @@ namespace maal
  inline Matrix& opposite( Matrix& res ) const  
    { res.matrix=matrix; res.matrix *=-1; return res; }
  /** \brief Compute the opposite of the matrix -M. */
- inline Matrix opposite( void ) const  { Matrix res; return opposite(res); }
+ inline Matrix opposite( void ) const  
+   { Matrix res;  opposite(res); return res; }
 
  //@}
 
@@ -424,7 +425,8 @@ namespace maal
    {  Matrix C(matrix.size1(),B.matrix.size2()); return this->multiply(B,C); }
  inline Matrix& multiply( const Matrix& B,Matrix& C ) const 
    { 
-     MAAL_CHECKVERBOSE(_checksizeProd(matrix,B.matrix)); _resizeProd(C.matrix,matrix,B.matrix);
+     MAAL_CHECKVERBOSE(_checksizeProd(matrix,B.matrix)); 
+     _resizeProd(C.matrix,matrix,B.matrix);
      prod(matrix,B.matrix,C.matrix); return C; 
    }
 
@@ -452,8 +454,7 @@ namespace maal
    { 
      MAAL_CHECKVERBOSE(_checksize(matrix,B.matrix));
      //_resize(matrix,C.matrix); sum(matrix,v.vector,res.vector);
-     //C.matrix = matrix+B.matrix; return C;  // SO STUPID ... 
-     C.matrix=matrix; C.matrix+=B.matrix; return C; // Still stupid ...
+     C.matrix=matrix; C.matrix+=B.matrix; return C; 
    }
 
  // Substraction 
@@ -465,8 +466,7 @@ namespace maal
    { 
      MAAL_CHECKVERBOSE(_checksize(matrix,B.matrix));
      //_resize(matrix,C.matrix); diff(matrix,v.vector,res.vector);
-     //C.matrix = matrix-B.matrix; return C;  // SO STUPID
-     C.matrix=matrix; C.matrix-=B.matrix; return C; // Still stupid ...
+     C.matrix=matrix; C.matrix-=B.matrix; return C; 
    }
      
  // With real
@@ -479,8 +479,7 @@ namespace maal
  inline Matrix& multiply( const FloatType x,Matrix& C ) const 
    { 
      //_resize(matrix,C.matrix); multiply(matrix,x,C.matrix);
-     //C.matrix = matrix*x; return C; // SO STUPID ... 
-     C.matrix = matrix; C.matrix*=x; return C; // SO STUPID ... 
+     C.matrix = matrix; C.matrix*=x; return C; 
    }
 
  // Addition <Matrix> x <Float>
@@ -677,8 +676,8 @@ namespace maal
       
  inline Matrix& operator= ( const Matrix&m1 ){ matrix=m1.matrix; return *this;}
  
- inline friend Vector operator * ( const Matrix& M,const Vector& v1 ){ return M.multiply(v1); }    
- inline friend Vector operator * ( const Vector& v1,const Matrix& M ){ return M.multiply(v1); }
+ inline friend Vector operator* ( const Matrix& M,const Vector& v1 ){ return M.multiply(v1); }    
+ inline friend Vector operator* ( const Vector& v1,const Matrix& M ){ return M.multiply(v1); }
       
  inline friend Matrix operator+ ( const FloatType x,const Matrix&m1 ){ return m1.addition(x); }
  inline friend Matrix operator- ( const FloatType x,const Matrix&m1 ){ return m1.substraction(x); }

@@ -40,7 +40,7 @@ int main( void )
 
   ml::Matrix J; L.multiply(M,J);
 
-  cout << J <<endl;
+  cout << "J = " << J <<endl;
   cout << e <<endl;
 
   J=M.transpose();
@@ -75,6 +75,15 @@ int main( void )
   cout << I*I << endl;
   cout << tmp-I*I<<endl;
 
+  cout << "M = " << M << endl;
+  J.resize(3,6);
+  cout << "J = " << J << endl;
+  ml::Matrix M_J(3,6); M_J+=M-J;
+  cout << "M-J = " << M_J << endl;
+
+  ml::Vector e1(6),e2(3); 
+  e2=J*e1-M*e1;
+  cout << e2 << endl;
 
   return 0;
 }

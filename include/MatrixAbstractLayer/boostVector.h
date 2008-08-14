@@ -130,7 +130,8 @@ namespace maal{  namespace boost {
 	}
       inline Vector& opposite( Vector&res ) const 
 	{ res.vector=vector; res.vector *=-1; return res; }
-      inline Vector& opposite( void ) const { Vector res(vector.size()); return opposite(res); }
+      inline Vector opposite( void ) const 
+	{ Vector res(vector.size()); opposite(res); return res; }
 
       //@}
 
@@ -229,8 +230,9 @@ namespace maal{  namespace boost {
       inline Vector& multiply( const FloatType x,Vector&res ) const 
 	{
 	  //_resize(res.vector,vector);
-	  //prod(vector,x,res.vector); return res;
-	  res.vector=x*vector;return res; // So Stupid ...
+	  res.vector=vector;
+	  res.vector*=x;
+	  return res; 
 	}
 
       /* --- <Vector> + <Vector> --- */
@@ -242,8 +244,8 @@ namespace maal{  namespace boost {
 	{
 	  MAAL_CHECKVERBOSE(_checksize(vector,v2.vector));
 	  //_resize(res.vector,vector);
-	  //sum(vector,v2,res.vector); return res;
-	  res.vector=vector+v2.vector; return res; // So stupid ...
+	  res.vector=vector;
+	  res.vector+=v2.vector; return res; 
 	}
 
       /* --- <Vector> - <Vector> --- */
@@ -255,8 +257,8 @@ namespace maal{  namespace boost {
 	{
 	  MAAL_CHECKVERBOSE(_checksize(vector,v2.vector)); 
 	  //_resize(res.vector,vector);
-	  //diff(vector,v2,res.vector); return res;
-	  res.vector=vector-v2.vector; return res; // So stupid ... 
+	  res.vector=vector;
+	  res.vector-=v2.vector; return res; 
 	}
       //@}
 
@@ -338,7 +340,7 @@ namespace maal{  namespace boost {
       inline friend Vector operator* ( const FloatType x,const Vector&v1 )
 	{ Vector res; v1.multiply(x,res); return res; }
   
-      inline Vector& operator- ( const Vector&v1 ){ return v1.opposite(); }
+      friend inline Vector operator- ( const Vector&v1 ){ return v1.opposite(); }
       inline Vector& operator+= ( const Vector&v1 ){ return addition(v1,*this); }
       inline Vector& operator-= ( const Vector&v1 ){ return substraction(v1,*this); }
       inline Vector& operator*= ( const Vector&v1 ){ return multiply(v1,*this); }
