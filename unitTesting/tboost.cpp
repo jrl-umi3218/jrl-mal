@@ -18,7 +18,6 @@
  *
  * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
-#define WITH_OPENHRP
 #include <MatrixAbstractLayer/MatrixAbstractLayer.h>
 
 #include <MatrixAbstractLayer/boost.h>
