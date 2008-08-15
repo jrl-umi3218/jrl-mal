@@ -28,14 +28,14 @@ using namespace std;
 
 int main( void )
 {
+  unsigned int NR=6,NC=3;
 
-  ml::Vector e(3); 
+  ml::Vector e(NR); 
   
   ml::Matrix I(6,6); I.setIdentity();
 
-  
-  ml::Matrix M(3,6); M.fill(3.14);
-  ml::Matrix L; L=I.extract(0,0,3,3);
+  ml::Matrix M(NR,NC); M.fill(3.14);
+  ml::Matrix L; L=I.extract(0,0,3,NR);
 
   cout << L <<endl;
   cout << M <<endl;
@@ -49,6 +49,8 @@ int main( void )
   cout<<J<<endl;
   J=M.transpose()*M;
   cout<<J<<endl;
+
+  I.resize(NC,NC); I.setIdentity();
   J=M.transpose()*M+I;
   cout<<J<<endl;
 
@@ -57,14 +59,14 @@ int main( void )
   cout<<J<<endl;
 
   cout << "**** READY TO [!]PSEUDO[!]-INVERSE ****"<<endl;
-  ml::Matrix Mp(6,3);
+  ml::Matrix Mp(NC,NR); Mp.fill(0);
   cout<<"M"<<M<<endl;
   M.transpose().pseudoInverse(Mp);
   cout<<"Mpt"<<Mp<<endl;
   M.pseudoInverse(Mp);
-  cout<<"Mp"<<Mp<<endl;
+  cout<<"Mp"<<Mp<<endl; 
 
-  ml::Vector q(6); q=Mp*e;
+  ml::Vector q(NC); q=Mp*e;
   cout<<q<<endl;
 
 
@@ -78,12 +80,12 @@ int main( void )
   cout << tmp-I*I<<endl;
 
   cout << "M = " << M << endl;
-  J.resize(3,6);
+  J.resize(NR,NC);
   cout << "J = " << J << endl;
-  ml::Matrix M_J(3,6); M_J+=M-J;
+  ml::Matrix M_J(NR,NC); M_J+=M-J;
   cout << "M-J = " << M_J << endl;
 
-  ml::Vector e1(6),e2(3); 
+  ml::Vector e1(NC),e2(NR); 
   e2=J*e1-M*e1;
   cout << e2 << endl;
 
@@ -100,16 +102,16 @@ int main( void )
   for( unsigned int j=0;j<c;++j )
     {
       if( (rand()+1.) / RAND_MAX > .8 )
-    { for( unsigned int i=0;i<r;++i ) M0(i,j) = 0.;
-    nbzeros++ ;}
+	{ for( unsigned int i=0;i<r;++i ) M0(i,j) = 0.;
+	nbzeros++ ;}
       else
-    for( unsigned int i=0;i<r;++i )
-      M0(i,j) = (rand()+1.) / RAND_MAX*2-1;
+	for( unsigned int i=0;i<r;++i )
+	  M0(i,j) = (rand()+1.) / RAND_MAX*2-1;
     }
   for( unsigned int i=0;i<r;++i )
     for( unsigned int j=0;j<c;++j )
       M1(i,j) = M0(i,j); //+ ((rand()+1.) / RAND_MAX*2-1) * 1e-28 ;
-
+  
   cout << ml::MATLAB <<"M0 = "<< M0 <<endl;
   cout <<"M1 = " << M1<<endl;
   cout <<"Nb zeros = " << nbzeros<<endl;

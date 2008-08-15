@@ -252,6 +252,13 @@ namespace maal
  inline Matrix inverse( void )  const 
    { Matrix Ainv(matrix.size2(),matrix.size1()); return inverse(Ainv); }
 
+
+
+
+
+
+
+
  /** \brief Compute the pseudo-inverse of the matrix. 
   *  
   * By default, the function uses the lapack::gesvd_work routine. 
@@ -266,75 +273,72 @@ namespace maal
 		  Matrix* Uref = NULL,
 		  Vector* Sref = NULL,
 		  Matrix* Vref = NULL)  const 
-   {							
-     _resizeInv(invMatrix.matrix,matrix);
-     const unsigned int NR=matrix.size1();
-     const unsigned int NC=matrix.size2();
-
-
-     ublas::matrix<FloatType,ublas::column_major> I = matrix;	
+   {	
+     unsigned int NR,NC;
+     bool toTranspose;
+     ublas::matrix<FloatType,ublas::column_major> I;
+     if( matrix.size1()>matrix.size2() )
+       { 
+	 toTranspose=false ;  NR=matrix.size1(); NC=matrix.size2();
+	 I=matrix; 
+	 _resizeInv(invMatrix.matrix,matrix);
+       }
+     else 
+       {
+	 toTranspose=true; NR=matrix.size2(); NC=matrix.size1();
+	 I = trans(matrix); 
+	 _resize(invMatrix.matrix,matrix); // Resize the inv of the transpose.
+       }
      ublas::matrix<FloatType,ublas::column_major> U(NR,NR); 
      ublas::matrix<FloatType,ublas::column_major> VT(NC,NC);	
      ublas::vector<FloatType> s(std::min(NR,NC));		
-
- /*     ublas::matrix<FloatType> * Uptr;  */
-/*      ublas::matrix<FloatType> * Vptr;	 */
-/*      ublas::vector<FloatType> * Sptr; 		 */
-     
-/*      ublas::matrix<FloatType> Utmp;  */
-/*      ublas::matrix<FloatType> Vtmp;	 */
-/*      ublas::vector<FloatType> Stmp; 		 */
-
-/*      if( Uref ) Uptr=&Uref->matrix;  */
-/*      else { Utmp.resize(NR,NR); Uptr=&Utmp; } */
-/*      if( Vref ) Vptr=&Vref->matrix;  */
-/*      else { Vtmp.resize(NC,NC); Vptr=&Vtmp; } */
-/*      if( Sref ) Sptr=&Sref->vector;  */
-/*      else { Stmp.resize(std::min(NR,NC)); Sptr=&Stmp; } */
-
-/*      ublas::matrix<FloatType> & U = *Uptr;  */
-/*      ublas::matrix<FloatType> & VT = *Vptr;	 */
-/*      ublas::vector<FloatType> & s = *Sptr;		 */
-
      char Jobu='A'; /* Compute complete U Matrix */	
      char Jobvt='A'; /* Compute complete VT Matrix */	
      char Lw; Lw='O'; /* Compute the optimal size for the working vector */ 
 
      /* Get workspace size for svd. */
 #ifdef WITH_OPENHRP
-
      /* Presupposition: an external function jrlgesvd is defined
-      * and implemented in the calling library.
-      */
-
-     int lw=-1;
-     {
+      * and implemented in the calling library. */
+     ublas::vector<double> w;		
+     { /* Computing the workspace size. */
        const int m = NR;  const int n = NC;
-       FloatType vw;
+       FloatType vw; 
        int linfo;
-       int lda = std::max(m,n);
+       int lda = std::max(m,n); int lw = -1;
        jrlgesvd_(&Jobu, &Jobvt, &m, &n, NULL, &lda, 
 		 0, 0, &m, 0, &n, &vw, &lw, &linfo); 
        lw = int(vw);
+       w.resize( lw );
+       /* Compute the SVD. */
+       int lu = traits::leading_dimension(U); // NR
+       int lvt = traits::leading_dimension(VT); // NC
+       jrlgesvd_(&Jobu, &Jobvt,&m,&n,
+		 traits::matrix_storage(I),
+		 &lda,
+		 traits::vector_storage(s),
+		 traits::matrix_storage(U),
+		 &lu,
+		 traits::matrix_storage(VT),
+		 &lvt,
+		 traits::vector_storage(w),&lw,&linfo);
      }
-#else //#ifdef WITH_OPENHRP
-     int lw;
-     if( NR>NC )
-       { lw = lapack::gesvd_work(Lw,Jobu,Jobvt,I); } 
-     else 
-       { lw = lapack::gesvd_work(Lw,Jobu,Jobvt,matrix); }
+ #else //#ifdef WITH_OPENHRP
+     {
+       int lw;
+       //if( toTranspose ) { lw = lapack::gesvd_work(Lw,Jobu,Jobvt,I); } 
+       //else 
+       { lw = lapack::gesvd_work(Lw,Jobu,Jobvt,I); }
+       ublas::vector<double> w(lw);		 
+       lapack::gesvd(Jobu,Jobvt,I,s,U,VT,w);		
+     }
 #endif //#ifdef WITH_OPENHRP
-
-     ublas::vector<double> w(lw);		 
-     lapack::gesvd(Jobu, Jobvt,I,s,U,VT,w);		
-
      const unsigned int nsv = s.size();
      unsigned int rankJ = 0;
      ublas::vector<FloatType> sp(nsv);
      for( unsigned int i=0;i<nsv;++i )		
        if( fabs(s(i))>threshold ) { sp(i)=1/s(i); rankJ++; }
        else sp(i)=0.;		
-
      invMatrix.matrix.clear();
      {
        double * pinv = traits::matrix_storage(invMatrix.matrix);
@@ -362,13 +366,19 @@ namespace maal
 	   vptrRow += NC;
 	 }
      }
-
-	  
-     if( Uref ) Uref->matrix = U;
-     if( Vref ) Vref->matrix = trans(VT);
-     if( Sref )  Sref->vector=s;
-
- 
+     if( toTranspose )
+       {
+	 invMatrix.matrix = trans(invMatrix.matrix);  
+	 if( Uref ) Uref->matrix = VT;
+	 if( Vref ) Vref->matrix = trans(U);
+	 if( Sref ) Sref->vector=s; 
+       }
+     else
+       {
+	 if( Uref ) Uref->matrix = U;
+	 if( Vref ) Vref->matrix = trans(VT);
+	 if( Sref )  Sref->vector=s; 
+       }
      return invMatrix;
    }
 
