@@ -33,7 +33,7 @@ typedef struct jrlMathTools::Matrix4x4 < double > matrix4d;
   A*B
 
 #define MAL_S4x4_C_eq_A_by_B(C,A,B) \
-  A.CeqthismulB(B,C)
+  (C)=(A)*(B)
 
 #define MAL_S4x4_MATRIX_ACCESS_I(name, i) \
   name[i]
