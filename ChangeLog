@@ -1,11 +1,28 @@
-$Id: ChangeLog 2007/08/30 12:16:55 mallet $
+MatrixAbstractLayer 1.5 released September 12th, 2008
+	
+	32. Correction to use T3D with jrl math tools
+	31. Usage of operator * for  MAL_S4x4_C_eq_A_by_B with jrlMathTools
+	30. Unit testing for both with and without OpenHRP, fixed a bug for the non OpenHRP part.
+	29. Modification of the pinv to account for jrlsvd in OHRP.
+	28. Handle case when m<n for the pseudo-inverse MAL 1.
+	27. Added the file necessary to work inside OpenHRP-2 without crashing.
+	26. Fixed the new computation of the pseudo-inverse in MAL 1 now similar to MAL 2.
+	25. Use jrlMathTools::Matrix3x3 instead of R3D even when t3d is chosen.
+	24. Fixed double definition of matrix4d.
+	23. Modified the boost implementation of MAL 1.0 to cope with OpenHRP static inclusion of lapack.
+	22. Main documentation page.
+	21. Add foot page picture.
+	20. Added dependence to jrlMathTools for small matrice and vector implementations
+	19. Modify the inverse fonction: it was a SVD decomp, it is now a LU decomp.
+	18. Modify the Pinv fonction: it is still a SVD but is now optimized.
+	17. Add const T operator()(unsigned int, unsignd int) const to Matrix3x3<T>
 
-MALJRL 1.4 released February 16th, 2008
+MatrixAbstractLayer 1.4 released February 16th, 2008
 
 	16. Introduce a new version of the Maal, based on C++-style semantics.
 	15. Added operator cross product in small vector 3d.
 	
-MALJRL 1.3 released August 30th, 2007
+MatrixAbstractLayer 1.3 released August 30th, 2007
 	
 	14. Fixed bug regarding the 4x4 matrix inversion.
 	13. Completed installation documentation.
@@ -13,7 +30,7 @@ MALJRL 1.3 released August 30th, 2007
 	11. Added missing functions to be compatible to hpp Gik without t3d.	
 	10. T3D package requires has to be >= 2.3 version
 
-MALJRL version 1.2 released May 14, 2007
+MatrixAbstractLayer version 1.2 released May 14, 2007
 
 	9. Added some messages to configure script.
 
