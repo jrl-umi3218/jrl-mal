@@ -27,6 +27,8 @@ project(${PROJECT_NAME})
 INCLUDE(FindPkgConfig)
 pkg_check_modules(JRLMATHTOOLS REQUIRED jrlMathTools>=1.0.99 )
 
+SET(PACKAGE_REQUIREMENTS "jrlMathTools >= 1.0.99")
+
 # Looking for boost.
 # -------------------------
 INCLUDE(FindBoost)
@@ -38,7 +40,7 @@ SET(VNL_MATRIX_USED 0)
 SET(MATRIXLIB_FOUND 0)
 IF(Boost_FOUND)
   MESSAGE(STATUS "Current strategy prefer boost to VNL")
-  MESSAGE(STATUS " Boost was found and will be used over VNL")
+  MESSAGE(STATUS "Boost was found and will be used over VNL")
   SET(${${PROJECT_NAME}}_CFLAGS "-I${Boost_INCLUDE_DIR} -NDEBUG -D_BOOST_" )
   SET(${${PROJECT_NAME}}_LDFLAGS -L${Boost_LIBRARY_DIRS})
   SET(MATRIXLIB_FOUND 1)
@@ -81,10 +83,14 @@ SET(install_pkg_include_dir "\${includedir}")
 
 # Install the file in the appropriate place.
 SET(install_libdir_pkgconfig ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig)
+
 CONFIGURE_FILE(${${PROJECT_NAME}_SOURCE_DIR}/${PROJECT_NAME}.pc.cmake
-	       ${install_libdir_pkgconfig}/${PROJECT_NAME}.pc )
+	       ${${PROJECT_NAME}_BINARY_DIR}/${PROJECT_NAME}.pc )
 
-
+INSTALL(FILES ${${PROJECT_NAME}_BINARY_DIR}/${PROJECT_NAME}.pc
+	DESTINATION ${install_libdir_pkgconfig}	
+        PERMISSIONS OWNER_READ GROUP_READ WORLD_READ OWNER_WRITE
+)
 
 
 
