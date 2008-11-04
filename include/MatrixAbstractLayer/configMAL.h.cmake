@@ -30,13 +30,13 @@
 #define _CONFIG_MAL_H_
 
 /*! Use boost for generic NxP matrix implementation. */
-#define _BOOST_MATRIX_ ${Boost_FOUND}
+#define _BOOST_MATRIX_ ${_BOOST_MATRIX_FOUND_}
 
 /*! Use VNL for generic NxP matrix implementation. */
-#define _VNL_MATRIX_ ${VNL_MATRIX_USED}
+#define _VNL_MATRIX_ ${_VNL_MATRIX_FOUND_}
 
 /*! use t3d for rigid body transformations. */
-#define _T3D_R3D_V3D_ ${T3D_R3D_V3D_FOUND}
+#define _T3D_R3D_V3D_ ${_T3D_R3D_V3D_FOUND_}
 
 /*! Uses the default implementation for the small 4x4 matrices */
 #define _DEFAULT_MATRIX4x4_ 1
