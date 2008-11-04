@@ -8,6 +8,7 @@
 cmake_minimum_required(VERSION 2.6)
 
 enable_language(CXX)
+enable_language(Fortran)
 
 # Debug mode for cmake.
 SET(CMAKE_VERBOSE_MAKEFILE ON)
@@ -29,6 +30,10 @@ pkg_check_modules(JRLMATHTOOLS REQUIRED jrlMathTools>=1.0.99 )
 
 SET(PACKAGE_REQUIREMENTS "jrlMathTools >= 1.0.99")
 
+# Looking for LAPACK
+# -------------------
+INCLUDE(FindLAPACK)
+
 # Looking for boost.
 # -------------------------
 INCLUDE(FindBoost)
@@ -41,21 +46,25 @@ SET(_BOOST_MATRIX_FOUND_ 0)
 SET(_VNL_MATRIX_FOUND_ 0)
 SET(_T3D_R3D_V3D_FOUND_ 0)
 
-IF(Boost_FOUND)
-  MESSAGE(STATUS "Current strategy prefer boost to VNL")
-  MESSAGE(STATUS "Boost was found and will be used over VNL")
-  SET(${${PROJECT_NAME}}_CFLAGS "-I${Boost_INCLUDE_DIR} -DNDEBUG -D_BOOST_" )
-  SET(${${PROJECT_NAME}}_LDFLAGS -L${Boost_LIBRARY_DIRS})
-  SET(MATRIXLIB_FOUND 1)
-  SET(_BOOST_MATRIX_FOUND_ 1)
-ELSE(Boost_FOUND)
-  # TO DO : find vnl...
-ENDIF(Boost_FOUND)
+IF(LAPACK_FOUND)
+ 
+  IF(Boost_FOUND)
+    MESSAGE(STATUS "Current strategy prefer boost to VNL")
+    MESSAGE(STATUS "Boost was found and will be used over VNL")
+    SET(${${PROJECT_NAME}}_CFLAGS "-I${Boost_INCLUDE_DIR} -DNDEBUG -D_BOOST_ ${LAPACK_LIBRARIES}" )
+    SET(${${PROJECT_NAME}}_LDFLAGS -L${Boost_LIBRARY_DIRS})
+    SET(MATRIXLIB_FOUND 1)
+    SET(_BOOST_MATRIX_FOUND_ 1)
+  ELSE(Boost_FOUND)
+    # TO DO : find vnl...
+  ENDIF(Boost_FOUND)
+
+ENDIF(LAPACK_FOUND)
 
 MESSAGE(STATUS "Cflags :" ${${${PROJECT_NAME}}_CFLAGS} )
 MESSAGE(STATUS "Ldflags :" ${${${PROJECT_NAME}}_LDFLAGS} )
 IF(NOT ${MATRIXLIB_FOUND})
-  MESSAGE(SEND_ERROR "No matrix library found (neither boost or VNL...)")
+  MESSAGE(SEND_ERROR "No matrix library found (neither boost/lapack or VNL...)")
 ENDIF(NOT ${MATRIXLIB_FOUND})
 
 #pkg_check_modules(T3D_R3D_V3D )
