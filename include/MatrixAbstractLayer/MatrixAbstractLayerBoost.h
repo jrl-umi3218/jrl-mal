@@ -163,7 +163,6 @@ extern "C"
     char Jobu='A'; /* Compute complete U Matrix */	\
     char Jobvt='A'; /* Compute complete VT Matrix */	\
     char Lw='O'; /* Compute the optimal size for the working vector */ \
-    const int m = NR;  const int n = NC;                \
     int lw = lapack::gesvd_work(Lw,Jobu,Jobvt,I);    \
     ublas::vector<double> w(lw);		        \
     lapack::gesvd(Jobu, Jobvt,I,s,U,VT,w);		\
