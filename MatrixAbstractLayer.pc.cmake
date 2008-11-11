@@ -9,5 +9,5 @@ Name: ${PROJECT_NAME}
 Description: Macros for versatile matrix and vector definitions and operations
 Version: ${PROJECT_VERSION}
 Requires: ${PROJECT_REQUIREMENTS}
-Libs:   -Wl,-R${install_pkg_libdir} -L${install_pkg_libdir} ${${${PROJECT_NAME}}_LDFLAGS}
+Libs:   -Wl,-R${install_pkg_libdir} ${LIBDIR_KW}${install_pkg_libdir} ${${${PROJECT_NAME}}_LDFLAGS}
 Cflags: -I${install_pkg_include_dir} ${${${PROJECT_NAME}}_CFLAGS}

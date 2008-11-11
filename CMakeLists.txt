@@ -16,6 +16,15 @@ SET(CMAKE_VERBOSE_MAKEFILE ON)
 # Set version
 SET(PROJECT_VERSION 1.5.99)
 
+IF(WIN32)
+  SET(LIBDIR_KW "/LIBPATH:")
+  SET(LIBINCLUSION_KW "")
+ENDIF(WIN32)
+
+IF(UNIX)
+  SET(LIBDIR_KW "-L")
+  SET(LIBINCLUSION_KW "-l")
+ENDIF(UNIX)
 
 # name of the project
 SET(PROJECT_NAME MatrixAbstractLayer)
@@ -47,12 +56,21 @@ SET(_VNL_MATRIX_FOUND_ 0)
 SET(_T3D_R3D_V3D_FOUND_ 0)
 
 IF(LAPACK_FOUND)
- 
   IF(Boost_FOUND)
     MESSAGE(STATUS "Current strategy prefer boost to VNL")
     MESSAGE(STATUS "Boost was found and will be used over VNL")
     SET(${${PROJECT_NAME}}_CFLAGS "-I${Boost_INCLUDE_DIR} -DNDEBUG -D_BOOST_ " )
-    SET(${${PROJECT_NAME}}_LDFLAGS "-L${Boost_LIBRARY_DIRS} ${LAPACK_LIBRARIES}")
+	SET(${${PROJECT_NAME}}_LDFLAGS "")
+	foreach(boost_lib_dir ${Boost_LIBRARY_DIRS})
+		SET(${${PROJECT_NAME}}_LDFLAGS "${${${PROJECT_NAME}}_LDFLAGS} ${LIBDIR_KW}${boost_lib_dir} ")
+	endforeach(boost_lib_dir)
+	foreach(lapack_lib ${LAPACK_LIBRARIES})
+		SET(${${PROJECT_NAME}}_LDFLAGS "${${${PROJECT_NAME}}_LDFLAGS} ${LIBINCLUSION_KW}${lapack_lib} ")
+	endforeach(lapack_lib)
+	IF (WIN32)
+		SET(${${PROJECT_NAME}}_CFLAGS "${${${PROJECT_NAME}}_CFLAGS} -DBOOST_NUMERIC_BINDINGS_USE_CLAPACK" )
+	ENDIF (WIN32)
+
     SET(MATRIXLIB_FOUND 1)
     SET(_BOOST_MATRIX_FOUND_ 1)
   ELSE(Boost_FOUND)
