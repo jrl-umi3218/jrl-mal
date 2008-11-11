@@ -1,4 +1,4 @@
-# Olivier Stasse, JRL, CNRS/AIST
+# Olivier Stasse, Francois Keith, JRL, CNRS/AIST
 # Creation: 31/10/2008
 # History:
 #
