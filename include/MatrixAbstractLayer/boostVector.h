@@ -47,7 +47,7 @@ namespace maal{  namespace boost {
 
   class Vector
     {
-      typedef ublas::vector<FloatType> InternalVector;
+      typedef ::boost::numeric::ublas::vector<FloatType> InternalVector;
        
     protected:
       InternalVector staticVector;
@@ -147,12 +147,12 @@ namespace maal{  namespace boost {
       /* \brief Euclidian norm sqrt( x*x + y*y ... )  */
       inline FloatType norm ( void ) const
 	{
-	  return ublas::norm_2( vector );
+	  return ::boost::numeric::ublas::norm_2( vector );
 	}
       /** \brief Norm 1 sum( |xi| )  */
      inline FloatType norm1 ( void ) const
 	{
-	  return ublas::norm_1( vector );
+	  return ::boost::numeric::ublas::norm_1( vector );
 	}
      /** \brief Not implemented yet. */
      inline FloatType max( void ) const { ML_NOT_IMPLEMENTED(0) }
@@ -163,7 +163,7 @@ namespace maal{  namespace boost {
      /** \brief Infinity norm: max( |xi| ). */
      inline FloatType normInfty( void ) const
        {
-	 return ublas::norm_inf( vector );
+	 return ::boost::numeric::ublas::norm_inf( vector );
        }
      /** \brief Scalar product: v1.v2 = sum( x1*x2 ). 
       */

@@ -53,7 +53,7 @@ namespace maal
 	{
       
 	public://protected:
- typedef ublas::matrix<FloatType> InternalMatrix;
+ typedef ::boost::numeric::ublas::matrix<FloatType> InternalMatrix;
  InternalMatrix staticMatrix; 
  InternalMatrix* dynamicMatrix; 
  InternalMatrix & matrix;
@@ -155,7 +155,7 @@ namespace maal
      if(! _checksizeSquareVerb( matrix ) )	    return -1;
  
      InternalMatrix mLu(matrix);
-     ublas::permutation_matrix<std::size_t> pivots(matrix.size1());
+     ::boost::numeric::ublas::permutation_matrix<std::size_t> pivots(matrix.size1());
 
      lu_factorize(mLu,pivots);
      double det=1.0;
@@ -181,7 +181,7 @@ namespace maal
  /** \brief Not implemented yet. */
  inline FloatType norm( void ) const {  ML_NOT_IMPLEMENTED(0) }
  /** \brief Norm 1 sum( |xi| )  */
- inline FloatType norm1( void ) const { return ublas::norm_1(matrix); }
+ inline FloatType norm1( void ) const { return ::boost::numeric::ublas::norm_1(matrix); }
  inline FloatType normInfty( void ) const { return norm_inf(matrix); }
  /** \brief Not implemented yet. */
  inline FloatType max( void ) const { ML_NOT_IMPLEMENTED(0) }
@@ -226,8 +226,8 @@ namespace maal
      _resizeInv(invMatrix.matrix,matrix);
 
      /* Create a working copy of the input. */
-     ublas::matrix<FloatType> A( matrix );
-     ublas::permutation_matrix<std::size_t>  pm(A.size1());
+     ::boost::numeric::ublas::matrix<FloatType> A( matrix );
+     ::boost::numeric::ublas::permutation_matrix<std::size_t>  pm(A.size1());
 
      /* Perform LU-factorization. */
      int res = lu_factorize(A,pm);
@@ -241,7 +241,7 @@ namespace maal
 
      
      /* Create identity matrix of "inverse". */
-     invMatrix.matrix.assign( ublas::identity_matrix<FloatType>(matrix.size1()) );
+     invMatrix.matrix.assign( ::boost::numeric::ublas::identity_matrix<FloatType>(matrix.size1()) );
      
      /* Backsubstitute to get the inverse. */
      lu_substitute( (const InternalMatrix&)A,pm,invMatrix.matrix );
@@ -273,7 +273,7 @@ namespace maal
    {	
      unsigned int NR,NC;
      bool toTranspose;
-     ublas::matrix<FloatType,ublas::column_major> I;
+     ::boost::numeric::ublas::matrix<FloatType,::boost::numeric::ublas::column_major> I;
      if( matrix.size1()>matrix.size2() )
        { 
 	 toTranspose=false ;  NR=matrix.size1(); NC=matrix.size2();
@@ -286,9 +286,9 @@ namespace maal
 	 I = trans(matrix); 
 	 _resize(invMatrix.matrix,matrix); // Resize the inv of the transpose.
        }
-     ublas::matrix<FloatType,ublas::column_major> U(NR,NR); 
-     ublas::matrix<FloatType,ublas::column_major> VT(NC,NC);	
-     ublas::vector<FloatType> s(std::min(NR,NC));		
+     ::boost::numeric::ublas::matrix<FloatType,::boost::numeric::ublas::column_major> U(NR,NR); 
+     ::boost::numeric::ublas::matrix<FloatType,::boost::numeric::ublas::column_major> VT(NC,NC);	
+     ::boost::numeric::ublas::vector<FloatType> s(std::min(NR,NC));		
      char Jobu='A'; /* Compute complete U Matrix */	
      char Jobvt='A'; /* Compute complete VT Matrix */	
      char Lw; Lw='O'; /* Compute the optimal size for the working vector */ 
@@ -297,7 +297,7 @@ namespace maal
 #ifdef WITH_OPENHRP
      /* Presupposition: an external function jrlgesvd is defined
       * and implemented in the calling library. */
-     ublas::vector<double> w;		
+     ::boost::numeric::ublas::vector<double> w;		
      { /* Computing the workspace size. */
        const int m = NR;  const int n = NC;
        FloatType vw; 
@@ -326,13 +326,13 @@ namespace maal
        //if( toTranspose ) { lw = lapack::gesvd_work(Lw,Jobu,Jobvt,I); } 
        //else 
        { lw = lapack::gesvd_work(Lw,Jobu,Jobvt,I); }
-       ublas::vector<double> w(lw);		 
+       ::boost::numeric::ublas::vector<double> w(lw);		 
        lapack::gesvd(Jobu,Jobvt,I,s,U,VT,w);		
      }
 #endif //#ifdef WITH_OPENHRP
      const unsigned int nsv = s.size();
      unsigned int rankJ = 0;
-     ublas::vector<FloatType> sp(nsv);
+     ::boost::numeric::ublas::vector<FloatType> sp(nsv);
      for( unsigned int i=0;i<nsv;++i )		
        if( fabs(s(i))>threshold ) { sp(i)=1/s(i); rankJ++; }
        else sp(i)=0.;		
@@ -409,7 +409,7 @@ namespace maal
    {	
      unsigned int NR,NC;
      bool toTranspose;
-     ublas::matrix<FloatType,ublas::column_major> I;
+     ::boost::numeric::ublas::matrix<FloatType,::boost::numeric::ublas::column_major> I;
      if( matrix.size1()>matrix.size2() )
        { 
 	 toTranspose=false ;  NR=matrix.size1(); NC=matrix.size2();
@@ -422,9 +422,9 @@ namespace maal
 	 I = trans(matrix); 
 	 _resize(invMatrix.matrix,matrix); // Resize the inv of the transpose.
        }
-     ublas::matrix<FloatType,ublas::column_major> U(NR,NR); 
-     ublas::matrix<FloatType,ublas::column_major> VT(NC,NC);	
-     ublas::vector<FloatType> s(std::min(NR,NC));		
+     ::boost::numeric::ublas::matrix<FloatType,::boost::numeric::ublas::column_major> U(NR,NR); 
+     ::boost::numeric::ublas::matrix<FloatType,::boost::numeric::ublas::column_major> VT(NC,NC);	
+     ::boost::numeric::ublas::vector<FloatType> s(std::min(NR,NC));		
      char Jobu='A'; /* Compute complete U Matrix */	
      char Jobvt='A'; /* Compute complete VT Matrix */	
      char Lw; Lw='O'; /* Compute the optimal size for the working vector */ 
@@ -433,7 +433,7 @@ namespace maal
 #ifdef WITH_OPENHRP
      /* Presupposition: an external function jrlgesvd is defined
       * and implemented in the calling library. */
-     ublas::vector<double> w;		
+     ::boost::numeric::ublas::vector<double> w;		
      { /* Computing the workspace size. */
        const int m = NR;  const int n = NC;
        FloatType vw; 
@@ -462,13 +462,13 @@ namespace maal
        //if( toTranspose ) { lw = lapack::gesvd_work(Lw,Jobu,Jobvt,I); } 
        //else 
        { lw = lapack::gesvd_work(Lw,Jobu,Jobvt,I); }
-       ublas::vector<double> w(lw);		 
+       ::boost::numeric::ublas::vector<double> w(lw);		 
        lapack::gesvd(Jobu,Jobvt,I,s,U,VT,w);		
      }
 #endif //#ifdef WITH_OPENHRP
      const unsigned int nsv = s.size();
      unsigned int rankJ = 0;
-     ublas::vector<FloatType> sp(nsv);
+     ::boost::numeric::ublas::vector<FloatType> sp(nsv);
      for( unsigned int i=0;i<nsv;++i )		
        {
 	 if( fabs(s(i))>threshold*.1 )   rankJ++; 
@@ -689,9 +689,9 @@ namespace maal
 	    Matrix& C ) //const 
    { 
      MAAL_CHECKVERBOSE(_checksize(matrix,top+nbrows,left+nbcols));
-     ublas::matrix_slice< ublas::matrix<FloatType> >
-       amatrix(matrix,ublas::slice(top,1,nbrows),
-	       ublas::slice(left,1,nbcols)); 
+     ::boost::numeric::ublas::matrix_slice< ::boost::numeric::ublas::matrix<FloatType> >
+       amatrix(matrix,::boost::numeric::ublas::slice(top,1,nbrows),
+	       ::boost::numeric::ublas::slice(left,1,nbcols)); 
      C.matrix = amatrix;
      return C;
    }
