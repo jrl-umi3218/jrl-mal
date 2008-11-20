@@ -213,7 +213,7 @@ INPUT                  = ${${PROJECT_NAME}_SOURCE_DIR}/include \
 #---------------------------------------------------------------------------
 # configuration options related to inserting images
 #---------------------------------------------------------------------------
-IMAGE_PATH = ${${PROJECT_NAME}_SOURCE_DIR}/doc/figures
+IMAGE_PATH = ${${PROJECT_NAME}_SOURCE_DIR}/doc/pictures
 #---------------------------------------------------------------------------
 # configuration options related to source browsing
 #---------------------------------------------------------------------------

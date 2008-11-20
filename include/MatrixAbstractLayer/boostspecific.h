@@ -10,7 +10,7 @@
  * \file boostspecific.h
  * Include this file to mark some part of the code where the
  * boost internal library is specificaly used. Typically when 
- * accessToMotherLib is used, the #include <boostspecific.h> 
+ * accessToMotherLib is used, the \#include <boostspecific.h> 
  * will prevent the later modification of the file toward
  * for example maal::t3d.
  */ 

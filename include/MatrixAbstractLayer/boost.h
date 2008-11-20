@@ -6,7 +6,7 @@
  *
  * This specific file implements a wrapping around the
  * Boost matrices. This is Version 2.0, using inline function
- * instead of #define.
+ * instead of \#define.
  *
  * (c) 2006 , Nicolas Mansard, Olivier Stasse JRL-Japan, CNRS-AIST, ISRI.
  */
