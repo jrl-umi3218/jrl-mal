@@ -1,7 +1,7 @@
 /*! This part of the documentation specifies what is the functionnality
  * of each macro, it is the responsability of the implementor to comply with this
  * specification.
- * @defgroup vector
+ * @defgroup vector Vector package
  * @ingroup linearalgebra
  * 
  * (c) Olivier Stasse, JRL, CNRS-AIST, ISRI, 2007
@@ -78,7 +78,7 @@
  */
 
 /*!
- * @defgroup matrix
+ * @defgroup matrix Matrix package
  * @ingroup linearalgebra
  */
 
@@ -269,7 +269,7 @@
 #undef MAL_S3x3_MATRIX_ACCESS_I_J
 
 /*!
- * @defgroup matrix
+ * @defgroup matrix Matrix package
  * @ingroup linearalgebra
  */
 

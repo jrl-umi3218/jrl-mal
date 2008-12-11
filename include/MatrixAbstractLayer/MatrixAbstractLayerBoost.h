@@ -12,7 +12,7 @@
 
 
 /*!
- * @defgroup Boost
+ * @defgroup Boost Boost
  * @ingroup linearalgebra
  * 
  */
