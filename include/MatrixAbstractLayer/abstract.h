@@ -5,7 +5,7 @@
 
 
 /*!
- * @defgroup abstract
+ * @defgroup abstract Abstract
  * @ingroup maal2
  * 
  */

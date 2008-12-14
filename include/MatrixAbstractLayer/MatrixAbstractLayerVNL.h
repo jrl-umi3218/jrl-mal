@@ -18,7 +18,7 @@
 #include <VNL/NetLib/netlib.h>
 
 /*!
- * @defgroup VNL
+ * @defgroup VNL VNL
  * @ingroup linearalgebra
  * 
  */

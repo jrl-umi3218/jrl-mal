@@ -110,7 +110,7 @@ SET(install_pkg_libdir "\${libdir}")
 SET(install_pkg_include_dir "\${includedir}")
 
 IF(UNIX)
-	SET (${${PROJECT_NAME}}_CFLAGS "-Wl,-R${install_pkg_libdir} ${${${PROJECT_NAME}}_CFLAGS}")
+	SET (${${PROJECT_NAME}}_LDFLAGS "-Wl,-R${install_pkg_libdir} ${${${PROJECT_NAME}}_LDFLAGS}")
 ENDIF(UNIX)
 
 # Install the file in the appropriate place.
