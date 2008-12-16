@@ -2,7 +2,7 @@
  * Copyright Projet JRL-Japan, 2007
  *+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  *
- * File:      boostSvd.h
+ * File:      boostMatrix.h
  * Project:   Maal
  * Author:    Nicolas Mansard
  *
@@ -264,7 +264,7 @@ namespace maal
   * this symbol is not defined in the Maal library and should 
   * be provided by the host software. 
   */
- Matrix& 
+ virtual Matrix& 
    pseudoInverse( Matrix& invMatrix,
 		  const FloatType threshold = 1e-6,
 		  Matrix* Uref = NULL,
@@ -278,20 +278,22 @@ namespace maal
        { 
 	 toTranspose=false ;  NR=matrix.size1(); NC=matrix.size2();
 	 I=matrix; 
-	 _resizeInv(invMatrix.matrix,matrix);
+	 _resizeInv(invMatrix.matrix,I);
        }
      else 
        {
 	 toTranspose=true; NR=matrix.size2(); NC=matrix.size1();
 	 I = trans(matrix); 
-	 _resize(invMatrix.matrix,matrix); // Resize the inv of the transpose.
+	 _resizeInv(invMatrix.matrix,I); // Resize the inv of the transpose.
        }
+
      ::boost::numeric::ublas::matrix<FloatType,::boost::numeric::ublas::column_major> U(NR,NR); 
      ::boost::numeric::ublas::matrix<FloatType,::boost::numeric::ublas::column_major> VT(NC,NC);	
      ::boost::numeric::ublas::vector<FloatType> s(std::min(NR,NC));		
      char Jobu='A'; /* Compute complete U Matrix */	
      char Jobvt='A'; /* Compute complete VT Matrix */	
      char Lw; Lw='O'; /* Compute the optimal size for the working vector */ 
+
 
      /* Get workspace size for svd. */
 #ifdef WITH_OPENHRP
@@ -400,7 +402,7 @@ namespace maal
   * this symbol is not defined in the Maal library and should 
   * be provided by the host software. 
   */
- Matrix& 
+ virtual Matrix& 
    dampedInverse( Matrix& invMatrix,
 		  const FloatType threshold = 1e-6,
 		  Matrix* Uref = NULL,
