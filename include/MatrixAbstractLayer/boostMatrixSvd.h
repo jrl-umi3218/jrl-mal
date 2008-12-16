@@ -219,6 +219,92 @@ namespace maal
   return invMatrix;
 }
 	  
+	  virtual Matrix& 
+	    dampedInverse( Matrix& invMatrix,
+			   const FloatType threshold = 1e-6,
+			   Matrix* Uref = NULL,
+			   Vector* Sref = NULL,
+			   Matrix* Vref = NULL)  const 
+{	
+  initSvdMemory();
+  _resizeInv(invMatrix.matrix,McolMajor);
+  char Jobu='A'; /* Compute complete U Matrix */	
+  char Jobvt='A'; /* Compute complete VT Matrix */	
+
+  if( toTranspose ){ McolMajor = trans(matrix); }else{ McolMajor = matrix; }
+
+  /* Compute the SVD. */
+#ifdef WITH_OPENHRP
+  /* Presupposition: an external function jrlgesvd is defined
+   * and implemented in the calling library. */
+  {
+    int linfo;
+    jrlgesvd_(&Jobu, &Jobvt,&nbrows,&nbcols,
+	      traits::matrix_storage(McolMajor),
+	      &lda,
+	      traits::vector_storage(s),
+	      traits::matrix_storage(U),
+	      &lu,
+	      traits::matrix_storage(VT),
+	      &lvt,
+	      traits::vector_storage(w),&lw,&linfo);
+  }
+ #else //#ifdef WITH_OPENHRP
+  {
+    lapack::gesvd(Jobu,Jobvt,McolMajor,s,U,VT,w);		
+  }
+#endif //#ifdef WITH_OPENHRP
+  
+  rankJ = 0;
+  for( unsigned int i=0;i<nminor;++i )		
+    {
+      if( fabs(s(i))>threshold*.1 )   rankJ++; 
+      sp(i)=s(i)/(s(i)*s(i)+threshold*threshold);
+    }
+  invMatrix.matrix.clear();
+  {
+    double * pinv = traits::matrix_storage(invMatrix.matrix);
+    double * uptr;
+    double * uptrRow;
+    double * vptr;
+    double * vptrRow = traits::matrix_storage(VT);
+    
+    double * spptr;
+    
+    for( unsigned int i=0;i<nbcols;++i )
+      {
+	uptrRow = traits::matrix_storage(U);
+	for( unsigned int j=0;j<nbrows;++j )
+	  {
+	    uptr = uptrRow;  vptr = vptrRow; 
+	    spptr = traits::vector_storage( sp );
+	    for( unsigned int k=0;k<rankJ;++k )
+	      {
+		(*pinv) += (*vptr) * (*spptr) * (*uptr);
+		uptr+=nbrows; vptr++; spptr++;
+	      }
+	    pinv++; uptrRow++; 
+	  }
+	vptrRow += nbcols;
+      }
+  }
+
+  if( toTranspose )
+    {
+      invMatrix.matrix = trans(invMatrix.matrix);
+      if( Uref ) Uref->matrix = VT;
+      if( Vref ) Vref->matrix = trans(U);
+      if( Sref ) Sref->accessToMotherLib() = s;
+    }
+  else
+    {
+      if( Uref ) Uref->matrix = U;
+      if( Vref ) Vref->matrix = trans(VT);
+      if( Sref ) Sref->accessToMotherLib() = s;
+    }
+  return invMatrix;
+}
+
        };
 
     }}
