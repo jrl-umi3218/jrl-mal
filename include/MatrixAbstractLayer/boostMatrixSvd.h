@@ -38,7 +38,7 @@ namespace maal
 	  
 	protected: 
 	  /* SVD memory. */
-	  mutable int nbrows,nbcols,nmajor,nminor;
+	  mutable unsigned int nbrows,nbcols,nmajor,nminor;
 	  mutable bool toTranspose;
 
 	  mutable ::boost::numeric::ublas::matrix<FloatType,::boost::numeric::ublas::column_major> McolMajor; 
@@ -112,8 +112,9 @@ namespace maal
     FloatType vw; 
     int linfo;
     lda = nmajor; lw=-1;
-    jrlgesvd_(&Jobu, &Jobvt, &nbrows, &nbcols, NULL, &lda, 
-	      0, 0, &nbrows, 0, &nbcols, &vw, &lw, &linfo); 
+    const int n=nbrows,m=nbcols;
+    jrlgesvd_(&Jobu, &Jobvt, &n, &m, NULL, &lda, 
+	      0, 0, &n, 0, &m, &vw, &lw, &linfo); 
     lw = int(vw);
     w.resize(lw);
     lu = traits::leading_dimension(U); // NR
@@ -135,6 +136,9 @@ namespace maal
 	  /* ---------------------------------------------------------------- */
 	  /* ---------------------------------------------------------------- */
 	  /* ---------------------------------------------------------------- */
+	  using Matrix::pseudoInverse;
+	  using Matrix::dampedInverse;
+	  
 	  virtual Matrix& 
 	    pseudoInverse( Matrix& invMatrix,
 			   const FloatType threshold = 1e-6,
@@ -154,8 +158,8 @@ namespace maal
   /* Presupposition: an external function jrlgesvd is defined
    * and implemented in the calling library. */
   {
-    int linfo;
-    jrlgesvd_(&Jobu, &Jobvt,&nbrows,&nbcols,
+    int linfo; const int n=nbrows,m=nbcols;
+    jrlgesvd_(&Jobu, &Jobvt,&n,&m,
 	      traits::matrix_storage(McolMajor),
 	      &lda,
 	      traits::vector_storage(s),
@@ -238,8 +242,8 @@ namespace maal
   /* Presupposition: an external function jrlgesvd is defined
    * and implemented in the calling library. */
   {
-    int linfo;
-    jrlgesvd_(&Jobu, &Jobvt,&nbrows,&nbcols,
+    int linfo; const int n=nbrows,m=nbcols;
+    jrlgesvd_(&Jobu, &Jobvt,&n,&m,
 	      traits::matrix_storage(McolMajor),
 	      &lda,
 	      traits::vector_storage(s),

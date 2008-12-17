@@ -25,6 +25,7 @@ abstractVector.h
 boost.h						
 boostMacros.h					
 boostMatrix.h					
+boostMatrixSvd.h					
 boostspecific.h					
 boostSvd.h					
 boostVector.h					
