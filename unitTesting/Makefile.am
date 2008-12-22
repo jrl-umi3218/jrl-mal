@@ -3,7 +3,7 @@
 # 
 
 
-noinst_PROGRAMS = testMatrixAbstractLayer tboost tboost_withopenhrp performance
+noinst_PROGRAMS = testMatrixAbstractLayer tboost tboost_withopenhrp tsvd tsvd_withopenhrp performance
 
 testMatrixAbstractLayer_SOURCES =\
 	main.cpp 			\
@@ -26,6 +26,20 @@ tboost_withopenhrp_SOURCES =\
 
 tboost_withopenhrp_CPPFLAGS =-DWITH_OPENHRP -I../include  -I$(top_srcdir)/include  -I. @MATRIX_CFLAGS@ 	
 tboost_withopenhrp_LDADD = @MATRIX_LDFLAGS@ -llapack
+
+tsvd_SOURCES =\
+	tsvd.cpp \
+	jrlgesvd.f
+
+tsvd_CPPFLAGS =-I../include  -I$(top_srcdir)/include  -I. @MATRIX_CFLAGS@ 	
+tsvd_LDADD = @MATRIX_LDFLAGS@ -llapack
+
+tsvd_withopenhrp_SOURCES =\
+	tsvd.cpp \
+	jrlgesvd.f
+
+tsvd_withopenhrp_CPPFLAGS =-DWITH_OPENHRP -I../include  -I$(top_srcdir)/include  -I. @MATRIX_CFLAGS@ 	
+tsvd_withopenhrp_LDADD = @MATRIX_LDFLAGS@ -llapack
 
 performance_SOURCES =\
 	performance.cpp
