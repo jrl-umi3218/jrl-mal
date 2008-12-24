@@ -109,6 +109,10 @@ SET(install_pkg_exec_prefix "\${exec_prefix}")
 SET(install_pkg_libdir "\${libdir}")
 SET(install_pkg_include_dir "\${includedir}")
 
+IF(UNIX)
+	SET (${${PROJECT_NAME}}_CFLAGS "-Wl,-R${install_pkg_libdir} ${${${PROJECT_NAME}}_CFLAGS}")
+ENDIF(UNIX)
+
 # Install the file in the appropriate place.
 SET(install_libdir_pkgconfig ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig)
 
