@@ -14,7 +14,7 @@ enable_language(Fortran)
 SET(CMAKE_VERBOSE_MAKEFILE ON)
 
 # Set version
-SET(PROJECT_VERSION 1.5.99)
+SET(PROJECT_VERSION 1.7)
 
 IF(WIN32)
   SET(LIBDIR_KW "/LIBPATH:")
@@ -44,9 +44,9 @@ SET(SMALLMATRIXLIB_FOUND 0)
 IF (SMALLMATRIX STREQUAL "jrlMathTools")
   # Check for required packages
   # -------------------------
-  pkg_check_modules(JRLMATHTOOLS REQUIRED jrlMathTools>=1.0.99 )
+  pkg_check_modules(JRLMATHTOOLS REQUIRED jrlMathTools>=1.0)
 
-  SET(PACKAGE_REQUIREMENTS "jrlMathTools >= 1.0.99")
+  SET(PACKAGE_REQUIREMENTS "jrlMathTools >= 1.0")
   SET(SMALLMATRIXLIB_FOUND 1)		 
 ENDIF(SMALLMATRIX STREQUAL "jrlMathTools")
 
@@ -149,7 +149,4 @@ INSTALL(FILES ${${PROJECT_NAME}_BINARY_DIR}/${PROJECT_NAME}.pc
 	DESTINATION ${install_libdir_pkgconfig}	
         PERMISSIONS OWNER_READ GROUP_READ WORLD_READ OWNER_WRITE
 )
-
-
-
 
