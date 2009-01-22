@@ -1,3 +1,23 @@
+MatrixAbstractLayer 1.6 released January 22nd, 2009
+
+	49. Final version of the SVD specialized matrix.
+	48. Added damped inverse optimized code.
+	47. Added Maal2:matrixSVD for optimization of the SVD/pseudoinverse calls.
+	46. Modified Maal2::matrix to add the virtual property to the svd-based functions.
+	45. Modified Makefile to add the tsvd test.
+	44. Fix a mix up between compiling and linking options.
+	43. -Wl,-R option is UNIX specific
+	42. Downgrad the version required for Boost.
+	41. Fix clash with OpenHRP-3 namespace on boost.
+	40. Change the way lapack is handled.
+	39. Add the win32 compatibility.
+	38. Changed the shortcut for ublas namespace,
+	37. Added proper LAPACK detection.
+	36. Modification of the detection scheme for a proper configMAL compatible with Visual C++
+	35. Fixed the problem when CMAKE_PREFIX_INSTALL is not set properly.
+	34. Added files for CMake capable library.
+	33. Added the damped inverse.
+	
 MatrixAbstractLayer 1.5 released September 12th, 2008
 	
 	32. Correction to use T3D with jrl math tools

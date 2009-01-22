@@ -1,27 +1,45 @@
 #
-#  Copyright
+#  Copyright 2009 JRL AIST-CNRS
 #
 
+Requirements
+------------
+The following software need to be installed on your machine
+
+  - boost (version 1.33.1) 
+	cmake will look in standard installation directories.
+	If boost is installed in a non standard installation directory, this directory should be specified through BOOST_ROOT or BOOSTROOT:
+	-DBOOST_ROOT=... in cmake command line.
+
+  - lapack
+	cmake will look in standard installation directories.
+
+  - t3d or jrlMathTools (accessible through pkg-config)
+
+
 Installation instructions for library MatrixAbstractLayer
-----------------------------------------------
+---------------------------------------------------------
+
 
 It is recommended to create a specific directory to install this package.
 mkdir build
 cd build
-../configure [OPTIONS]
+cmake [OPTIONS] -DCMAKE_INSTALL_PREFIX={installation directory} ..
 make 
 make install
 
-[OPTION] (see also configure.ac)
---with-boost=PATH_TO_BOOST
-or
---with-VNL=PATH_TO_VNL
-or 
---with-lapack=PATH_TO_LAPACK
-
---with-smallMatrix=t3d 
+[OPTION] (see also CMakeLists.txt)
+-DSMALLMATRIX=t3d 
 	if you want to use t3d for rigid-body transformations. 
 
---with-smallMatrix=jrlMathTools
+-DSMALLMATRIX=jrlMathTools
 	if you want to use jrlMathTools implementation for rigid-body transformations.
 
+See also CMakeLists.txt for more information.
+
+
+About cleaning and reinstalling
+-------------------------------
+
+in the build directory, cmake creates a CMakeCache.txt file to keep track of already installed files.
+If you want to reinstall your package from scratch, it is recommended to remove this file first.
