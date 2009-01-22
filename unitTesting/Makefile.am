@@ -1,9 +1,9 @@
 # 
-#  Copyright 
+#  Copyright 2009 JRL AIST-CNRS
 # 
 
 
-noinst_PROGRAMS = testMatrixAbstractLayer tboost tboost_withopenhrp tsvd tsvd_withopenhrp performance
+noinst_PROGRAMS = testMatrixAbstractLayer performance
 
 testMatrixAbstractLayer_SOURCES =\
 	main.cpp 			\
@@ -12,20 +12,6 @@ testMatrixAbstractLayer_SOURCES =\
 
 testMatrixAbstractLayer_CPPFLAGS = -I../include -I$(top_srcdir)/include -I../include/MatrixAbstractLayer -I. @MATRIX_CFLAGS@ 
 testMatrixAbstractLayer_LDADD = @MATRIX_LDFLAGS@ 
-
-tboost_SOURCES =\
-	tboost.cpp \
-	jrlgesvd.f
-
-tboost_CPPFLAGS =-I../include  -I$(top_srcdir)/include  -I. @MATRIX_CFLAGS@ 	
-tboost_LDADD = @MATRIX_LDFLAGS@ -llapack
-
-tboost_withopenhrp_SOURCES =\
-	tboost.cpp \
-	jrlgesvd.f
-
-tboost_withopenhrp_CPPFLAGS =-DWITH_OPENHRP -I../include  -I$(top_srcdir)/include  -I. @MATRIX_CFLAGS@ 	
-tboost_withopenhrp_LDADD = @MATRIX_LDFLAGS@ -llapack
 
 tsvd_SOURCES =\
 	tsvd.cpp \
