@@ -32,12 +32,38 @@ SET(PROJECT_CONTACT olivier.stasse@aist.go.jp)
 
 project(${PROJECT_NAME})
 
-# Check for required packages
-# -------------------------
+# Load Pkgconfig macros
+# ---------------------
 INCLUDE(FindPkgConfig)
-pkg_check_modules(JRLMATHTOOLS REQUIRED jrlMathTools>=1.0.99 )
 
-SET(PACKAGE_REQUIREMENTS "jrlMathTools >= 1.0.99")
+# Strategy to detect small matrices computation
+# ---------------------------------------------
+SET(SMALLMATRIXLIB_FOUND 0)
+
+# handle jrlMathTools
+IF (SMALLMATRIX STREQUAL "jrlMathTools")
+  # Check for required packages
+  # -------------------------
+  pkg_check_modules(JRLMATHTOOLS REQUIRED jrlMathTools>=1.0.99 )
+
+  SET(PACKAGE_REQUIREMENTS "jrlMathTools >= 1.0.99")
+  SET(SMALLMATRIXLIB_FOUND 1)		 
+ENDIF(SMALLMATRIX STREQUAL "jrlMathTools")
+
+# handle t3d
+SET(_T3D_R3D_V3D_FOUND_ 0)
+IF (SMALLMATRIX STREQUAL "t3d")
+  # Looking for T3d.
+  # -------------------------
+  pkg_check_modules(T3D REQUIRED t3d>=2.5)
+  SET(PACKAGE_REQUIREMENTS "t3d >= 2.5")
+  SET(_T3D_R3D_V3D_FOUND_ 1)
+  SET(SMALLMATRIXLIB_FOUND 1)		 
+ENDIF(SMALLMATRIX STREQUAL "t3d")
+
+IF(NOT ${SMALLMATRIXLIB_FOUND})
+  MESSAGE(FATAL_ERROR "No small matrix library found or specified (neither t3d or jrlMathTools...).\n Please try one of the two following commands: \n cmake -DSMALLMATRIX="t3d" .. \n or \n cmake -DSMALLMATRIX="jrlMathTools" ..")
+ENDIF(NOT ${SMALLMATRIXLIB_FOUND})
 
 # Looking for LAPACK
 # -------------------
@@ -50,10 +76,10 @@ SET(Boost_USE_STATIC_LIBS OFF)
 SET(Boost_USE_MULTITHREAD ON)
 FIND_PACKAGE( Boost 1.33.1 COMPONENTS thread )
 
+
 SET(MATRIXLIB_FOUND 0)
 SET(_BOOST_MATRIX_FOUND_ 0)
 SET(_VNL_MATRIX_FOUND_ 0)
-SET(_T3D_R3D_V3D_FOUND_ 0)
 
 IF(LAPACK_FOUND)
   IF(Boost_FOUND)
@@ -82,7 +108,7 @@ ENDIF(LAPACK_FOUND)
 MESSAGE(STATUS "Cflags :" ${${${PROJECT_NAME}}_CFLAGS} )
 MESSAGE(STATUS "Ldflags :" ${${${PROJECT_NAME}}_LDFLAGS} )
 IF(NOT ${MATRIXLIB_FOUND})
-  MESSAGE(SEND_ERROR "No matrix library found (neither boost/lapack or VNL...)")
+  MESSAGE(FATAL_ERROR "No matrix library found (neither boost/lapack or VNL...)")
 ENDIF(NOT ${MATRIXLIB_FOUND})
 
 #pkg_check_modules(T3D_R3D_V3D )
