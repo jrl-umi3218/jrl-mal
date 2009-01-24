@@ -1,3 +1,11 @@
+MatrixAbstractLayer 1.7.1 released January 24nd, 2009
+
+	51. Fixed dependency in MatrixAbstractLayer.pc
+
+MatrixAbstractLayer 1.7 released January 23nd, 2009
+
+	50. Package completely managed through cmake.
+
 MatrixAbstractLayer 1.6 released January 22nd, 2009
 
 	49. Final version of the SVD specialized matrix.
