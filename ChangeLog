@@ -1,10 +1,11 @@
-MatrixAbstractLayer 1.7.1 released January 24nd, 2009
+MatrixAbstractLayer 1.8 released January 22nd, 2009
 
-	51. Fixed dependency in MatrixAbstractLayer.pc
+	51. Added dependency to jrlMathTools even if t3d is chosen.
+	
+MatrixAbstractLayer 1.7 released January 22nd, 2009
 
-MatrixAbstractLayer 1.7 released January 23nd, 2009
-
-	50. Package completely managed through cmake.
+	50. Added test for small matrix and choice between T3D and jrlMathTools
+	    through command line options
 
 MatrixAbstractLayer 1.6 released January 22nd, 2009
 

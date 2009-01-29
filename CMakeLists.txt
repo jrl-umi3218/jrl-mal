@@ -14,7 +14,7 @@ enable_language(Fortran)
 SET(CMAKE_VERBOSE_MAKEFILE ON)
 
 # Set version
-SET(PROJECT_VERSION 1.7.1.99)
+SET(PROJECT_VERSION 1.7.2)
 
 IF(WIN32)
   SET(LIBDIR_KW "/LIBPATH:")
@@ -40,23 +40,33 @@ INCLUDE(FindPkgConfig)
 # ---------------------------------------------
 SET(SMALLMATRIXLIB_FOUND 0)
 
+# Required versions of dependencies
+# ---------------------------------
+SET(T3D_REQUIRED_VERSION 2.5)
+SET(JRLMATHTOOLS_REQUIRED_VERSION 1.0)
+
+
 # handle jrlMathTools
 IF (SMALLMATRIX STREQUAL "jrlMathTools")
   # Check for required packages
   # -------------------------
-  pkg_check_modules(JRLMATHTOOLS REQUIRED jrlMathTools>=1.0)
+  pkg_check_modules(JRLMATHTOOLS REQUIRED jrlMathTools>=${JRLMATHTOOLS_REQUIRED_VERSION})
 
-  SET(PACKAGE_REQUIREMENTS "jrlMathTools >= 1.0")
+  SET(PACKAGE_REQUIREMENTS "jrlMathTools >= ${JRLMATHTOOLS_REQUIRED_VERSION}")
   SET(SMALLMATRIXLIB_FOUND 1)		 
 ENDIF(SMALLMATRIX STREQUAL "jrlMathTools")
 
 # handle t3d
 SET(_T3D_R3D_V3D_FOUND_ 0)
 IF (SMALLMATRIX STREQUAL "t3d")
-  # Looking for T3d.
+  # Looking for T3d and jrlMathTools
+  # 
+  # jrlMathTools is required for 3x3 matrices that are not rotation matrices.
+  #
   # -------------------------
-  pkg_check_modules(T3D REQUIRED t3d>=2.5)
-  SET(PACKAGE_REQUIREMENTS "t3d >= 2.5")
+  pkg_check_modules(T3D REQUIRED t3d>=${T3D_REQUIRED_VERSION})
+  pkg_check_modules(JRLMATHTOOLS REQUIRED jrlMathTools>=${JRLMATHTOOLS_REQUIRED_VERSION})
+  SET(PACKAGE_REQUIREMENTS "t3d >= ${T3D_REQUIRED_VERSION}, jrlMathTools>=${JRLMATHTOOLS_REQUIRED_VERSION}")
   SET(_T3D_R3D_V3D_FOUND_ 1)
   SET(SMALLMATRIXLIB_FOUND 1)		 
 ENDIF(SMALLMATRIX STREQUAL "t3d")
