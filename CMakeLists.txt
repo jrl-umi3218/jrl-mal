@@ -45,6 +45,8 @@ SET(SMALLMATRIXLIB_FOUND 0)
 SET(T3D_REQUIRED_VERSION 2.5)
 SET(JRLMATHTOOLS_REQUIRED_VERSION 1.0)
 
+SET(${${PROJECT_NAME}}_CFLAGS  "")
+SET(${${PROJECT_NAME}}_LDFLAGS "")
 
 # handle jrlMathTools
 IF (SMALLMATRIX STREQUAL "jrlMathTools")
@@ -68,8 +70,17 @@ IF (SMALLMATRIX STREQUAL "t3d")
   pkg_check_modules(JRLMATHTOOLS REQUIRED jrlMathTools>=${JRLMATHTOOLS_REQUIRED_VERSION})
   SET(PACKAGE_REQUIREMENTS "t3d >= ${T3D_REQUIRED_VERSION}, jrlMathTools >= ${JRLMATHTOOLS_REQUIRED_VERSION}")
   SET(_T3D_R3D_V3D_FOUND_ 1)
-  SET(SMALLMATRIXLIB_FOUND 1)		 
+  SET(SMALLMATRIXLIB_FOUND 1)	
+
+  FOREACH(T3D_cflag ${T3D_CFLAGS})
+    SET(${${PROJECT_NAME}}_CFLAGS "${${${PROJECT_NAME}}_CFLAGS} ${T3D_cflag}")
+  ENDFOREACH(T3D_cflag)
+
+  FOREACH(T3D_ldflag ${T3D_LDFLAGS})
+    SET(${${PROJECT_NAME}}_LDFLAGS "${${${PROJECT_NAME}}_LDFLAGS} ${T3D_ldflag}")
+  ENDFOREACH(T3D_ldflag)
 ENDIF(SMALLMATRIX STREQUAL "t3d")
+
 
 IF(NOT ${SMALLMATRIXLIB_FOUND})
   MESSAGE(FATAL_ERROR "No small matrix library found or specified (neither t3d or jrlMathTools...).\n Please try one of the two following commands: \n cmake -DSMALLMATRIX="t3d" .. \n or \n cmake -DSMALLMATRIX="jrlMathTools" ..")
@@ -95,8 +106,7 @@ IF(LAPACK_FOUND)
   IF(Boost_FOUND)
     MESSAGE(STATUS "Current strategy prefer boost to VNL")
     MESSAGE(STATUS "Boost was found and will be used over VNL")
-    SET(${${PROJECT_NAME}}_CFLAGS "-I${Boost_INCLUDE_DIR} -DNDEBUG -D_BOOST_ " )
-	SET(${${PROJECT_NAME}}_LDFLAGS "")
+    SET(${${PROJECT_NAME}}_CFLAGS "${${${PROJECT_NAME}}_CFLAGS} -I${Boost_INCLUDE_DIR} -DNDEBUG -D_BOOST_ " )
 	foreach(boost_lib_dir ${Boost_LIBRARY_DIRS})
 		SET(${${PROJECT_NAME}}_LDFLAGS "${${${PROJECT_NAME}}_LDFLAGS} ${LIBDIR_KW}${boost_lib_dir} ")
 	endforeach(boost_lib_dir)
