@@ -105,28 +105,11 @@ namespace maal
   char Jobvt='A'; /* Compute complete VT Matrix */	
 
   /* Get workspace size for svd. */
-#ifdef WITH_OPENHRP
-  /* Presupposition: an external function jrlgesvd is defined
-   * and implemented in the calling library. */
-  { /* Computing the workspace size. */
-    FloatType vw; 
-    int linfo;
-    lda = nmajor; lw=-1;
-    const int n=nbrows,m=nbcols;
-    jrlgesvd_(&Jobu, &Jobvt, &n, &m, NULL, &lda, 
-	      0, 0, &n, 0, &m, &vw, &lw, &linfo); 
-    lw = int(vw);
-    w.resize(lw);
-    lu = traits::leading_dimension(U); // NR
-    lvt = traits::leading_dimension(VT); // NC
-  }
-#else //#ifdef WITH_OPENHRP
   {
     char Lw='O'; /* Compute the optimal size for the working vector */ 
     lw = lapack::gesvd_work(Lw,Jobu,Jobvt,McolMajor); 
     w.resize(lw);		 
   }
-#endif //#ifdef WITH_OPENHRP
   sp.resize(nminor);
 }
 

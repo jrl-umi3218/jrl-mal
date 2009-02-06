@@ -86,67 +86,6 @@ typedef boost_ublas::matrix<double> matrixNxP;
 #define MAL_MATRIX_CLEAR(name) \
   name.clear()
 
-#ifdef WITH_OPENHRP                                     
-#warning "Compiled with pseudo inverse special for OpenHRP" 
-extern "C"
-{
-  void jrlgesvd_(char const* jobu, char const* jobvt,
-	       int const* m, int const* n, double* a, int const* lda,
-	       double* s, double* u, int const* ldu,
-	       double* vt, int const* ldvt,
-	       double* work, int const* lwork, int* info);
-}
-
-#define MAL_INVERSE(name, inv_matrix, type)		\
-  {							\
-    bool totranspose=false;                             \
-    if (name.size1()<name.size2())                      \
-       { name=trans(name);totranspose=true;}            \
-    const unsigned int NR=name.size1();                 \
-    const unsigned int NC=name.size2();                 \
-    const double  threshold = 1e-6;                     \
-    boost_ublas::matrix<type,boost_ublas::column_major> I = name;	\
-    boost_ublas::matrix<type,boost_ublas::column_major> U(NR,NR);   \
-    boost_ublas::matrix<type,boost_ublas::column_major> VT(NC,NC);	\
-    boost_ublas::vector<type> s(std::min(NR,NC));		\
-    char Jobu='A'; /* Compute complete U Matrix */	\
-    char Jobvt='A'; /* Compute complete VT Matrix */	\
-    const int m = NR;  const int n = NC;                \
-    int linfo;                                          \
-    int lda = std::max(m,n);                            \
-    int lw=-1;                                          \
-     {                                                  \
-       double vw;                                       \
-       jrlgesvd_(&Jobu, &Jobvt, &m, &n,                 \
-		 traits::matrix_storage(I), &lda,       \
-		 0, 0, &m, 0, &n, &vw, &lw, &linfo);    \
-       lw = int(vw)+5;                                  \
-     }                                                  \
-    boost_ublas::vector<double> w(lw);		        \
-    int lu = traits::leading_dimension(U);              \
-    int lvt = traits::leading_dimension(VT);            \
-    jrlgesvd_(&Jobu, &Jobvt,&m,&n,                      \
-	      traits::matrix_storage(I),                \
-	      &lda,                                     \
-	      traits::vector_storage(s),                \
-	      traits::matrix_storage(U),                \
-	      &lu,                                      \
-	      traits::matrix_storage(VT),               \
-	      &lvt,                                     \
-	      traits::vector_storage(w),&lw,&linfo);	\
-    boost_ublas::matrix<type> S(name.size2(),name.size1());	\
-    for(unsigned int i=0;i<name.size2();i++)		\
-      for(unsigned int j=0;j<name.size1();j++)		\
-        if ((i==j) && (fabs(s(i))>threshold))           \
-           S(i,i)=1/s(i);                               \
-        else S(i,j)=0;		                        \
-    boost_ublas::matrix<type> tmp1;				\
-    tmp1 = prod(S,trans(U));				\
-    inv_matrix = prod(trans(VT),tmp1);			\
-    if (totranspose) inv_matrix = trans(inv_matrix);    \
-  }
-
-#else
 
 #define MAL_INVERSE(name, inv_matrix, type)		\
   {							\
@@ -178,7 +117,6 @@ extern "C"
     if (totranspose) inv_matrix = trans(inv_matrix);    \
   }
 
-#endif
 
 #define MAL_PSEUDOINVERSE(matrix, pinv_matrix, type)
 
