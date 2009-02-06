@@ -35,6 +35,8 @@ make install
 -DSMALLMATRIX=jrlMathTools
 	if you want to use jrlMathTools implementation for rigid-body transformations.
 
+-DBLAS_LIBRARIES=path_to_blas_library
+
 See also CMakeLists.txt for more information.
 
 
