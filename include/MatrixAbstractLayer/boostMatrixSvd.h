@@ -137,26 +137,11 @@ namespace maal
   if( toTranspose ){ McolMajor = trans(matrix); }else{ McolMajor = matrix; }
 
   /* Compute the SVD. */
-#ifdef WITH_OPENHRP
-  /* Presupposition: an external function jrlgesvd is defined
-   * and implemented in the calling library. */
-  {
-    int linfo; const int n=nbrows,m=nbcols;
-    jrlgesvd_(&Jobu, &Jobvt,&n,&m,
-	      traits::matrix_storage(McolMajor),
-	      &lda,
-	      traits::vector_storage(s),
-	      traits::matrix_storage(U),
-	      &lu,
-	      traits::matrix_storage(VT),
-	      &lvt,
-	      traits::vector_storage(w),&lw,&linfo);
-  }
- #else //#ifdef WITH_OPENHRP
+
   {
     lapack::gesvd(Jobu,Jobvt,McolMajor,s,U,VT,w);		
   }
-#endif //#ifdef WITH_OPENHRP
+
   
   rankJ = 0;
   for( unsigned int i=0;i<nminor;++i )		

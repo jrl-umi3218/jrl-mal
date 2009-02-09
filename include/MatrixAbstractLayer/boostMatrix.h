@@ -295,34 +295,6 @@ namespace maal
      char Lw; Lw='O'; /* Compute the optimal size for the working vector */ 
 
 
-     /* Get workspace size for svd. */
-#ifdef WITH_OPENHRP
-     /* Presupposition: an external function jrlgesvd is defined
-      * and implemented in the calling library. */
-     ::boost::numeric::ublas::vector<double> w;		
-     { /* Computing the workspace size. */
-       const int m = NR;  const int n = NC;
-       FloatType vw; 
-       int linfo;
-       int lda = std::max(m,n); int lw = -1;
-       jrlgesvd_(&Jobu, &Jobvt, &m, &n, NULL, &lda, 
-		 0, 0, &m, 0, &n, &vw, &lw, &linfo); 
-       lw = int(vw);
-       w.resize( lw );
-       /* Compute the SVD. */
-       int lu = traits::leading_dimension(U); // NR
-       int lvt = traits::leading_dimension(VT); // NC
-       jrlgesvd_(&Jobu, &Jobvt,&m,&n,
-		 traits::matrix_storage(I),
-		 &lda,
-		 traits::vector_storage(s),
-		 traits::matrix_storage(U),
-		 &lu,
-		 traits::matrix_storage(VT),
-		 &lvt,
-		 traits::vector_storage(w),&lw,&linfo);
-     }
- #else //#ifdef WITH_OPENHRP
      {
        int lw;
        //if( toTranspose ) { lw = lapack::gesvd_work(Lw,Jobu,Jobvt,I); } 
@@ -331,7 +303,8 @@ namespace maal
        ::boost::numeric::ublas::vector<double> w(lw);		 
        lapack::gesvd(Jobu,Jobvt,I,s,U,VT,w);		
      }
-#endif //#ifdef WITH_OPENHRP
+
+
      const unsigned int nsv = s.size();
      unsigned int rankJ = 0;
      ::boost::numeric::ublas::vector<FloatType> sp(nsv);
