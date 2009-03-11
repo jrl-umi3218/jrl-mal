@@ -25,7 +25,13 @@
 namespace ml = maal::boost;
 
 #include <iostream>
+#ifdef WIN32
+#include <Windows.h>
+#include "TimeUtilsWindows.h"
+#else
 #include <sys/time.h>
+#endif /* WIN32 */
+
 using namespace std;
 
 int main( void )
@@ -52,13 +58,13 @@ int main( void )
       //nc++; M0.resize(nr,nc); 
       
       //unsigned int nbzeros=0;
-      for( unsigned int j=0;j<nc;++j )
+      for( int j=0;j<nc;++j )
 	{
 // 	  if( (rand()+1.) / RAND_MAX > .8 )
 // 	    { for( unsigned int i=0;i<r;++i ) M0(i,j) = 0.;
 // 	    nbzeros++ ;}
 // 	  else
-	    for( unsigned int i=0;i<nr;++i )
+	    for( int i=0;i<nr;++i )
 	      { M0(i,j) = (rand()+1.) / RAND_MAX*2-1;}
 	}
       

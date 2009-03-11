@@ -107,7 +107,7 @@ typedef boost_ublas::matrix<double> matrixNxP;
     boost_ublas::matrix<type,boost_ublas::column_major> I = name;	\
     boost_ublas::matrix<type,boost_ublas::column_major> U(NR,NR);   \
     boost_ublas::matrix<type,boost_ublas::column_major> VT(NC,NC);	\
-    boost_ublas::vector<type> s(std::min(NR,NC));		\
+    boost_ublas::vector<type> s((std::min)(NR,NC));		\
     char Jobu='A'; /* Compute complete U Matrix */	\
     char Jobvt='A'; /* Compute complete VT Matrix */	\
     char Lw='O'; /* Compute the optimal size for the working vector */ \
