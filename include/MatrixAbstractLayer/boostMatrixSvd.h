@@ -151,7 +151,6 @@ namespace maal
 	  lda = std::max(m,n);
 	  lu = traits::leading_dimension(U); // NR
 	  lvt = traits::leading_dimension(VT); // NC
-
 	  dgesvd_(&Jobu, &Jobvt,&n,&m,
 		  traits::matrix_storage(McolMajor),
 		  &lda,
@@ -229,8 +228,8 @@ namespace maal
 
 	/* Compute the SVD. */
 	{
-	  const int n=McolMajor.size2(),
-	    m=McolMajor.size1();
+	  const int n=nbrows,
+	    m=nbcols;
 	  lda = std::max(m,n);
 	  lu = traits::leading_dimension(U); // NR
 	  lvt = traits::leading_dimension(VT); // NC

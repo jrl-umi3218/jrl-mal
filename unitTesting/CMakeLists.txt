@@ -11,6 +11,7 @@ SET(${PROJECT_NAME}_test_LDFLAGS "${${PROJECT_NAME}_LDFLAGS}")
 
 MESSAGE(STATUS " unitTesting: ${${PROJECT_NAME}_test_CXXFLAGS}")
 MESSAGE(STATUS " unitTesting: ${${PROJECT_NAME}_test_LDFLAGS}")
+
 ADD_EXECUTABLE(	testdampedinverse testdampedinverse.cpp)
 SET_TARGET_PROPERTIES(testdampedinverse
 	              PROPERTIES
@@ -19,6 +20,15 @@ SET_TARGET_PROPERTIES(testdampedinverse
 )
 
 ADD_DEPENDENCIES (testdampedinverse ${PROJECT_NAME})
+				   
+ADD_EXECUTABLE(	testpseudoinverse testpseudoinverse.cpp)
+SET_TARGET_PROPERTIES(testpseudoinverse
+	              PROPERTIES
+		      COMPILE_FLAGS ${${PROJECT_NAME}_test_CXXFLAGS}
+		      LINK_FLAGS ${${PROJECT_NAME}_test_LDFLAGS}
+)
+
+ADD_DEPENDENCIES (testpseudoinverse ${PROJECT_NAME})
 
 ADD_EXECUTABLE(	tsvd 
 tsvd.cpp 
@@ -31,7 +41,22 @@ SET_TARGET_PROPERTIES(tsvd
 		      LINK_FLAGS ${${PROJECT_NAME}_test_LDFLAGS}
 )
 
-ADD_DEPENDENCIES (testdampedinverse ${PROJECT_NAME})
+ADD_DEPENDENCIES (tsvd ${PROJECT_NAME})
+
+ADD_EXECUTABLE(	tsvddamped
+tsvddamped.cpp 
+TimeUtilsWindows.h
+TimeUtilsWindows.cpp
+)
+SET_TARGET_PROPERTIES(tsvddamped
+	              PROPERTIES
+		      COMPILE_FLAGS ${${PROJECT_NAME}_test_CXXFLAGS}
+		      LINK_FLAGS ${${PROJECT_NAME}_test_LDFLAGS}
+)
+
+ADD_DEPENDENCIES (tsvddamped ${PROJECT_NAME})
 
 ADD_TEST(dampedinverse testdampedinverse "")
+ADD_TEST(pseudoinverse testpseudoinverse "")
 ADD_TEST(svd tsvd "")
+ADD_TEST(svddamped tsvddamped "")

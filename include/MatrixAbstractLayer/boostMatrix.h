@@ -297,7 +297,7 @@ namespace maal
 	      int lda = std::max(m,n);
 	      int lu = traits::leading_dimension(U); // NR
 	      int lvt = traits::leading_dimension(VT); // NC
-       
+
 	      dgesvd_(&Jobu, &Jobvt, &m, &n,                 
 		      traits::matrix_storage(I), &lda,       
 		      0, 0, &m, 0, &n, &vw, &lw, &linfo);    
@@ -423,7 +423,7 @@ namespace maal
 		int lda = std::max(m,n);
 		int lu = traits::leading_dimension(U); // NR
 		int lvt = traits::leading_dimension(VT); // NC
-	 
+		
 		dgesvd_(&Jobu, &Jobvt, &m, &n,                 
 			traits::matrix_storage(I), &lda,       
 			0, 0, &m, 0, &n, &vw, &lw, &linfo);    
@@ -440,6 +440,7 @@ namespace maal
 			&lvt,
 			traits::vector_storage(w),&lw,&linfo);
 	      }
+
 	    }
 
 	    const unsigned int nsv = s.size();
