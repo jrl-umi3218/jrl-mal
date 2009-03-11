@@ -20,5 +20,14 @@ SET_TARGET_PROPERTIES(testdampedinverse
 
 ADD_DEPENDENCIES (testdampedinverse ${PROJECT_NAME})
 
-ADD_TEST(dampedinverse testdampedinverse "")
+ADD_EXECUTABLE(	tsvd tsvd.cpp)
+SET_TARGET_PROPERTIES(tsvd
+	              PROPERTIES
+		      COMPILE_FLAGS ${${PROJECT_NAME}_test_CXXFLAGS}
+		      LINK_FLAGS ${${PROJECT_NAME}_test_LDFLAGS}
+)
 
+ADD_DEPENDENCIES (testdampedinverse ${PROJECT_NAME})
+
+ADD_TEST(dampedinverse testdampedinverse "")
+ADD_TEST(svd tsvd "")
