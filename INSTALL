@@ -45,3 +45,7 @@ About cleaning and reinstalling
 
 in the build directory, cmake creates a CMakeCache.txt file to keep track of already installed files.
 If you want to reinstall your package from scratch, it is recommended to remove this file first.
+
+To perform unitary test:
+
+ctest -E experimental
