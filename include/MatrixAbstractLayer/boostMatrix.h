@@ -430,7 +430,6 @@ namespace maal
 		lw = int(vw)+5;                                 
 	 
 		::boost::numeric::ublas::vector<double> w(lw);		 
-		std::cout << "lvt: " << lvt << endl;
 		dgesvd_(&Jobu, &Jobvt,&n,&m,
 			traits::matrix_storage(I),
 			&lda,
