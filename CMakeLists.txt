@@ -9,6 +9,7 @@ cmake_minimum_required(VERSION 2.6)
 
 enable_language(CXX)
 enable_language(Fortran)
+ENABLE_TESTING()
 
 # Debug mode for cmake.
 SET(CMAKE_VERBOSE_MAKEFILE ON)
@@ -54,6 +55,7 @@ IF (SMALLMATRIX STREQUAL "jrlMathTools")
 
   SET(PACKAGE_REQUIREMENTS "jrlMathTools >= ${JRLMATHTOOLS_REQUIRED_VERSION}")
   SET(SMALLMATRIXLIB_FOUND 1)		 
+  SET(SMALLMATRIXLIB_CXXFLAGS ${JRLMATHTOOLS_CFLAGS})
 ENDIF(SMALLMATRIX STREQUAL "jrlMathTools")
 
 # handle t3d
@@ -69,6 +71,7 @@ IF (SMALLMATRIX STREQUAL "t3d")
   SET(PACKAGE_REQUIREMENTS "t3d >= ${T3D_REQUIRED_VERSION}, jrlMathTools >= ${JRLMATHTOOLS_REQUIRED_VERSION}")
   SET(_T3D_R3D_V3D_FOUND_ 1)
   SET(SMALLMATRIXLIB_FOUND 1)		 
+  SET(SMALLMATRIXLIB_CXXFLAGS ${T3D_CFLAGS})
 ENDIF(SMALLMATRIX STREQUAL "t3d")
 
 IF(NOT ${SMALLMATRIXLIB_FOUND})
@@ -128,6 +131,10 @@ ENDIF(NOT ${MATRIXLIB_FOUND})
 # To deal with the headers.
 #--------------------------
 add_subdirectory(include)
+
+# For testing (Very important please do *NOT* remove)
+#----------------------------------------------------
+add_subdirectory(unitTesting)
 
 # Prepare the documentation
 # -------------------------

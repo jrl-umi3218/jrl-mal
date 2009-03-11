@@ -107,7 +107,12 @@ namespace maal
   /* Get workspace size for svd. */
   {
     char Lw='O'; /* Compute the optimal size for the working vector */ 
-    lw = lapack::gesvd_work(Lw,Jobu,Jobvt,McolMajor); 
+    double vw;
+    int linfo;
+    dgesvd_(&Jobu, &Jobvt, &nbcols, &nbrows,                 
+	    traits::matrix_storage(McolMajor), &lda,       
+	    0, 0, &nbcols, 0, &nbrows, &vw, &lw, &linfo);    
+    lw = int(vw)+5;
     w.resize(lw);		 
   }
   sp.resize(nminor);
@@ -139,7 +144,23 @@ namespace maal
   /* Compute the SVD. */
 
   {
-    lapack::gesvd(Jobu,Jobvt,McolMajor,s,U,VT,w);		
+    double vw;                                       
+    
+    int linfo; const int n=NR,m=NC;
+    lda = std::max(m,n);
+    lu = traits::leading_dimension(U); // NR
+    lvt = traits::leading_dimension(VT); // NC
+        
+    dgesvd_(&Jobu, &Jobvt,&n,&m,
+	    traits::matrix_storage(McolMajor),
+	    &lda,
+	    traits::vector_storage(s),
+	    traits::matrix_storage(U),
+	    &lu,
+	    traits::matrix_storage(VT),
+	    &lvt,
+	    traits::vector_storage(w),&lw,&linfo);
+    
   }
 
   
@@ -207,7 +228,22 @@ namespace maal
 
   /* Compute the SVD. */
   {
-    lapack::gesvd(Jobu,Jobvt,McolMajor,s,U,VT,w);		
+    lda = std::max(m,n);
+    lu = traits::leading_dimension(U); // NR
+    lvt = traits::leading_dimension(VT); // NC
+
+    int linfo; const int n=NR,m=NC;
+        
+    dgesvd_(&Jobu, &Jobvt,&n,&m,
+	    traits::matrix_storage(McolMajor),
+	    &lda,
+	    traits::vector_storage(s),
+	    traits::matrix_storage(U),
+	    &lu,
+	    traits::matrix_storage(VT),
+	    &lvt,
+	    traits::vector_storage(w),&lw,&linfo);
+
   }
   
   rankJ = 0;

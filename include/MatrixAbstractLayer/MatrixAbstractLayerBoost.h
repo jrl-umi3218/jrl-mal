@@ -37,6 +37,15 @@ namespace lapack = boost::numeric::bindings::lapack;
 
 typedef boost_ublas::vector<double> vectorN;
 
+extern "C"
+{
+  void dgesvd_(char const* jobu, char const* jobvt,
+	       int const* m, int const* n, double* a, int const* lda,
+	       double* s, double* u, int const* ldu,
+	       double* vt, int const* ldvt,
+	       double* work, int const* lwork, int* info);
+}
+
 #define MAL_VECTOR(name, type)	\
   boost_ublas::vector<type> name
 

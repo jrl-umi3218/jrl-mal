@@ -214,11 +214,8 @@ namespace maal
  /** \brief Compute the inverse of the matrix. 
   *  
   * The matrix has to be invertible. 
-  * By default, the function uses the lapack::gesvd_work routine. 
-  * With OpenHRP, this routine is not available. If WITH_OPENHRP
-  * is defined, the routine jrlgesvd_ is used instead. However, 
-  * this symbol is not defined in the Maal library and should 
-  * be provided by the host software. 
+  * By default, the function uses the dgesvd_ fortran routine. 
+  * It should be provided by the host software (i.e. lapack). 
   */
  inline Matrix&
    inverse( Matrix& invMatrix ) const 
@@ -258,11 +255,8 @@ namespace maal
 
  /** \brief Compute the pseudo-inverse of the matrix. 
   *  
-  * By default, the function uses the lapack::gesvd_work routine. 
-  * With OpenHRP, this routine is not available. If WITH_OPENHRP
-  * is defined, the routine jrlgesvd_ is used instead. However, 
-  * this symbol is not defined in the Maal library and should 
-  * be provided by the host software. 
+  * By default, the function uses the dgesvd_ fortran routine. 
+  * It should be provided by the host software. 
   */
  virtual Matrix& 
    pseudoInverse( Matrix& invMatrix,
@@ -296,12 +290,30 @@ namespace maal
 
 
      {
-       int lw;
-       //if( toTranspose ) { lw = lapack::gesvd_work(Lw,Jobu,Jobvt,I); } 
-       //else 
-       { lw = lapack::gesvd_work(Lw,Jobu,Jobvt,I); }
+       double vw;                                       
+       int lw=-1;
+
+       int linfo; const int n=NR,m=NC;
+       int lda = std::max(m,n);
+       int lu = traits::leading_dimension(U); // NR
+       int lvt = traits::leading_dimension(VT); // NC
+       
+       dgesvd_(&Jobu, &Jobvt, &m, &n,                 
+	       traits::matrix_storage(I), &lda,       
+	       0, 0, &m, 0, &n, &vw, &lw, &linfo);    
+       lw = int(vw)+5;                                 
+       
        ::boost::numeric::ublas::vector<double> w(lw);		 
-       lapack::gesvd(Jobu,Jobvt,I,s,U,VT,w);		
+       dgesvd_(&Jobu, &Jobvt,&n,&m,
+	       traits::matrix_storage(I),
+	       &lda,
+	       traits::vector_storage(s),
+	       traits::matrix_storage(U),
+	       &lu,
+	       traits::matrix_storage(VT),
+	       &lvt,
+	       traits::vector_storage(w),&lw,&linfo);
+       
      }
 
 
@@ -369,11 +381,8 @@ namespace maal
 
  /** \brief Compute the pseudo-inverse of the matrix. 
   *  
-  * By default, the function uses the lapack::gesvd_work routine. 
-  * With OpenHRP, this routine is not available. If WITH_OPENHRP
-  * is defined, the routine jrlgesvd_ is used instead. However, 
-  * this symbol is not defined in the Maal library and should 
-  * be provided by the host software. 
+  * By default, the function uses the dgesvd_ fortran routine. 
+  * It should be provided by the host software. 
   */
  virtual Matrix& 
    dampedInverse( Matrix& invMatrix,
@@ -406,12 +415,32 @@ namespace maal
 
      /* Get workspace size for svd. */
      {
-       int lw;
-       //if( toTranspose ) { lw = lapack::gesvd_work(Lw,Jobu,Jobvt,I); } 
-       //else 
-       { lw = lapack::gesvd_work(Lw,Jobu,Jobvt,I); }
-       ::boost::numeric::ublas::vector<double> w(lw);		 
-       lapack::gesvd(Jobu,Jobvt,I,s,U,VT,w);		
+       int lw=-1;
+       {
+	 double vw;                                       
+	 
+	 int linfo; const int n=NR,m=NC;
+	 int lda = std::max(m,n);
+	 int lu = traits::leading_dimension(U); // NR
+	 int lvt = traits::leading_dimension(VT); // NC
+	 
+	 dgesvd_(&Jobu, &Jobvt, &m, &n,                 
+		 traits::matrix_storage(I), &lda,       
+		 0, 0, &m, 0, &n, &vw, &lw, &linfo);    
+	 lw = int(vw)+5;                                 
+	 
+	 ::boost::numeric::ublas::vector<double> w(lw);		 
+
+	 dgesvd_(&Jobu, &Jobvt,&n,&m,
+		 traits::matrix_storage(I),
+		 &lda,
+		 traits::vector_storage(s),
+		 traits::matrix_storage(U),
+		 &lu,
+		 traits::matrix_storage(VT),
+		 &lvt,
+		 traits::vector_storage(w),&lw,&linfo);
+       }
      }
 
      const unsigned int nsv = s.size();
