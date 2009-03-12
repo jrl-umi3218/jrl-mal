@@ -8,7 +8,7 @@
 int main (int argc, char** argv)
 {
 
-  maal::boost::Matrix Jt,U,S,Vt,Jp;
+  maal::boost::Matrix Jt,S,V,Jp;
   double dJt[3][30]={
     { 0.00645703, 3.32535e-19, -0.0411488, -0.0170703, 
       -0.0019119, -3.08188e-21, -0.0649074, -4.42244e-17, 
@@ -40,17 +40,12 @@ int main (int argc, char** argv)
   
   const unsigned int nJ = Jt.nbRows();
   const unsigned int mJ = Jt.nbCols();
-  Vt.resize(mJ,mJ);
-  U.resize(nJ,mJ);
-
+  V.resize(mJ,mJ);
   Jp.resize(mJ,nJ);
-  Jt.dampedInverse(Jp,1e-15,&U,0,&Vt );
+  Jt.pseudoInverse( Jp,1e-15,NULL,NULL,&V );
 
-  std::ofstream aof;
-  aof.open("V.txt",ofstream::out);
-  
   maal::boost::Matrix M=Jt*Jp;
-	
+
   bool result=true;
   for(unsigned int i=0;i<3;i++)
       for(unsigned int j=0;j<3;j++)
@@ -67,63 +62,5 @@ int main (int argc, char** argv)
   if (false)
     return -1;
 
-  double *vt = traits::matrix_storage(Vt.matrix); 
-  for(unsigned int i=0;i<mJ;i++)
-    {
-      for(unsigned int j=0;j<mJ;j++)
-	aof << "(" << Vt(i,j)<< "," << *vt++ << ") " ;
-      aof << std::endl;
-    }
-  aof.close();
-  
-
-  maal::boost::Matrix Mp=Jp*Jt;
-  maal::boost::Matrix P,pS;
-
-  P.resize(mJ,mJ);
-  P.fill(0);
-  double *p,*v1,*v2,*vtmp1,*vtmp2;
-  p = traits::matrix_storage(P.matrix);
-
-  vtmp1 = traits::matrix_storage(Vt.matrix); 
-
-  for( unsigned int i=0;i<mJ;++i )
-    {
-      vtmp2 = traits::matrix_storage(Vt.matrix); 
-      for( unsigned int j=0;j<mJ;++j )
-	{
-	  v1 = vtmp1;   v2 =vtmp2;
-	  for( unsigned int k=0;k<3;++k )
-	    //for( unsigned int k=0;k<mJ;++k )
-	    { 
-	      (*p) +=( *v1) * (*v2); 
-	      v2+=mJ;v1+=mJ;
-	    } 
-	  p++; vtmp2++;
-	}
-
-      vtmp1++;
-    }
-  maal::boost::Matrix C=Mp-P;
-
-  for(unsigned int i=0;i<mJ;i++)
-    for(unsigned int j=0;j<mJ;j++)
-      if (fabs(C(i,j))>1e-15)
-	cout << "AAAAAAAAARRRRRRRRRRRRRRRRRGGHHHHH !" <<std::endl;
-  
-  //  cout << "C=" << C<<endl;
-  cout << " === Hop === " << endl;
-  S.resize(mJ,mJ);
-  S.fill(0.0);
-  for(unsigned int i=0;i<3;i++)
-    S(i,i) = 1.0;
-
-  maal::boost::Matrix C2=Mp-Vt.transpose()*S*Vt;
-
-  for(unsigned int i=0;i<mJ;i++)
-    for(unsigned int j=0;j<mJ;j++)
-      if (fabs(C2(i,j))>1e-15)
-	cout << "AAAAAAAAARRRRRRRRRRRRRRRRRGGHHHHH !" <<std::endl;
-  
-    return 0;
+  return 0;
 }
