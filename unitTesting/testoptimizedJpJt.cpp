@@ -46,35 +46,51 @@ int main (int argc, char** argv)
   Jp.resize(mJ,nJ);
   Jt.dampedInverse(Jp,1e-15,&U,0,&Vt );
 
-  std::ofstream aof;
-  aof.open("V.txt",ofstream::out);
-  
-  maal::boost::Matrix M=Jt*Jp;
-	
-  bool result=true;
-  for(unsigned int i=0;i<3;i++)
-      for(unsigned int j=0;j<3;j++)
-	{
-	  if (i==j)
-	    {
-	      if (M(i,j)!=1.0)
-		result=false;
-	    }
-	  else
-	    if (M(i,j)>1e-15)
-	      result=false;
-	}
-  if (false)
-    return -1;
+  maal::boost::Matrix Mp=Jp*Jt;
+  maal::boost::Matrix P,pS;
 
-  double *vt = traits::matrix_storage(Vt.matrix); 
-  for(unsigned int i=0;i<mJ;i++)
+  P.resize(mJ,mJ);
+  P.fill(0);
+  double *p,*v1,*v2,*vtmp1,*vtmp2;
+  p = traits::matrix_storage(P.matrix);
+
+  vtmp1 = traits::matrix_storage(Vt.matrix); 
+
+  for( unsigned int i=0;i<mJ;++i )
     {
-      for(unsigned int j=0;j<mJ;j++)
-	aof << "(" << Vt(i,j)<< "," << *vt++ << ") " ;
-      aof << std::endl;
+      vtmp2 = traits::matrix_storage(Vt.matrix); 
+      for( unsigned int j=0;j<mJ;++j )
+	{
+	  v1 = vtmp1;   v2 =vtmp2;
+	  for( unsigned int k=0;k<3;++k )
+	    //for( unsigned int k=0;k<mJ;++k )
+	    { 
+	      (*p) +=( *v1) * (*v2); 
+	      v2+=mJ;v1+=mJ;
+	    } 
+	  p++; vtmp2++;
+	}
+
+      vtmp1++;
     }
-  aof.close();
+  maal::boost::Matrix C=Mp-P;
+
+  for(unsigned int i=0;i<mJ;i++)
+    for(unsigned int j=0;j<mJ;j++)
+      if (fabs(C(i,j))>1e-15)
+	return -1;
   
-    return 0;
+  S.resize(mJ,mJ);
+  S.fill(0.0);
+  for(unsigned int i=0;i<3;i++)
+    S(i,i) = 1.0;
+
+  maal::boost::Matrix C2=Mp-Vt.transpose()*S*Vt;
+
+  for(unsigned int i=0;i<mJ;i++)
+    for(unsigned int j=0;j<mJ;j++)
+      if (fabs(C2(i,j))>1e-15)
+	return -1;
+
+  return 0;
 }

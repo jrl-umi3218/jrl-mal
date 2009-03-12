@@ -30,6 +30,15 @@ SET_TARGET_PROPERTIES(testpseudoinverse
 
 ADD_DEPENDENCIES (testpseudoinverse ${PROJECT_NAME})
 
+ADD_EXECUTABLE(	testoptimizedJpJt testoptimizedJpJt.cpp)
+SET_TARGET_PROPERTIES(testoptimizedJpJt
+	              PROPERTIES
+		      COMPILE_FLAGS ${${PROJECT_NAME}_test_CXXFLAGS}
+		      LINK_FLAGS ${${PROJECT_NAME}_test_LDFLAGS}
+)
+
+ADD_DEPENDENCIES (testoptimizedJpJt ${PROJECT_NAME})
+
 ADD_EXECUTABLE(	tsvd 
 tsvd.cpp 
 TimeUtilsWindows.h
