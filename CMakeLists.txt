@@ -9,6 +9,7 @@ cmake_minimum_required(VERSION 2.6)
 
 enable_language(CXX)
 enable_language(Fortran)
+
 ENABLE_TESTING()
 
 # Debug mode for cmake.
