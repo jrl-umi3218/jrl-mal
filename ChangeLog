@@ -1,3 +1,8 @@
+MatrixAbstractLayer 1.7.3 released March 13th, 2009
+
+	53. Adding unitary tests for pseudo-inverse computation.
+	52. Removed the lapack bindings introducing a bug in the pseudo-inverse.
+
 MatrixAbstractLayer 1.7.2 released January 29nd, 2009
 
 	51. Added dependency to jrlMathTools even if t3d is chosen.
