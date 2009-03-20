@@ -23,6 +23,11 @@ typedef jrlMathTools::Vector3D<double> vector3d;
     name.m_y = value;				\
     name.m_z = value; }
 
+#define MAL_S3_VECTOR_CLEAR(name)		\
+{ name.m_x = 0.0;				\
+	name.m_y = 0.0;				\
+	name.m_z = 0.0; }
+
 #define MAL_S3_VECTOR_NORM(name)		\
   name.norm()
 
