@@ -17,7 +17,7 @@ typedef jrlMathTools::Vector4D<double> vector4d;
   jrlMathTools::Vector4D<type> name
 
 #define MAL_S4_VECTOR_SIZE(name)		\
-  3 
+  4 
 
 #define MAL_S4_VECTOR_FILL(name,value)		\
   { name.m_x = value;				\
