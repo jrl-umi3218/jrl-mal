@@ -52,6 +52,7 @@
 #  if _T3D_R3D_V3D_ == 1
 #    include "MatrixAbstractLayer/MatrixAbstractLayerT3D.h"
 #  else
+#    include "jrlMathTools/jrlConstants.h"
 #    include "MatrixAbstractLayer/MatrixAbstractLayerVector3JrlMath.h"
 #    include "MatrixAbstractLayer/MatrixAbstractLayerVector4JrlMath.h"
 #    include "MatrixAbstractLayer/MatrixAbstractLayerMatrix3x3JrlMath.h"
