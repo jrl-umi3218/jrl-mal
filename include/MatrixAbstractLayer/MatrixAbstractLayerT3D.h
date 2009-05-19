@@ -74,6 +74,10 @@ typedef V3D vector3d;
 #define MAL_S3_VECTOR_ACCESS(name, i)  		\
   name[i]
 
+#define MAL_S3_VECTOR_CLEAR(name)		\
+  { name[0] = 0.;				\
+    name[1] = 0.;				\
+    name[2] = 0.; }
 
 /*V3D which implements SmallVector4*/
 typedef V3D vector4d;
