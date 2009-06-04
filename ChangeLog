@@ -1,3 +1,8 @@
+2009-06-04  Olivier Stasse  <olivier.stasse@aist.go.jp>
+
+	Removing some useless characters.
+	* include/MatrixAbstractLayer/MatrixAbstractLayerMatrix3x3JrlMath.h: .
+
 MatrixAbstractLayer 1.7.3 released March 13th, 2009
 
 	53. Adding unitary tests for pseudo-inverse computation.

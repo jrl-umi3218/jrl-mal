@@ -21,13 +21,13 @@ typedef jrlMathTools::Matrix3x3<double> matrix3d;
   name.setIdentity()
 
 #define MAL_S3x3_INVERSE(name,inv_matrix,type)	\
-  name.Inversion(inv_matrix);
+  name.Inversion(inv_matrix)
 
 #define MAL_S3x3_RET_TRANSPOSE(matrix) \
-  matrix.Transpose();
+  matrix.Transpose()
 
 #define MAL_S3x3_TRANSPOSE_A_in_At(A,At)		\
-  A.Transpose(At);
+  A.Transpose(At)
 
 #define MAL_S3x3_RET_A_by_B(A,B) \
   A*B
