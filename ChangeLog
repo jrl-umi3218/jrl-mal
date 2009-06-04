@@ -1,5 +1,10 @@
 2009-06-04  Olivier Stasse  <olivier.stasse@aist.go.jp>
 
+	CMakeLists.txt : Removed access to Dart server.
+	* unitTesting/CMakeLists.txt: .
+
+2009-06-04  Olivier Stasse  <olivier.stasse@aist.go.jp>
+
 	Removing some useless characters.
 	* include/MatrixAbstractLayer/MatrixAbstractLayerMatrix3x3JrlMath.h: .
 

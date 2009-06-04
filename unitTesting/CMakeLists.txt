@@ -4,8 +4,11 @@
 #
 # Copyright CNRS/
 # For the test, we include the same files as the src
+
 INCLUDE(CTest)
-INCLUDE(Dart)
+
+
+
 SET(${PROJECT_NAME}_test_CXXFLAGS "-I${PROJECT_SOURCE_DIR}/include/ ${${PROJECT_NAME}_CFLAGS} ${SMALLMATRIXLIB_CXXFLAGS} ${MATRIXLIB_CFLAGS}")
 
 # For the test, we link with the library corresponding to the src,  which is not installed yet
