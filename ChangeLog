@@ -1,3 +1,7 @@
+2009-06-09 Nicolas Mansard <nmansard@laas.fr>
+
+	Release 1.7.4 for StackOfTasks release 1.0.1.
+	
 2009-06-04  Olivier Stasse  <olivier.stasse@aist.go.jp>
 
 	CMakeLists.txt : Removed access to Dart server.
