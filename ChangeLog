@@ -1,3 +1,23 @@
+2009-06-26  Florent Lamiraux  <florent@laas.fr>
+
+	Remove unitTesting.
+	* CMakeLists.txt,
+	* unitTesting/CMakeLists.txt: Remove.
+	* unitTesting/MatrixAbstractLayerTest.cpp: Remove.
+	* unitTesting/MatrixAbstractLayerTest.h: Remove.
+	* unitTesting/TimeUtilsWindows.cpp: Remove.
+	* unitTesting/TimeUtilsWindows.h: Remove.
+	* unitTesting/main.cpp: Remove.
+	* unitTesting/performance.cpp: Remove.
+	* unitTesting/tboost.cpp: Remove.
+	* unitTesting/testdampedinverse.cpp: Remove.
+	* unitTesting/testoptimizedJpJt.cpp: Remove.
+	* unitTesting/testpseudoinverse.cpp: Remove.
+	* unitTesting/tsvd.cpp: Remove.
+	* unitTesting/tsvddamped.cpp: Remove.
+	* unitTesting/tsvdpseudoinverse.cpp: Remove.
+	UnitTesting have been moved to StackOfTasks.
+
 2009-06-09 Nicolas Mansard <nmansard@laas.fr>
 
 	Release 1.7.4 for StackOfTasks release 1.0.1.

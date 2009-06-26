@@ -139,10 +139,6 @@ ENDIF(NOT ${MATRIXLIB_FOUND})
 #--------------------------
 add_subdirectory(include)
 
-# For testing (Very important please do *NOT* remove)
-#----------------------------------------------------
-add_subdirectory(unitTesting)
-
 # Prepare the documentation
 # -------------------------
 INCLUDE(FindDoxygen)
