@@ -40,6 +40,9 @@ SET(PROJECT_CONTACT olivier.stasse@aist.go.jp)
 
 project(${PROJECT_NAME})
 
+# where are use-specific cmake modules
+SET(CMAKE_MODULE_PATH ${${PROJECT_NAME}_SOURCE_DIR}/CMakeModules)
+
 # Load Pkgconfig macros
 # ---------------------
 INCLUDE(FindPkgConfig)
@@ -89,13 +92,19 @@ ENDIF(NOT ${SMALLMATRIXLIB_FOUND})
 # -------------------
 INCLUDE(FindLAPACK)
 
+# --- BOOST NUMERIC BINDINGS-------------------------------------
+
+INCLUDE(${CMAKE_MODULE_PATH}/FindBoostNumericBindings.cmake)
+MESSAGE(STATUS "BoostNumericBindings_INCLUDE_DIR=${BoostNumericBindings_INCLUDE_DIR}")
+INCLUDE_DIRECTORIES(${BoostNumericBindings_INCLUDE_DIR})
+SET(${PROJECT_NAME}_CFLAGS "${${PROJECT_NAME}_CFLAGS} -I${BoostNumericBindings_INCLUDE_DIR}")
+
 # Looking for boost.
 # -------------------------
 INCLUDE(FindBoost)
 SET(Boost_USE_STATIC_LIBS OFF)
 SET(Boost_USE_MULTITHREAD ON)
 FIND_PACKAGE( Boost 1.33.1 COMPONENTS thread )
-
 
 SET(MATRIXLIB_FOUND 0)
 SET(_BOOST_MATRIX_FOUND_ 0)
@@ -133,8 +142,6 @@ ENDIF(NOT ${MATRIXLIB_FOUND})
 
 #pkg_check_modules(T3D_R3D_V3D )
 
-
-			  
 # To deal with the headers.
 #--------------------------
 add_subdirectory(include)
