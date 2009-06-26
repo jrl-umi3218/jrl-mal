@@ -92,13 +92,6 @@ ENDIF(NOT ${SMALLMATRIXLIB_FOUND})
 # -------------------
 INCLUDE(FindLAPACK)
 
-# --- BOOST NUMERIC BINDINGS-------------------------------------
-
-INCLUDE(${CMAKE_MODULE_PATH}/FindBoostNumericBindings.cmake)
-MESSAGE(STATUS "BoostNumericBindings_INCLUDE_DIR=${BoostNumericBindings_INCLUDE_DIR}")
-INCLUDE_DIRECTORIES(${BoostNumericBindings_INCLUDE_DIR})
-SET(${PROJECT_NAME}_CFLAGS "${${PROJECT_NAME}_CFLAGS} -I${BoostNumericBindings_INCLUDE_DIR}")
-
 # Looking for boost.
 # -------------------------
 INCLUDE(FindBoost)
@@ -133,6 +126,13 @@ IF(LAPACK_FOUND)
   ENDIF(Boost_FOUND)
 
 ENDIF(LAPACK_FOUND)
+
+# --- BOOST NUMERIC BINDINGS-------------------------------------
+
+INCLUDE(${CMAKE_MODULE_PATH}/FindBoostNumericBindings.cmake)
+MESSAGE(STATUS "BoostNumericBindings_INCLUDE_DIR=${BoostNumericBindings_INCLUDE_DIR}")
+INCLUDE_DIRECTORIES(${BoostNumericBindings_INCLUDE_DIR})
+SET(${PROJECT_NAME}_CFLAGS "${${PROJECT_NAME}_CFLAGS} -I${BoostNumericBindings_INCLUDE_DIR}")
 
 MESSAGE(STATUS "Cflags :" ${${PROJECT_NAME}_CFLAGS} )
 MESSAGE(STATUS "Ldflags :" ${${PROJECT_NAME}_LDFLAGS} )

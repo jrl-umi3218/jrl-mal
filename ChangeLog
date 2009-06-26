@@ -1,5 +1,10 @@
 2009-06-26  Florent Lamiraux  <florent@laas.fr>
 
+	Move macro that finds boost numeric bindings.
+	* CMakeLists.txt: here.
+
+2009-06-26  Florent Lamiraux  <florent@laas.fr>
+
 	Add a macro to look for boost numeric bindings.
 	* CMakeLists.txt: Call the macro
 	* CMakeModules/FindBoostNumericBindings.cmake: New.
