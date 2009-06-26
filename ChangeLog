@@ -1,5 +1,12 @@
 2009-06-26  Florent Lamiraux  <florent@laas.fr>
 
+	Fix cmake script that finds boost numeric bindings.
+	* CMakeModules/FindBoostNumericBindings.cmake: If variable
+	BOOSTNUMERICBINDINGS_DIR was not set at configuration, the
+	script failed.
+
+2009-06-26  Florent Lamiraux  <florent@laas.fr>
+
 	Move macro that finds boost numeric bindings.
 	* CMakeLists.txt: here.
 
