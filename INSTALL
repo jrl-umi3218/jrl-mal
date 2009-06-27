@@ -37,6 +37,8 @@ make install
 
 -DBLAS_LIBRARIES=path_to_blas_library
 
+-DBOOSTNUMERICBINDINGS_DIR=path_to_boost_numeric_bindings
+
 See also CMakeLists.txt for more information.
 
 

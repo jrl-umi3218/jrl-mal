@@ -1,3 +1,8 @@
+2009-06-27  Florent Lamiraux  <florent@laas.fr>
+
+	Add instruction for installation.
+	* INSTALL: Add documentation for option BOOSTNUMERICBINDINGS_DIR.
+
 2009-06-26  Florent Lamiraux  <florent@laas.fr>
 
 	Fix cmake script that finds boost numeric bindings.
