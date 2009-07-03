@@ -20,7 +20,7 @@
 #ifndef __MAAL_ABSTRACT_MATRIX_
 #define __MAAL_ABSTRACT_MATRIX_
 
-
+#warning "deprecated header file. Please consider using boost instead."
 
 namespace maal{  
 

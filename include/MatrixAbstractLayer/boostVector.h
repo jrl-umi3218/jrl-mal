@@ -21,6 +21,8 @@
 #ifndef __MAAL_BOOST_VECTOR_
 #define __MAAL_BOOST_VECTOR_
 
+#warning "deprecated header file. Please consider using boost instead."
+
 #include <MatrixAbstractLayer/boostMacros.h>
 
 /**

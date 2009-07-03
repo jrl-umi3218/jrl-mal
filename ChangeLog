@@ -1,3 +1,16 @@
+2009-07-03  Florent Lamiraux  <florent@laas.fr>
+
+	Declare mal2 headers as deprecated.
+	* include/MatrixAbstractLayer/abstract.h: .
+	* include/MatrixAbstractLayer/abstractMatrix.h: .
+	* include/MatrixAbstractLayer/abstractVector.h: .
+	* include/MatrixAbstractLayer/boost.h: .
+	* include/MatrixAbstractLayer/boostMacros.h: .
+	* include/MatrixAbstractLayer/boostMatrix.h: .
+	* include/MatrixAbstractLayer/boostMatrixSvd.h: .
+	* include/MatrixAbstractLayer/boostSvd.h: .
+	* include/MatrixAbstractLayer/boostVector.h: .
+
 2009-06-27  Florent Lamiraux  <florent@laas.fr>
 
 	Add instruction for installation.

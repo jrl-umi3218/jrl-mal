@@ -3,6 +3,7 @@
  * (c) 2008 , Nicolas Mansard, Olivier Stasse JRL-Japan, CNRS-AIST, ISRI.
  */
 
+#warning "deprecated header file. Please consider using boost instead."
 
 /*!
  * @defgroup abstract Abstract

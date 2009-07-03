@@ -21,6 +21,8 @@
 #ifndef __MAAL_BOOST_MACROS_
 #define __MAAL_BOOST_MACROS_
 
+#warning "deprecated header file. Please consider using boost instead."
+
 #include "boost/numeric/bindings/traits/ublas_matrix.hpp"
 #include "boost/numeric/bindings/traits/std_vector.hpp"
 #include "boost/numeric/bindings/traits/std_vector.hpp"

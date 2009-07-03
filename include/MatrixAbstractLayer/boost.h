@@ -21,6 +21,7 @@
 #ifndef __MAAL_BOOST__
 #define __MAAL_BOOST__
 
+#warning "deprecated header file. Please consider using boost instead."
 
 #include <iostream>
 

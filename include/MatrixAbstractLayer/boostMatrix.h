@@ -20,6 +20,8 @@
 #ifndef __MAAL_BOOST_MATRIX_
 #define __MAAL_BOOST_MATRIX_
 
+#warning "deprecated header file. Please consider using boost instead."
+
 #include <MatrixAbstractLayer/boostMacros.h>
 #include <MatrixAbstractLayer/boostSvd.h>
 

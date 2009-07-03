@@ -21,6 +21,8 @@
 #ifndef __MAAL_ABSTRACT_VECTOR_
 #define __MAAL_ABSTRACT_VECTOR_
 
+#warning "deprecated header file. Please consider using boost instead."
+
 #include <MatrixAbstractLayer/abstractMacros.h>
 
 namespace maal{  namespace abstract {
