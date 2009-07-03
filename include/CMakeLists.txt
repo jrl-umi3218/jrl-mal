@@ -19,6 +19,16 @@ MatrixAbstractLayerVector3JrlMath.h
 MatrixAbstractLayerVector4JrlMath.h		
 MatrixAbstractLayerVNL.h 			
 MatrixAbstractLayerT3D.h			
+abstract.h					
+abstractMatrix.h				
+abstractVector.h				
+boost.h						
+boostMacros.h					
+boostMatrix.h					
+boostMatrixSvd.h					
+boostspecific.h					
+boostSvd.h					
+boostVector.h					
 )
 
 # Recreate correct path for the headers
