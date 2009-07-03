@@ -23,21 +23,6 @@
 
 2009-06-26  Florent Lamiraux  <florent@laas.fr>
 
-	Remove obsolete headers.
-	* include/MatrixAbstractLayer/abstract.h: Remove.
-	* include/MatrixAbstractLayer/abstractMatrix.h: Remove.
-	* include/MatrixAbstractLayer/abstractVector.h: Remove.
-	* include/MatrixAbstractLayer/boost.h: Remove.
-	* include/MatrixAbstractLayer/boostMacros.h: Remove.
-	* include/MatrixAbstractLayer/boostMatrix.h: Remove.
-	* include/MatrixAbstractLayer/boostMatrixSvd.h: Remove.
-	* include/MatrixAbstractLayer/boostSvd.h: Remove.
-	* include/MatrixAbstractLayer/boostVector.h: Remove.
-	* include/MatrixAbstractLayer/boostspecific.h: Remove.
-	These headers have been moved to StackOfTasks.
-
-2009-06-26  Florent Lamiraux  <florent@laas.fr>
-
 	Do not install mal2 headers anymore.
 	* include/CMakeLists.txt: these headers have been moved
 	to StackOfTasks.
