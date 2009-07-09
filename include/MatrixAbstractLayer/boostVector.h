@@ -69,7 +69,7 @@ namespace maal{  namespace boost {
        */
       Vector( const unsigned int size=0 )
 	: staticVector( size ),dynamicVector( NULL ),vector(staticVector)
-	{}
+      {vector.clear();}
 
       /** \brief Build only the capsule around a already existing
        * boost vector object. 
@@ -77,7 +77,7 @@ namespace maal{  namespace boost {
       Vector( InternalVector* clone,const bool proprio=false )
 	: staticVector(0),dynamicVector( clone ),vector(*dynamicVector)
 	,proprio(proprio)
-	{}
+      {}
 
       /** \brief Build a new internal vector from existing
        * boost vector object by copying the data. 
@@ -85,7 +85,7 @@ namespace maal{  namespace boost {
       Vector( const Vector& copy )
 	: staticVector( copy.vector ),dynamicVector( NULL )
 	,vector(staticVector),proprio(false)
-	{}
+      {}
 
       virtual ~Vector( void )
 	{

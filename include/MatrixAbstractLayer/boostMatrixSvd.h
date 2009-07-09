@@ -54,7 +54,8 @@ namespace maal
 
     public: /* ---  Construction --- */
     MatrixSvd( const unsigned int rows=0, const unsigned int cols=0 )
-      : Matrix( rows,cols ),nbrows(-1),nbcols(-1),toTranspose(false) {}
+      : Matrix( rows,cols ),nbrows(-1),nbcols(-1),toTranspose(false) 
+      { s.clear();w.clear();sp.clear(); U.clear(); VT.clear(); McolMajor.clear();}
 
     MatrixSvd( InternalMatrix* clone,const bool proprio=false )
       : Matrix( clone,false  ),nbrows(-1),nbcols(-1),toTranspose(false)  {}
