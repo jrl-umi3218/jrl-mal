@@ -148,7 +148,7 @@ add_subdirectory(include)
 
 # Prepare the documentation
 # -------------------------
-OPTION(GENERATE_DOC 1 "Generate html documentation")
+OPTION(GENERATE_DOC "Generate html documentation" ON)
 IF (GENERATE_DOC)
   INCLUDE(FindDoxygen)
   IF(DOXYGEN_FOUND)
