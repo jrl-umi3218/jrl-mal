@@ -40,9 +40,9 @@ namespace traits=boost_ublas::raw;
 #define MRAWDATA(x) x.data().begin()
 #define VRAWDATA(x) x.data().begin()
 #else
+#include "boost/numeric/bindings/lapack/gesvd.hpp"
 namespace traits = boost::numeric::bindings::traits;
 namespace lapack = boost::numeric::bindings::lapack;
-#include "boost/numeric/bindings/lapack/gesvd.hpp"
 #define MRAWDATA(x) traits::matrix_storage(x)
 #define VRAWDATA(x) traits::vector_storage(x)
 #endif 
