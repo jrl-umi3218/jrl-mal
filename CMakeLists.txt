@@ -128,17 +128,18 @@ IF(LAPACK_FOUND)
 ENDIF(LAPACK_FOUND)
 
 # --- BOOST NUMERIC BINDINGS-------------------------------------
+IF (Boost_VERSION LESS 104000)
+  INCLUDE(${CMAKE_MODULE_PATH}/FindBoostNumericBindings.cmake)
+  MESSAGE(STATUS "BoostNumericBindings_INCLUDE_DIR=${BoostNumericBindings_INCLUDE_DIR}")
+  INCLUDE_DIRECTORIES(${BoostNumericBindings_INCLUDE_DIR})
+  SET(${PROJECT_NAME}_CFLAGS "${${PROJECT_NAME}_CFLAGS} -I${BoostNumericBindings_INCLUDE_DIR}")
 
-INCLUDE(${CMAKE_MODULE_PATH}/FindBoostNumericBindings.cmake)
-MESSAGE(STATUS "BoostNumericBindings_INCLUDE_DIR=${BoostNumericBindings_INCLUDE_DIR}")
-INCLUDE_DIRECTORIES(${BoostNumericBindings_INCLUDE_DIR})
-SET(${PROJECT_NAME}_CFLAGS "${${PROJECT_NAME}_CFLAGS} -I${BoostNumericBindings_INCLUDE_DIR}")
-
-MESSAGE(STATUS "Cflags :" ${${PROJECT_NAME}_CFLAGS} )
-MESSAGE(STATUS "Ldflags :" ${${PROJECT_NAME}_LDFLAGS} )
-IF(NOT ${MATRIXLIB_FOUND})
-  MESSAGE(FATAL_ERROR "No matrix library found (neither boost/lapack or VNL...)")
-ENDIF(NOT ${MATRIXLIB_FOUND})
+  MESSAGE(STATUS "Cflags :" ${${PROJECT_NAME}_CFLAGS} )
+  MESSAGE(STATUS "Ldflags :" ${${PROJECT_NAME}_LDFLAGS} )
+  IF(NOT ${MATRIXLIB_FOUND})
+    MESSAGE(FATAL_ERROR "No matrix library found (neither boost/lapack or VNL...)")
+  ENDIF(NOT ${MATRIXLIB_FOUND})
+ENDIF(Boost_VERSION LESS 104000)
 
 #pkg_check_modules(T3D_R3D_V3D )
 
