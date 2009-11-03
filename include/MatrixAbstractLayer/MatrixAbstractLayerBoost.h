@@ -18,20 +18,6 @@
  */
 #include "boost/version.hpp"
 
-#if BOOST_VERSION == 104000
-#include "boost/numeric/ublas/detail/raw.hpp"
-namespace traits=boost_ublas::raw;
-#define MRAWDATA(x) x.data().begin()
-#define VRAWDATA(x) x.data().begin()
-#else
-#include "boost/numeric/bindings/lapack/gesvd.hpp"
-#include "boost/numeric/bindings/traits/ublas_matrix.hpp"
-#include "boost/numeric/bindings/traits/std_vector.hpp"
-namespace traits = boost::numeric::bindings::traits;
-#define MRAWDATA(x) traits::matrix_storage(x)
-#define VRAWDATA(x) traits::vector_storage(x)
-#endif 
-
 #include "boost/numeric/ublas/matrix_proxy.hpp"
 #include "boost/numeric/ublas/matrix.hpp"
 #include "boost/numeric/ublas/io.hpp"
@@ -42,8 +28,23 @@ namespace traits = boost::numeric::bindings::traits;
 #include "boost/numeric/ublas/lu.hpp"
 
 namespace boost_ublas = boost::numeric::ublas;
+
+#if BOOST_VERSION == 104000
+#include "boost/numeric/ublas/detail/raw.hpp"
+namespace traits=boost_ublas::raw;
+#define MRAWDATA(x) x.data().begin()
+#define VRAWDATA(x) x.data().begin()
+#else
+#include "boost/numeric/bindings/lapack/gesvd.hpp"
+#include "boost/numeric/bindings/traits/ublas_matrix.hpp"
+#include "boost/numeric/bindings/traits/std_vector.hpp"
 namespace traits = boost::numeric::bindings::traits;
 namespace lapack = boost::numeric::bindings::lapack;
+
+#define MRAWDATA(x) traits::matrix_storage(x)
+#define VRAWDATA(x) traits::vector_storage(x)
+#endif 
+
 
 typedef boost_ublas::vector<double> vectorN;
 
