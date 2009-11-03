@@ -19,7 +19,6 @@
 #include "boost/version.hpp"
 
 #if BOOST_VERSION !=104000
-#include "boost/numeric/bindings/lapack/gesvd.hpp"
 #include "boost/numeric/bindings/traits/ublas_matrix.hpp"
 #include "boost/numeric/bindings/traits/std_vector.hpp"
 #endif
@@ -43,7 +42,7 @@ namespace traits=boost_ublas::raw;
 #else
 namespace traits = boost::numeric::bindings::traits;
 namespace lapack = boost::numeric::bindings::lapack;
-
+#include "boost/numeric/bindings/lapack/gesvd.hpp"
 #define MRAWDATA(x) traits::matrix_storage(x)
 #define VRAWDATA(x) traits::vector_storage(x)
 #endif 
