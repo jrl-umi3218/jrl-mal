@@ -108,7 +108,6 @@ typedef boost_ublas::matrix<double> matrixNxP;
 #define MAL_MATRIX_CLEAR(name) \
   name.clear()
 
-
 #define MAL_INVERSE(name, inv_matrix, type)		\
   {							\
     bool totranspose=false;                             \
@@ -120,13 +119,32 @@ typedef boost_ublas::matrix<double> matrixNxP;
     boost_ublas::matrix<type,boost_ublas::column_major> I = name;	\
     boost_ublas::matrix<type,boost_ublas::column_major> U(NR,NR);   \
     boost_ublas::matrix<type,boost_ublas::column_major> VT(NC,NC);	\
-    boost_ublas::vector<type> s((std::min)(NR,NC));		\
+    boost_ublas::vector<type> s(std::min(NR,NC));		\
     char Jobu='A'; /* Compute complete U Matrix */	\
     char Jobvt='A'; /* Compute complete VT Matrix */	\
-    char Lw='O'; /* Compute the optimal size for the working vector */ \
-    int lw = lapack::gesvd_work(Lw,Jobu,Jobvt,I);    \
+    const int m = NR;  const int n = NC;                \
+    int linfo;                                          \
+    int lda = std::max(m,n);                            \
+    int lw=-1;                                          \
+     {                                                  \
+       double vw;                                       \
+       dgesvd_(&Jobu, &Jobvt, &m, &n,                   \
+		 MRAWDATA(I), &lda,                     \
+		 0, 0, &m, 0, &n, &vw, &lw, &linfo);    \
+       lw = int(vw)+5;                                  \
+     }                                                  \
     boost_ublas::vector<double> w(lw);		        \
-    lapack::gesvd(Jobu, Jobvt,I,s,U,VT,w);		\
+    int lu = traits::leading_dimension(U);              \
+    int lvt = traits::leading_dimension(VT);            \
+    dgesvd_(&Jobu, &Jobvt,&m,&n,                        \
+	      MRAWDATA(I),                              \
+	      &lda,                                     \
+	      VRAWDATA(s),                              \
+	      MRAWDATA(U),                              \
+	      &lu,                                      \
+	      MRAWDATA(VT),                             \
+	      &lvt,                                     \
+	      VRAWDATA(w),&lw,&linfo);	\
     boost_ublas::matrix<type> S(name.size2(),name.size1());	\
     for(unsigned int i=0;i<name.size2();i++)		\
       for(unsigned int j=0;j<name.size1();j++)		\
@@ -138,7 +156,6 @@ typedef boost_ublas::matrix<double> matrixNxP;
     inv_matrix = prod(trans(VT),tmp1);			\
     if (totranspose) inv_matrix = trans(inv_matrix);    \
   }
-
 
 #define MAL_PSEUDOINVERSE(matrix, pinv_matrix, type)
 
