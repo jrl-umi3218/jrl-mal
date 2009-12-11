@@ -40,6 +40,7 @@
 #include "boost/numeric/ublas/vector_proxy.hpp"
 #include "boost/numeric/ublas/triangular.hpp"
 #include "boost/numeric/ublas/lu.hpp"
+#include <stdio.h>
 
 
 namespace ublas = boost::numeric::ublas;
