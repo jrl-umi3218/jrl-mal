@@ -17,8 +17,10 @@
  * 
  */
 #include "boost/version.hpp"
+#include <boost/preprocessor/cat.hpp>
+#include <boost/preprocessor/stringize.hpp>
 
-#if BOOST_VERSION <=104000
+#if BOOST_VERSION < 104000
 #include "boost/numeric/bindings/traits/ublas_matrix.hpp"
 #include "boost/numeric/bindings/traits/std_vector.hpp"
 #endif
@@ -33,6 +35,7 @@
 #include "boost/numeric/ublas/lu.hpp"
 
 namespace boost_ublas = boost::numeric::ublas;
+
 
 #if BOOST_VERSION >= 104000
 #include "boost/numeric/ublas/detail/raw.hpp"
