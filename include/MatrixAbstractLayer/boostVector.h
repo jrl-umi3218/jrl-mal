@@ -281,10 +281,10 @@ namespace maal{  namespace boost {
 
       /** \brief Access to the C-style double matrix. */
       inline const FloatType* datablock( void ) const 
-	{ return traits::vector_storage(vector); }
+	{ return VRAWDATA(vector); }
       /** \brief Access to the C-style double matrix. */
       inline  FloatType* datablock( void)
-	{ return traits::vector_storage(vector); }
+	{ return VRAWDATA(vector); }
 
       /** \brief Access to the i-th element in R-only.
        *

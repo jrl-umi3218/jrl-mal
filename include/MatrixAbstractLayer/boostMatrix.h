@@ -305,20 +305,20 @@ namespace maal
 	      int lvt = traits::leading_dimension(VT); // NC
 
 	      dgesvd_(&Jobu, &Jobvt, &m, &n,                 
-		      traits::matrix_storage(I), &lda,       
+		      MRAWDATA(I), &lda,       
 		      0, 0, &m, 0, &n, &vw, &lw, &linfo);    
 	      lw = int(vw)+5;                                 
        
 	      ::boost::numeric::ublas::vector<double> w(lw);		 
 	      dgesvd_(&Jobu, &Jobvt,&n,&m,
-		      traits::matrix_storage(I),
+		      MRAWDATA(I),
 		      &lda,
-		      traits::vector_storage(s),
-		      traits::matrix_storage(U),
+		      VRAWDATA(s),
+		      MRAWDATA(U),
 		      &lu,
-		      traits::matrix_storage(VT),
+		      MRAWDATA(VT),
 		      &lvt,
-		      traits::vector_storage(w),&lw,&linfo);
+		      VRAWDATA(w),&lw,&linfo);
        
 	    }
 
@@ -331,21 +331,21 @@ namespace maal
 	      else sp(i)=0.;		
 	    invMatrix.matrix.clear();
 	    {
-	      double * pinv = traits::matrix_storage(invMatrix.matrix);
+	      double * pinv = MRAWDATA(invMatrix.matrix);
 	      double * uptr;
 	      double * uptrRow;
 	      double * vptr;
-	      double * vptrRow = traits::matrix_storage(VT);
+	      double * vptrRow = MRAWDATA(VT);
        
 	      double * spptr;
        
 	      for( unsigned int i=0;i<NC;++i )
 		{
-		  uptrRow = traits::matrix_storage(U);
+		  uptrRow = MRAWDATA(U);
 		  for( unsigned int j=0;j<NR;++j )
 		    {
 		      uptr = uptrRow;  vptr = vptrRow; 
-		      spptr = traits::vector_storage( sp );
+		      spptr = VRAWDATA( sp );
 		      for( unsigned int k=0;k<rankJ;++k )
 			{
 			  (*pinv) += (*vptr) * (*spptr) * (*uptr);
@@ -431,20 +431,20 @@ namespace maal
 		int lvt = traits::leading_dimension(VT); // NC
 		
 		dgesvd_(&Jobu, &Jobvt, &m, &n,                 
-			traits::matrix_storage(I), &lda,       
+			MRAWDATA(I), &lda,       
 			0, 0, &m, 0, &n, &vw, &lw, &linfo);    
 		lw = int(vw)+5;                                 
 	 
 		::boost::numeric::ublas::vector<double> w(lw);		 
 		dgesvd_(&Jobu, &Jobvt,&n,&m,
-			traits::matrix_storage(I),
+			MRAWDATA(I),
 			&lda,
-			traits::vector_storage(s),
-			traits::matrix_storage(U),
+			VRAWDATA(s),
+			MRAWDATA(U),
 			&lu,
-			traits::matrix_storage(VT),
+			MRAWDATA(VT),
 			&lvt,
-			traits::vector_storage(w),&lw,&linfo);
+			VRAWDATA(w),&lw,&linfo);
 	      }
 
 	    }
@@ -459,21 +459,21 @@ namespace maal
 	      }
 	    invMatrix.matrix.clear();
 	    {
-	      double * pinv = traits::matrix_storage(invMatrix.matrix);
+	      double * pinv = MRAWDATA(invMatrix.matrix);
 	      double * uptr;
 	      double * uptrRow;
 	      double * vptr;
-	      double * vptrRow = traits::matrix_storage(VT);
+	      double * vptrRow = MRAWDATA(VT);
        
 	      double * spptr;
        
 	      for( unsigned int i=0;i<NC;++i )
 		{
-		  uptrRow = traits::matrix_storage(U);
+		  uptrRow = MRAWDATA(U);
 		  for( unsigned int j=0;j<NR;++j )
 		    {
 		      uptr = uptrRow;  vptr = vptrRow; 
-		      spptr = traits::vector_storage( sp );
+		      spptr = VRAWDATA( sp );
 		      for( unsigned int k=0;k<rankJ;++k )
 			{
 			  (*pinv) += (*vptr) * (*spptr) * (*uptr);
@@ -658,12 +658,12 @@ namespace maal
 	  inline FloatType* 
 	    datablock( void )
 	  {
-	    return traits::matrix_storage(matrix);
+	    return MRAWDATA(matrix);
 	  }
 	  inline const FloatType* 
 	    datablock( void ) const
 	  {
-	    return traits::matrix_storage(matrix);
+	    return MRAWDATA(matrix);
 	  }
 
 	  inline Matrix& 

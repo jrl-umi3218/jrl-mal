@@ -27,14 +27,18 @@
 #warning "deprecated header file. Please consider using boost instead."
 #endif /* WIN32 */
 
+#include "boost/version.hpp"
+#include <boost/preprocessor/cat.hpp>
+#include <boost/preprocessor/stringize.hpp>
+
+#if BOOST_VERSION < 104000
 #include "boost/numeric/bindings/traits/ublas_matrix.hpp"
 #include "boost/numeric/bindings/traits/std_vector.hpp"
-#include "boost/numeric/bindings/traits/std_vector.hpp"
+#endif
 
 #include "boost/numeric/ublas/matrix_proxy.hpp"
 #include "boost/numeric/ublas/matrix.hpp"
 #include "boost/numeric/ublas/io.hpp"
-#include "boost/numeric/bindings/lapack/gesvd.hpp"
 #include "boost/numeric/ublas/operation.hpp"
 #include "boost/numeric/ublas/vector.hpp"
 #include "boost/numeric/ublas/vector_proxy.hpp"
@@ -44,8 +48,28 @@
 
 
 namespace ublas = boost::numeric::ublas;
+
+#if BOOST_VERSION >= 104000
+#include "boost/numeric/ublas/detail/raw.hpp"
+namespace traits=ublas::raw;
+#define MRAWDATA(x) x.data().begin()
+#define VRAWDATA(x) x.data().begin()
+#else
+#include "boost/numeric/bindings/lapack/gesvd.hpp"
 namespace traits = boost::numeric::bindings::traits;
 namespace lapack = boost::numeric::bindings::lapack;
+#define MRAWDATA(x) traits::matrix_storage(x)
+#define VRAWDATA(x) traits::vector_storage(x)
+#endif 
+
+extern "C"
+{
+  void dgesvd_(char const* jobu, char const* jobvt,
+	       int const* m, int const* n, double* a, int const* lda,
+	       double* s, double* u, int const* ldu,
+	       double* vt, int const* ldvt,
+	       double* work, int const* lwork, int* info);
+}
 
 
 #define ML_NOT_IMPLEMENTED(a)  do { \
