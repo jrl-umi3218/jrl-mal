@@ -1,0 +1,4 @@
+Release 1.8.2, 01/20/2010
+
+	* #include <cstdio> has been added in boostMatrix.h and boostVector.h.
+	* Deprecated directive have been removed from header files.
