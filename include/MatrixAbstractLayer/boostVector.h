@@ -21,6 +21,7 @@
 #ifndef __MAAL_BOOST_VECTOR_
 #define __MAAL_BOOST_VECTOR_
 
+#include <cstdio>
 #include <MatrixAbstractLayer/boostMacros.h>
 
 /**

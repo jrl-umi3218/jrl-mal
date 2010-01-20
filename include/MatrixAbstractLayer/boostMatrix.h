@@ -20,6 +20,7 @@
 #ifndef __MAAL_BOOST_MATRIX_
 #define __MAAL_BOOST_MATRIX_
 
+#include <cstdio>
 #include <MatrixAbstractLayer/boostMacros.h>
 #include <MatrixAbstractLayer/boostSvd.h>
 
