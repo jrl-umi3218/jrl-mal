@@ -21,12 +21,6 @@
 #ifndef __MAAL_BOOST_MACROS_
 #define __MAAL_BOOST_MACROS_
 
-#ifdef WIN32
-#pragma message ( " -- !!! -- Warning : deprecated header file. Please consider using boost instead." )
-#else
-#warning "deprecated header file. Please consider using boost instead."
-#endif /* WIN32 */
-
 #include "boost/version.hpp"
 #include <boost/preprocessor/cat.hpp>
 #include <boost/preprocessor/stringize.hpp>

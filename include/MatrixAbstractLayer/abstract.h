@@ -3,12 +3,6 @@
  * (c) 2008 , Nicolas Mansard, Olivier Stasse JRL-Japan, CNRS-AIST, ISRI.
  */
 
-#ifdef WIN32
-#pragma message ( " -- !!! -- Warning : deprecated header file. Please consider using boost instead." )
-#else
-#warning "deprecated header file. Please consider using boost instead."
-#endif /* WIN32 */
-
 /*!
  * @defgroup abstract Abstract
  * @ingroup maal2
