@@ -61,4 +61,6 @@
 
 #  define MATRIX_VERSION 1
 
+#include "MatrixAbstractLayer/MatrixAbstractLayerCheck.h"
+
 #endif /* _MATRIX_ABSTRACT_LAYER_H_ */
