@@ -10,6 +10,7 @@ CONFIGURE_FILE(${${PROJECT_NAME}_SOURCE_DIR}/include/${PROJECT_NAME}/configMAL.h
 SET(${PROJECT_NAME}_HEADERS
 configMAL.h					
 MatrixAbstractLayer.h 				
+MatrixAbstractLayerCheck.h 				
 MatrixAbstractLayerBoost.h 			
 MatrixAbstractLayerDoc.h 			
 MatrixAbstractLayerSmall.h 			
