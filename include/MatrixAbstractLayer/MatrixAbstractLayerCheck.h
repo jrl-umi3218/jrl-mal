@@ -1,6 +1,14 @@
 #ifndef MATRIXABSTRACTLAYER_CHECK_H
 #define MATRIXABSTRACTLAYER_CHECK_H
 
+//define isnan for win32 users
+#ifdef WIN32
+# ifndef isnan
+#  include <float.h>
+#  define isnan _isnan
+# endif /*isnan*/
+#endif /*WIN32*/
+
 inline bool malIsNanVector(const vectorN& inVector)
 {
   for (unsigned int i=0; i<MAL_VECTOR_SIZE(inVector); i++) {
