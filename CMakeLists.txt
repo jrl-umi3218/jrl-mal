@@ -180,7 +180,7 @@ IF(UNIX)
 ENDIF(UNIX)
 
 # Install the file in the appropriate place.
-SET(install_libdir_pkgconfig ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig)
+SET(install_libdir_pkgconfig lib/pkgconfig)
 
 CONFIGURE_FILE(${${PROJECT_NAME}_SOURCE_DIR}/${PROJECT_NAME}.pc.cmake
 	       ${${PROJECT_NAME}_BINARY_DIR}/${PROJECT_NAME}.pc )
@@ -193,13 +193,13 @@ INSTALL(FILES ${${PROJECT_NAME}_BINARY_DIR}/${PROJECT_NAME}.pc
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Matrix Abstract Layer")
 set(CPACK_PACKAGE_VENDOR "JRL CNRS/AIST")
 set(CPACK_PACKAGE_DESCRIPTION_FILE ${CMAKE_CURRENT_SOURCE_DIR}/README)
-set(CPACK_GENERATOR TGZ)
+set(CPACK_PACKAGE_CONTACT "Olivier Stasse")
+set(CPACK_GENERATOR DEB)
 set(
 CPACK_SOURCE_PACKAGE_FILE_NAME
 "matrixabstractlayer-${PROJECT_VERSION}"
 CACHE INTERNAL "tarball basename"
 )
-set(CPACK_SOURCE_GENERATOR TGZ)
 
 # The following components are regex's to match anywhere (unless anchored)
 # in absolute path + filename to find files or directories to be excluded
@@ -209,6 +209,7 @@ set(CPACK_SOURCE_IGNORE_FILES
 "^${PROJECT_SOURCE_DIR}/build/"
 "^${PROJECT_SOURCE_DIR}/.git/"
 )
+
 #message("CPACK_SOURCE_IGNORE_FILES = ${CPACK_SOURCE_IGNORE_FILES}")
 include(CPack)
 
