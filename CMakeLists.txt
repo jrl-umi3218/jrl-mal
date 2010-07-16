@@ -198,12 +198,12 @@ set(CPACK_PACKAGE_VENDOR "JRL CNRS/AIST")
 set(CPACK_PACKAGE_DESCRIPTION_FILE ${CMAKE_CURRENT_SOURCE_DIR}/README)
 set(CPACK_PACKAGE_CONTACT "Olivier Stasse")
 
-
 set(CPACK_GENERATOR DEB)
-set(CPACK_DEBIAN_PACKAGE_DEPENDS "jrlMathTools (>=1.2)")
+set(CPACK_DEBIAN_PACKAGE_DEPENDS "jrlmathtools (>=1.2)")
+set(CPACK_PACKAGE_NAME "matrixabstractlayer")
 set(
 CPACK_SOURCE_PACKAGE_FILE_NAME
-"matrixabstractlayer-${PROJECT_VERSION}"
+"matrixabstractlayer-src-${PROJECT_VERSION}"
 CACHE INTERNAL "tarball basename"
 )
 
