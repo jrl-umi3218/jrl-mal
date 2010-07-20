@@ -54,7 +54,7 @@ SET(SMALLMATRIXLIB_FOUND 0)
 # Required versions of dependencies
 # ---------------------------------
 SET(T3D_REQUIRED_VERSION 2.5)
-SET(JRLMATHTOOLS_REQUIRED_VERSION 1.2)
+SET(JRLMATHTOOLS_REQUIRED_VERSION 1.4)
 
 
 # handle jrlMathTools
