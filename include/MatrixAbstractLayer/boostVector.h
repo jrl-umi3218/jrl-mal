@@ -307,7 +307,7 @@ namespace maal{  namespace boost {
       inline Vector& extract( const unsigned int top,const unsigned int nbrows,
 			      Vector& C ) const 
 	{ 
-	  MAAL_CHECKVERBOSE(_checksize(vector,top));  C.vector.resize(top+nbrows); 
+	  MAAL_CHECKVERBOSE(_checksize(vector,top));  C.vector.resize(top+nbrows-1);
 	  ML_NOT_IMPLEMENTED(C) ;
 	}
       /** \brief Extract a part of the vector. 

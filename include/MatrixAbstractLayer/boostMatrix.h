@@ -666,7 +666,7 @@ namespace maal
 		     const int nbrows, const int nbcols,
 		     Matrix& C ) //const 
 	  { 
-	    MAAL_CHECKVERBOSE(_checksize(matrix,top+nbrows,left+nbcols));
+	    MAAL_CHECKVERBOSE(_checksize(matrix,top+nbrows-1,left+nbcols-1));
 	    ::boost::numeric::ublas::matrix_slice< ::boost::numeric::ublas::matrix<FloatType> >
 		amatrix(matrix,::boost::numeric::ublas::slice(top,1,nbrows),
 			::boost::numeric::ublas::slice(left,1,nbcols)); 
