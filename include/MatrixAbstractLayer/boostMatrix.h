@@ -661,15 +661,15 @@ namespace maal
 	    return MRAWDATA(matrix);
 	  }
 
-	  inline Matrix& 
-	    extract( const int top,const int left, 
+	  inline Matrix&
+	    extract( const int top,const int left,
 		     const int nbrows, const int nbcols,
-		     Matrix& C ) //const 
-	  { 
+		     Matrix& C ) const
+	  {
 	    MAAL_CHECKVERBOSE(_checksize(matrix,top+nbrows-1,left+nbcols-1));
-	    ::boost::numeric::ublas::matrix_slice< ::boost::numeric::ublas::matrix<FloatType> >
+	    ::boost::numeric::ublas::matrix_slice< const ::boost::numeric::ublas::matrix<FloatType> >
 		amatrix(matrix,::boost::numeric::ublas::slice(top,1,nbrows),
-			::boost::numeric::ublas::slice(left,1,nbcols)); 
+			::boost::numeric::ublas::slice(left,1,nbcols));
 	    C.matrix = amatrix;
 	    return C;
 	  }

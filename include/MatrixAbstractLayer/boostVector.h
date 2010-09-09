@@ -308,7 +308,10 @@ namespace maal{  namespace boost {
 			      Vector& C ) const 
 	{ 
 	  MAAL_CHECKVERBOSE(_checksize(vector,top));  C.vector.resize(top+nbrows-1);
-	  ML_NOT_IMPLEMENTED(C) ;
+	  ::boost::numeric::ublas::vector_slice< ::boost::numeric::ublas::vector<FloatType> >
+	      avec(vector,::boost::numeric::ublas::slice(top,1,nbrows));
+	  C.vector = avec;
+	  return C;
 	}
       /** \brief Extract a part of the vector. 
        *
