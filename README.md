@@ -58,7 +58,6 @@ have to be available on your machine.
 
  - the `BOOST_ROOT` option forces CMake to search for Boost in a non-standard
    directory.
- - 
  - the `SMALLMATRIX` option allows two values:
     - `t3d`
     - `jrlMathTools`
