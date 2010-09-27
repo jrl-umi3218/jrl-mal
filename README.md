@@ -40,7 +40,7 @@ have to be available on your machine.
   - Boost (>= 1.33.1)
     Its detection is controled by the `BOOST_ROOT` variable, see next section
     for more information.
-  - Lapack
+  - Lapack library
     Use the generic purpose `CMAKE_CXX_FLAGS` and `CMAKE_EXE_LINKER_FLAGS`
     to insert the flags required for the compiler to find your Lapack library
     if it is installed in a non-standard directory.
