@@ -1,0 +1,8 @@
+jrl-mal for Debian
+------------------
+
+IMPORTANT: the package does *not* have any t3d support yet.
+
+It means that installing jrl-mal via its Debian package will force you
+to use jrl-mathtools Debian package for the small matrices
+computation.
