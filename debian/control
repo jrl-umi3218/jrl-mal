@@ -6,6 +6,7 @@ Build-Depends: debhelper (>= 7.0.50~), cmake (>= 2.6),
 	       pkg-config (>= 0.22),
 	       libboost-dev (>= 1.33.1),
 	       liblapack-dev (>= 1.2),
+	       gfortran (>= 4:4.4.3),
 	       libjrl-mathtools-dev (>= 1.4)
 Standards-Version: 3.8.4
 Vcs-Git: git://github.com/jrl-umi3218/jrl-mal.git

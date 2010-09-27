@@ -1,3 +1,9 @@
+jrl-mal (1.9.0.99-2) lucid; urgency=low
+
+  * Add missing build requirement: gfortran.
+
+ -- Thomas Moulard <thomas.moulard@gmail.com>  Tue, 28 Sep 2010 01:08:00 +0200
+
 jrl-mal (1.9.0.99-1) lucid; urgency=low
 
   * Initial work.
