@@ -28,7 +28,7 @@ Description: JRL matrix abstract layer
 
 Package: libjrl-mal-doc
 Section: doc
-Architecture: any
+Architecture: all
 Depends: ${misc:Depends}
 Suggests: libjrl-mathtools-doc
 Description: documentation for the JRL matrix abstract layer
