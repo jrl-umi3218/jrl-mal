@@ -19,9 +19,6 @@ Setup
 To compile this package, it is recommended to create a separate build
 directory:
 
-
-It is recommended to create a specific directory to install this package.
-
     mkdir _build
     cd _build
     cmake [OPTIONS] ..
