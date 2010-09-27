@@ -34,21 +34,21 @@ The matrix abstract layer depends on several packages which
 have to be available on your machine.
 
  - Libraries:
-  - Boost (>= 1.33.1)
-    Its detection is controled by the `BOOST_ROOT` variable, see next section
-    for more information.
-  - Lapack library
-    Use the generic purpose `CMAKE_CXX_FLAGS` and `CMAKE_EXE_LINKER_FLAGS`
-    to insert the flags required for the compiler to find your Lapack library
-    if it is installed in a non-standard directory.
-  - t3d or [jrl-mathtools][jrl-mathtools] (through pkg-config).
-    One of these two small matrix manipulation library can be used. They
-    are both shipped with a pkg-config file which is used for their detection.
-    Make sure your `PKG_CONFIG_PATH` is correct if CMake cannot detect them.
+   - Boost (>= 1.33.1)
+     Its detection is controled by the `BOOST_ROOT` variable, see next section
+     for more information.
+   - Lapack library
+     Use the generic purpose `CMAKE_CXX_FLAGS` and `CMAKE_EXE_LINKER_FLAGS`
+     to insert the flags required for the compiler to find your Lapack library
+     if it is installed in a non-standard directory.
+   - t3d or [jrl-mathtools][jrl-mathtools] (through pkg-config).
+     One of these two small matrix manipulation library can be used. They
+     are both shipped with a pkg-config file which is used for their detection.
+     Make sure your `PKG_CONFIG_PATH` is correct if CMake cannot detect them.
  - System tools:
-  - CMake (>=2.6)
-  - pkg-config
-  - usual compilation tools (GCC/G++, make, etc.)
+   - CMake (>=2.6)
+   - pkg-config
+   - usual compilation tools (GCC/G++, make, etc.)
 
 
 ### Options
