@@ -17,7 +17,7 @@ Homepage: http://github.com/jrl-umi3218/jrl-mal
 Package: libjrl-mal-dev
 Section: libdevel
 Architecture: any
-Depends: libjrl-mathtools-dev, ${misc:Depends}
+Depends: libjrl-mathtools-dev, libboost-dev (>= 1.33.1), liblapack-dev (>= 1.2), ${misc:Depends}
 Suggests: libjrl-mal-doc
 Description: JRL matrix abstract layer
  The JRL matrix abstraction layer allows the design of generic algorithm
