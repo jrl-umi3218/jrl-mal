@@ -38,24 +38,31 @@ FIND_PACKAGE(Boost 1.40 COMPONENTS unit_test_framework REQUIRED)
 
 # Search for LAPACK.
 FIND_PACKAGE(LAPACK REQUIRED)
-SET(PKG_CONFIG_LIBS ${PKG_CONFIG_LIBS} ${LAPACK_LIBRARIES})
+FOREACH(L ${LAPACK_LINKER_FLAGS} ${LAPACK_LIBRARIES})
+  SET(PKG_CONFIG_LIBS "${PKG_CONFIG_LIBS} ${L}")
+ENDFOREACH(L in ${LAPACK_LIBRARIES})
 
 # Search for the underlying small matrices library.
 SET(SMALLMATRIXLIB_FOUND 0)
 
+SET(_BOOST_MATRIX_FOUND_ 1)
+SET(_VNL_MATRIX_FOUND_ 0)
+SET(_T3D_R3D_V3D_FOUND_ 0)
+
 IF(SMALLMATRIX STREQUAL "jrl-mathtools")
-  ADD_REQUIRED_DEPENDENCY(jrlMathTools >= 1.4)
+  ADD_REQUIRED_DEPENDENCY("jrlMathTools >= 1.4")
 
   SET(SMALLMATRIXLIB_CXXFLAGS ${JRLMATHTOOLS_CFLAGS})
   SET(SMALLMATRIXLIB_FOUND 1)
 ENDIF(SMALLMATRIX STREQUAL "jrl-mathtools")
 
 IF(SMALLMATRIX STREQUAL "t3d")
-  ADD_REQUIRED_DEPENDENCY(t3d >= 2.5)
-  ADD_REQUIRED_DEPENDENCY(jrl-mathtools >= 1.4)
+  ADD_REQUIRED_DEPENDENCY("t3d >= 2.5")
+  ADD_REQUIRED_DEPENDENCY("jrlMathTools >= 1.4")
 
   SET(SMALLMATRIXLIB_CXXFLAGS ${T3D_CFLAGS})
   SET(SMALLMATRIXLIB_FOUND 1)
+  SET(_T3D_R3D_V3D_FOUND_ 1)
 ENDIF(SMALLMATRIX STREQUAL "t3d")
 
 IF(NOT ${SMALLMATRIXLIB_FOUND})
@@ -69,35 +76,38 @@ ENDIF(NOT ${SMALLMATRIXLIB_FOUND})
 
 CONFIG_FILES(include/jrl/mal/configMAL.hh)
 
+CONFIG_FILES(include/MatrixAbstractLayer/configMAL.h)
+
 SET(${PROJECT_NAME}_HEADERS
-  include/jrl/mal/configMAL.h
-  include/jrl/mal/MatrixAbstractLayer.h
-  include/jrl/mal/MatrixAbstractLayerCheck.h
-  include/jrl/mal/MatrixAbstractLayerBoost.h
-  include/jrl/mal/MatrixAbstractLayerDoc.h
-  include/jrl/mal/MatrixAbstractLayerSmall.h
-  include/jrl/mal/MatrixAbstractLayerMatrix3x3JrlMath.h
-  include/jrl/mal/MatrixAbstractLayerMatrix4x4JrlMath.h
-  include/jrl/mal/MatrixAbstractLayerVector3JrlMath.h
-  include/jrl/mal/MatrixAbstractLayerVector4JrlMath.h
-  include/jrl/mal/MatrixAbstractLayerVNL.h
-  include/jrl/mal/MatrixAbstractLayerT3D.h
-  include/jrl/mal/abstract.h
-  include/jrl/mal/abstractMatrix.h
-  include/jrl/mal/abstractVector.h
-  include/jrl/mal/boost.h
-  include/jrl/mal/boostMacros.h
-  include/jrl/mal/boostMatrix.h
-  include/jrl/mal/boostMatrixSvd.h
-  include/jrl/mal/boostspecific.h
-  include/jrl/mal/boostSvd.h
-  include/jrl/mal/boostVector.h
+  ${CMAKE_BINARY_DIR}/include/jrl/mal/config.hh
+  ${CMAKE_BINARY_DIR}/include/jrl/mal/configMAL.hh
+  include/jrl/mal/MatrixAbstractLayer.hh
+  include/jrl/mal/MatrixAbstractLayerCheck.hh
+  include/jrl/mal/MatrixAbstractLayerBoost.hh
+  include/jrl/mal/MatrixAbstractLayerDoc.hh
+  include/jrl/mal/MatrixAbstractLayerSmall.hh
+  include/jrl/mal/MatrixAbstractLayerMatrix3x3JrlMath.hh
+  include/jrl/mal/MatrixAbstractLayerMatrix4x4JrlMath.hh
+  include/jrl/mal/MatrixAbstractLayerVector3JrlMath.hh
+  include/jrl/mal/MatrixAbstractLayerVector4JrlMath.hh
+  include/jrl/mal/MatrixAbstractLayerVNL.hh
+  include/jrl/mal/MatrixAbstractLayerT3D.hh
+  include/jrl/mal/abstract.hh
+  include/jrl/mal/abstractMatrix.hh
+  include/jrl/mal/abstractVector.hh
+  include/jrl/mal/boost.hh
+  include/jrl/mal/boostMacros.hh
+  include/jrl/mal/boostMatrix.hh
+  include/jrl/mal/boostMatrixSvd.hh
+  include/jrl/mal/boostspecific.hh
+  include/jrl/mal/boostSvd.hh
+  include/jrl/mal/boostVector.hh
 )
 
 # Deprecated headers
 # These headers are installed to preserve includes retro-compatbility.
 SET(DEPRECATED_HEADERS
-  include/MatrixAbstractLayer/configMAL.h
+  ${CMAKE_BINARY_DIR}/include/MatrixAbstractLayer/configMAL.h
   include/MatrixAbstractLayer/MatrixAbstractLayer.h
   include/MatrixAbstractLayer/MatrixAbstractLayerCheck.h
   include/MatrixAbstractLayer/MatrixAbstractLayerBoost.h
