@@ -38,6 +38,7 @@ FIND_PACKAGE(Boost 1.40 COMPONENTS unit_test_framework REQUIRED)
 
 # Search for LAPACK.
 FIND_PACKAGE(LAPACK REQUIRED)
+SET(PKG_CONFIG_LIBS ${PKG_CONFIG_LIBS} ${LAPACK_LIBRARIES})
 
 # Search for the underlying small matrices library.
 SET(SMALLMATRIXLIB_FOUND 0)
