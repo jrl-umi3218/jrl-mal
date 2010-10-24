@@ -1,6 +1,9 @@
-/* 
+/*
  * Copyright 2008, 2009, 2010, 
  *
+ * Francois Keith,
+ * Florent Lamiraux,
+ * Nicolas Mansard
  * Olivier Stasse
  *
  * CNRS/AIST
@@ -18,29 +21,37 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with MatrixAbstractLayer.  If not, see <http://www.gnu.org/licenses/>.
  *
+ * This header file intend to define an abstraction layer
+ * to allow the use of diverse matrix libraries.
+ * This is supposed to solve the dependency to a particular
+ * matrix library.
+ *
+ * This specific file implements a wrapping around the
+ * Boost matrices. This is Version 2.0, using inline function
+ * instead of \#define.
+ *
  */
-#ifndef _CONFIG_MAL_H_
-#define _CONFIG_MAL_H_
 
-/*! Use boost for generic NxP matrix implementation. */
-#define _BOOST_MATRIX_ ${_BOOST_MATRIX_FOUND_}
 
-/*! Use VNL for generic NxP matrix implementation. */
-#define _VNL_MATRIX_ ${_VNL_MATRIX_FOUND_}
+/** \file boost.h
+ * Include this file for the maal::boost namespace.
+ *
+ */
 
-/*! use t3d for rigid body transformations. */
-#define _T3D_R3D_V3D_ ${_T3D_R3D_V3D_FOUND_}
 
-/*! Uses the default implementation for the small 4x4 matrices */
-#define _DEFAULT_MATRIX4x4_ 1
+#ifndef __MAAL_BOOST__
+#define __MAAL_BOOST__
 
-/*! Uses the default implementation for the small 3x3 matrices */
-#define _DEFAULT_MATRIX3x3_ 1
+#include <iostream>
 
-/*! Uses the default implementation for the small 3d vector */
-#define _DEFAULT_VECTOR3D_ 1
 
-/*! Uses the default implementation for the small 3d vector */
-#define _DEFAULT_VECTOR4D_ 1
+#include <MatrixAbstractLayer/boostMacros.h>
+#include <MatrixAbstractLayer/boostVector.h>
+#include <MatrixAbstractLayer/boostMatrix.h>
 
-#endif /* _CONFIG_MAL_H_ */
+
+
+
+#endif /* #ifndef __MAAL_BOOST__ */
+
+

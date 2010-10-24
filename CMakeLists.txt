@@ -14,218 +14,122 @@
 # along with MatrixAbstractLayer.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-cmake_minimum_required(VERSION 2.6)
+# Requires at least CMake 2.6 to configure the package.
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
-enable_language(CXX)
-enable_language(Fortran)
+INCLUDE(cmake/base.cmake)
+INCLUDE(cmake/cpack.cmake)
 
-ENABLE_TESTING()
+SET(PROJECT_NAME jrl-mal)
+SET(PROJECT_VERSION 1.9.0.99)
+SET(PROJECT_DESCRIPTION "JRL matrix abstract layer")
+SET(PROJECT_URL "http://github.com/jrl-umi3218/jrl-mal")
 
-# Debug mode for cmake.
-SET(CMAKE_VERBOSE_MAKEFILE ON)
+SETUP_PROJECT()
+SETUP_PROJECT_CPACK()
 
-# Set version
-# CPack version numbers for release tarball name.
-set(CPACK_PACKAGE_VERSION_MAJOR 1)
-set(CPACK_PACKAGE_VERSION_MINOR 9)
-set(CPACK_PACKAGE_VERSION_PATCH 0)
+# Requires Fortran support as Lapack needs it.
+ENABLE_LANGUAGE(Fortran)
 
-SET(PROJECT_VERSION ${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}.${CPACK_PACKAGE_VERSION_PATCH}.99)
-MESSAGE(STATUS "Project Version:${PROJECT_VERSION}")
+# Search for Boost.
+SET(Boost_USE_STATIC_LIBS OFF)
+SET(Boost_USE_MULTITHREAD ON)
+FIND_PACKAGE(Boost 1.40 COMPONENTS unit_test_framework REQUIRED)
 
-IF(WIN32)
-  SET(LIBDIR_KW "/LIBPATH:")
-  SET(LIBINCLUSION_KW "")
-ENDIF(WIN32)
+# Search for LAPACK.
+FIND_PACKAGE(LAPACK REQUIRED)
 
-IF(UNIX)
-  SET(LIBDIR_KW "-L")
-  SET(LIBINCLUSION_KW "-l")
-ENDIF(UNIX)
-
-# name of the project
-SET(PROJECT_NAME MatrixAbstractLayer)
-SET(PROJECT_CONTACT olivier.stasse@aist.go.jp)
-
-project(${PROJECT_NAME})
-
-# where are use-specific cmake modules
-SET(CMAKE_MODULE_PATH ${${PROJECT_NAME}_SOURCE_DIR}/CMakeModules)
-
-# Load Pkgconfig macros
-# ---------------------
-INCLUDE(FindPkgConfig)
-
-# Strategy to detect small matrices computation
-# ---------------------------------------------
+# Search for the underlying small matrices library.
 SET(SMALLMATRIXLIB_FOUND 0)
 
-# Required versions of dependencies
-# ---------------------------------
-SET(T3D_REQUIRED_VERSION 2.5)
-SET(JRLMATHTOOLS_REQUIRED_VERSION 1.4)
+IF(SMALLMATRIX STREQUAL "jrl-mathtools")
+  ADD_REQUIRED_DEPENDENCY(jrlMathTools >= 1.4)
 
-
-# handle jrlMathTools
-IF (SMALLMATRIX STREQUAL "jrlMathTools")
-  # Check for required packages
-  # -------------------------
-  pkg_check_modules(JRLMATHTOOLS REQUIRED jrlMathTools>=${JRLMATHTOOLS_REQUIRED_VERSION})
-
-  SET(PACKAGE_REQUIREMENTS "jrlMathTools >= ${JRLMATHTOOLS_REQUIRED_VERSION}")
-  SET(SMALLMATRIXLIB_FOUND 1)		 
   SET(SMALLMATRIXLIB_CXXFLAGS ${JRLMATHTOOLS_CFLAGS})
-ENDIF(SMALLMATRIX STREQUAL "jrlMathTools")
+  SET(SMALLMATRIXLIB_FOUND 1)
+ENDIF(SMALLMATRIX STREQUAL "jrl-mathtools")
 
-# handle t3d
-SET(_T3D_R3D_V3D_FOUND_ 0)
-IF (SMALLMATRIX STREQUAL "t3d")
-  # Looking for T3d and jrlMathTools
-  # 
-  # jrlMathTools is required for 3x3 matrices that are not rotation matrices.
-  #
-  # -------------------------
-  pkg_check_modules(T3D REQUIRED t3d>=${T3D_REQUIRED_VERSION})
-  pkg_check_modules(JRLMATHTOOLS REQUIRED jrlMathTools>=${JRLMATHTOOLS_REQUIRED_VERSION})
-  SET(PACKAGE_REQUIREMENTS "t3d >= ${T3D_REQUIRED_VERSION}, jrlMathTools >= ${JRLMATHTOOLS_REQUIRED_VERSION}")
-  SET(_T3D_R3D_V3D_FOUND_ 1)
-  SET(SMALLMATRIXLIB_FOUND 1)		 
+IF(SMALLMATRIX STREQUAL "t3d")
+  ADD_REQUIRED_DEPENDENCY(t3d >= 2.5)
+  ADD_REQUIRED_DEPENDENCY(jrl-mathtools >= 1.4)
+
   SET(SMALLMATRIXLIB_CXXFLAGS ${T3D_CFLAGS})
+  SET(SMALLMATRIXLIB_FOUND 1)
 ENDIF(SMALLMATRIX STREQUAL "t3d")
 
 IF(NOT ${SMALLMATRIXLIB_FOUND})
-  MESSAGE(FATAL_ERROR "No small matrix library found or specified (neither t3d or jrlMathTools...).\n Please try one of the two following commands: \n cmake -DSMALLMATRIX="t3d" .. \n or \n cmake -DSMALLMATRIX="jrlMathTools" ..")
+  MESSAGE(FATAL_ERROR
+    "No small matrix library found or specified.\n"
+    "Two underlying small matrices libraries are currently supported:\n"
+    "* jrl-mathtools - ``cmake -DSMALLMATRIX=jrl-mathtools''\n"
+    "* t3d - ``cmake -DSMALLMATRIX=t3d''\n"
+    )
 ENDIF(NOT ${SMALLMATRIXLIB_FOUND})
 
-# Looking for LAPACK
-# -------------------
-INCLUDE(FindLAPACK)
+CONFIG_FILES(include/jrl/mal/configMAL.hh)
 
-# Looking for boost.
-# -------------------------
-INCLUDE(FindBoost)
-SET(Boost_USE_STATIC_LIBS OFF)
-SET(Boost_USE_MULTITHREAD ON)
-FIND_PACKAGE( Boost 1.33.1 )
-
-SET(MATRIXLIB_FOUND 0)
-SET(_BOOST_MATRIX_FOUND_ 0)
-SET(_VNL_MATRIX_FOUND_ 0)
-
-IF(LAPACK_FOUND)
-  IF(Boost_FOUND)
-    MESSAGE(STATUS "Current strategy prefer boost to VNL")
-    MESSAGE(STATUS "Boost was found and will be used over VNL")
-    SET(${PROJECT_NAME}_CFLAGS "-I${Boost_INCLUDE_DIR}" )
-	SET(${PROJECT_NAME}_LDFLAGS "")
-	foreach(boost_lib_dir ${Boost_LIBRARY_DIRS})
-		SET(${PROJECT_NAME}_LDFLAGS "${${PROJECT_NAME}_LDFLAGS} ${LIBDIR_KW}${boost_lib_dir} ")
-	endforeach(boost_lib_dir)
-	foreach(lapack_lib ${LAPACK_LIBRARIES})
-		SET(${PROJECT_NAME}_LDFLAGS "${${PROJECT_NAME}_LDFLAGS} ${lapack_lib} ")
-	endforeach(lapack_lib)
-	IF (WIN32)
-		SET(${PROJECT_NAME}_CFLAGS "${${PROJECT_NAME}_CFLAGS} -DBOOST_NUMERIC_BINDINGS_USE_CLAPACK" )
-	ENDIF (WIN32)
-
-    SET(MATRIXLIB_FOUND 1)
-    SET(_BOOST_MATRIX_FOUND_ 1)
-  ELSE(Boost_FOUND)
-    # TO DO : find vnl...
-  ENDIF(Boost_FOUND)
-
-ENDIF(LAPACK_FOUND)
-
-# --- BOOST NUMERIC BINDINGS-------------------------------------
-IF (Boost_VERSION LESS 104000)
-  INCLUDE(${CMAKE_MODULE_PATH}/FindBoostNumericBindings.cmake)
-  MESSAGE(STATUS "BoostNumericBindings_INCLUDE_DIR=${BoostNumericBindings_INCLUDE_DIR}")
-  INCLUDE_DIRECTORIES(${BoostNumericBindings_INCLUDE_DIR})
-  SET(${PROJECT_NAME}_CFLAGS "${${PROJECT_NAME}_CFLAGS} -I${BoostNumericBindings_INCLUDE_DIR}")
-
-  MESSAGE(STATUS "Cflags :" ${${PROJECT_NAME}_CFLAGS} )
-  MESSAGE(STATUS "Ldflags :" ${${PROJECT_NAME}_LDFLAGS} )
-  IF(NOT ${MATRIXLIB_FOUND})
-    MESSAGE(FATAL_ERROR "No matrix library found (neither boost/lapack or VNL...)")
-  ENDIF(NOT ${MATRIXLIB_FOUND})
-ENDIF(Boost_VERSION LESS 104000)
-
-#pkg_check_modules(T3D_R3D_V3D )
-
-# To deal with the headers.
-#--------------------------
-add_subdirectory(include)
-
-# Prepare the documentation
-# -------------------------
-OPTION(GENERATE_DOC 0 "Generate html documentation")
-IF (GENERATE_DOC)
-  INCLUDE(FindDoxygen)
-  IF(DOXYGEN_FOUND)
-    MESSAGE(STATUS "Doxygen found")
-	ADD_SUBDIRECTORY(doc)
-  ENDIF(DOXYGEN_FOUND)
-ENDIF (GENERATE_DOC)
-
-# Uninstall target.
-CONFIGURE_FILE(
-  "${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake.in"
-  "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
-  IMMEDIATE @ONLY)
-
-ADD_CUSTOM_TARGET(uninstall
-  "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
-
-# Prepare description file for pkg-config.
-#-----------------------------------------
-
-SET(install_pkg_prefix "\${prefix}")
-SET(install_pkg_exec_prefix "\${exec_prefix}")
-SET(install_pkg_libdir "\${libdir}")
-SET(install_pkg_include_dir "\${includedir}")
-
-IF(UNIX)
-	SET (${PROJECT_NAME}_LDFLAGS "-Wl,-R${install_pkg_libdir} ${${PROJECT_NAME}_LDFLAGS}")
-ENDIF(UNIX)
-
-# Install the file in the appropriate place.
-SET(install_libdir_pkgconfig lib/pkgconfig)
-
-CONFIGURE_FILE(${${PROJECT_NAME}_SOURCE_DIR}/${PROJECT_NAME}.pc.cmake
-	       ${${PROJECT_NAME}_BINARY_DIR}/${PROJECT_NAME}.pc )
-
-INSTALL(FILES ${${PROJECT_NAME}_BINARY_DIR}/${PROJECT_NAME}.pc
-	DESTINATION ${install_libdir_pkgconfig}	
-        PERMISSIONS OWNER_READ GROUP_READ WORLD_READ OWNER_WRITE
+SET(${PROJECT_NAME}_HEADERS
+  include/jrl/mal/configMAL.h
+  include/jrl/mal/MatrixAbstractLayer.h
+  include/jrl/mal/MatrixAbstractLayerCheck.h
+  include/jrl/mal/MatrixAbstractLayerBoost.h
+  include/jrl/mal/MatrixAbstractLayerDoc.h
+  include/jrl/mal/MatrixAbstractLayerSmall.h
+  include/jrl/mal/MatrixAbstractLayerMatrix3x3JrlMath.h
+  include/jrl/mal/MatrixAbstractLayerMatrix4x4JrlMath.h
+  include/jrl/mal/MatrixAbstractLayerVector3JrlMath.h
+  include/jrl/mal/MatrixAbstractLayerVector4JrlMath.h
+  include/jrl/mal/MatrixAbstractLayerVNL.h
+  include/jrl/mal/MatrixAbstractLayerT3D.h
+  include/jrl/mal/abstract.h
+  include/jrl/mal/abstractMatrix.h
+  include/jrl/mal/abstractVector.h
+  include/jrl/mal/boost.h
+  include/jrl/mal/boostMacros.h
+  include/jrl/mal/boostMatrix.h
+  include/jrl/mal/boostMatrixSvd.h
+  include/jrl/mal/boostspecific.h
+  include/jrl/mal/boostSvd.h
+  include/jrl/mal/boostVector.h
 )
 
-#---------------
-# Package target
-#---------------
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Matrix Abstract Layer - Define an abstract layer to manipulate matrices")
-set(CPACK_PACKAGE_VENDOR "JRL CNRS/AIST")
-set(CPACK_PACKAGE_DESCRIPTION_FILE ${CMAKE_CURRENT_SOURCE_DIR}/README.md)
-set(CPACK_PACKAGE_CONTACT "Olivier Stasse")
-
-set(CPACK_GENERATOR DEB)
-set(CPACK_DEBIAN_PACKAGE_DEPENDS "jrlmathtools (>=1.2)")
-set(CPACK_PACKAGE_NAME "matrixabstractlayer")
-set(
-CPACK_SOURCE_PACKAGE_FILE_NAME
-"matrixabstractlayer-src-${PROJECT_VERSION}"
-CACHE INTERNAL "tarball basename"
+# Deprecated headers
+# These headers are installed to preserve includes retro-compatbility.
+SET(DEPRECATED_HEADERS
+  include/MatrixAbstractLayer/configMAL.h
+  include/MatrixAbstractLayer/MatrixAbstractLayer.h
+  include/MatrixAbstractLayer/MatrixAbstractLayerCheck.h
+  include/MatrixAbstractLayer/MatrixAbstractLayerBoost.h
+  include/MatrixAbstractLayer/MatrixAbstractLayerDoc.h
+  include/MatrixAbstractLayer/MatrixAbstractLayerSmall.h
+  include/MatrixAbstractLayer/MatrixAbstractLayerMatrix3x3JrlMath.h
+  include/MatrixAbstractLayer/MatrixAbstractLayerMatrix4x4JrlMath.h
+  include/MatrixAbstractLayer/MatrixAbstractLayerVector3JrlMath.h
+  include/MatrixAbstractLayer/MatrixAbstractLayerVector4JrlMath.h
+  include/MatrixAbstractLayer/MatrixAbstractLayerVNL.h
+  include/MatrixAbstractLayer/MatrixAbstractLayerT3D.h
+  include/MatrixAbstractLayer/abstract.h
+  include/MatrixAbstractLayer/abstractMatrix.h
+  include/MatrixAbstractLayer/abstractVector.h
+  include/MatrixAbstractLayer/boost.h
+  include/MatrixAbstractLayer/boostMacros.h
+  include/MatrixAbstractLayer/boostMatrix.h
+  include/MatrixAbstractLayer/boostMatrixSvd.h
+  include/MatrixAbstractLayer/boostspecific.h
+  include/MatrixAbstractLayer/boostSvd.h
+  include/MatrixAbstractLayer/boostVector.h
 )
+INSTALL(FILES ${DEPRECATED_HEADERS}
+  DESTINATION include/MatrixAbstractLayer
+  PERMISSIONS OWNER_READ GROUP_READ WORLD_READ OWNER_WRITE
+  )
+# Install jrlMathTools.pc for retro-compatibility.
+INSTALL(
+  FILES "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.pc"
+  DESTINATION "${PKG_CONFIG_DIR}"
+  RENAME MatrixAbstractLayer.pc
+  PERMISSIONS OWNER_READ GROUP_READ WORLD_READ OWNER_WRITE)
 
-# The following components are regex's to match anywhere (unless anchored)
-# in absolute path + filename to find files or directories to be excluded
-# from source tarball.
-set(CPACK_SOURCE_IGNORE_FILES
-"~$"
-"^${PROJECT_SOURCE_DIR}/build/"
-"^${PROJECT_SOURCE_DIR}/.git/"
-)
+#ADD_SUBDIRECTORY(tests)
 
-#message("CPACK_SOURCE_IGNORE_FILES = ${CPACK_SOURCE_IGNORE_FILES}")
-include(CPack)
-
-	
+SETUP_PROJECT_FINALIZE()
