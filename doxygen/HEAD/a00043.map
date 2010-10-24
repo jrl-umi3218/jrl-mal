@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" href="$a00009.html" title="Include this file for the maal::boost namespace." alt="" coords="36,160,100,189"/>
-<area shape="rect" href="$a00011.html" title="Define maal::boost::Matrix." alt="" coords="143,83,241,112"/>
-<area shape="rect" href="$a00015.html" title="Define maal::boost::Vector." alt="" coords="17,83,119,112"/>
-<area shape="rect" href="$a00012.html" title="Define maal::boost::MatrixSvd, heritance from maal::boost:Matrix." alt="" coords="131,160,253,189"/>
-</map>
