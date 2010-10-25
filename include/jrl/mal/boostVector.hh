@@ -1,5 +1,5 @@
 /*
- * Copyright 2008, 2009, 2010, 
+ * Copyright 2008, 2009, 2010,
  *
  * Paul Evrard,
  * Francois Keith,
@@ -26,18 +26,17 @@
 
 
 #ifndef __MAAL_BOOST_VECTOR_
-#define __MAAL_BOOST_VECTOR_
-
-#include <cstdio>
-#include <MatrixAbstractLayer/boostMacros.h>
+# define __MAAL_BOOST_VECTOR_
+# include <cstdio>
+# include <jrl/mal/boostMacros.hh>
 
 /**
  * \file boostVector.h Define maal::boost::Vector
  */
- 
+
 namespace maal{  namespace boost {
- 
-  
+
+
   /* --- VECTOR --------------------------------------------------------- */
   /* --- VECTOR --------------------------------------------------------- */
   /* --- VECTOR --------------------------------------------------------- */
@@ -45,33 +44,33 @@ namespace maal{  namespace boost {
   /** \brief Vector class that include the boost::ublas::vector
    *
    * The class simply encapsulates the ublas::vector object, and implement
-   * a set of standard functions. 
-   * When the maal::boost::Vector object is constructed, it automatically 
+   * a set of standard functions.
+   * When the maal::boost::Vector object is constructed, it automatically
    * builds the internal ublas::vector object. The internal object can be
    * access through accessToMotherLib. Finally, it is possible to
    * build the capsule around an existing boost ublas::vector through the
-   * appropriate constructor. 
+   * appropriate constructor.
    */
 
   class Vector
     {
       typedef ::boost::numeric::ublas::vector<FloatType> InternalVector;
-       
+
     protected:
       InternalVector staticVector;
       InternalVector* dynamicVector;
       InternalVector& vector;
-      bool proprio; 
+      bool proprio;
       static const bool AUTORESIZE = true;
       static const bool CHECKRESIZE = true;
 
 
     public: /* Constructors */
-       
+
       /** @name Constructors */
       //@{
 
-      /** \brief Classical constructor. 
+      /** \brief Classical constructor.
        *
        * Build the internal vector from the demanded size.
        */
@@ -80,7 +79,7 @@ namespace maal{  namespace boost {
 	{}
 
       /** \brief Build only the capsule around a already existing
-       * boost vector object. 
+       * boost vector object.
        */
       Vector( InternalVector* clone,const bool proprio=false )
 	: staticVector(0),dynamicVector( clone ),vector(*dynamicVector)
@@ -88,7 +87,7 @@ namespace maal{  namespace boost {
 	{}
 
       /** \brief Build a new internal vector from existing
-       * boost vector object by copying the data. 
+       * boost vector object by copying the data.
        */
       Vector( const Vector& copy )
 	: staticVector( copy.vector ),dynamicVector( NULL )
@@ -105,28 +104,28 @@ namespace maal{  namespace boost {
       InternalVector& accessToMotherLib( void ) { return vector; }
       /** \brief Access to the boost internal vector. */
       const InternalVector& accessToMotherLib( void ) const { return vector; }
-      /** \brief Copy the values and data of an existing 
+      /** \brief Copy the values and data of an existing
        * boost vector. */
-      Vector & initFromMotherLib( const InternalVector& bv ) 
+      Vector & initFromMotherLib( const InternalVector& bv )
 	{ vector = bv; return *this;}
       //@}
-      
+
      public:
       /* -------------- */
       /* --- SCALAR --- */
       /* -------------- */
-      
+
       /** @name Modifiors */
       //@{
       inline unsigned int size( void ) const { return vector.size();	}
 
-      inline Vector& resize( const unsigned int nbRows,const bool setZero=true ) 
+      inline Vector& resize( const unsigned int nbRows,const bool setZero=true )
 	{
 	  vector.resize(nbRows,!setZero);
 	  return *this;
 	}
 
-      inline Vector& fill( const FloatType value ) 
+      inline Vector& fill( const FloatType value )
 	{
 	  for(unsigned int i=0;i<vector.size();vector[i++]=value) ;
 	  return *this;
@@ -136,22 +135,22 @@ namespace maal{  namespace boost {
 	  vector.clear();
 	  return *this;
 	}
-      inline Vector& opposite( Vector&res ) const 
+      inline Vector& opposite( Vector&res ) const
 	{ res.vector=vector; res.vector *=-1; return res; }
-      inline Vector opposite( void ) const 
+      inline Vector opposite( void ) const
 	{ Vector res(vector.size()); opposite(res); return res; }
 
       //@}
 
- 
+
      public:
       /* -------------- */
       /* --- SCALAR --- */
       /* -------------- */
-      
+
       /** @name Scalar Operator E->R */
       //@{
-      
+
       /* \brief Euclidian norm sqrt( x*x + y*y ... )  */
       inline FloatType norm ( void ) const
 	{
@@ -173,13 +172,13 @@ namespace maal{  namespace boost {
        {
 	 return ::boost::numeric::ublas::norm_inf( vector );
        }
-     /** \brief Scalar product: v1.v2 = sum( x1*x2 ). 
+     /** \brief Scalar product: v1.v2 = sum( x1*x2 ).
       */
-     inline FloatType scalarProduct ( const Vector& v2 ) const 
+     inline FloatType scalarProduct ( const Vector& v2 ) const
        { return inner_prod(vector,v2.vector); }
-     /** \brief Scalar product: v1.v2 = sum( x1*x2 ). 
+     /** \brief Scalar product: v1.v2 = sum( x1*x2 ).
       */
-     static inline FloatType scalarProduct ( const Vector& v1,const Vector& v2 ) 
+     static inline FloatType scalarProduct ( const Vector& v1,const Vector& v2 )
        { return inner_prod(v1.vector,v2.vector); }
       //@}
 
@@ -188,28 +187,28 @@ namespace maal{  namespace boost {
       /* --- OPERATOR ExE->E --- */
       /* ----------------------- */
 
-      /** @name Operator Functions ExE->E 
+      /** @name Operator Functions ExE->E
        *
        * Each C-style function is implemented as a C++ operator.
        */
       //@{
-      
+
       /* --- CROSS PRODUCT v1 x v2 --- */
-      static Vector& crossProduct( const Vector&v1,const Vector&v2,Vector&res) 
+      static Vector& crossProduct( const Vector&v1,const Vector&v2,Vector&res)
 	{ return v1.crossProduct(v2,res); }
-      inline Vector& 
+      inline Vector&
 	crossProduct( const Vector&v2,Vector&res ) const
 	{
 	  MAAL_CHECKVERBOSE(_checksize(vector,v2.vector)); _resize(res.vector,vector);
-	  //if( (v1.size()==3) && (v2.size()==3) )		
-	  { 
-	    res.vector[0] = vector[1] * v2.vector[2] - v2.vector[1] * vector[2]; 
-	    res.vector[1] = vector[2] * v2.vector[0] - v2.vector[2] * vector[0]; 
-	    res.vector[2] = vector[0] * v2.vector[1] - v2.vector[0] * vector[1]; 
+	  //if( (v1.size()==3) && (v2.size()==3) )
+	  {
+	    res.vector[0] = vector[1] * v2.vector[2] - v2.vector[1] * vector[2];
+	    res.vector[1] = vector[2] * v2.vector[0] - v2.vector[2] * vector[0];
+	    res.vector[2] = vector[0] * v2.vector[1] - v2.vector[0] * vector[1];
 	  }
 	  return res;
 	}
-      inline Vector 
+      inline Vector
 	crossProduct( const Vector&v2 )
 	{
 	  Vector res(vector.size()); return crossProduct(v2,res);
@@ -217,7 +216,7 @@ namespace maal{  namespace boost {
 
 
       /* --- <Vector> x <Vector> --- */
-      static Vector& multiply( const Vector&v1,const Vector&v2,Vector&res) 
+      static Vector& multiply( const Vector&v1,const Vector&v2,Vector&res)
 	{ return v1.multiply(v2,res); }
       inline Vector multiply( const Vector&v2 ) const
 	{ Vector res(vector.size()); return multiply(v2,res); }
@@ -231,42 +230,42 @@ namespace maal{  namespace boost {
 
 
       /* --- <Vector> x <Float> --- */
-      static Vector& multiply( const Vector&v1,const FloatType x,Vector&res) 
+      static Vector& multiply( const Vector&v1,const FloatType x,Vector&res)
 	{ return v1.multiply(x,res); }
-      inline Vector multiply( const FloatType x ) const 
+      inline Vector multiply( const FloatType x ) const
 	{ Vector res(vector.size()); return multiply(x,res); }
-      inline Vector& multiply( const FloatType x,Vector&res ) const 
+      inline Vector& multiply( const FloatType x,Vector&res ) const
 	{
 	  //_resize(res.vector,vector);
 	  res.vector=vector;
 	  res.vector*=x;
-	  return res; 
+	  return res;
 	}
 
       /* --- <Vector> + <Vector> --- */
-      static Vector& addition( const Vector&v1,const Vector&v2,Vector&res) 
+      static Vector& addition( const Vector&v1,const Vector&v2,Vector&res)
 	{ return v1.addition(v2,res); }
-      inline Vector addition( const Vector&v2 ) const 
+      inline Vector addition( const Vector&v2 ) const
 	{ Vector res(vector.size()); return addition(v2,res); }
       inline Vector& addition( const Vector&v2,Vector&res ) const
 	{
 	  MAAL_CHECKVERBOSE(_checksize(vector,v2.vector));
 	  //_resize(res.vector,vector);
 	  res.vector=vector;
-	  res.vector+=v2.vector; return res; 
+	  res.vector+=v2.vector; return res;
 	}
 
       /* --- <Vector> - <Vector> --- */
-      static Vector& substraction( const Vector&v1,const Vector&v2,Vector&res) 
+      static Vector& substraction( const Vector&v1,const Vector&v2,Vector&res)
 	{ return v1.substraction(v2,res); }
-      inline Vector substraction( const Vector&v2 ) const 
-	{ Vector res(vector.size()); return substraction(v2,res);  } 
-      inline Vector& substraction( const Vector&v2,Vector&res ) const 
+      inline Vector substraction( const Vector&v2 ) const
+	{ Vector res(vector.size()); return substraction(v2,res);  }
+      inline Vector& substraction( const Vector&v2,Vector&res ) const
 	{
-	  MAAL_CHECKVERBOSE(_checksize(vector,v2.vector)); 
+	  MAAL_CHECKVERBOSE(_checksize(vector,v2.vector));
 	  //_resize(res.vector,vector);
 	  res.vector=vector;
-	  res.vector-=v2.vector; return res; 
+	  res.vector-=v2.vector; return res;
 	}
       //@}
 
@@ -274,7 +273,7 @@ namespace maal{  namespace boost {
       /* ------------------- */
       /* --- DATA ACCESS --- */
       /* ------------------- */
-      
+
       /** @name Accessors
        *
        * Access to an element, a block of element or the hidden double-array matrix.
@@ -282,7 +281,7 @@ namespace maal{  namespace boost {
       //@{
 
       /** \brief Access to the C-style double matrix. */
-      inline const FloatType* datablock( void ) const 
+      inline const FloatType* datablock( void ) const
 	{ return VRAWDATA(vector); }
       /** \brief Access to the C-style double matrix. */
       inline  FloatType* datablock( void)
@@ -290,39 +289,39 @@ namespace maal{  namespace boost {
 
       /** \brief Access to the i-th element in R-only.
        *
-       * This C-style function is equivalent to the C++ operator(). 
+       * This C-style function is equivalent to the C++ operator().
        */
-      inline const FloatType& elementAt( const unsigned int row ) const 
+      inline const FloatType& elementAt( const unsigned int row ) const
 	{
-	  MAAL_CHECKVERBOSE(_checksize(vector,row)); 
+	  MAAL_CHECKVERBOSE(_checksize(vector,row));
 	  return vector(row);
 	}
       /** \brief Access to the i-th element in RW-mode.
        *
-       * This C-style function is equivalent to the C++ operator(). 
+       * This C-style function is equivalent to the C++ operator().
        */
-      inline FloatType& elementAt( const unsigned int row )  
+      inline FloatType& elementAt( const unsigned int row )
 	{
-	  MAAL_CHECKVERBOSE(_checksize(vector,row)); 
+	  MAAL_CHECKVERBOSE(_checksize(vector,row));
 	  return vector(row);
 	}
 
-      /** \brief Extract a part of the vector. 
+      /** \brief Extract a part of the vector.
        *
-       * Not implemented yet. 
+       * Not implemented yet.
        */
       inline Vector& extract( const unsigned int top,const unsigned int nbrows,
-			      Vector& C ) const 
-	{ 
+			      Vector& C ) const
+	{
 	  MAAL_CHECKVERBOSE(_checksize(vector,top));  C.vector.resize(top+nbrows-1);
 	  ::boost::numeric::ublas::vector_slice< ::boost::numeric::ublas::vector<FloatType> >
 	      avec(vector,::boost::numeric::ublas::slice(top,1,nbrows));
 	  C.vector = avec;
 	  return C;
 	}
-      /** \brief Extract a part of the vector. 
+      /** \brief Extract a part of the vector.
        *
-       * Not implemented yet. 
+       * Not implemented yet.
        */
       inline Vector extract( const unsigned int top,const unsigned int nbrows ) const
 	{ Vector res(nbrows); return extract(top,nbrows,res); }
@@ -334,12 +333,12 @@ namespace maal{  namespace boost {
       /* --- OPERATORS --- */
       /* ----------------- */
 
-      /** @name Operators 
+      /** @name Operators
        *
        * Classical operators: use v1 + v2 for addition, v1(i) for i-th element...
        */
       //@{
-      
+
       inline friend Vector operator+ ( const Vector&v1,const Vector&v2 )
 	{ Vector res; v1.addition(v2,res); return res; }
       inline friend Vector operator- ( const Vector&v1,const Vector&v2 )
@@ -350,7 +349,7 @@ namespace maal{  namespace boost {
 	{ Vector res; v1.multiply(x,res); return res; }
       inline friend Vector operator* ( const FloatType x,const Vector&v1 )
 	{ Vector res; v1.multiply(x,res); return res; }
-  
+
       friend inline Vector operator- ( const Vector&v1 ){ return v1.opposite(); }
       inline Vector& operator+= ( const Vector&v1 ){ return addition(v1,*this); }
       inline Vector& operator-= ( const Vector&v1 ){ return substraction(v1,*this); }
@@ -371,8 +370,8 @@ namespace maal{  namespace boost {
 	    case SIMPLE:
 	      return os<<v1.vector;
 	    case COMPLET:
-	      for( unsigned int i=0;i<v1.size();++i ) 
-		{ if(fabs(v1(i))>1e-6) os << v1(i) << "\t"; else os<<0.00<<"\t"; } 
+	      for( unsigned int i=0;i<v1.size();++i )
+		{ if(fabs(v1(i))>1e-6) os << v1(i) << "\t"; else os<<0.00<<"\t"; }
 	      return os;
 	    case MATLAB:
 	      os << "[ ";
@@ -387,18 +386,18 @@ namespace maal{  namespace boost {
 	      ML_NOT_IMPLEMENTED(os);
 	    }
 	}
- 
+
       //@}
 
     public:
 
       friend class Matrix;
 
-    public: 
-      
+    public:
+
       /** @name Internal functions (autoresize) */
       //@{
-      
+
       bool autoresize( void ) { return AUTORESIZE; }
     protected:
       static inline void _resize( InternalVector& vct1,const InternalVector& vct2 )

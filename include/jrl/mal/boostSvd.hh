@@ -1,5 +1,5 @@
 /*
- * Copyright 2008, 2009, 2010, 
+ * Copyright 2008, 2009, 2010,
  *
  * Francois Keith,
  * Florent Lamiraux,
@@ -25,6 +25,5 @@
 
 
 #ifndef __MAAL_BOOST_SVD_
-#define __MAAL_BOOST_SVD_
-
+# define __MAAL_BOOST_SVD_
 #endif // #ifndef __MAAL_BOOST_SVD_

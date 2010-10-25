@@ -1,5 +1,5 @@
 /*
- * Copyright 2008, 2009, 2010, 
+ * Copyright 2008, 2009, 2010,
  *
  * Luis Delgado
  * Francois Keith
@@ -39,15 +39,15 @@
 /*!
  * @defgroup Boost Boost
  * @ingroup linearalgebra
- * 
+ *
  */
 #include "boost/version.hpp"
 #include <boost/preprocessor/cat.hpp>
 #include <boost/preprocessor/stringize.hpp>
 
 #if BOOST_VERSION < 104000
-#include "boost/numeric/bindings/traits/ublas_matrix.hpp"
-#include "boost/numeric/bindings/traits/std_vector.hpp"
+# include "boost/numeric/bindings/traits/ublas_matrix.hpp"
+# include "boost/numeric/bindings/traits/std_vector.hpp"
 #endif
 
 #include "boost/numeric/ublas/matrix_proxy.hpp"
@@ -63,17 +63,17 @@ namespace boost_ublas = boost::numeric::ublas;
 
 
 #if BOOST_VERSION >= 104000
-#include "boost/numeric/ublas/detail/raw.hpp"
+# include "boost/numeric/ublas/detail/raw.hpp"
 namespace traits=boost_ublas::raw;
-#define MRAWDATA(x) x.data().begin()
-#define VRAWDATA(x) x.data().begin()
+# define MRAWDATA(x) x.data().begin()
+# define VRAWDATA(x) x.data().begin()
 #else
-#include "boost/numeric/bindings/lapack/gesvd.hpp"
+# include "boost/numeric/bindings/lapack/gesvd.hpp"
 namespace traits = boost::numeric::bindings::traits;
 namespace lapack = boost::numeric::bindings::lapack;
-#define MRAWDATA(x) traits::matrix_storage(x)
-#define VRAWDATA(x) traits::vector_storage(x)
-#endif 
+# define MRAWDATA(x) traits::matrix_storage(x)
+# define VRAWDATA(x) traits::vector_storage(x)
+#endif
 
 
 typedef boost_ublas::vector<double> vectorN;
@@ -209,7 +209,7 @@ typedef boost_ublas::matrix<double> matrixNxP;
            matrix(i,j) = 1; \
         else  \
 	  matrix(i,j) = 0;\
-   } 
+   }
 
 #define MAL_MATRIX_FILL(matrix, value) \
   {\
@@ -232,7 +232,7 @@ template<class type> inline double __ret_mal_matrix_ret_determinant(boost_ublas:
 {
   if (m.size1()!=m.size2())
     return -1;
-  
+
   boost_ublas::matrix<type> mLu(m);
   boost_ublas::permutation_matrix<std::size_t> pivots(m.size1());
 
@@ -244,18 +244,14 @@ template<class type> inline double __ret_mal_matrix_ret_determinant(boost_ublas:
     {
       if (pivots(i)!=i)
 	det*=-1.0;
-      
+
       det *= mLu(i,i);
     }
   return det;
-} 
+}
 
 #define MAL_MATRIX_RET_DETERMINANT(name,type)	\
   __ret_mal_matrix_ret_determinant<type>(name)
 
 
 #define _MAL_VERSION_ 1
-
-
-
-

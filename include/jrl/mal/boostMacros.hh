@@ -1,5 +1,5 @@
 /*
- * Copyright 2008, 2009, 2010, 
+ * Copyright 2008, 2009, 2010,
  *
  * Francois Keith,
  * Florent Lamiraux,
@@ -24,42 +24,41 @@
 
 
 #ifndef __MAAL_BOOST_MACROS_
-#define __MAAL_BOOST_MACROS_
+# define __MAAL_BOOST_MACROS_
+# include "boost/version.hpp"
+# include <boost/preprocessor/cat.hpp>
+# include <boost/preprocessor/stringize.hpp>
 
-#include "boost/version.hpp"
-#include <boost/preprocessor/cat.hpp>
-#include <boost/preprocessor/stringize.hpp>
+# if BOOST_VERSION < 104000
+#  include "boost/numeric/bindings/traits/ublas_matrix.hpp"
+#  include "boost/numeric/bindings/traits/std_vector.hpp"
+# endif
 
-#if BOOST_VERSION < 104000
-#include "boost/numeric/bindings/traits/ublas_matrix.hpp"
-#include "boost/numeric/bindings/traits/std_vector.hpp"
-#endif
-
-#include "boost/numeric/ublas/matrix_proxy.hpp"
-#include "boost/numeric/ublas/matrix.hpp"
-#include "boost/numeric/ublas/io.hpp"
-#include "boost/numeric/ublas/operation.hpp"
-#include "boost/numeric/ublas/vector.hpp"
-#include "boost/numeric/ublas/vector_proxy.hpp"
-#include "boost/numeric/ublas/triangular.hpp"
-#include "boost/numeric/ublas/lu.hpp"
-#include <stdio.h>
+# include "boost/numeric/ublas/matrix_proxy.hpp"
+# include "boost/numeric/ublas/matrix.hpp"
+# include "boost/numeric/ublas/io.hpp"
+# include "boost/numeric/ublas/operation.hpp"
+# include "boost/numeric/ublas/vector.hpp"
+# include "boost/numeric/ublas/vector_proxy.hpp"
+# include "boost/numeric/ublas/triangular.hpp"
+# include "boost/numeric/ublas/lu.hpp"
+# include <cstdio>
 
 
 namespace ublas = boost::numeric::ublas;
 
-#if BOOST_VERSION >= 104000
-#include "boost/numeric/ublas/detail/raw.hpp"
+# if BOOST_VERSION >= 104000
+#  include "boost/numeric/ublas/detail/raw.hpp"
 namespace traits=ublas::raw;
-#define MRAWDATA(x) x.data().begin()
-#define VRAWDATA(x) x.data().begin()
-#else
-#include "boost/numeric/bindings/lapack/gesvd.hpp"
+#  define MRAWDATA(x) x.data().begin()
+#  define VRAWDATA(x) x.data().begin()
+# else
+#  include "boost/numeric/bindings/lapack/gesvd.hpp"
 namespace traits = boost::numeric::bindings::traits;
 namespace lapack = boost::numeric::bindings::lapack;
-#define MRAWDATA(x) traits::matrix_storage(x)
-#define VRAWDATA(x) traits::vector_storage(x)
-#endif 
+#  define MRAWDATA(x) traits::matrix_storage(x)
+#  define VRAWDATA(x) traits::vector_storage(x)
+# endif
 
 extern "C"
 {
@@ -71,33 +70,33 @@ extern "C"
 }
 
 
-#define ML_NOT_IMPLEMENTED(a)  do { \
+# define ML_NOT_IMPLEMENTED(a)  do { \
     fprintf( stderr,"Not implemented yet.\n" ); fflush(stderr); \
-    } while( 0 ); return a; 
+    } while( 0 ); return a;
 
-#define MAAL_CHECKVERBOSE(b) if( !b ) { \
+# define MAAL_CHECKVERBOSE(b) if( !b ) { \
      fprintf( stderr,"!! %s(#%d)\tError in check size for matrix lib.\n", \
 	      __FUNCTION__,__LINE__); fflush(stderr);  \
    }
 
-  
+
 namespace maal{  namespace boost {
 
-  /** \brief Native type of the Matrix and Vector classes. 
-   * 
-   * Change here if a float or a double lib is needed. 
+  /** \brief Native type of the Matrix and Vector classes.
+   *
+   * Change here if a float or a double lib is needed.
    */
   typedef double FloatType;
 
-  
+
   /** \brief Option of display for the matrix and vector output (cout<<).
-   * 
+   *
    * Two solutions can be usedto modify the display. The static
    * function setDisplayType( DisplayType ) is the classical solution.
    * The second solution is to pass the DisplayType directly to the
    * ouput operator: cout << DisplayType
    */
-  
+
   enum DisplayType
     {SIMPLE
      ,COMPLET
@@ -106,28 +105,27 @@ namespace maal{  namespace boost {
     };
 
   /** \brief Modify the display type. */
-  inline DisplayType setDisplayType( const DisplayType type, const bool read=false ) 
+  inline DisplayType setDisplayType( const DisplayType type, const bool read=false )
     {
-      static DisplayType memory = MATLAB; // Memory kept in static memory. 
+      static DisplayType memory = MATLAB; // Memory kept in static memory.
       // Used as a static global variable
       if(read)
 	return memory;
       return (memory = type);
     }
-  
+
   /** \brief Get the current display type. */
-  inline DisplayType getDisplayType( void ) 
+  inline DisplayType getDisplayType( void )
     { return setDisplayType( SIMPLE,true ); }
-  
-  
+
+
   /** The second solution is to pass the DisplayType directly to the
    * ouput operator: cout << DisplayType
    */
   inline std::ostream& operator<< (std::ostream& os,DisplayType disp )
     { setDisplayType(disp); return os; }
-   
+
 }
 };
 
 #endif // #ifndef __MAAL_BOOST_MACROS_
-

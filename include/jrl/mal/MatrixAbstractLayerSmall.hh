@@ -1,5 +1,5 @@
 /*
- * Copyright 2007, 2008, 2009, 2010, 
+ * Copyright 2007, 2008, 2009, 2010,
  *
  * Luis Degaldo,
  * Olivier Stasse,
@@ -21,19 +21,20 @@
  *
  */
 
-/*! This part of the documentation specifies what is the functionnality
- * of each macro, it is the responsability of the implementor to comply with this
- * specification.
+/*! This part of the documentation specifies what is the
+ * functionnality of each macro, it is the responsability of the
+ * implementor to comply with this specification.
+ *
  * @defgroup vector Vector package
  * @ingroup linearalgebra
- * 
+ *
  */
 
 /*!
  * @{
  */
 /*!
- * \brief declare a vector named \a name with type \a type 
+ * \brief declare a vector named \a name with type \a type
  * @ingroup vector
  */
 #define MAL_S3_VECTOR(name,type)
@@ -64,7 +65,7 @@
  *  \f$ \sqrt{\sum_{i=0}^{i=n-1}x_i^2}  \f$
  * @ingroup vector
  */
-#define MAL_S3_VECTOR_NORM(name) 
+#define MAL_S3_VECTOR_NORM(name)
 #undef MAL_S3_VECTOR_NORM
 
 /*! \brief Returns in \a res the cross product of two vectors \f$ v_1,v_2 \in \mathbb{R}^3 \f$.
@@ -104,7 +105,7 @@
  */
 
 /*! \brief Defines a matrix named \a name and of type \a type.
- * 
+ *
  * @ingroup matrix
  */
 #define MAL_S3x3_MATRIX(name,type)
@@ -142,7 +143,7 @@
 
 /*! \brief Returns the transpose of matrix.
 
- * Example: 
+ * Example:
  \code
   MAL_S3x3_MATRIX(A,double);
   MAL_S3x3_MATRIX(At,double);
@@ -157,7 +158,7 @@
 
 /*! \brief Returns the product of \a A by \a B, i.e. \f$ {\bf A B} \f$
   This forces the use of a temporary matrix structure.
-  
+
  * Example:
  \code
  MAL_S3x3_MATRIX(A,double);
@@ -174,7 +175,7 @@
 /*! \brief Puts in \a C the result of the product of \a A by \a B,
    i.e. \f$ {\bf C} = {\bf AB} \f$
 
-   
+
  * Example
    \code
    MAL_S3x3_MATRIX(A,double);
@@ -184,7 +185,7 @@
    MAL_S3x3_C_eq_A_by_B(C,A,B);
    \endcode
    This notation should be used to avoid temporary matrix,
-   and should be avoided when writting something like:    
+   and should be avoided when writting something like:
    \code
    MAL_S3x3_MATRIX(A,double);
    MAL_S3x3_MATRIX(B,double);
@@ -213,7 +214,7 @@
   \end{matrix}
   \right) \f$
   \n
-  then with 
+  then with
   \code
   MAL_S3x3_MATRIX_SET_IDENTITY(A)
   \endcode
@@ -232,7 +233,7 @@
 #undef MAL_S3x3_MATRIX_SET_IDENTITY
 
 /*! \brief Fill the matrix named \a matrix with the value \a value.
-  
+
  * Example:
  \code
  MAL_S3x3_MATRIX(A,3,3);
@@ -243,10 +244,10 @@
  */
 #define MAL_S3x3_MATRIX_FILL(matrix, value)
 #undef MAL_S3x3_MATRIX_FILL
-  
+
 
 /*! \brief Returns a pointer on the data stored for the matrix.
-  
+
   This is specially useful for mapping with fortran routines,
   for instance LAPACK.
  * @ingroup matrix
@@ -255,19 +256,19 @@
 #undef MAL_S3x3_RET_MATRIX_DATABLOCK
 
 /*! \brief This is used to extract a submatrix \a C from \a A.
-  
+
   For implementation purposes the data type is specified by \a type.
   The submatrix extracted is specified by its \a top - \a left coordinates,
   and its size: \a nbrows and \a nbcols for the number of rows and columns
   respectivly.
-  
+
  * @ingroup matrix
  */
 #define MAL_S3x3_MATRIX_C_eq_EXTRACT_A(C,A, type, top,left, nbrows, nbcols)
 #undef MAL_S3x3_MATRIX_C_eq_EXTRACT_A
 
 /*! \brief This macro returns the determinant of matrix \a name.
-  
+
  * For implementation purposes the type has to be specified by \a type.
  * @ingroup matrix
  */
@@ -275,14 +276,14 @@
 #undef MAL_S3x3_MATRIX_RET_DETERMINANT
 
 /*! \brief This macro returns the element at position i
-  * name(i) 
+  * name(i)
   * @ingroup matrix
  */
 #define MAL_S3x3_MATRIX_ACCESS_I(name, i)
 #undef MAL_S3x3_MATRIX_ACCESS_I
 
 /*! \brief This macro returns element at pos (i,j)
-  
+
  * name(i,j)
  * @ingroup matrix
  */
@@ -295,7 +296,7 @@
  */
 
 /*! \brief Defines a matrix named \a name and of type \a type.
- * 
+ *
  * @ingroup matrix
  */
 #define MAL_S4x4_MATRIX(name,type)
@@ -333,7 +334,7 @@
 
 /*! \brief Returns the transpose of matrix.
 
- * Example: 
+ * Example:
  \code
   MAL_S4x4_MATRIX(A,double);
   MAL_S4x4_MATRIX(At,double);
@@ -348,7 +349,7 @@
 
 /*! \brief Returns the product of \a A by \a B, i.e. \f$ {\bf A B} \f$
   This forces the use of a temporary matrix structure.
-  
+
  * Example:
  \code
  MAL_S4x4_MATRIX(A,double);
@@ -365,7 +366,7 @@
 /*! \brief Puts in \a C the result of the product of \a A by \a B,
    i.e. \f$ {\bf C} = {\bf AB} \f$
 
-   
+
  * Example
    \code
    MAL_S4x4_MATRIX(A,double);
@@ -375,7 +376,7 @@
    MAL_S4x4_C_eq_A_by_B(C,A,B);
    \endcode
    This notation should be used to avoid temporary matrix,
-   and should be avoided when writting something like:    
+   and should be avoided when writting something like:
    \code
    MAL_S4x4_MATRIX(A,double);
    MAL_S4x4_MATRIX(B,double);
@@ -404,7 +405,7 @@
   \end{matrix}
   \right) \f$
   \n
-  then with 
+  then with
   \code
   MAL_S4x4_MATRIX_SET_IDENTITY(A)
   \endcode
@@ -423,7 +424,7 @@
 #undef MAL_S4x4_MATRIX_SET_IDENTITY
 
 /*! \brief Fill the matrix named \a matrix with the value \a value.
-  
+
  * Example:
  \code
  MAL_S4x4_MATRIX(A,3,3);
@@ -434,10 +435,10 @@
  */
 #define MAL_S4x4_MATRIX_FILL(matrix, value)
 #undef MAL_S4x4_MATRIX_FILL
-  
+
 
 /*! \brief Returns a pointer on the data stored for the matrix.
-  
+
   This is specially useful for mapping with fortran routines,
   for instance LAPACK.
  * @ingroup matrix
@@ -446,19 +447,19 @@
 #undef MAL_S4x4_RET_MATRIX_DATABLOCK
 
 /*! \brief This is used to extract a submatrix \a C from \a A.
-  
+
   For implementation purposes the data type is specified by \a type.
   The submatrix extracted is specified by its \a top - \a left coordinates,
   and its size: \a nbrows and \a nbcols for the number of rows and columns
   respectivly.
-  
+
  * @ingroup matrix
  */
 #define MAL_S4x4_MATRIX_C_eq_EXTRACT_A(C,A, type, top,left, nbrows, nbcols)
 #undef MAL_S4x4_MATRIX_C_eq_EXTRACT_A
 
 /*! \brief This macro returns the determinant of matrix \a name.
-  
+
  * For implementation purposes the type has to be specified by \a type.
  * @ingroup matrix
  */
@@ -467,7 +468,7 @@
 
 
 /*! \brief This macro returns the element at position i
-  * name(i) 
+  * name(i)
   * @ingroup matrix
  */
 #define MAL_S4x4_MATRIX_ACCESS_I(name, i)
@@ -475,7 +476,7 @@
 
 
 /*! \brief This macro returns element at pos (i,j)
-  
+
  * name(i,j)
  * @ingroup matrix
  */

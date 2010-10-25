@@ -1,9 +1,9 @@
 /*
- * Copyright 2007, 2008, 2009, 2010, 
+ * Copyright 2007, 2008, 2009, 2010,
  * Luis Degaldo,
  * Francois Keith,
  * Florent Lamiraux,
- * Anthony Mallet, 
+ * Anthony Mallet,
  * Olivier Stasse,
  *
  * CNRS/AIST
@@ -58,33 +58,33 @@
 #  define _MATRIX_ABSTRACT_LAYER_H_
 
 // Define which type of linear algebra package and which type of small matrix and vector package.
-#include "MatrixAbstractLayer/configMAL.h"
+# include <jrl/mal/configMAL.hh>
 
   /*Documentation*/
-#  include "MatrixAbstractLayer/MatrixAbstractLayerDoc.h"
-#  include "MatrixAbstractLayer/MatrixAbstractLayerSmall.h"
+# include <jrl/mal/MatrixAbstractLayerDoc.hh>
+# include <jrl/mal/MatrixAbstractLayerSmall.hh>
 
 
   /*Boost or VNL*/
-#  if _VNL_MATRIX_ == 1
-#    include "MatrixAbstractLayer/MatrixAbstractLayerVNL.h"
-#  elif _BOOST_MATRIX_ == 1
-#    include "MatrixAbstractLayer/MatrixAbstractLayerBoost.h"
-#  endif
+# if _VNL_MATRIX_ == 1
+#  include <jrl/mal/MatrixAbstractLayerVNL.hh>
+# elif _BOOST_MATRIX_ == 1
+#  include <jrl/mal/MatrixAbstractLayerBoost.hh>
+# endif
 
   /*Small with T3D, R3D and V3D or by default*/
-#  if _T3D_R3D_V3D_ == 1
-#    include "MatrixAbstractLayer/MatrixAbstractLayerT3D.h"
-#  else
-#    include "jrlMathTools/jrlConstants.h"
-#    include "MatrixAbstractLayer/MatrixAbstractLayerVector3JrlMath.h"
-#    include "MatrixAbstractLayer/MatrixAbstractLayerVector4JrlMath.h"
-#    include "MatrixAbstractLayer/MatrixAbstractLayerMatrix3x3JrlMath.h"
-#    include "MatrixAbstractLayer/MatrixAbstractLayerMatrix4x4JrlMath.h"
-#  endif
+# if _T3D_R3D_V3D_ == 1
+#  include <jrl/mal/MatrixAbstractLayerT3D.hh>
+# else
+#  include "jrlMathTools/jrlConstants.h"
+#  include <jrl/mal/MatrixAbstractLayerVector3JrlMath.hh>
+#  include <jrl/mal/MatrixAbstractLayerVector4JrlMath.hh>
+#  include <jrl/mal/MatrixAbstractLayerMatrix3x3JrlMath.hh>
+#  include <jrl/mal/MatrixAbstractLayerMatrix4x4JrlMath.hh>
+# endif
 
-#  define MATRIX_VERSION 1
+# define MATRIX_VERSION 1
 
-#include "MatrixAbstractLayer/MatrixAbstractLayerCheck.h"
+# include <jrl/mal/MatrixAbstractLayerCheck.hh>
 
 #endif /* _MATRIX_ABSTRACT_LAYER_H_ */

@@ -1,5 +1,5 @@
 /*
- * Copyright 2007, 2008, 2009, 2010, 
+ * Copyright 2007, 2008, 2009, 2010,
  *
  * Francois Keith,
  * Florent Lamiraux,
@@ -26,34 +26,29 @@
 /*!
  * @defgroup abstract Abstract
  * @ingroup maal2
- * 
+ *
  */
 
 
 #ifndef __MAAL_ABSTRACT__
-#define __MAAL_ABSTRACT__
+# define __MAAL_ABSTRACT__
 
 /** \brief Compehensive namespace of the second version of the MAAL.
  */
-namespace maal 
-{  
-  namespace abstract 
+namespace maal
+{
+  namespace abstract
     {
 
-      /** \brief Native type of the Matrix and Vector classes. 
-       * 
-       * Change here if a float or a double lib is needed. 
+      /** \brief Native type of the Matrix and Vector classes.
+       *
+       * Change here if a float or a double lib is needed.
        */
       typedef double FloatType;
     }
 }
 
-#include <MatrixAbstractLayer/abstractVector.h>
-#include <MatrixAbstractLayer/abstractMatrix.h>
-
-
-
+# include <jrl/mal/abstractVector.hh>
+# include <jrl/mal/abstractMatrix.hh>
 
 #endif /* #ifndef __MAAL_ABSTRACT__ */
-
-

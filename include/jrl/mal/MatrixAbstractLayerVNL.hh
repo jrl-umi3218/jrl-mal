@@ -1,5 +1,5 @@
 /*
- * Copyright 2007, 2008, 2009, 2010, 
+ * Copyright 2007, 2008, 2009, 2010,
  *
  * Luis Degaldo,
  * Olivier Stasse,
@@ -21,7 +21,7 @@
  *
  */
 
-/**  
+/**
  * This header file intend to define an abstraction layer
  * to allow the use of diverse matrix libraries.
  * This is supposed to solve the dependency to a particular
@@ -42,7 +42,7 @@
 /*!
  * @defgroup VNL VNL
  * @ingroup linearalgebra
- * 
+ *
  */
 
 typedef VNL::Vector<double> vectorN;
@@ -60,15 +60,15 @@ typedef VNL::Vector<double> vectorN;
   name.Resize(nb_rows)
 
 #define MAL_VECTOR_FILL(name, value) \
-  name.Fill(value) 
+  name.Fill(value)
 
 #define MAL_VECTOR_NORM(name) \
   name.TwoNorm()
 
 #define MAL_VECTOR_3D_CROSS_PRODUCT(res,v1,v2)	\
   if ((v1.Size()==3) && (v2.Size()==3))		\
-    res = Cross3D(v1,v2); 
-  
+    res = Cross3D(v1,v2);
+
 #define MAL_RET_VECTOR_DATABLOCK(vector)\
   vector.DataBlock()
 
@@ -96,7 +96,7 @@ typedef VNL::Matrix<double> matrixNxP;
   { \
     VNL::MatrixInverse<type> tmp_InvMatrix(matrix); \
     inv_matrix = tmp_InvMatrix;		    \
-  } 
+  }
 #define MAL_PSEUDOINVERSE(matrix, pinv_matrix,type) \
   { \
     VNL::SVD<double> svd(matrix);\
@@ -105,7 +105,7 @@ typedef VNL::Matrix<double> matrixNxP;
 
 #define MAL_RET_TRANSPOSE(matrix) \
   matrix.Transpose()
-  
+
 #define MAL_TRANSPOSE_A_in_At(A,At)		\
   At = A.Transpose()
 
@@ -119,7 +119,7 @@ typedef VNL::Matrix<double> matrixNxP;
   matrix.SetIdentity()
 
 #define MAL_MATRIX_FILL(matrix, value) \
-  matrix.Fill(value) 
+  matrix.Fill(value)
 
 #define MAL_RET_MATRIX_DATABLOCK(matrix)\
   matrix.DataBlock()

@@ -1,5 +1,5 @@
 /*
- * Copyright 2008, 2009, 2010, 
+ * Copyright 2008, 2009, 2010,
  *
  * Francois Keith,
  * Florent Lamiraux,
@@ -40,18 +40,12 @@
 
 
 #ifndef __MAAL_BOOST__
-#define __MAAL_BOOST__
+# define __MAAL_BOOST__
 
-#include <iostream>
+# include <iostream>
 
-
-#include <MatrixAbstractLayer/boostMacros.h>
-#include <MatrixAbstractLayer/boostVector.h>
-#include <MatrixAbstractLayer/boostMatrix.h>
-
-
-
+# include <jrl/mal/boostMacros.hh>
+# include <jrl/mal/boostVector.hh>
+# include <jrl/mal/boostMatrix.hh>
 
 #endif /* #ifndef __MAAL_BOOST__ */
-
-
