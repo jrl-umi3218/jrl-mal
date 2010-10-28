@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2007,
  *
  * Luis Delgado
@@ -23,22 +23,22 @@
 /*! This part of the documentation specifies what is the functionnality
  * of each macro, it is the responsability of the implemtor to comply with this
  * specification.
- * @defgroup vector Vector package 
- * @ingroup linearalgebra 
+ * @defgroup vector Vector package
+ * @ingroup linearalgebra
  */
 
 /*!
  * @{
  */
 /*!
- * \brief declare a vector named \a name with type \a type 
+ * \brief declare a vector named \a name with type \a type
  * @ingroup vector
  */
 #define MAL_VECTOR(name,type)
 #undef MAL_VECTOR
 
 /*!
- * \brief declare a vector named \a name with type \a type 
+ * \brief declare a vector named \a name with type \a type
  * and of size \a nb_rows
  * @ingroup vector
  */
@@ -73,7 +73,7 @@
  *  \f$ \sqrt{\sum_{i=0}^{i=n-1}x_i^2}  \f$
  * @ingroup vector
  */
-#define MAL_VECTOR_NORM(name) 
+#define MAL_VECTOR_NORM(name)
 #undef MAL_VECTOR_NORM
 
 /*! \brief Returns in \a res the cross product of two vectors \f$ v_1,v_2 \in \mathbb{R}^3 \f$.
@@ -107,7 +107,7 @@
  */
 
 /*! \brief Defines a matrix named \a name and of type \a type.
- * 
+ *
  * @ingroup matrix
  */
 #define MAL_MATRIX(name,type)
@@ -129,13 +129,13 @@
 #define MAL_MATRIX_RESIZE(name,type, nb_rows, nb_cols)
 #undef MAL_MATRIX_RESIZE
 
-/*! \brief Returns the number of rows of matrix \a name. 
+/*! \brief Returns the number of rows of matrix \a name.
  * @ingroup matrix
  */
 #define MAL_MATRIX_NB_ROWS(name)
 #undef MAL_MATRIX_NB_ROWS
 
-/*! \brief Returns the number of cols of matrix \a name. 
+/*! \brief Returns the number of cols of matrix \a name.
  * @ingroup matrix
  */
 #define MAL_MATRIX_NB_COLS(name)
@@ -184,7 +184,7 @@
   ...
   MAL_PSEUDOINVERSE(A,pA,double);
   \endcode
- 
+
  * @ingroup matrix
  */
 #define MAL_PSEUDOINVERSE(matrix, pinv_matrix, type)
@@ -192,7 +192,7 @@
 
 /*! \brief Returns the transpose of matrix, i.e. go through a temporary matrix.
 
- * Example: 
+ * Example:
  \code
   MAL_MATRIX(A,double);
   MAL_MATRIX(At,double);
@@ -207,7 +207,7 @@
 
 /*! \brief Puts the transpose of matrix directly inside the argument.
 
- * Example: 
+ * Example:
  \code
   MAL_MATRIX(A,double);
   MAL_MATRIX(At,double);
@@ -221,7 +221,7 @@
 
 /*! \brief Returns the product of \a A by \a B, i.e. \f$ {\bf A B} \f$
   This forces the use of a temporary matrix structure.
-  
+
  * Example:
  \code
  MAT_MATRIX(A,double);
@@ -238,7 +238,7 @@
 /*! \brief Puts in \a C the result of the product of \a A by \a B,
    i.e. \f$ {\bf C} = {\bf AB} \f$
 
-   
+
  * Example
    \code
    MAL_MATRIX(A,double);
@@ -248,7 +248,7 @@
    MAL_C_eq_A_by_B(C,A,B);
    \endcode
    This notation should be used to avoid temporary matrix,
-   and should be avoided when writting something like:    
+   and should be avoided when writting something like:
    \code
    MAL_MATRIX(A,double);
    MAL_MATRIX(B,double);
@@ -277,7 +277,7 @@
   \end{matrix}
   \right) \f$
   \n
-  then with 
+  then with
   \code
   MAL_MATRIX_SET_IDENTITY(A)
   \endcode
@@ -296,7 +296,7 @@
 #undef MAL_MATRIX_SET_IDENTITY
 
 /*! \brief Fill the matrix named \a matrix with the value \a value.
-  
+
  * Example:
  \code
  MAL_MATRIX(A,3,3);
@@ -307,10 +307,10 @@
  */
 #define MAL_MATRIX_FILL(matrix, value)
 #undef MAL_MATRIX_FILL
-  
+
 
 /*! \brief Returns a pointer on the data stored for the matrix.
-  
+
   This is specially useful for mapping with fortran routines,
   for instance LAPACK.
  * @ingroup matrix
@@ -319,19 +319,19 @@
 #undef MAL_RET_MATRIX_DATABLOCK
 
 /*! \brief This is used to extract a submatrix \a C from \a A.
-  
+
   For implementation purposes the data type is specified by \a type.
   The submatrix extracted is specified by its \a top - \a left coordinates,
   and its size: \a nbrows and \a nbcols for the number of rows and columns
   respectivly.
-  
+
  * @ingroup matrix
  */
 #define MAL_MATRIX_C_eq_EXTRACT_A(C,A, type, top,left, nbrows, nbcols)
 #undef MAL_MATRIX_C_eq_EXTRACT_A
 
 /*! \brief This macro returns the determinant of matrix \a name.
-  
+
  * For implementation purposes the type has to be specified by \a type.
  * @ingroup matrix
  */

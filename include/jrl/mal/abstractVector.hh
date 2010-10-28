@@ -1,5 +1,5 @@
 /*
- * Copyright 2008, 2009, 2010, 
+ * Copyright 2008, 2009, 2010,
  *
  * Francois Keith,
  * Florent Lamiraux,
@@ -24,20 +24,20 @@
 
 
 #ifndef __MAAL_ABSTRACT_VECTOR_
-#define __MAAL_ABSTRACT_VECTOR_
+# define __MAAL_ABSTRACT_VECTOR_
 
-#include <MatrixAbstractLayer/abstractMacros.h>
+# include <jrl/mal/abstractMacros.hh>
 
 namespace maal{  namespace abstract {
 
-  
+
   /* --- VECTOR --------------------------------------------------------- */
   /* --- VECTOR --------------------------------------------------------- */
   /* --- VECTOR --------------------------------------------------------- */
 
-  /** \brief Abstract Vector class. 
+  /** \brief Abstract Vector class.
    */
-  
+
   class Vector
     {
     public: /* Constructors */
@@ -85,7 +85,7 @@ namespace maal{  namespace abstract {
       static Vector& crossProduct( const Vector&v1,const Vector&v2,Vector&res);
       inline Vector& crossProduct( const Vector&v2,Vector&res ) const;
       inline Vector crossProduct( const Vector&v2 );
-	
+
       /* --- <Vector> x <Vector> --- */
       static Vector& multiply( const Vector&v1,const Vector&v2,Vector&res);
       inline Vector multiply( const Vector&v2 ) const;
@@ -137,10 +137,9 @@ namespace maal{  namespace abstract {
       inline Vector& operator= ( const Vector&v1 );
 
       inline friend std::istream& operator>> ( std::istream& is,Vector& v1 );
-      inline friend std::ostream& operator<< ( std::ostream& os,const Vector& v1 ); 
+      inline friend std::ostream& operator<< ( std::ostream& os,const Vector& v1 );
     };
 
 }}
 
 #endif // #ifndef __MAAL_ABSTRACT_VECTOR_
-

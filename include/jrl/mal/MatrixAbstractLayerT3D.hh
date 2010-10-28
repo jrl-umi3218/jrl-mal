@@ -1,5 +1,5 @@
 /*
- * Copyright 2007, 2008, 2009, 2010, 
+ * Copyright 2007, 2008, 2009, 2010,
  * Luis Degaldo,
  * Olivier Stasse,
  *
@@ -35,19 +35,19 @@ typedef T3D matrix4d;
 
 
 #define MAL_S4x4_MATRIX_CLEAR(name) \
-  /*Clear don't have any sense*/ 
+  /*Clear don't have any sense*/
 
 #define MAL_S4x4_MATRIX_SET_IDENTITY(name) \
   name=t3dMatrixIdentity
 
 #define MAL_S4x4_INVERSE(name,inv_matrix,type)	\
-  inv_matrix=~name; 
+  inv_matrix=~name;
 
 #define MAL_S4x4_RET_TRANSPOSE(matrix) \
-  /*Transpose don't have any sense*/ 
+  /*Transpose don't have any sense*/
 
 #define MAL_S4x4_TRANSPOSE_A_in_At(A,At)		\
-  /*Transpose don't have any sense*/ 
+  /*Transpose don't have any sense*/
 
 #define MAL_S4x4_RET_A_by_B(A,B) \
   (A)*(B)
@@ -72,7 +72,7 @@ typedef V3D vector3d;
   V3D name
 
 #define MAL_S3_VECTOR_SIZE(name)		\
-  3 
+  3
 
 #define MAL_S3_VECTOR_FILL(name,value)		\
   { name[0] = value;				\
@@ -87,7 +87,7 @@ typedef V3D vector3d;
 #define MAL_S3_VECTOR_CROSS_PRODUCT(res,v1,v2)	\
   { res[0] = v1[1]*v2[2]-v1[2]*v2[1];		\
     res[1] = v1[2]*v2[0]-v1[0]*v2[2];		\
-    res[2] = v1[0]*v2[1]-v1[1]*v2[0];}		
+    res[2] = v1[0]*v2[1]-v1[1]*v2[0];}
 
 #define MAL_S3_RET_VECTOR_DATABLOCK(name)	\
   &name
@@ -107,7 +107,7 @@ typedef V3D vector4d;
   V3D name
 
 #define MAL_S4_VECTOR_SIZE(name)		\
-  3 
+  3
 
 #define MAL_S4_VECTOR_FILL(name,value)		\
   { name[0] = value;				\

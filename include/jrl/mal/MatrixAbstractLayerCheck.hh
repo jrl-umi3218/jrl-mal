@@ -1,5 +1,5 @@
 /*
- * Copyright 2010, 
+ * Copyright 2010,
  *
  * Francois Keith
  * Florent Lamiraux
@@ -22,15 +22,15 @@
  */
 
 #ifndef MATRIXABSTRACTLAYER_CHECK_H
-#define MATRIXABSTRACTLAYER_CHECK_H
+# define MATRIXABSTRACTLAYER_CHECK_H
 
 //define isnan for win32 users
-#ifdef WIN32
-# ifndef isnan
-#  include <float.h>
-#  define isnan _isnan
-# endif /*isnan*/
-#endif /*WIN32*/
+# ifdef WIN32
+#  ifndef isnan
+#   include <float.h>
+#   define isnan _isnan
+#  endif /*isnan*/
+# endif /*WIN32*/
 
 inline bool malIsNanVector(const vectorN& inVector)
 {

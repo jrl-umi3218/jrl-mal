@@ -1,5 +1,5 @@
 /*
- * Copyright 2007, 2008, 2009, 2010, 
+ * Copyright 2007, 2008, 2009, 2010,
  *
  * Francois Keith,
  * Florent Lamiraux,
@@ -24,16 +24,16 @@
 
 /*! This is a very fast and simple implementation
  * of a 4D vector class of double.
- * 
+ *
  * 01/02/2007
  *
- * (c) Olivier Stasse and Florent Lamiraux, JRL, CNRS-AIST, ISRI, 2007 
+ * (c) Olivier Stasse and Florent Lamiraux, JRL, CNRS-AIST, ISRI, 2007
  */
 
 #ifndef MATRIXABSTRACTLAYER_JRLMATH_VECTOR4_H
-#define MATRIXABSTRACTLAYER_JRLMATH_VECTOR4_H
+# define MATRIXABSTRACTLAYER_JRLMATH_VECTOR4_H
 
-#include "jrlMathTools/vector4.h"
+# include "jrlMathTools/vector4.h"
 
 typedef jrlMathTools::Vector4D<double> vector4d;
 
@@ -41,7 +41,7 @@ typedef jrlMathTools::Vector4D<double> vector4d;
   jrlMathTools::Vector4D<type> name
 
 #define MAL_S4_VECTOR_SIZE(name)		\
-  4 
+  4
 
 #define MAL_S4_VECTOR_FILL(name,value)		\
   { name.m_x = value;				\
@@ -58,4 +58,4 @@ typedef jrlMathTools::Vector4D<double> vector4d;
 #define MAL_S4_VECTOR_ACCESS(name, i)  		\
   name[i]
 
-#endif /* MATRIXABSTRACTLAYER_JRLMATH_VECTOR3_H */
+# endif /* MATRIXABSTRACTLAYER_JRLMATH_VECTOR3_H */

@@ -1,5 +1,5 @@
 /*
- * Copyright 2008, 2009, 2010, 
+ * Copyright 2008, 2009, 2010,
  *
  * Paul Evrard,
  * Francois Keith,
@@ -26,34 +26,34 @@
  */
 
 #ifndef __MAAL_BOOST_MATRIX_SVD_
-#define __MAAL_BOOST_MATRIX_SVD_
+# define __MAAL_BOOST_MATRIX_SVD_
 
-#include <MatrixAbstractLayer/boostMatrix.h>
+# include <jrl/mal/boostMatrix.hh>
 
 /**
- * \file boostMatrixSvd.h Define maal::boost::MatrixSvd, 
+ * \file boostMatrixSvd.h Define maal::boost::MatrixSvd,
  * heritance from maal::boost:Matrix.
  */
 
 namespace maal
 {
-  namespace boost 
+  namespace boost
   {
 
     class MatrixSvd
       : public Matrix
     {
-	  
-    protected: 
+
+    protected:
       /* SVD memory. */
       mutable unsigned int nbrows,nbcols,nmajor,nminor;
       mutable bool toTranspose;
 
-      mutable ::boost::numeric::ublas::matrix<FloatType,::boost::numeric::ublas::column_major> McolMajor; 
-      mutable ::boost::numeric::ublas::matrix<FloatType,::boost::numeric::ublas::column_major> U; //(NR,NR); 
-      mutable ::boost::numeric::ublas::matrix<FloatType,::boost::numeric::ublas::column_major> VT; //(NC,NC);	
-      mutable ::boost::numeric::ublas::vector<FloatType> s; //(std::min(NR,NC));		
-      mutable ::boost::numeric::ublas::vector<double> w;		
+      mutable ::boost::numeric::ublas::matrix<FloatType,::boost::numeric::ublas::column_major> McolMajor;
+      mutable ::boost::numeric::ublas::matrix<FloatType,::boost::numeric::ublas::column_major> U; //(NR,NR);
+      mutable ::boost::numeric::ublas::matrix<FloatType,::boost::numeric::ublas::column_major> VT; //(NC,NC);
+      mutable ::boost::numeric::ublas::vector<FloatType> s; //(std::min(NR,NC));
+      mutable ::boost::numeric::ublas::vector<double> w;
       mutable ::boost::numeric::ublas::vector<FloatType> sp; //(nsv);
       mutable int lw; // = -1;
       mutable int lda,lu,lvt;
@@ -76,41 +76,41 @@ namespace maal
       /* ---------------------------------------------------------------- */
       /* --- REVISE MEMORY ---------------------------------------------- */
       /* ---------------------------------------------------------------- */
-      bool reviseMemory( void ) const 
-      { 
+      bool reviseMemory( void ) const
+      {
 	if( matrix.size1()>matrix.size2() )
 	  { return (!( (toTranspose==false)&&(nbrows==matrix.size1())
 		       &&(nbcols==matrix.size2()) )); }
-	else 
+	else
 	  { return !( (toTranspose==true)&&(nbcols==matrix.size1())
 		      &&(nbrows==matrix.size2()) ); }
       }
-	  
+
       /* ---------------------------------------------------------------- */
       /* --- INIT MEMORY ------------------------------------------------ */
       /* ---------------------------------------------------------------- */
       void initSvdMemory( void ) const
-      {	
+      {
 	if(! reviseMemory() ) return; // Nothing to do
-  
+
 	if( matrix.size1()>matrix.size2() )
-	  { 
+	  {
 	    toTranspose=false ;  nbrows=matrix.size1(); nbcols=matrix.size2();
 	    nmajor=nbrows; nminor=nbcols;
-	    McolMajor=matrix; 
+	    McolMajor=matrix;
 	  }
-	else 
+	else
 	  {
 	    toTranspose=true; nbrows=matrix.size2(); nbcols=matrix.size1();
 	    nmajor=nbrows; nminor=nbcols;
-	    McolMajor=trans(matrix); 
+	    McolMajor=trans(matrix);
 	  }
-	U.resize(nbrows,nbrows); 
-	VT.resize(nbcols,nbcols);	
+	U.resize(nbrows,nbrows);
+	VT.resize(nbcols,nbcols);
 	s.resize(nminor);
 
-	char Jobu='A'; /* Compute complete U Matrix */	
-	char Jobvt='A'; /* Compute complete VT Matrix */	
+	char Jobu='A'; /* Compute complete U Matrix */
+	char Jobvt='A'; /* Compute complete VT Matrix */
 
 	/* Get workspace size for svd. */
 	{
@@ -119,11 +119,11 @@ namespace maal
 	  const int n=nbrows,m=nbcols;
 	  lda = std::max(m,n);
 	  lw =-1;
-	  dgesvd_(&Jobu, &Jobvt, &m, &n,                 
-		  MRAWDATA(McolMajor), &lda,       
-		  0, 0, &m, 0, &n, &vw, &lw, &linfo);    
+	  dgesvd_(&Jobu, &Jobvt, &m, &n,
+		  MRAWDATA(McolMajor), &lda,
+		  0, 0, &m, 0, &n, &vw, &lw, &linfo);
 	  lw = int(vw)+5;
-	  w.resize(lw);		 
+	  w.resize(lw);
 	}
 	sp.resize(nminor);
       }
@@ -136,18 +136,18 @@ namespace maal
       /* ---------------------------------------------------------------- */
       using Matrix::pseudoInverse;
       using Matrix::dampedInverse;
-	  
-      virtual Matrix& 
+
+      virtual Matrix&
 	pseudoInverse( Matrix& invMatrix,
 		       const FloatType threshold = 1e-6,
 		       Matrix* Uref = NULL,
 		       Vector* Sref = NULL,
-		       Matrix* Vref = NULL)  const 
-      {	
+		       Matrix* Vref = NULL)  const
+      {
 	initSvdMemory();
 	_resizeInv(invMatrix.matrix,McolMajor);
-	char Jobu='A'; /* Compute complete U Matrix */	
-	char Jobvt='A'; /* Compute complete VT Matrix */	
+	char Jobu='A'; /* Compute complete U Matrix */
+	char Jobvt='A'; /* Compute complete VT Matrix */
 
 	if( toTranspose ){ McolMajor = trans(matrix); }else{ McolMajor = matrix; }
 
@@ -168,14 +168,14 @@ namespace maal
 		  MRAWDATA(VT),
 		  &lvt,
 		  VRAWDATA(w),&lw,&linfo);
-    
+
 	}
 
-  
+
 	rankJ = 0;
-	for( unsigned int i=0;i<nminor;++i )		
+	for( unsigned int i=0;i<nminor;++i )
 	  if( fabs(s(i))>threshold ) { sp(i)=1/s(i); rankJ++; }
-	  else sp(i)=0.;		
+	  else sp(i)=0.;
 	invMatrix.matrix.clear();
 	{
 	  double * pinv = MRAWDATA(invMatrix.matrix);
@@ -183,22 +183,22 @@ namespace maal
 	  double * uptrRow;
 	  double * vptr;
 	  double * vptrRow = MRAWDATA(VT);
-    
+
 	  double * spptr;
-    
+
 	  for( unsigned int i=0;i<nbcols;++i )
 	    {
 	      uptrRow = MRAWDATA(U);
 	      for( unsigned int j=0;j<nbrows;++j )
 		{
-		  uptr = uptrRow;  vptr = vptrRow; 
+		  uptr = uptrRow;  vptr = vptrRow;
 		  spptr = VRAWDATA( sp );
 		  for( unsigned int k=0;k<rankJ;++k )
 		    {
 		      (*pinv) += (*vptr) * (*spptr) * (*uptr);
 		      uptr+=nbrows; vptr++; spptr++;
 		    }
-		  pinv++; uptrRow++; 
+		  pinv++; uptrRow++;
 		}
 	      vptrRow += nbcols;
 	    }
@@ -219,18 +219,18 @@ namespace maal
 	  }
 	return invMatrix;
       }
-	  
-      virtual Matrix& 
+
+      virtual Matrix&
 	dampedInverse( Matrix& invMatrix,
 		       const FloatType threshold = 1e-6,
 		       Matrix* Uref = NULL,
 		       Vector* Sref = NULL,
-		       Matrix* Vref = NULL)  const 
-      {	
+		       Matrix* Vref = NULL)  const
+      {
 	initSvdMemory();
 	_resizeInv(invMatrix.matrix,McolMajor);
-	char Jobu='A'; /* Compute complete U Matrix */	
-	char Jobvt='A'; /* Compute complete VT Matrix */	
+	char Jobu='A'; /* Compute complete U Matrix */
+	char Jobvt='A'; /* Compute complete VT Matrix */
 
 	if( toTranspose ){ McolMajor = trans(matrix); }else{ McolMajor = matrix; }
 
@@ -242,7 +242,7 @@ namespace maal
 	  lu = traits::leading_dimension(U); // NR
 	  lvt = traits::leading_dimension(VT); // NC
 
-	  int linfo; 
+	  int linfo;
 	  dgesvd_(&Jobu, &Jobvt,&n,&m,
 		  MRAWDATA(McolMajor),
 		  &lda,
@@ -254,11 +254,11 @@ namespace maal
 		  VRAWDATA(w),&lw,&linfo);
 
 	}
-  
+
 	rankJ = 0;
-	for( unsigned int i=0;i<nminor;++i )		
+	for( unsigned int i=0;i<nminor;++i )
 	  {
-	    if( fabs(s(i))>threshold*.1 )   rankJ++; 
+	    if( fabs(s(i))>threshold*.1 )   rankJ++;
 	    sp(i)=s(i)/(s(i)*s(i)+threshold*threshold);
 	  }
 	invMatrix.matrix.clear();
@@ -268,22 +268,22 @@ namespace maal
 	  double * uptrRow;
 	  double * vptr;
 	  double * vptrRow = MRAWDATA(VT);
-    
+
 	  double * spptr;
-    
+
 	  for( unsigned int i=0;i<nbcols;++i )
 	    {
 	      uptrRow = MRAWDATA(U);
 	      for( unsigned int j=0;j<nbrows;++j )
 		{
-		  uptr = uptrRow;  vptr = vptrRow; 
+		  uptr = uptrRow;  vptr = vptrRow;
 		  spptr = VRAWDATA( sp );
 		  for( unsigned int k=0;k<rankJ;++k )
 		    {
 		      (*pinv) += (*vptr) * (*spptr) * (*uptr);
 		      uptr+=nbrows; vptr++; spptr++;
 		    }
-		  pinv++; uptrRow++; 
+		  pinv++; uptrRow++;
 		}
 	      vptrRow += nbcols;
 	    }

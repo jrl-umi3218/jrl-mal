@@ -1,5 +1,5 @@
 /*
- * Copyright 2008, 2009, 2010, 
+ * Copyright 2008, 2009, 2010,
  *
  * Francois Keith,
  * Florent Lamiraux,
@@ -23,9 +23,9 @@
  */
 
 #ifndef __MAAL_ABSTRACT_MATRIX_
-#define __MAAL_ABSTRACT_MATRIX_
+# define __MAAL_ABSTRACT_MATRIX_
 
-namespace maal{  
+namespace maal{
 
   /*! \brief Abstract (purely virtual) version of the Maal2.
    *
@@ -41,13 +41,13 @@ namespace maal{
     /* --- MATRIX --------------------------------------------------------- */
     /* --- MATRIX --------------------------------------------------------- */
 
-    /** \brief Abstract Matrix class. 
+    /** \brief Abstract Matrix class.
      */
-    
+
     class Matrix
       {
       public: /* Constructors */
-	
+
 	Matrix( const unsigned int rows=0, const unsigned int cols=0 );
 	Matrix( InternalMatrix* clone,const bool proprio=false );
 	Matrix( const Matrix& copy );
@@ -61,14 +61,14 @@ namespace maal{
 
 	inline Matrix& resize( const unsigned int nbRows,
 			       const unsigned int nbCols,const bool setZero=true ) ;
-       
-	inline unsigned int nbRows( void ) const; 
-	inline unsigned int nbCols( void ) const; 
+
+	inline unsigned int nbRows( void ) const;
+	inline unsigned int nbCols( void ) const;
 
 	inline Matrix& setZero( void ) ;
 	inline Matrix& setIdentity( void  ) ;
 	inline Matrix& fill( const FloatType value ) ;
-	
+
 	/* -------------- */
 	/* --- SCALAR --- */
 	/* -------------- */
@@ -86,10 +86,10 @@ namespace maal{
 	/* --------------- */
 	inline Matrix& 	transpose( Matrix& At ) const ;
 	inline Matrix transpose( void )  const ;
-       
+
 	inline Matrix& inverse( Matrix& invMatrix ) const ;
 	inline Matrix inverse( void )  const ;
-	
+
 	Matrix& pseudoInverse( Matrix& invMatrix,
 			       const FloatType threshold = 1e-6,
 			       Matrix* Uref = NULL,
@@ -108,8 +108,8 @@ namespace maal{
 				     Matrix* U = NULL,
 				     Matrix* S = NULL,
 				     Matrix* V = NULL)  const ;
-	
-	inline Matrix& opposite( Matrix& res ) const ; 
+
+	inline Matrix& opposite( Matrix& res ) const ;
 	inline Matrix opposite( void ) const  ;
 
 	/* ----------------------- */
@@ -121,26 +121,26 @@ namespace maal{
 	inline Matrix& multiply( const Matrix& B,Matrix& C ) const ;
 
 	// Multiplication <Matrix> x <Vector>
-	friend inline Vector& multiply( const Matrix& M, const Vector& v, Vector& res ); 
+	friend inline Vector& multiply( const Matrix& M, const Vector& v, Vector& res );
 	inline Vector multiply( const Vector& v ) const ;
 	inline Vector& multiply(  const Vector& v, Vector& res ) const ;
-      
-	// Addition 
+
+	// Addition
 	inline friend Matrix& addition( const Matrix& A,const Matrix& B,Matrix& C );
-	inline Matrix addition( const Matrix& B ) const; 
+	inline Matrix addition( const Matrix& B ) const;
 	inline Matrix&	addition( const Matrix& B,Matrix& C ) const ;
 
-	// Substraction 
+	// Substraction
 	inline friend Matrix& substraction( const Matrix& A,const Matrix& B,Matrix& C );
 	inline Matrix substraction( const Matrix& B ) const ;
 	inline Matrix& substraction( const Matrix& B,Matrix& C ) const ;
-     
+
 	// ---> With real
 	// Multiplication <Matrix> x <Float>
 	inline friend Matrix& multiply( const Matrix& A,const FloatType x,Matrix& C );
 	inline Matrix multiply( const FloatType x ) const ;
 	inline Matrix& multiply( const FloatType x,Matrix& C ) const ;
-	
+
 	// Addition <Matrix> x <Float>
 	inline friend Matrix& addition( const Matrix& A,const FloatType x,Matrix& C );
 	inline Matrix addition( const FloatType x ) const ;
@@ -161,18 +161,18 @@ namespace maal{
 	/* ------------------- */
 	inline FloatType* datablock( void );
 	inline const FloatType* datablock( void ) const;
-	
-	inline Matrix& extract( const int top,const int left, 
+
+	inline Matrix& extract( const int top,const int left,
 				const int nbrows, const int nbcols,
-				Matrix& C ) const; 
-	inline Matrix extract( const int top,const int left, 
+				Matrix& C ) const;
+	inline Matrix extract( const int top,const int left,
 			       const int nbrows, const int nbcols ) const;
-	
+
 	inline const FloatType& elementAt( const int row,const int col ) const;
 	inline FloatType& elementAt( const int row,const int col );
 	inline const FloatType& elementAt( const int elmt ) const;
 	inline FloatType& elementAt( const int elmt ) ;
-      
+
 	/* ------------- */
 	/* --- BONUS --- */
 	/* ------------- */
@@ -183,31 +183,31 @@ namespace maal{
 	inline Matrix stackMatrix( const Matrix& B ) const ;
 	inline Matrix& juxtaposeMatrix( const Matrix& B,Matrix& C ) const ;
 	inline Matrix juxtaposeMatrix( const Matrix& B ) const ;
-	
+
 	/* ----------------- */
 	/* --- OPERATORS --- */
 	/* ----------------- */
 	inline friend Matrix operator+ ( const Matrix&m1,const Matrix&m2 );
 	inline friend Matrix operator- ( const Matrix&m1,const Matrix&m2 );
 	inline friend Matrix operator* ( const Matrix&m1,const Matrix&m2 );
-      
+
 	inline Matrix& operator+= ( const Matrix&m1 );
 	inline Matrix& operator-= ( const Matrix&m1 );
 	inline Matrix& operator*= ( const Matrix&m1 );
 	inline Matrix& operator*= ( const FloatType x );
 
 	inline friend Matrix operator- ( const Matrix& m );
-      
-	inline const FloatType& operator()( const int i,const int j )const; 
+
+	inline const FloatType& operator()( const int i,const int j )const;
 	inline FloatType& operator()( const int i,const int j );
 	inline const FloatType& operator()( const int n )const ;
 	inline FloatType& operator()( const int n ) ;
-      
+
 	inline Matrix& operator= ( const Matrix&m1 );
- 
-	inline friend Vector operator * ( const Matrix& M,const Vector& v1 );    
+
+	inline friend Vector operator * ( const Matrix& M,const Vector& v1 );
 	inline friend Vector operator * ( const Vector& v1,const Matrix& M );
-      
+
 	inline friend Matrix operator+ ( const FloatType x,const Matrix&m1 );
 	inline friend Matrix operator- ( const FloatType x,const Matrix&m1 );
 	inline friend Matrix operator* ( const FloatType x,const Matrix&m1 );
@@ -224,4 +224,3 @@ namespace maal{
   }}
 
 #endif // #ifndef __MAAL_ABSTRACT_MATRIX_
-

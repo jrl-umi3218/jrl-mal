@@ -19,7 +19,7 @@ INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
 
 # Make Boost.Test generates the main function in test cases.
 ADD_DEFINITIONS(-DBOOST_TEST_DYN_LINK -DBOOST_TEST_MAIN)
-
+ADD_DEFINITIONS(${SMALLMATRIXLIB_CXXFLAGS})
 # JRL_MAL_TEST(NAME)
 # ------------------------
 #

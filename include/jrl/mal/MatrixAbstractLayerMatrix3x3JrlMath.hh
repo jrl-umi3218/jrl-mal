@@ -1,5 +1,5 @@
 /*
- * Copyright 2007, 2008, 2009, 2010, 
+ * Copyright 2007, 2008, 2009, 2010,
  * Florent Lamiraux,
  * Olivier Stasse,
  *
@@ -22,13 +22,13 @@
 
 /*! This is a very fast and simple implementation
  * of a 3D matrix class of double.
- * 
+ *
  */
 
 #ifndef MATRIXABSTRACTLAYER_JRLMATH_MATRIX3X3_H
-#define MATRIXABSTRACTLAYER_JRLMATH_MATRIX3X3_H
+# define MATRIXABSTRACTLAYER_JRLMATH_MATRIX3X3_H
 
-#include "jrlMathTools/matrix3x3.h"
+# include "jrlMathTools/matrix3x3.h"
 
 typedef jrlMathTools::Matrix3x3<double> matrix3d;
 
