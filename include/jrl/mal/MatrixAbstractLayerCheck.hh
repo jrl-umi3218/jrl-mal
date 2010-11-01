@@ -24,6 +24,8 @@
 #ifndef MATRIXABSTRACTLAYER_CHECK_H
 # define MATRIXABSTRACTLAYER_CHECK_H
 
+#include <jrl/mal/MatrixAbstractLayerBoost.hh>
+
 //define isnan for win32 users
 # ifdef WIN32
 #  ifndef isnan
