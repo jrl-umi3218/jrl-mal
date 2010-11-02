@@ -27,6 +27,9 @@
  * @ingroup linearalgebra
  */
 
+#ifndef MATRIXABSTRACTLAYER_DOC_H
+# define MATRIXABSTRACTLAYER_DOC_H
+
 /*!
  * @{
  */
@@ -338,4 +341,4 @@
 #define MAL_MATRIX_RET_DETERMINANT(name,type)
 #undef MAL_MATRIX_RET_DETERMINANT
 
-
+#endif /* MATRIXABSTRACTLAYER_DOC_H */

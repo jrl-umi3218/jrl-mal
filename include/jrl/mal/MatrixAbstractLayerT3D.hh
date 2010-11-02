@@ -25,6 +25,9 @@
  *
  */
 
+#ifndef MATRIXABSTRACTLAYER_T3D_H
+# define MATRIXABSTRACTLAYER_T3D_H
+
 /*T3D which implements SmallMatrix4x4*/
 #include "t3d/t3d.h"
 
@@ -163,4 +166,4 @@ typedef jrlMathTools::Matrix3x3 <double> matrix3d;
 #define MAL_S3x3_MATRIX_ACCESS_I_J(name, i, j) \
   name(i,j)
 
-
+#endif /* MATRIXABSTRACTLAYER_T3D_H */

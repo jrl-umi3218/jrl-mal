@@ -35,6 +35,8 @@
  * (c) 2006 , Olivier Stasse JRL-Japan, CNRS-AIST, ISRI.
  */
 
+#ifndef MATRIXABSTRACTLAYER_BOOST_H
+# define MATRIXABSTRACTLAYER_BOOST_H
 
 /*!
  * @defgroup Boost Boost
@@ -255,3 +257,5 @@ template<class type> inline double __ret_mal_matrix_ret_determinant(boost_ublas:
 
 
 #define _MAL_VERSION_ 1
+
+#endif /* MATRIXABSTRACTLAYER_BOOST_H */

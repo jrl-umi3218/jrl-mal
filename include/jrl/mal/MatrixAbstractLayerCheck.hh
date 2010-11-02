@@ -52,4 +52,4 @@ inline bool malIsNanMatrix(const matrixNxP& inMatrix)
   return false;
 }
 
-#endif
+#endif /* MATRIXABSTRACTLAYER_CHECK_H */

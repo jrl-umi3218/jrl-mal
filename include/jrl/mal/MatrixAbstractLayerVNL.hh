@@ -32,6 +32,9 @@
  *
  */
 
+#ifndef MATRIXABSTRACTLAYER_VNL_H
+# define MATRIXABSTRACTLAYER_VNL_H
+
 #include <VNL/matrix.h>
 #include <VNL/vector.h>
 #include <VNL/Algo/matrixinverse.h>
@@ -130,4 +133,4 @@ typedef VNL::Matrix<double> matrixNxP;
 #define MAL_MATRIX_RET_DETERMINANT(name)	\
   Determinant(name)
 
-
+#endif /* MATRIXABSTRACTLAYER_VNL_H */

@@ -30,6 +30,9 @@
  *
  */
 
+#ifndef MATRIXABSTRACTLAYER_SMALL_H
+# define MATRIXABSTRACTLAYER_SMALL_H
+
 /*!
  * @{
  */
@@ -483,3 +486,4 @@
 #define MAL_S4x4_MATRIX_ACCESS_I_J(name, i, j)
 #undef MAL_S4x4_MATRIX_ACCESS_I_J
 
+#endif /* MATRIXABSTRACTLAYER_SMALL_H */
