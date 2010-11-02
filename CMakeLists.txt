@@ -18,6 +18,7 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
 INCLUDE(cmake/base.cmake)
+INCLUDE(cmake/boost.cmake)
 INCLUDE(cmake/cpack.cmake)
 
 SET(PROJECT_NAME jrl-mal)
@@ -28,19 +29,9 @@ SET(PROJECT_URL "http://github.com/jrl-umi3218/jrl-mal")
 SETUP_PROJECT()
 SETUP_PROJECT_CPACK()
 
-# Requires Fortran support as Lapack needs it.
-ENABLE_LANGUAGE(Fortran)
-
-# Search for Boost.
-SET(Boost_USE_STATIC_LIBS OFF)
-SET(Boost_USE_MULTITHREAD ON)
-FIND_PACKAGE(Boost 1.40 COMPONENTS unit_test_framework REQUIRED)
-
-# Search for LAPACK.
-FIND_PACKAGE(LAPACK REQUIRED)
-FOREACH(L ${LAPACK_LINKER_FLAGS} ${LAPACK_LIBRARIES})
-  SET(PKG_CONFIG_LIBS "${PKG_CONFIG_LIBS} ${L}")
-ENDFOREACH(L in ${LAPACK_LIBRARIES})
+# Search for dependencies.
+SEARCH_FOR_BOOST()
+SEARCH_FOR_LAPACK()
 
 # Search for the underlying small matrices library.
 SET(SMALLMATRIXLIB_FOUND 0)
