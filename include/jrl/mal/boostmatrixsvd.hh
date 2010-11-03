@@ -28,7 +28,7 @@
 #ifndef __MAAL_BOOST_MATRIX_SVD_
 # define __MAAL_BOOST_MATRIX_SVD_
 
-# include <jrl/mal/boostMatrix.hh>
+# include <jrl/mal/boostmatrix.hh>
 
 /**
  * \file boostMatrixSvd.h Define maal::boost::MatrixSvd,

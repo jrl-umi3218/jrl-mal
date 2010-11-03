@@ -33,7 +33,7 @@
 #ifndef MATRIXABSTRACTLAYER_JRLMATH_VECTOR4_H
 # define MATRIXABSTRACTLAYER_JRLMATH_VECTOR4_H
 
-# include "jrlMathTools/vector4.h"
+# include "jrl/mathtools/vector4.hh"
 
 typedef jrlMathTools::Vector4D<double> vector4d;
 

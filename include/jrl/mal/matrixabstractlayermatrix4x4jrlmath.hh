@@ -29,7 +29,7 @@
 #ifndef MATRIXABSTRACTLAYER_JRLMATH_MATRIX4X4_H
 # define MATRIXABSTRACTLAYER_JRLMATH_MATRIX4X4_H
 
-# include "jrlMathTools/matrix4x4.h"
+# include "jrl/mathtools/matrix4x4.hh"
 
 typedef struct jrlMathTools::Matrix4x4 < double > matrix4d;
 

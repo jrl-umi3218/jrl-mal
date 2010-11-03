@@ -28,7 +28,7 @@
 #ifndef MATRIXABSTRACTLAYER_JRLMATH_MATRIX3X3_H
 # define MATRIXABSTRACTLAYER_JRLMATH_MATRIX3X3_H
 
-# include "jrlMathTools/matrix3x3.h"
+# include "jrl/mathtools/matrix3x3.hh"
 
 typedef jrlMathTools::Matrix3x3<double> matrix3d;
 
