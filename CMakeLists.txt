@@ -66,32 +66,31 @@ IF(NOT ${SMALLMATRIXLIB_FOUND})
     )
 ENDIF(NOT ${SMALLMATRIXLIB_FOUND})
 
-CONFIG_FILES(include/jrl/mal/configMAL.hh)
+CONFIG_FILES(include/jrl/mal/configmal.hh)
 
 SET(${PROJECT_NAME}_HEADERS
   ${CMAKE_BINARY_DIR}/include/jrl/mal/config.hh
-  ${CMAKE_BINARY_DIR}/include/jrl/mal/configMAL.hh
-  include/jrl/mal/MatrixAbstractLayer.hh
-  include/jrl/mal/MatrixAbstractLayerCheck.hh
-  include/jrl/mal/MatrixAbstractLayerBoost.hh
-  include/jrl/mal/MatrixAbstractLayerDoc.hh
-  include/jrl/mal/MatrixAbstractLayerSmall.hh
-  include/jrl/mal/MatrixAbstractLayerMatrix3x3JrlMath.hh
-  include/jrl/mal/MatrixAbstractLayerMatrix4x4JrlMath.hh
-  include/jrl/mal/MatrixAbstractLayerVector3JrlMath.hh
-  include/jrl/mal/MatrixAbstractLayerVector4JrlMath.hh
-  include/jrl/mal/MatrixAbstractLayerVNL.hh
-  include/jrl/mal/MatrixAbstractLayerT3D.hh
+  ${CMAKE_BINARY_DIR}/include/jrl/mal/configmal.hh
+  include/jrl/mal/matrixabstractlayer.hh
+  include/jrl/mal/matrixabstractlayercheck.hh
+  include/jrl/mal/matrixabstractlayerboost.hh
+  include/jrl/mal/matrixabstractlayerdoc.hh
+  include/jrl/mal/matrixabstractlayersmall.hh
+  include/jrl/mal/matrixabstractlayermatrix3x3jrlmath.hh
+  include/jrl/mal/matrixabstractlayermatrix4x4jrlmath.hh
+  include/jrl/mal/matrixabstractlayervector3jrlmath.hh
+  include/jrl/mal/matrixabstractlayervector4jrlmath.hh
+  include/jrl/mal/matrixabstractlayert3d.hh
   include/jrl/mal/abstract.hh
-  include/jrl/mal/abstractMatrix.hh
-  include/jrl/mal/abstractVector.hh
+  include/jrl/mal/abstractmatrix.hh
+  include/jrl/mal/abstractvector.hh
   include/jrl/mal/boost.hh
-  include/jrl/mal/boostMacros.hh
-  include/jrl/mal/boostMatrix.hh
-  include/jrl/mal/boostMatrixSvd.hh
+  include/jrl/mal/boostmacros.hh
+  include/jrl/mal/boostmatrix.hh
+  include/jrl/mal/boostmatrixsvd.hh
   include/jrl/mal/boostspecific.hh
-  include/jrl/mal/boostSvd.hh
-  include/jrl/mal/boostVector.hh
+  include/jrl/mal/boostsvd.hh
+  include/jrl/mal/boostvector.hh
 )
 
 ADD_SUBDIRECTORY(tests)

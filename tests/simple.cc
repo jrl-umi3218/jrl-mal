@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with jrl-mathtools.  If not, see <http://www.gnu.org/licenses/>.
 
-#include <jrl/mal/MatrixAbstractLayer.hh>
+#include <jrl/mal/matrixabstractlayer.hh>
 
 #define BOOST_TEST_MODULE simple
 

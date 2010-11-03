@@ -28,7 +28,7 @@
 #ifndef __MAAL_BOOST_VECTOR_
 # define __MAAL_BOOST_VECTOR_
 # include <cstdio>
-# include <jrl/mal/boostMacros.hh>
+# include <jrl/mal/boostmacros.hh>
 
 /**
  * \file boostVector.h Define maal::boost::Vector

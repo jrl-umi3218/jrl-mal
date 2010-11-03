@@ -58,33 +58,33 @@
 #  define _MATRIX_ABSTRACT_LAYER_H_
 
 // Define which type of linear algebra package and which type of small matrix and vector package.
-# include <jrl/mal/configMAL.hh>
+# include <jrl/mal/configmal.hh>
 
   /*Documentation*/
-# include <jrl/mal/MatrixAbstractLayerDoc.hh>
-# include <jrl/mal/MatrixAbstractLayerSmall.hh>
+# include <jrl/mal/matrixabstractlayerdoc.hh>
+# include <jrl/mal/matrixabstractlayersmall.hh>
 
 
   /*Boost or VNL*/
 # if _VNL_MATRIX_ == 1
-#  include <jrl/mal/MatrixAbstractLayerVNL.hh>
+#  include <jrl/mal/matrixabstractlayervnl.hh>
 # elif _BOOST_MATRIX_ == 1
-#  include <jrl/mal/MatrixAbstractLayerBoost.hh>
+#  include <jrl/mal/matrixabstractlayerboost.hh>
 # endif
 
   /*Small with T3D, R3D and V3D or by default*/
 # if _T3D_R3D_V3D_ == 1
-#  include <jrl/mal/MatrixAbstractLayerT3D.hh>
+#  include <jrl/mal/matrixabstractlayert3d.hh>
 # else
-#  include "jrlMathTools/jrlConstants.h"
-#  include <jrl/mal/MatrixAbstractLayerVector3JrlMath.hh>
-#  include <jrl/mal/MatrixAbstractLayerVector4JrlMath.hh>
-#  include <jrl/mal/MatrixAbstractLayerMatrix3x3JrlMath.hh>
-#  include <jrl/mal/MatrixAbstractLayerMatrix4x4JrlMath.hh>
+#  include "jrl/mathtools/constants.hh"
+#  include <jrl/mal/matrixabstractlayervector3jrlmath.hh>
+#  include <jrl/mal/matrixabstractlayervector4jrlmath.hh>
+#  include <jrl/mal/matrixabstractlayermatrix3x3jrlmath.hh>
+#  include <jrl/mal/matrixabstractlayermatrix4x4jrlmath.hh>
 # endif
 
 # define MATRIX_VERSION 1
 
-# include <jrl/mal/MatrixAbstractLayerCheck.hh>
+# include <jrl/mal/matrixabstractlayercheck.hh>
 
 #endif /* _MATRIX_ABSTRACT_LAYER_H_ */

@@ -26,7 +26,7 @@
 #ifndef __MAAL_ABSTRACT_VECTOR_
 # define __MAAL_ABSTRACT_VECTOR_
 
-# include <jrl/mal/abstractMacros.hh>
+# include <jrl/mal/abstractmacros.hh>
 
 namespace maal{  namespace abstract {
 

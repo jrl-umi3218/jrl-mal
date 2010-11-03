@@ -44,8 +44,8 @@
 
 # include <iostream>
 
-# include <jrl/mal/boostMacros.hh>
-# include <jrl/mal/boostVector.hh>
-# include <jrl/mal/boostMatrix.hh>
+# include <jrl/mal/boostmacros.hh>
+# include <jrl/mal/boostvector.hh>
+# include <jrl/mal/boostmatrix.hh>
 
 #endif /* #ifndef __MAAL_BOOST__ */

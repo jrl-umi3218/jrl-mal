@@ -28,8 +28,8 @@
 #ifndef __MAAL_BOOST_MATRIX_
 # define __MAAL_BOOST_MATRIX_
 # include <cstdio>
-# include <jrl/mal/boostMacros.hh>
-# include <jrl/mal/boostSvd.hh>
+# include <jrl/mal/boostmacros.hh>
+# include <jrl/mal/boostsvd.hh>
 
 /**
  * \file boostMatrix.h Define maal::boost::Matrix

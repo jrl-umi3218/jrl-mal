@@ -30,7 +30,7 @@
 #ifndef MATRIXABSTRACTLAYER_JRLMATH_VECTOR3_H
 # define MATRIXABSTRACTLAYER_JRLMATH_VECTOR3_H
 # include <cmath>
-# include <jrlMathTools/vector3.h>
+# include <jrl/mathtools/vector3.hh>
 
 typedef jrlMathTools::Vector3D<double> vector3d;
 

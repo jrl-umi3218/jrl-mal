@@ -48,7 +48,7 @@ namespace maal
     }
 }
 
-# include <jrl/mal/abstractVector.hh>
-# include <jrl/mal/abstractMatrix.hh>
+# include <jrl/mal/abstractvector.hh>
+# include <jrl/mal/abstractmatrix.hh>
 
 #endif /* #ifndef __MAAL_ABSTRACT__ */
