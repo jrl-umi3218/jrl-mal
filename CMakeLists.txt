@@ -68,8 +68,6 @@ ENDIF(NOT ${SMALLMATRIXLIB_FOUND})
 
 CONFIG_FILES(include/jrl/mal/configMAL.hh)
 
-CONFIG_FILES(include/MatrixAbstractLayer/configMAL.h)
-
 SET(${PROJECT_NAME}_HEADERS
   ${CMAKE_BINARY_DIR}/include/jrl/mal/config.hh
   ${CMAKE_BINARY_DIR}/include/jrl/mal/configMAL.hh
@@ -95,43 +93,6 @@ SET(${PROJECT_NAME}_HEADERS
   include/jrl/mal/boostSvd.hh
   include/jrl/mal/boostVector.hh
 )
-
-# Deprecated headers
-# These headers are installed to preserve includes retro-compatbility.
-SET(DEPRECATED_HEADERS
-  ${CMAKE_BINARY_DIR}/include/MatrixAbstractLayer/configMAL.h
-  include/MatrixAbstractLayer/MatrixAbstractLayer.h
-  include/MatrixAbstractLayer/MatrixAbstractLayerCheck.h
-  include/MatrixAbstractLayer/MatrixAbstractLayerBoost.h
-  include/MatrixAbstractLayer/MatrixAbstractLayerDoc.h
-  include/MatrixAbstractLayer/MatrixAbstractLayerSmall.h
-  include/MatrixAbstractLayer/MatrixAbstractLayerMatrix3x3JrlMath.h
-  include/MatrixAbstractLayer/MatrixAbstractLayerMatrix4x4JrlMath.h
-  include/MatrixAbstractLayer/MatrixAbstractLayerVector3JrlMath.h
-  include/MatrixAbstractLayer/MatrixAbstractLayerVector4JrlMath.h
-  include/MatrixAbstractLayer/MatrixAbstractLayerVNL.h
-  include/MatrixAbstractLayer/MatrixAbstractLayerT3D.h
-  include/MatrixAbstractLayer/abstract.h
-  include/MatrixAbstractLayer/abstractMatrix.h
-  include/MatrixAbstractLayer/abstractVector.h
-  include/MatrixAbstractLayer/boost.h
-  include/MatrixAbstractLayer/boostMacros.h
-  include/MatrixAbstractLayer/boostMatrix.h
-  include/MatrixAbstractLayer/boostMatrixSvd.h
-  include/MatrixAbstractLayer/boostspecific.h
-  include/MatrixAbstractLayer/boostSvd.h
-  include/MatrixAbstractLayer/boostVector.h
-)
-INSTALL(FILES ${DEPRECATED_HEADERS}
-  DESTINATION include/MatrixAbstractLayer
-  PERMISSIONS OWNER_READ GROUP_READ WORLD_READ OWNER_WRITE
-  )
-# Install jrlMathTools.pc for retro-compatibility.
-INSTALL(
-  FILES "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.pc"
-  DESTINATION "${PKG_CONFIG_DIR}"
-  RENAME MatrixAbstractLayer.pc
-  PERMISSIONS OWNER_READ GROUP_READ WORLD_READ OWNER_WRITE)
 
 ADD_SUBDIRECTORY(tests)
 
