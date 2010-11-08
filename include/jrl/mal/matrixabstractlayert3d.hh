@@ -74,6 +74,8 @@ typedef V3D vector3d;
 #define MAL_S3_VECTOR(name,type)		\
   V3D name
 
+#define MAL_S3_VECTOR_(type) V3D
+
 #define MAL_S3_VECTOR_SIZE(name)		\
   3
 
