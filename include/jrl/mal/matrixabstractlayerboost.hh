@@ -123,6 +123,8 @@ typedef boost_ublas::matrix<double> matrixNxP;
 #define MAL_MATRIX(name, type)			\
   boost_ublas::matrix<type> name
 
+#define MAL_MATRIX_(type) boost_ublas::matrix<type>
+
 #define MAL_MATRIX_DIM(name, type, nb_rows, nb_cols) \
   boost_ublas::matrix<type> name(nb_rows,nb_cols)
 
