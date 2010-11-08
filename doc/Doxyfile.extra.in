@@ -1,1 +1,3 @@
 INPUT                  = @CMAKE_SOURCE_DIR@/include
+
+TAGFILES               = "@JRL_MATHTOOLS_DOXYGENDOCDIR@/jrl-mathtools.doxytag = @JRL_MATHTOOLS_DOXYGENDOCDIR@"
