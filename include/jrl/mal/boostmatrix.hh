@@ -748,12 +748,12 @@ namespace maal
 	    return *this;
 	  }
 
-	  inline Matrix& stackMatrix( const Matrix& B,Matrix& C )  const
+	  inline Matrix& stackMatrix(const Matrix&, Matrix& C) const
 	  { ML_NOT_IMPLEMENTED(C) }
 	  inline Matrix stackMatrix( const Matrix& B ) const
 	  { Matrix res; return stackMatrix(B,res); }
 
-	  inline Matrix& juxtaposeMatrix( const Matrix& B,Matrix& C ) const
+	  inline Matrix& juxtaposeMatrix(const Matrix&, Matrix& C) const
 	  { ML_NOT_IMPLEMENTED(C) }
 	  inline Matrix juxtaposeMatrix( const Matrix& B ) const
 	  { Matrix res; return juxtaposeMatrix(B,res); }

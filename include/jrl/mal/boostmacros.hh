@@ -125,7 +125,7 @@ namespace maal{  namespace boost {
   inline std::ostream& operator<< (std::ostream& os,DisplayType disp )
     { setDisplayType(disp); return os; }
 
-}
-};
+  }
+} // end of namespace maal.
 
 #endif // #ifndef __MAAL_BOOST_MACROS_
