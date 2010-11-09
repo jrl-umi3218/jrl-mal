@@ -64,7 +64,7 @@ namespace maal
     MatrixSvd( const unsigned int rows=0, const unsigned int cols=0 )
       : Matrix( rows,cols ),nbrows(-1),nbcols(-1),toTranspose(false) {}
 
-    MatrixSvd( InternalMatrix* clone,const bool proprio=false )
+    MatrixSvd( InternalMatrix* clone,const bool=false )
       : Matrix( clone,false  ),nbrows(-1),nbcols(-1),toTranspose(false)  {}
 
     MatrixSvd( const MatrixSvd& copy )
