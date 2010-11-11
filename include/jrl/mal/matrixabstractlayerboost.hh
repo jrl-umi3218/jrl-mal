@@ -89,6 +89,9 @@ extern "C"
 	       double* work, int const* lwork, int* info);
 }
 
+#define MAL_VECTOR_TYPE(type)	\
+  boost_ublas::vector<type>
+
 #define MAL_VECTOR(name, type)	\
   boost_ublas::vector<type> name
 
@@ -119,6 +122,9 @@ extern "C"
   VRAWDATA(name)
 
 typedef boost_ublas::matrix<double> matrixNxP;
+
+#define MAL_MATRIX_TYPE(type)			\
+  boost_ublas::matrix<type>
 
 #define MAL_MATRIX(name, type)			\
   boost_ublas::matrix<type> name

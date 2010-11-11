@@ -37,7 +37,7 @@ typedef jrlMathTools::Vector3D<double> vector3d;
 # define MAL_S3_VECTOR(name,type)		\
   jrlMathTools::Vector3D<type> name
 
-# define MAL_S3_VECTOR_(type) jrlMathTools::Vector3D<type>
+# define MAL_S3_VECTOR_TYPE(type) jrlMathTools::Vector3D<type>
 
 # define MAL_S3_VECTOR_SIZE(name)		\
   3

@@ -40,6 +40,9 @@ typedef jrlMathTools::Vector4D<double> vector4d;
 #define MAL_S4_VECTOR(name,type)		\
   jrlMathTools::Vector4D<type> name
 
+#define MAL_S4_VECTOR_TYPE(name)		\
+  jrlMathTools::Vector4D<type>
+
 #define MAL_S4_VECTOR_SIZE(name)		\
   4
 
