@@ -62,13 +62,13 @@ namespace maal
 
     public: /* ---  Construction --- */
     MatrixSvd( const unsigned int rows=0, const unsigned int cols=0 )
-      : Matrix( rows,cols ),nbrows(-1),nbcols(-1),toTranspose(false) {}
+      : Matrix( rows,cols ),nbrows(0),nbcols(0),toTranspose(false) {}
 
     MatrixSvd( InternalMatrix* clone,const bool=false )
-      : Matrix( clone,false  ),nbrows(-1),nbcols(-1),toTranspose(false)  {}
+      : Matrix( clone,false  ),nbrows(0),nbcols(0),toTranspose(false)  {}
 
     MatrixSvd( const MatrixSvd& copy )
-      : Matrix( copy ),nbrows(-1),nbcols(-1),toTranspose(false) {}
+      : Matrix( copy ),nbrows(0),nbcols(0),toTranspose(false) {}
 
 
     protected: /* --- SVD --- */
