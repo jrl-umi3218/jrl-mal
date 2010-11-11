@@ -33,6 +33,9 @@
 
 typedef T3D matrix4d;
 
+#define MAL_S4x4_MATRIX_TYPE(type) \
+  T3D
+
 #define MAL_S4x4_MATRIX(name,type) \
   T3D name
 
@@ -71,6 +74,9 @@ typedef T3D matrix4d;
 /*V3D which implements SmallVector3*/
 typedef V3D vector3d;
 
+#define MAL_S3_VECTOR_TYPE(type)		\
+  V3D
+
 #define MAL_S3_VECTOR(name,type)		\
   V3D name
 
@@ -108,6 +114,9 @@ typedef V3D vector3d;
 /*V3D which implements SmallVector4*/
 typedef V3D vector4d;
 
+#define MAL_S4_VECTOR_TYPE(type)		\
+  V3D 
+
 #define MAL_S4_VECTOR(name,type)		\
   V3D name
 
@@ -136,6 +145,9 @@ typedef V3D vector4d;
 #include "jrlMathTools/matrix3x3.h"
 
 typedef jrlMathTools::Matrix3x3 <double> matrix3d;
+
+#define MAL_S3x3_MATRIX_TYPE(type) \
+  jrlMathTools::Matrix3x3<type>
 
 #define MAL_S3x3_MATRIX(name,type) \
   jrlMathTools::Matrix3x3<type> name

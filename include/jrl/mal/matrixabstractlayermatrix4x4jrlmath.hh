@@ -33,6 +33,9 @@
 
 typedef struct jrlMathTools::Matrix4x4 < double > matrix4d;
 
+# define MAL_S4x4_MATRIX_TYPE(type) \
+  jrlMathTools::Matrix4x4<type>
+
 # define MAL_S4x4_MATRIX(name,type) \
   jrlMathTools::Matrix4x4<type> name
 

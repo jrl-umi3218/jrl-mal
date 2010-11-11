@@ -32,6 +32,9 @@
 
 typedef jrlMathTools::Matrix3x3<double> matrix3d;
 
+#define MAL_S3x3_MATRIX_TYPE(type) \
+  jrlMathTools::Matrix3x3<type>
+
 #define MAL_S3x3_MATRIX(name,type) \
   jrlMathTools::Matrix3x3<type> name
 
