@@ -30,13 +30,11 @@
 <h1>matrixabstractlayermatrix4x4jrlmath.hh File Reference</h1>  </div>
 </div>
 <div class="contents">
-<code>#include &quot;<a class="elRef" doxygen="jrl-mathtools.doxytag:" href="matrix4x4_8hh.html">jrl/mathtools/matrix4x4.hh</a>&quot;</code><br/>
+<code>#include &quot;jrl/mathtools/matrix4x4.hh&quot;</code><br/>
 <!-- startSectionHeader --><div class="dynheader">
 Include dependency graph for matrixabstractlayermatrix4x4jrlmath.hh:<!-- endSectionHeader --></div>
 <!-- startSectionSummary --><!-- endSectionSummary --><!-- startSectionContent --><div class="dyncontent">
 <div class="center"><img src="matrixabstractlayermatrix4x4jrlmath_8hh__incl.png" border="0" usemap="#matrixabstractlayermatrix4x4jrlmath_8hh" alt=""/></div>
-<map name="matrixabstractlayermatrix4x4jrlmath_8hh" id="matrixabstractlayermatrix4x4jrlmath_8hh">
-<area shape="rect" href="matrix4x4_8hh.html" title="jrl/mathtools/matrix4x4.hh" alt="" coords="48,84,237,110"/><area shape="rect" href="fwd_8hh.html" title="jrl/mathtools/fwd.hh" alt="" coords="135,316,281,342"/><area shape="rect" href="vector4_8hh.html" title="jrl/mathtools/vector4.hh" alt="" coords="60,238,233,265"/><area shape="rect" href="matrix3x3_8hh.html" title="jrl/mathtools/matrix3x3.hh" alt="" coords="180,161,369,188"/><area shape="rect" href="vector3_8hh.html" title="jrl/mathtools/vector3.hh" alt="" coords="308,238,481,265"/></map>
 <!-- endSectionContent --></div>
 <!-- startSectionHeader --><div class="dynheader">
 This graph shows which files directly or indirectly include this file:<!-- endSectionHeader --></div>
@@ -48,8 +46,8 @@ This graph shows which files directly or indirectly include this file:<!-- endSe
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="define-members"></a>
 Defines</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrixabstractlayermatrix4x4jrlmath_8hh.html#a9964287953b7b227bf1ddbcfe907490d">MAL_S4x4_MATRIX_TYPE</a>(type)&#160;&#160;&#160;<a class="elRef" doxygen="jrl-mathtools.doxytag:" href="structjrl_math_tools_1_1_matrix4x4.html">jrlMathTools::Matrix4x4</a>&lt;type&gt;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrixabstractlayermatrix4x4jrlmath_8hh.html#a7efa6ebbe829f66b5f44987b55100c69">MAL_S4x4_MATRIX</a>(name, type)&#160;&#160;&#160;<a class="elRef" doxygen="jrl-mathtools.doxytag:" href="structjrl_math_tools_1_1_matrix4x4.html">jrlMathTools::Matrix4x4</a>&lt;type&gt; name</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrixabstractlayermatrix4x4jrlmath_8hh.html#a9964287953b7b227bf1ddbcfe907490d">MAL_S4x4_MATRIX_TYPE</a>(type)&#160;&#160;&#160;jrlMathTools::Matrix4x4&lt;type&gt;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrixabstractlayermatrix4x4jrlmath_8hh.html#a7efa6ebbe829f66b5f44987b55100c69">MAL_S4x4_MATRIX</a>(name, type)&#160;&#160;&#160;jrlMathTools::Matrix4x4&lt;type&gt; name</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrixabstractlayermatrix4x4jrlmath_8hh.html#a14bc735dd29560e792fe7f2f216f5d18">MAL_S4x4_MATRIX_CLEAR</a>(name)&#160;&#160;&#160;name.setZero()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrixabstractlayermatrix4x4jrlmath_8hh.html#a72469b5fcd8f779d201adfe0d19eea04">MAL_S4x4_MATRIX_SET_IDENTITY</a>(name)&#160;&#160;&#160;name.setIdentity()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrixabstractlayermatrix4x4jrlmath_8hh.html#abb22b9ea31cdf69524ed55c7b7e55bb0">MAL_S4x4_INVERSE</a>(name, inv_matrix, type)&#160;&#160;&#160;inv_matrix = name.Inversion();</td></tr>
@@ -62,7 +60,7 @@ Defines</h2></td></tr>
 <tr><td colspan="2"><h2><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
-<a class="elRef" doxygen="jrl-mathtools.doxytag:" href="structjrl_math_tools_1_1_matrix4x4.html">jrlMathTools::Matrix4x4</a><br class="typebreak"/>
+jrlMathTools::Matrix4x4<br class="typebreak"/>
 &lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrixabstractlayermatrix4x4jrlmath_8hh.html#a211846ce7e4e1babf086b2d54bc34e1b">matrix4d</a></td></tr>
 </table>
 <hr/><h2>Define Documentation</h2>
@@ -151,7 +149,7 @@ Typedefs</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="elRef" doxygen="jrl-mathtools.doxytag:" href="structjrl_math_tools_1_1_matrix4x4.html">jrlMathTools::Matrix4x4</a>&lt;type&gt; name</td>
+          <td></td><td>&#160;&#160;&#160;jrlMathTools::Matrix4x4&lt;type&gt; name</td>
         </tr>
       </table>
 </div>
@@ -262,7 +260,7 @@ Typedefs</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">type&#160;)</td>
-          <td>&#160;&#160;&#160;<a class="elRef" doxygen="jrl-mathtools.doxytag:" href="structjrl_math_tools_1_1_matrix4x4.html">jrlMathTools::Matrix4x4</a>&lt;type&gt;</td>
+          <td>&#160;&#160;&#160;jrlMathTools::Matrix4x4&lt;type&gt;</td>
         </tr>
       </table>
 </div>
@@ -347,7 +345,7 @@ Typedefs</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef struct <a class="elRef" doxygen="jrl-mathtools.doxytag:" href="structjrl_math_tools_1_1_matrix4x4.html">jrlMathTools::Matrix4x4</a>&lt; double &gt; <a class="elRef" doxygen="jrl-mathtools.doxytag:" href="structjrl_math_tools_1_1_matrix4x4.html">matrix4d</a></td>
+          <td class="memname">typedef struct jrlMathTools::Matrix4x4&lt; double &gt; <a class="el" href="matrixabstractlayermatrix4x4jrlmath_8hh.html#a211846ce7e4e1babf086b2d54bc34e1b">matrix4d</a></td>
         </tr>
       </table>
 </div>
