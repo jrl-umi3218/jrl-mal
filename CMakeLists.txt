@@ -28,7 +28,6 @@ SET(PROJECT_DESCRIPTION "JRL matrix abstract layer")
 SET(PROJECT_URL "http://github.com/jrl-umi3218/jrl-mal")
 
 SETUP_PROJECT()
-SETUP_PROJECT_CPACK()
 
 # Search for dependencies.
 SEARCH_FOR_BOOST()
@@ -95,3 +94,4 @@ SET(${PROJECT_NAME}_HEADERS
 ADD_SUBDIRECTORY(tests)
 
 SETUP_PROJECT_FINALIZE()
+SETUP_PROJECT_CPACK()
