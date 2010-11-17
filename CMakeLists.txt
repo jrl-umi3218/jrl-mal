@@ -23,7 +23,6 @@ INCLUDE(cmake/lapack.cmake)
 INCLUDE(cmake/cpack.cmake)
 
 SET(PROJECT_NAME jrl-mal)
-SET(PROJECT_VERSION 1.9.0.99)
 SET(PROJECT_DESCRIPTION "JRL matrix abstract layer")
 SET(PROJECT_URL "http://github.com/jrl-umi3218/jrl-mal")
 
