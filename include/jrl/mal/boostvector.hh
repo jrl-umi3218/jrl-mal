@@ -364,27 +364,7 @@ namespace maal{  namespace boost {
 
       inline friend std::ostream& operator<< ( std::ostream& os,const Vector& v1 )
 	{
-	  //os << "Display: "<< 0+getDisplayType()<<std::endl;
-	  switch( getDisplayType() )
-	    {
-	    case SIMPLE:
-	      return os<<v1.vector;
-	    case COMPLET:
-	      for( unsigned int i=0;i<v1.size();++i )
-		{ if(fabs(v1(i))>1e-6) os << v1(i) << "\t"; else os<<0.00<<"\t"; }
-	      return os;
-	    case MATLAB:
-	      os << "[ ";
-	      for( unsigned int i=0;i<v1.size();++i )
-		{
-		  os <<  v1(i);
-		  if( v1.size()!=i+1 ) { os << ", "; }
-		  else { os << "]" << std::endl; }
-		}
-	      return os;
-	    default:
-	      ML_NOT_IMPLEMENTED(os);
-	    }
+	  return os<<v1.vector;
 	}
 
       //@}

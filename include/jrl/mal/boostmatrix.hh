@@ -806,33 +806,7 @@ namespace maal
 
 	  inline friend std::ostream& operator<< ( std::ostream& os,const Matrix& m1 )
 	    {
-	      switch( getDisplayType() )
-		{
-		case SIMPLE:
-		  return os<<m1.matrix;
-		case COMPLET:
-		  for( unsigned int i=0;i<m1.nbRows();++i )
-		    {
-		      for( unsigned int j=0;j<m1.nbCols();++j )
-			{ if(fabs(m1(i,j))>1e-6) os << m1(i,j) << "\t"; else os<<0.00<<"\t"; }
-		      os<<std::endl;
-		    }
-		  return os;
-		case MATLAB:
-		  os << "[ ";
-		  for( unsigned int i=0;i<m1.nbRows();++i )
-		    {
-		      for( unsigned int j=0;j<m1.nbCols();++j )
-			{
-			  os <<  m1(i,j) << ", ";
-			}
-		      if( m1.nbRows()!=i+1 ) { os << ";" << std::endl; }
-		      else { os << "]" << std::endl; }
-		    }
-		  return os;
-		default:
-		  ML_NOT_IMPLEMENTED(os);
-		}
+	      return os<<m1.matrix;
 	    }
 	  inline friend std::istream& operator>> ( std::istream& is,Matrix& v1 ){ return is>>v1.matrix; }
 
