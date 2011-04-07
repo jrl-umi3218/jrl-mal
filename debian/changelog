@@ -1,3 +1,9 @@
+jrl-mal (1.9.2-1) lucid; urgency=low
+
+  * Synchronize
+
+ -- olivier-stasse <olivier.stasse@aist.go.jp>  Fri, 08 Apr 2011 01:02:08 +0900
+
 jrl-mal (1.9.0.99-2) lucid; urgency=low
 
   * Add missing build requirement: gfortran.
