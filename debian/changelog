@@ -1,3 +1,21 @@
+jrl-mal (1.9.2-4) lucid; urgency=low
+
+  * Fix install prefix (/opt/openrobots) and build type (set to release)
+
+ -- olivier-stasse <olivier.stasse@aist.go.jp>  Fri, 08 Apr 2011 20:50:12 +0900
+
+jrl-mal (1.9.2-3) lucid; urgency=low
+
+  * Fix PKG_CONFIG_PATH during building phase of debian package.
+
+ -- olivier-stasse <olivier.stasse@aist.go.jp>  Fri, 08 Apr 2011 18:41:02 +0900
+
+jrl-mal (1.9.2-2) lucid; urgency=low
+
+  * Fix wrong cmake variable to specify small matrices.
+
+ -- olivier-stasse <olivier.stasse@aist.go.jp>  Fri, 08 Apr 2011 01:29:59 +0900
+
 jrl-mal (1.9.2-1) lucid; urgency=low
 
   * Synchronize
