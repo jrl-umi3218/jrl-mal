@@ -1,3 +1,9 @@
+jrl-mal (1.9.2-5) lucid; urgency=low
+
+  * Fix wrong install directives
+
+ -- olivier-stasse <olivier.stasse@aist.go.jp>  Fri, 08 Apr 2011 21:12:43 +0900
+
 jrl-mal (1.9.2-4) lucid; urgency=low
 
   * Fix install prefix (/opt/openrobots) and build type (set to release)
