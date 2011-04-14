@@ -142,7 +142,7 @@ typedef V3D vector4d;
   name[i]
 
 
-#include "jrlMathTools/matrix3x3.h"
+#include "jrl/mathtools/matrix3x3.hh"
 
 typedef jrlMathTools::Matrix3x3 <double> matrix3d;
 
