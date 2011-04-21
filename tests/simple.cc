@@ -15,9 +15,9 @@
 
 #include <jrl/mal/matrixabstractlayer.hh>
 
-#define BOOST_TEST_MODULE simple
-
-#include <boost/test/unit_test.hpp>
+#if _BOOST_MATRIX_ == 1
+  #define BOOST_TEST_MODULE simple
+  #include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_CASE (simple)
 {
@@ -29,3 +29,11 @@ BOOST_AUTO_TEST_CASE (simple)
 
   std::cout << malIsNanVector (vector) << std::endl;
 }
+
+#elif _EIGEN_MATRIX_ == 1
+  int main(){
+    MAL_VECTOR_DIM(v,double,3);
+    MAL_VECTOR_FILL(v,1);
+  }
+#endif
+
