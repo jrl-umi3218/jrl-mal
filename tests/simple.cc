@@ -15,11 +15,15 @@
 
 #include <jrl/mal/matrixabstractlayer.hh>
 
-#define BOOST_TEST_MODULE simple
+#if _BOOST_MATRIX_ == 1
+  #define BOOST_TEST_MODULE simple
+  #include <boost/test/unit_test.hpp>
 
-#include <boost/test/unit_test.hpp>
-
-BOOST_AUTO_TEST_CASE (simple)
-{
-  //FIXME: add test here.
-}
+  BOOST_AUTO_TEST_CASE (simple)
+  {
+    //FIXME: add test here.
+  }
+#elif _EIGEN_MATRIX_ == 1
+  int main(){}
+  //TODO: add test here too.
+#endif
