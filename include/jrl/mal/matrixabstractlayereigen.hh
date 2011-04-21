@@ -113,7 +113,7 @@ typedef Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> matrixNxP;
   (unsigned)name.cols()
 
 #define MAL_MATRIX_CLEAR(name) \
-  name = name.Constant(name.rows(),name.cols(),0)
+  { for(unsigned int i=0;i<name.size();name[i++]=0);}
 
 
 #define MAL_INVERSE(name, inv_matrix, type)		\
