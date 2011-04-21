@@ -21,6 +21,7 @@ INCLUDE(cmake/base.cmake)
 INCLUDE(cmake/boost.cmake)
 INCLUDE(cmake/lapack.cmake)
 INCLUDE(cmake/cpack.cmake)
+INCLUDE(cmake/eigen.cmake)
 
 SET(PROJECT_NAME jrl-mal)
 SET(PROJECT_DESCRIPTION "JRL matrix abstract layer")
@@ -28,19 +29,20 @@ SET(PROJECT_URL "http://github.com/jrl-umi3218/jrl-mal")
 
 SETUP_PROJECT()
 
-# Search for dependencies.
-SEARCH_FOR_BOOST()
-SEARCH_FOR_LAPACK()
-
 # Search for the underlying small matrices library.
 SET(SMALLMATRIXLIB_FOUND 0)
+SET(LINEAR_ALGEBRA_LIB_FOUND 0)
 
-SET(_BOOST_MATRIX_FOUND_ 1)
+SET(_BOOST_MATRIX_FOUND_ 0)
+SET(_EIGEN_MATRIX_FOUND_ 0)
 SET(_VNL_MATRIX_FOUND_ 0)
 SET(_T3D_R3D_V3D_FOUND_ 0)
 
+
 SET(LINEAR_ALGEBRA_LIB "boost" CACHE STRING "Linear algebra library used")
 IF(LINEAR_ALGEBRA_LIB STREQUAL "boost")
+  SEARCH_FOR_BOOST()
+  SEARCH_FOR_LAPACK()
   SET(LINEAR_ALGEBRA_LIB_FOUND 1)
   SET(_BOOST_MATRIX_FOUND_ 1)
 ENDIF(LINEAR_ALGEBRA_LIB STREQUAL "boost")
@@ -48,6 +50,7 @@ ENDIF(LINEAR_ALGEBRA_LIB STREQUAL "boost")
 IF(LINEAR_ALGEBRA_LIB STREQUAL "eigen")
   ADD_REQUIRED_DEPENDENCY("eigen3 >= 3.0.0")
   INCLUDE_DIRECTORIES(${EIGEN3_INCLUDE_DIRS})
+  SEARCH_FOR_EIGEN()
   SET(LINEAR_ALGEBRA_LIB_FOUND 1)
   SET(_EIGEN_MATRIX_FOUND_ 1)
 ENDIF(LINEAR_ALGEBRA_LIB STREQUAL "eigen")
@@ -63,6 +66,7 @@ ENDIF(NOT ${LINEAR_ALGEBRA_LIB_FOUND})
 
 SET (SMALLMATRIX "jrl-mathtools" CACHE STRING
   "Small matrix-vector library used.")
+
 IF(SMALLMATRIX STREQUAL "jrl-mathtools")
   ADD_REQUIRED_DEPENDENCY("jrl-mathtools >= 1.4")
   SET(SMALLMATRIXLIB_CXXFLAGS ${JRL_MATHTOOLS_CFLAGS})
@@ -95,6 +99,7 @@ SET(${PROJECT_NAME}_HEADERS
   include/jrl/mal/matrixabstractlayer.hh
   include/jrl/mal/matrixabstractlayercheck.hh
   include/jrl/mal/matrixabstractlayerboost.hh
+  include/jrl/mal/matrixabstractlayereigen.hh
   include/jrl/mal/matrixabstractlayerdoc.hh
   include/jrl/mal/matrixabstractlayersmall.hh
   include/jrl/mal/matrixabstractlayermatrix3x3jrlmath.hh
