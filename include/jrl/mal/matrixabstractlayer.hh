@@ -1,4 +1,4 @@
-/*
+ /*
  * Copyright 2007, 2008, 2009, 2010,
  * Luis Degaldo,
  * Francois Keith,
@@ -32,7 +32,7 @@
  * This is supposed to solve the dependency to a particular
  * matrix library.
  * If you do not like the current two solutions:
- *  - Oxford VNL
+ *  - Eigen
  *  - uBLAS + LAPACK
  *
  * you can implement your own.
@@ -65,9 +65,9 @@
 # include <jrl/mal/matrixabstractlayersmall.hh>
 
 
-  /*Boost or VNL*/
-# if _VNL_MATRIX_ == 1
-#  include <jrl/mal/matrixabstractlayervnl.hh>
+  /*Boost or Eigen*/
+# if _EIGEN_MATRIX_ == 1
+#  include <jrl/mal/matrixabstractlayereigen.hh>
 # elif _BOOST_MATRIX_ == 1
 #  include <jrl/mal/matrixabstractlayerboost.hh>
 # endif
