@@ -24,7 +24,6 @@
 #ifndef MATRIXABSTRACTLAYER_CHECK_H
 # define MATRIXABSTRACTLAYER_CHECK_H
 
-
 #if _BOOST_MATRIX_ == 1
 
 #include <boost/math/special_functions/fpclassify.hpp>
