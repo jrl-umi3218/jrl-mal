@@ -28,6 +28,7 @@ SET(PROJECT_DESCRIPTION "JRL matrix abstract layer")
 SET(PROJECT_URL "http://github.com/jrl-umi3218/jrl-mal")
 
 SETUP_PROJECT()
+SEARCH_FOR_LAPACK()
 
 # Search for the underlying small matrices library.
 SET(SMALLMATRIXLIB_FOUND 0)
@@ -40,7 +41,6 @@ SET(_T3D_R3D_V3D_FOUND_ 0)
 
 IF(LINEAR_ALGEBRA_LIB STREQUAL "boost")
   SEARCH_FOR_BOOST()
-  SEARCH_FOR_LAPACK()
   SET(LINEAR_ALGEBRA_LIB_FOUND 1)
   SET(_BOOST_MATRIX_FOUND_ 1)
 ENDIF(LINEAR_ALGEBRA_LIB STREQUAL "boost")
@@ -110,9 +110,14 @@ SET(${PROJECT_NAME}_HEADERS
   include/jrl/mal/boostspecific.hh
   include/jrl/mal/boostsvd.hh
   include/jrl/mal/boostvector.hh
+  include/jrl/mal/eigen.hh
+  include/jrl/mal/eigenmatrix.hh
+  include/jrl/mal/eigenmacros.hh
+  include/jrl/mal/eigenspecific.hh
+  include/jrl/mal/eigenvector.hh
 )
 
-ADD_SUBDIRECTORY(tests)
+ADD_SUBDIRECTORY(unitTesting)
 
 SETUP_PROJECT_FINALIZE()
 SETUP_PROJECT_CPACK()
