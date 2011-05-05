@@ -130,13 +130,16 @@ namespace maal
 
 	  inline Matrix& setZero( void )
           {
-            FloatType* rawMatrix = matrix.data();
+            FloatType* rawMatrix = MRAWDATA(matrix);
             for(int i=0; i<matrix.cols()*matrix.rows(); i++){ rawMatrix[i] = 0; }
             return *this;
           }
 	  inline Matrix& setIdentity( void  )
 	  {
-            matrix.setIdentity(matrix.rows(), matrix.cols());
+            //matrix.setIdentity(matrix.rows(), matrix.cols()); /* slower than what follows */
+            FloatType* rawMatrix = MRAWDATA(matrix);
+            for(int i=0; i<matrix.cols()*matrix.rows(); i++){ rawMatrix[i] = 0; }
+            for(int i=0; i<std::min(matrix.cols(), matrix.rows()); i++){ matrix(i,i) = 1; }
 	    return *this;
 	  }
 
@@ -679,7 +682,7 @@ namespace maal
 	  inline Matrix& addition( const FloatType x,Matrix& C ) const
 	  {
 	    C.matrix=matrix;
-            FloatType* rawMatrix = C.matrix.data();
+            FloatType* rawMatrix = MRAWDATA(C.matrix);
 	    for(int i=0;i<matrix.rows()*matrix.cols();i++){ rawMatrix[i] += x; }
 	    return C;
 	  }
@@ -692,7 +695,7 @@ namespace maal
 	  inline Matrix& substraction( const FloatType x,Matrix& C ) const
 	  {
 	    C.matrix = matrix;
-            FloatType* rawMatrix = C.matrix.data();
+            FloatType* rawMatrix = MRAWDATA(C.matrix);
 	    for(int i=0;i<matrix.rows()*matrix.cols();i++){ rawMatrix[i] -= x; }
 	    return C;
 	  }
@@ -766,7 +769,7 @@ namespace maal
 	    const int c = q.rem;
 	    return elementAt(r,c);
             */
-            return matrix.data()[elmt];
+            return MRAWDATA(matrix)[elmt];
 	  }
 	  inline FloatType& elementAt( const int elmt )
 	  {
@@ -777,7 +780,7 @@ namespace maal
 	    const int c = q.rem;
 	    return elementAt(r,c);
             */
-            return matrix.data()[elmt];
+            return MRAWDATA(matrix)[elmt];
 	  }
 
 	  //@}
@@ -803,7 +806,7 @@ namespace maal
 	  inline Matrix& setDiagonal( const Vector& vector )
 	  {
 	    const unsigned int SIZE = vector.size() ;
-	    matrix.resize( SIZE,SIZE ); fill(0.);
+	    matrix.resize( SIZE,SIZE ); setZero();
 	    for( unsigned int i=0;i<SIZE;++i )
 	      {
 		matrix(i,i)=vector(i);
