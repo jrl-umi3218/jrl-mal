@@ -132,7 +132,7 @@ namespace maal{  namespace eigen {
 	  return *this;
 	}
       inline Vector& opposite( Vector&res ) const
-	{ res.vector=vector; res.vector *=-1; return res; }
+	{ res.vector = -1*vector; return res; }
       inline Vector opposite( void ) const
 	{ Vector res(vector.size()); opposite(res); return res; }
 
