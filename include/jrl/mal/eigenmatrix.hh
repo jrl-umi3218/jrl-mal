@@ -138,15 +138,17 @@ namespace maal
 	  {
             //matrix.setIdentity(matrix.rows(), matrix.cols()); /* slower than what follows */
             FloatType* rawMatrix = MRAWDATA(matrix);
-            for(int i=0; i<matrix.cols()*matrix.rows(); i++){ rawMatrix[i] = 0; }
-            for(int i=0; i<std::min(matrix.cols(), matrix.rows()); i++){ matrix(i,i) = 1; }
+            int rows = matrix.rows(), cols = matrix.cols();
+            for(int i=0; i<cols*rows; i++){ rawMatrix[i] = 0; }
+            for(int i=0; i<std::min(cols, rows); i++){ matrix(i,i) = 1; }
 	    return *this;
 	  }
 
 	  inline Matrix& fill( const FloatType value )
 	  {
             FloatType* rawMatrix = MRAWDATA(matrix);
-            for(int i=0; i<matrix.cols()*matrix.rows(); i++){ rawMatrix[i] = value; }
+            int rows = matrix.rows(), cols = matrix.cols();
+            for(int i=0; i<cols*rows; i++){ rawMatrix[i] = value; }
 	    return *this;
 	  }
 	  //@}
@@ -178,12 +180,44 @@ namespace maal
 	  /** \brief Norm 1 sum( |xi| )  */
 	  inline FloatType norm1( void ) const
           {
+          //  return matrix.lpNorm<1>(); /* Eigen p-norms are entrywise, whereas Boost p-norm are the induced p-norm.*/
+/*
+            // Faster version of eigen norm1 method
             FloatType* rawMatrix = MRAWDATA(matrix);
             FloatType norm1_ = 0;
-            for(int i=0; i<matrix.rows()*matrix.cols(); i++){ norm1_+=fabs(rawMatrix[i]); }
+            int rows = matrix.rows(), cols = matrix.cols();
+            for(int i=0; i<rows*cols; i++){ norm1_+=fabs(rawMatrix[i]); }
+*/
+            FloatType norm1_ = 0, tmp;
+            int rows = matrix.rows(), cols = matrix.cols();
+            for(int j=0; j<cols; j++)
+            {
+              tmp = 0;
+              for(int i=0; i<rows; i++){ tmp += fabs(matrix(i,j)); }
+              norm1_ = std::max(norm1_, tmp);
+            }
             return norm1_;
           }
-	  inline FloatType normInfty( void ) const { return matrix.lpNorm<Eigen::Infinity>(); }
+	  inline FloatType normInfty( void ) const
+          {
+            // return matrix.lpNorm<Eigen::Infinity>(); /* same remark as for norm1 */
+/*
+            // Faster version of eigen normInfty method
+            FloatType* rawMatrix = MRAWDATA(matrix);
+            FloatType normInfty_ = 0;
+            int rows = matrix.rows(), cols - matrix.cols();
+            for(int i=0; i<cols*rows; i++){ normInfty_ = std::max(normInfty_, fabs(rawMatrix[i])); }
+*/
+            FloatType normInfty_ = 0, tmp;
+            int rows = matrix.rows(), cols = matrix.cols();
+            for(int i=0; i<rows; i++)
+            {
+              tmp = 0;
+              for(int j=0; j<cols; j++){ tmp += fabs(matrix(i,j)); }
+              normInfty_ = std::max(normInfty_, tmp);
+            }
+            return normInfty_;
+          }
 	  /** \brief Not implemented yet. */
 	  inline FloatType max( void ) const { ML_NOT_IMPLEMENTED(0) }
 	  /** \brief Not implemented yet. */
@@ -258,7 +292,7 @@ namespace maal
 
             ::Eigen::Matrix<FloatType, Eigen::Dynamic, Eigen::Dynamic, Eigen::ColMajor> U(NR,NR);
             ::Eigen::Matrix<FloatType, Eigen::Dynamic, Eigen::Dynamic, Eigen::ColMajor> VT(NC,NC);
-            ::Eigen::Matrix<FloatType, Eigen::Dynamic, 1, Eigen::ColMajor> s(std::min(NR,NC));
+            ::Eigen::Matrix<FloatType, Eigen::Dynamic, 1> s(std::min(NR,NC));
 	    char Jobu='A'; // Compute complete U Matrix
 	    char Jobvt='A'; // Compute complete VT Matrix
 	    char Lw; Lw='O'; // Compute the optimal size for the working vector
@@ -278,7 +312,7 @@ namespace maal
 		      0, 0, &m, 0, &n, &vw, &lw, &linfo);
 	      lw = int(vw)+5;
 
-              ::Eigen::Matrix<double, Eigen::Dynamic, 1, Eigen::ColMajor> w(lw);
+              ::Eigen::Matrix<double, Eigen::Dynamic, 1> w(lw);
 	      dgesvd_(&Jobu, &Jobvt,&n,&m,
 		      MRAWDATA(I),
 		      &lda,
@@ -354,6 +388,7 @@ namespace maal
            *
            * Uses Eigen SVD decomposition, which is slower than an old tetraplegic snail. Use the dgesvd_ method above instead.
            */
+/*
 	  virtual Matrix&
 	    pseudoInverseEigenSVD( Matrix& invMatrix,
 			   const FloatType threshold = 1e-6,
@@ -404,7 +439,7 @@ namespace maal
 				       Vector* S = NULL,
 				       Matrix* V = NULL)  const
 	  { Matrix Ainv(matrix.cols(),matrix.rows()); return pseudoInverseEigenSVD(Ainv,threshold,U,S,V); }
-
+*/
 
 
 
@@ -440,7 +475,7 @@ namespace maal
 
             ::Eigen::Matrix<FloatType, Eigen::Dynamic, Eigen::Dynamic, Eigen::ColMajor> U(NR,NR);
             ::Eigen::Matrix<FloatType, Eigen::Dynamic, Eigen::Dynamic, Eigen::ColMajor> VT(NC,NC);
-            ::Eigen::Matrix<FloatType, Eigen::Dynamic, 1, Eigen::ColMajor> s(std::min(NR,NC));
+            ::Eigen::Matrix<FloatType, Eigen::Dynamic, 1> s(std::min(NR,NC));
 	    char Jobu='A'; // Compute complete U Matrix
 	    char Jobvt='A'; // Compute complete VT Matrix
 	    char Lw; Lw='O'; // Compute the optimal size for the working vector
@@ -460,7 +495,7 @@ namespace maal
 		      0, 0, &m, 0, &n, &vw, &lw, &linfo);
 	      lw = int(vw)+5;
 
-              ::Eigen::Matrix<double, Eigen::Dynamic, 1, Eigen::ColMajor> w(lw);
+              ::Eigen::Matrix<double, Eigen::Dynamic, 1> w(lw);
 	      dgesvd_(&Jobu, &Jobvt,&n,&m,
 		      MRAWDATA(I),
 		      &lda,
@@ -538,6 +573,7 @@ namespace maal
            *
            * Also uses Eigen SVD decomposition, which is still not good at all.
            */
+/*
 	  virtual Matrix&
 	    dampedInverseEigenSVD( Matrix& invMatrix,
 			   const FloatType threshold = 1e-6,
@@ -588,6 +624,7 @@ namespace maal
 				       Vector* S = NULL,
 				       Matrix* V = NULL)  const
 	  { Matrix Ainv(matrix.cols(),matrix.rows()); return dampedInverseEigenSVD(Ainv,threshold,U,S,V); }
+*/
 
 
 
@@ -682,8 +719,9 @@ namespace maal
 	  inline Matrix& addition( const FloatType x,Matrix& C ) const
 	  {
 	    C.matrix=matrix;
-            FloatType* rawMatrix = MRAWDATA(C.matrix);
-	    for(int i=0;i<matrix.rows()*matrix.cols();i++){ rawMatrix[i] += x; }
+            FloatType* rawMatrix = MRAWDATA(C.matrix); 
+            int rows = matrix.rows(), cols = matrix.cols();
+	    for(int i=0;i<rows*cols;i++){ rawMatrix[i] += x; }
 	    return C;
 	  }
 
@@ -696,7 +734,8 @@ namespace maal
 	  {
 	    C.matrix = matrix;
             FloatType* rawMatrix = MRAWDATA(C.matrix);
-	    for(int i=0;i<matrix.rows()*matrix.cols();i++){ rawMatrix[i] -= x; }
+            int rows = matrix.rows(), cols = matrix.cols();
+	    for(int i=0;i<rows*cols;i++){ rawMatrix[i] -= x; }
 	    return C;
 	  }
 
