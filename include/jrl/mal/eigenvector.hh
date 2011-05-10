@@ -311,8 +311,8 @@ namespace maal{  namespace eigen {
       inline Vector& extract( const unsigned int top,const unsigned int nbrows,
 			      Vector& C ) const
 	{
-	  MAAL_CHECKVERBOSE(_checksize(vector,top));  C.vector.resize(nbrows);
-          C.vector = vector.block(nbrows,1,top,1);
+	  MAAL_CHECKVERBOSE(_checksize(vector,top+nbrows-1));  C.vector.resize(nbrows);
+          C.vector = vector.block(top,0,nbrows,1);
 	  return C;
 	}
       /** \brief Extract a part of the vector.
