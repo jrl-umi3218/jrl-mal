@@ -1,6 +1,21 @@
+// Copyright 2011 Maxime Reis.
+//
+// This file is part of jrl-mal.
+// jrl-mal is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// jrl-mal is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// You should have received a copy of the GNU Lesser General Public License
+// along with jrl-mal.  If not, see <http://www.gnu.org/licenses/>.
+
 /* 
-Test Matrix class 
-*/
+ * Test Matrix class
+ */
 
 #include "assertion.hh"
 #include "malv2utils.hh"
@@ -34,7 +49,7 @@ void run_test()
               && "test transpose of non-square matrix #2");
   
 
-  std::cout << "Matrix transpose test has succeeded." << std::endl;
+  std::cout << "Mal v2 : Matrix transpose test has succeeded." << std::endl;
 }
 
 GENERATE_TEST()

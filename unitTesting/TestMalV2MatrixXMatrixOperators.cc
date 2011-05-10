@@ -1,6 +1,21 @@
+// Copyright 2011 Maxime Reis.
+//
+// This file is part of jrl-mal.
+// jrl-mal is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// jrl-mal is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// You should have received a copy of the GNU Lesser General Public License
+// along with jrl-mal.  If not, see <http://www.gnu.org/licenses/>.
+
 /* 
-Test Matrix class
-*/
+ * Test Matrix class
+ */
 
 #include "assertion.hh"
 #include "malv2utils.hh"
@@ -88,7 +103,7 @@ void run_test()
               && "test M-Float");
 
   // All assertions true, test is passed
-  std::cout << "Matrix x matrix operations test has succeeded." << std::endl;
+  std::cout << "Mal v2 : Matrix x matrix operations test has succeeded." << std::endl;
 }
 
 GENERATE_TEST()
