@@ -80,7 +80,9 @@ namespace maal
 	   */
 	Matrix( const unsigned int rows=0, const unsigned int cols=0 )
 	  : staticMatrix( rows,cols ),dynamicMatrix( NULL ),matrix(staticMatrix)
-	  {}
+	  {
+	    staticMatrix.clear();
+	  }
 
 	  /** \brief Build only the capsule around a already existing
 	   * boost vector object.
