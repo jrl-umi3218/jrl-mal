@@ -81,9 +81,9 @@ namespace maal
 	Matrix( const unsigned int rows=0, const unsigned int cols=0 )
 	  : staticMatrix( rows,cols ),dynamicMatrix( NULL ),matrix(staticMatrix)
 	  {
-#ifdef NDEBUG
+#ifdef JRL_MAL_DEBUG
 	    staticMatrix.clear();
-#endif // NDEBUG
+#endif // JRL_MAL_DEBUG
 	  }
 
 	  /** \brief Build only the capsule around a already existing
