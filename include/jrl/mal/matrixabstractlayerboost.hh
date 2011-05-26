@@ -105,7 +105,7 @@ extern "C"
   name.resize(nb_rows)
 
 #define MAL_VECTOR_FILL(name, value) \
-  { for(unsigned int i=0;i<name.size();name[i++]=value);}
+  { for(unsigned int i=0;i<name.size();name[i++]=value) ;}
 
 #define MAL_VECTOR_NORM(name) \
   boost_ublas::norm_2(name)
