@@ -58,7 +58,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a1a4064cac32756f5f29cb5862914b6fa">MAL_VECTOR_DIM</a>(name, type, nb_rows)&nbsp;&nbsp;&nbsp;boost_ublas::vector&lt;type&gt; name(nb_rows)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#a3c6dd8cbee88b2fc347b8b6c2298ef9c">MAL_VECTOR_SIZE</a>(name)&nbsp;&nbsp;&nbsp;name.size()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#af866ce3a4caff19ad5c67168a9fb1483">MAL_VECTOR_RESIZE</a>(name, nb_rows)&nbsp;&nbsp;&nbsp;name.resize(nb_rows)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#af8a36e3e86d77b878ca3f50a193a161e">MAL_VECTOR_FILL</a>(name, value)&nbsp;&nbsp;&nbsp;{ for(unsigned int i=0;i&lt;name.size();name[i++]=value);}</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#af8a36e3e86d77b878ca3f50a193a161e">MAL_VECTOR_FILL</a>(name, value)&nbsp;&nbsp;&nbsp;{ for(unsigned int i=0;i&lt;name.size();name[i++]=value) ;}</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#ac2fe28d6322e715dd929b5d5fc070f7c">MAL_VECTOR_NORM</a>(name)&nbsp;&nbsp;&nbsp;boost_ublas::norm_2(name)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#ad8c6df41809175eecaba72aede071e24">MAL_VECTOR_3D_CROSS_PRODUCT</a>(res, v1, v2)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00019.html#af25e39b0dd5cfa1ef28f432fe96408ec">MAL_RET_VECTOR_DATABLOCK</a>(name)&nbsp;&nbsp;&nbsp;VRAWDATA(name)</td></tr>
@@ -700,7 +700,7 @@ This graph shows which files directly or indirectly include this file:</div>
           <td class="paramtype">value&nbsp;</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
-          <td>&nbsp;&nbsp;&nbsp;{ for(unsigned int i=0;i&lt;name.size();name[i++]=value);}</td>
+          <td>&nbsp;&nbsp;&nbsp;{ for(unsigned int i=0;i&lt;name.size();name[i++]=value) ;}</td>
         </tr>
       </table>
 </div>
