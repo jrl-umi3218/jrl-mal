@@ -30,6 +30,7 @@
 # include <cstdio>
 # include <jrl/mal/boostmacros.hh>
 # include <jrl/mal/boostsvd.hh>
+# include <boost/format.hpp>
 
 /**
  * \file boostMatrix.h Define maal::boost::Matrix
@@ -893,8 +894,8 @@ namespace maal
 	      return true;
 	    else
 	      {
-		fprintf(stderr,"!!\tmaal::Matrix: error in matrix size for product [%dx%d] x [%dx%d].\n",
-			mat1.size1(),mat1.size2(),mat2.size1(),mat2.size2()); fflush(stderr);
+		std::cerr << ::boost::format("!!\tmaal::Matrix: error in matrix size for product [%dx%d] x [%dx%d].\n")
+			% (mat1.size1()) % (mat1.size2()) % (mat2.size1()) % (mat2.size2()) << std::flush;
 		return false;
 	      }
 	  }
