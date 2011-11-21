@@ -85,6 +85,8 @@
 
 # define MATRIX_VERSION 1
 
+#if _BOOST_MATRIX_ == 1
 # include <jrl/mal/matrixabstractlayercheck.hh>
+#endif 
 
 #endif /* _MATRIX_ABSTRACT_LAYER_H_ */
