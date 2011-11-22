@@ -21,23 +21,44 @@ INCLUDE(cmake/base.cmake)
 INCLUDE(cmake/boost.cmake)
 INCLUDE(cmake/lapack.cmake)
 INCLUDE(cmake/cpack.cmake)
+INCLUDE(cmake/eigen.cmake)
 
 SET(PROJECT_NAME jrl-mal)
 SET(PROJECT_DESCRIPTION "JRL matrix abstract layer")
 SET(PROJECT_URL "http://github.com/jrl-umi3218/jrl-mal")
 
 SETUP_PROJECT()
-
-# Search for dependencies.
-SEARCH_FOR_BOOST()
 SEARCH_FOR_LAPACK()
 
 # Search for the underlying small matrices library.
 SET(SMALLMATRIXLIB_FOUND 0)
+SET(LINEAR_ALGEBRA_LIB_FOUND 0)
 
-SET(_BOOST_MATRIX_FOUND_ 1)
+SET(_BOOST_MATRIX_FOUND_ 0)
+SET(_EIGEN_MATRIX_FOUND_ 0)
 SET(_VNL_MATRIX_FOUND_ 0)
 SET(_T3D_R3D_V3D_FOUND_ 0)
+
+IF(LINEAR_ALGEBRA_LIB STREQUAL "boost")
+  SEARCH_FOR_BOOST()
+  SET(LINEAR_ALGEBRA_LIB_FOUND 1)
+  SET(_BOOST_MATRIX_FOUND_ 1)
+ENDIF(LINEAR_ALGEBRA_LIB STREQUAL "boost")
+
+IF(LINEAR_ALGEBRA_LIB STREQUAL "eigen")
+  SEARCH_FOR_EIGEN()
+  SET(LINEAR_ALGEBRA_LIB_FOUND 1)
+  SET(_EIGEN_MATRIX_FOUND_ 1)
+ENDIF(LINEAR_ALGEBRA_LIB STREQUAL "eigen")
+
+IF(NOT ${LINEAR_ALGEBRA_LIB_FOUND})
+  MESSAGE(FATAL_ERROR
+    "No linear algebra library found or specified.\n"
+    "Two underlying linear algebra libraries are currently supported:\n"
+    "* boost - ``cmake -DLINEAR_ALGEBRA_LIB=boost''\n"
+    "* eigen - ``cmake -DLINEAR_ALGEBRA_LIB=eigen''\n"
+    )
+ENDIF(NOT ${LINEAR_ALGEBRA_LIB_FOUND})
 
 IF(SMALLMATRIX STREQUAL "jrl-mathtools")
   ADD_REQUIRED_DEPENDENCY("jrl-mathtools >= 1.4")
@@ -71,6 +92,7 @@ SET(${PROJECT_NAME}_HEADERS
   include/jrl/mal/matrixabstractlayer.hh
   include/jrl/mal/matrixabstractlayercheck.hh
   include/jrl/mal/matrixabstractlayerboost.hh
+  include/jrl/mal/matrixabstractlayereigen.hh
   include/jrl/mal/matrixabstractlayerdoc.hh
   include/jrl/mal/matrixabstractlayersmall.hh
   include/jrl/mal/matrixabstractlayermatrix3x3jrlmath.hh
@@ -88,9 +110,14 @@ SET(${PROJECT_NAME}_HEADERS
   include/jrl/mal/boostspecific.hh
   include/jrl/mal/boostsvd.hh
   include/jrl/mal/boostvector.hh
+  include/jrl/mal/eigen.hh
+  include/jrl/mal/eigenmatrix.hh
+  include/jrl/mal/eigenmacros.hh
+  include/jrl/mal/eigenspecific.hh
+  include/jrl/mal/eigenvector.hh
 )
 
-ADD_SUBDIRECTORY(tests)
+ADD_SUBDIRECTORY(unitTesting)
 
 SETUP_PROJECT_FINALIZE()
 SETUP_PROJECT_CPACK()

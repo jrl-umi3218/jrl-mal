@@ -15,15 +15,19 @@
 
 #include <jrl/mal/matrixabstractlayer.hh>
 
-#include <boost/test/unit_test.hpp>
+#if _BOOST_MATRIX_ == 1
+  #define BOOST_TEST_MODULE simple
+  #include <boost/test/unit_test.hpp>
 
-BOOST_AUTO_TEST_CASE (simple)
-{
-  unsigned int size = 30;
-  vectorN vector (size);
-
-  for (unsigned i = 0; i < size; ++i)
-    vector [i] = i;
-
-  std::cout << malIsNanVector (vector) << std::endl;
-}
+  BOOST_AUTO_TEST_CASE (simple)
+  {
+    //FIXME: add test here.
+  }
+#elif _EIGEN_MATRIX_ == 1
+  int main()
+  {
+    MAL_VECTOR_DIM(v,double,3);
+    MAL_VECTOR_FILL(v,1);
+  }
+  //TODO: add test here too.
+#endif

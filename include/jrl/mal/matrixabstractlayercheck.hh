@@ -24,10 +24,22 @@
 #ifndef MATRIXABSTRACTLAYER_CHECK_H
 # define MATRIXABSTRACTLAYER_CHECK_H
 
+//<<<<<<< HEAD
 #if _BOOST_MATRIX_ == 1
 
 #include <boost/math/special_functions/fpclassify.hpp>
 #include <jrl/mal/matrixabstractlayerboost.hh>
+//=======
+////define isnan for win32 and mac users
+//# ifdef WIN32
+//#  ifndef isnan
+//#   include <float.h>
+//#   define isnan _isnan
+//#  endif /*isnan*/
+//# elif defined __APPLE__
+//   inline bool isnan(double x) { return x != x; }
+//# endif /*WIN32*/
+//>>>>>>> topic/eigen
 
 inline bool malIsNanVector(const vectorN& inVector)
 {
