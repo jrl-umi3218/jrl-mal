@@ -1,13 +1,15 @@
 #include <time.h>
 #include <jrl/mal/configmal.hh>
 
+
+#include <jrl/mal/malv2.hh>  // malv2.hh include either boost or eigen mal headers, depending of jrl-mal compile options
 #if _BOOST_MATRIX_ == 1
-#  include <jrl/mal/boost.hh>
+//#  include <jrl/mal/boost.hh>
    using namespace maal::boost;
    typedef boost::numeric::ublas::vector<FloatType> internalVector;
    typedef boost::numeric::ublas::matrix<FloatType> internalMatrix;
 #elif _EIGEN_MATRIX_ == 1
-#  include <jrl/mal/eigen.hh>
+//#  include <jrl/mal/eigen.hh>
    using namespace maal::eigen;
    typedef Eigen::Matrix<FloatType, Eigen::Dynamic, 1> internalVector;
    typedef Eigen::Matrix<FloatType, Eigen::Dynamic, Eigen::Dynamic> internalMatrix;

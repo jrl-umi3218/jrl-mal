@@ -112,9 +112,12 @@ SET(${PROJECT_NAME}_HEADERS
   include/jrl/mal/boostvector.hh
   include/jrl/mal/eigen.hh
   include/jrl/mal/eigenmatrix.hh
+  include/jrl/mal/eigenmatrixsvd.hh
   include/jrl/mal/eigenmacros.hh
   include/jrl/mal/eigenspecific.hh
+  include/jrl/mal/eigensvd.hh
   include/jrl/mal/eigenvector.hh
+  include/jrl/mal/malv2.hh
 )
 
 ADD_SUBDIRECTORY(unitTesting)
