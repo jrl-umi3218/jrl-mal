@@ -47,6 +47,9 @@ void run_test()
   MAL_VECTOR_RESIZE(V1, 4);
   FloatType x = randomFloat();
   MAL_VECTOR_FILL(V1,x);
+  std::clog << "TEST FILLING WITH CONSTANT" << std::endl
+            << "  x = " << x                << std::endl
+            << "  V1 = " << V1              << std::endl;
   JRL_MAL_ASSERT(V1(0) == x
               && V1(1) == x
               && V1(2) == x

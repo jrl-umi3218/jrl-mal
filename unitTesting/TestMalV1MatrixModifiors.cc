@@ -48,6 +48,9 @@ void run_test()
   MAL_MATRIX_RESIZE(M1, 2, 2);
   FloatType x = randomFloat();
   MAL_MATRIX_FILL(M1,x);
+  std::clog << "TEST FILLING WITH CONSTANT" << std::endl
+            << "  x = " << x                << std::endl
+            << "  M1 = " << M1              << std::endl;
   JRL_MAL_ASSERT(M1(0,0) == x
               && M1(0,1) == x
               && M1(1,0) == x

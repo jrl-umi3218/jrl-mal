@@ -41,6 +41,9 @@ void run_test()
 
   // Check resize with reset
   m1.resize(2, 2, true); // FIXME: For some reason, non-preservative resize does not clear the matrix with Boost, hence the failing test.
+  std::clog << "TEST RESIZE WITH VALUE RESET"  << std::endl
+            << "  m1 = " << m1                 << std::endl
+            << "  (should be 2x2 zero matrix)" << std::endl;
   JRL_MAL_ASSERT(m1.nbRows() == 2
               && m1.nbCols() == 2
               && isMatrixNull(m1)
@@ -49,6 +52,11 @@ void run_test()
   // Check fill with constant method
   FloatType x = randomFloat();
   m1.fill(x);
+//*
+std::clog << "FILLING TEST"  << std::endl
+          << "  x = " << x   << std::endl
+          << "  m1 = " << m1 << std::endl;
+//*/
   JRL_MAL_ASSERT(m1(0,0) == x
               && m1(0,1) == x
               && m1(1,0) == x
