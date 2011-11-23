@@ -44,5 +44,6 @@
 # include <jrl/mal/eigenmacros.hh>
 # include <jrl/mal/eigenvector.hh>
 # include <jrl/mal/eigenmatrix.hh>
+# include <jrl/mal/eigenmatrixsvd.hh>
 
 #endif /* #ifndef __MAAL_EIGEN__ */

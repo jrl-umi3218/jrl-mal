@@ -47,5 +47,6 @@
 # include <jrl/mal/boostmacros.hh>
 # include <jrl/mal/boostvector.hh>
 # include <jrl/mal/boostmatrix.hh>
+# include <jrl/mal/boostmatrixsvd.hh>
 
 #endif /* #ifndef __MAAL_BOOST__ */
