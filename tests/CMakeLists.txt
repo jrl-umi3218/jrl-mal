@@ -41,3 +41,7 @@ ENDMACRO(JRL_MAL_TEST)
 
 # Simple test.
 JRL_MAL_TEST(simple)
+JRL_MAL_TEST(TestMalV1Matrix)
+JRL_MAL_TEST(TestMalV1Vector)
+JRL_MAL_TEST(TestMalV2Vector)
+JRL_MAL_TEST(TestMalV2Matrix)
