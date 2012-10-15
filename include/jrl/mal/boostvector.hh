@@ -74,7 +74,7 @@ namespace maal{  namespace boost {
        *
        * Build the internal vector from the demanded size.
        */
-      Vector( const unsigned int size=0 )
+      Vector( const InternalVector::size_t size=0 )
 	: staticVector( size ),dynamicVector( NULL ),vector(staticVector)
 	{}
 
@@ -117,9 +117,9 @@ namespace maal{  namespace boost {
 
       /** @name Modifiors */
       //@{
-      inline unsigned int size( void ) const { return vector.size();	}
+      inline InternalVector::size_t size( void ) const { return vector.size();	}
 
-      inline Vector& resize( const unsigned int nbRows,const bool setZero=true )
+      inline Vector& resize( const InternalVector::size_t nbRows,const bool setZero=true )
 	{
 	  vector.resize(nbRows,!setZero);
 	  return *this;
@@ -127,7 +127,7 @@ namespace maal{  namespace boost {
 
       inline Vector& fill( const FloatType value )
 	{
-	  for(unsigned int i=0;i<vector.size();vector[i++]=value) ;
+	  for(InternalVector::size_t i=0;i<vector.size();vector[i++]=value) ;
 	  return *this;
 	}
       inline Vector& setZero( void )
@@ -223,7 +223,7 @@ namespace maal{  namespace boost {
       inline Vector& multiply( const Vector&v2,Vector&res ) const
 	{
 	  MAAL_CHECKVERBOSE(_checksize(vector,v2.vector)); _resize(res.vector,vector);
-	  for( unsigned int i=0;i<vector.size();++i )
+	  for( InternalVector::size_t i=0;i<vector.size();++i )
 	    { res.vector(i)=vector(i)*v2.vector(i); }
 	  return res;
 	}
@@ -291,7 +291,7 @@ namespace maal{  namespace boost {
        *
        * This C-style function is equivalent to the C++ operator().
        */
-      inline const FloatType& elementAt( const unsigned int row ) const
+      inline const FloatType& elementAt( const InternalVector::size_t row ) const
 	{
 	  MAAL_CHECKVERBOSE(_checksize(vector,row));
 	  return vector(row);
@@ -300,7 +300,7 @@ namespace maal{  namespace boost {
        *
        * This C-style function is equivalent to the C++ operator().
        */
-      inline FloatType& elementAt( const unsigned int row )
+      inline FloatType& elementAt( const InternalVector::size_t row )
 	{
 	  MAAL_CHECKVERBOSE(_checksize(vector,row));
 	  return vector(row);
@@ -310,7 +310,7 @@ namespace maal{  namespace boost {
        *
        * Not implemented yet.
        */
-      inline Vector& extract( const unsigned int top,const unsigned int nbrows,
+      inline Vector& extract( const InternalVector::size_t top,const InternalVector::size_t nbrows,
 			      Vector& C ) const
 	{
 	  MAAL_CHECKVERBOSE(_checksize(vector,top));  C.vector.resize(top+nbrows-1);
@@ -323,7 +323,7 @@ namespace maal{  namespace boost {
        *
        * Not implemented yet.
        */
-      inline Vector extract( const unsigned int top,const unsigned int nbrows ) const
+      inline Vector extract( const InternalVector::size_t top,const InternalVector::size_t nbrows ) const
 	{ Vector res(nbrows); return extract(top,nbrows,res); }
 
       //@}
@@ -355,8 +355,8 @@ namespace maal{  namespace boost {
       inline Vector& operator-= ( const Vector&v1 ){ return substraction(v1,*this); }
       inline Vector& operator*= ( const Vector&v1 ){ return multiply(v1,*this); }
       inline Vector& operator*= ( const FloatType x ){ return multiply(x,*this); }
-      inline const FloatType& operator()( const unsigned int i )const { return vector(i); }
-      inline FloatType& operator()( const unsigned int i ){ return elementAt(i); }
+      inline const FloatType& operator()( const InternalVector::size_t i )const { return vector(i); }
+      inline FloatType& operator()( const InternalVector::size_t i ){ return elementAt(i); }
       inline Vector& operator= ( const Vector&v1 ){ vector=v1.vector; return *this;}
       //inline friend std::ostream& operator<< ( std::ostream& os,const Vector& v1 ){ return os<<v1.vector; }
       inline friend std::istream& operator>> ( std::istream& is,Vector& v1 ){ return is>>v1.vector; }
@@ -370,12 +370,12 @@ namespace maal{  namespace boost {
 	    case SIMPLE:
 	      return os<<v1.vector;
 	    case COMPLET:
-	      for( unsigned int i=0;i<v1.size();++i )
+	      for( InternalVector::size_t i=0;i<v1.size();++i )
 		{ if(fabs(v1(i))>1e-6) os << v1(i) << "\t"; else os<<0.00<<"\t"; }
 	      return os;
 	    case MATLAB:
 	      os << "[ ";
-	      for( unsigned int i=0;i<v1.size();++i )
+	      for( InternalVector::size_t i=0;i<v1.size();++i )
 		{
 		  os <<  v1(i);
 		  if( v1.size()!=i+1 ) { os << ", "; }
@@ -415,9 +415,9 @@ namespace maal{  namespace boost {
 	      return false;
 	    }
 	}
-      static inline bool _checksize( const InternalVector& vct1,const unsigned int s2 )
+      static inline bool _checksize( const InternalVector& vct1,const InternalVector::size_t s2 )
 	{ return ( (!CHECKRESIZE)||(vct1.size()>s2) ); }
-      static inline bool _checksizeVerb( const InternalVector& vct1,const unsigned int s2)
+      static inline bool _checksizeVerb( const InternalVector& vct1,const InternalVector::size_t s2)
 	{
 	  if ( (!CHECKRESIZE)||(vct1.size()>s2) )
 	    return true;
