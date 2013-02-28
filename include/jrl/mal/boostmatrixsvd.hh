@@ -46,7 +46,7 @@ namespace maal
 
     protected:
       /* SVD memory. */
-      mutable unsigned int nbrows,nbcols,nmajor,nminor;
+      mutable size_t nbrows,nbcols,nmajor,nminor;
       mutable bool toTranspose;
 
       mutable ::boost::numeric::ublas::matrix<FloatType,::boost::numeric::ublas::column_major> McolMajor;
@@ -116,7 +116,7 @@ namespace maal
 	{
 	  double vw;
 	  int linfo;
-	  const int n=nbrows,m=nbcols;
+	  const int n=static_cast<int>(nbrows),m=static_cast<int>(nbcols);
 	  lda = std::max(m,n);
 	  lw =-1;
 	  dgesvd_(&Jobu, &Jobvt, &m, &n,
@@ -154,8 +154,8 @@ namespace maal
 	/* Compute the SVD. */
 
 	{
-	  int linfo; const int n=nbrows,
-		       m=nbcols;
+	  int linfo; const int n=static_cast<int>(nbrows),
+		       m=static_cast<int>(nbcols);
 	  lda = std::max(m,n);
 	  lu = traits::leading_dimension(U); // NR
 	  lvt = traits::leading_dimension(VT); // NC
@@ -236,8 +236,8 @@ namespace maal
 
 	/* Compute the SVD. */
 	{
-	  const int n=nbrows,
-	    m=nbcols;
+	  const int n=static_cast<int>(nbrows),
+	    m=static_cast<int>(nbcols);
 	  lda = std::max(m,n);
 	  lu = traits::leading_dimension(U); // NR
 	  lvt = traits::leading_dimension(VT); // NC

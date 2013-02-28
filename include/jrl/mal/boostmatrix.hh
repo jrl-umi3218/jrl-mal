@@ -82,7 +82,9 @@ namespace maal
 	Matrix( const unsigned int rows=0, const unsigned int cols=0 )
 	  : staticMatrix( rows,cols ),dynamicMatrix( NULL ),matrix(staticMatrix)
 	  {
+#ifdef JRL_MAL_DEBUG
 	    staticMatrix.clear();
+#endif // JRL_MAL_DEBUG
 	  }
 
 	  /** \brief Build only the capsule around a already existing
@@ -130,9 +132,18 @@ namespace maal
 	  }
 
 	  /** \brief Get the number of rows. */
-	  inline unsigned int nbRows( void ) const { return (unsigned int)matrix.size1();}
+	  inline unsigned int nbRows( void ) const {
+            /* XXX static_cast to avoid modifying the interface, but the
+             * function should probably return size_t here */
+            return static_cast<unsigned int>(matrix.size1());
+          }
 	  /** \brief Get the number of columns. */
-	  inline unsigned int nbCols( void ) const { return (unsigned int)matrix.size2();}
+	  inline unsigned int nbCols( void ) const {
+            /* XXX static_cast to avoid modifying the interface, but the
+             * function should probably return size_t here */
+            return static_cast<unsigned int>(matrix.size2());
+          }
+>>>>>>> topic/python
 
 	  inline Matrix& setZero( void ) { matrix.clear(); return *this; }
 	  inline Matrix& setIdentity( void  )
@@ -219,9 +230,7 @@ namespace maal
 	  }
 	  inline Matrix transpose( void )  const
 	  {
-	    Matrix At((unsigned int)matrix.size2(),
-		      (unsigned int)matrix.size1());
-	    return transpose(At);
+	    Matrix At(nbCols(),nbRows()); return transpose(At);
 	  }
 
 	  /** \brief Compute the inverse of the matrix.
@@ -240,8 +249,7 @@ namespace maal
 	    ::boost::numeric::ublas::permutation_matrix<std::size_t>  pm(A.size1());
 
 	    /* Perform LU-factorization. */
-	    int res = (int)lu_factorize(A,pm);
-	    if( res!=0 )
+	    if( lu_factorize(A,pm)!=0 )
 	      {
 		fprintf( stderr,"!! %s(#%d)\tError while LU: not invertible.\n",
 			 __FUNCTION__,__LINE__); fflush(stderr);
@@ -260,11 +268,8 @@ namespace maal
 	  }
 
 	  inline Matrix inverse( void )  const
-	  {
-	    Matrix Ainv((int)matrix.size2(),
-			(int)matrix.size1());
-	    return inverse(Ainv);
-	  }
+	  { Matrix Ainv(nbCols(),nbRows()); return inverse(Ainv); }
+
 
 	  /** \brief Compute the pseudo-inverse of the matrix.
 	   *
@@ -283,17 +288,13 @@ namespace maal
 	    ::boost::numeric::ublas::matrix<FloatType,::boost::numeric::ublas::column_major> I;
 	    if( matrix.size1()>matrix.size2() )
 	      {
-		toTranspose=false ;
-		NR=(unsigned int)matrix.size1();
-		NC=(unsigned int)matrix.size2();
+		toTranspose=false ;  NR=nbRows(); NC=nbCols();
 		I=matrix;
 		_resizeInv(invMatrix.matrix,I);
 	      }
 	    else
 	      {
-		toTranspose=true;
-		NR=(unsigned int)matrix.size2();
-		NC=(unsigned int)matrix.size1();
+		toTranspose=true; NR=nbCols(); NC=nbRows();
 		I = trans(matrix);
 		_resizeInv(invMatrix.matrix,I); // Resize the inv of the transpose.
 	      }
@@ -331,10 +332,10 @@ namespace maal
 	    }
 
 
-	    const unsigned int nsv = (unsigned int)s.size();
+	    const size_t nsv = s.size();
 	    unsigned int rankJ = 0;
 	    ::boost::numeric::ublas::vector<FloatType> sp(nsv);
-	    for( unsigned int i=0;i<nsv;++i )
+	    for( size_t i=0;i<nsv;++i )
 	      if( fabs(s(i))>threshold ) { sp(i)=1/s(i); rankJ++; }
 	      else sp(i)=0.;
 	    invMatrix.matrix.clear();
@@ -385,11 +386,7 @@ namespace maal
 				       Matrix* U = NULL,
 				       Vector* S = NULL,
 				       Matrix* V = NULL)  const
-	  {
-	    Matrix Ainv((unsigned int)matrix.size2(),
-			(unsigned int)matrix.size1());
-	    return pseudoInverse(Ainv,threshold,U,S,V);
-	  }
+	  { Matrix Ainv(nbCols(),nbRows()); return pseudoInverse(Ainv,threshold,U,S,V); }
 
 	  /** \brief Compute the pseudo-inverse of the matrix.
 	   *
@@ -408,17 +405,13 @@ namespace maal
 	    ::boost::numeric::ublas::matrix<FloatType,::boost::numeric::ublas::column_major> I;
 	    if( matrix.size1()>matrix.size2() )
 	      {
-		toTranspose=false ; 
-		NR=(unsigned int)matrix.size1();
-		NC=(unsigned int)matrix.size2();
+		toTranspose=false ;  NR=nbRows(); NC=nbCols();
 		I=matrix;
 		_resizeInv(invMatrix.matrix,matrix);
 	      }
 	    else
 	      {
-		toTranspose=true;
-		NR=(unsigned int)matrix.size2();
-		NC=(unsigned int)matrix.size1();
+		toTranspose=true; NR=nbCols(); NC=nbRows();
 		I = trans(matrix);
 		_resize(invMatrix.matrix,matrix); // Resize the inv of the transpose.
 	      }
@@ -458,10 +451,10 @@ namespace maal
 
 	    }
 
-	    const unsigned int nsv = (unsigned int)s.size();
+	    const size_t nsv = s.size();
 	    unsigned int rankJ = 0;
 	    ::boost::numeric::ublas::vector<FloatType> sp(nsv);
-	    for( unsigned int i=0;i<nsv;++i )
+	    for( size_t i=0;i<nsv;++i )
 	      {
 		if( fabs(s(i))>threshold*.1 )   rankJ++;
 		sp(i)=s(i)/(s(i)*s(i)+threshold*threshold);
@@ -514,11 +507,7 @@ namespace maal
 				       Matrix* U = NULL,
 				       Vector* S = NULL,
 				       Matrix* V = NULL)  const
-	  {
-	    Matrix Ainv((unsigned int)matrix.size2(),
-			(unsigned int)matrix.size1());
-	    return dampedInverse(Ainv,threshold,U,S,V);
-	  }
+	  { Matrix Ainv(nbCols(),nbRows()); return dampedInverse(Ainv,threshold,U,S,V); }
 
 	  /** \brief Compute the opposite of the matrix -M. */
 	  inline Matrix& opposite( Matrix& res ) const
@@ -543,11 +532,7 @@ namespace maal
 	  inline friend Matrix& multiply( const Matrix& A,const Matrix& B,Matrix& C )
 	  { return A.multiply(B,C);    }
 	  inline Matrix multiply( const Matrix& B ) const
-	  { 
-	    Matrix C((unsigned int)matrix.size1(),
-		     (unsigned int)B.matrix.size2());
-	    return this->multiply(B,C);
-	  }
+	  {  Matrix C(nbRows(),B.nbCols()); return this->multiply(B,C); }
 	  inline Matrix& multiply( const Matrix& B,Matrix& C ) const
 	  {
 	    MAAL_CHECKVERBOSE(_checksizeProd(matrix,B.matrix));
@@ -560,7 +545,7 @@ namespace maal
 	  friend inline Vector& multiply( const Matrix& M, const Vector& v, Vector& res )
 	  {  return M.multiply(v,res); }
 	  inline Vector multiply( const Vector& v ) const
-	  {  Vector res(matrix.size1()); return this->multiply(v,res); }
+	  {  Vector res(nbRows()); return this->multiply(v,res); }
 	  inline Vector& multiply(  const Vector& v, Vector& res ) const
 	  {
 	    MAAL_CHECKVERBOSE(_checksizeProd(matrix,v.vector));
@@ -574,11 +559,7 @@ namespace maal
 	  inline friend Matrix& addition( const Matrix& A,const Matrix& B,Matrix& C )
 	  { return A.addition(B,C);     }
 	  inline Matrix addition( const Matrix& B ) const
-	  { 
-	    Matrix C((unsigned int)matrix.size1(),
-		     (unsigned int)matrix.size2());
-	    return addition(B,C);
-	  }
+	  {  Matrix C(nbRows(),nbCols()); return addition(B,C);}
 	  inline Matrix&	addition( const Matrix& B,Matrix& C ) const
 	  {
 	    MAAL_CHECKVERBOSE(_checksize(matrix,B.matrix));
@@ -590,11 +571,8 @@ namespace maal
 	  inline friend Matrix& substraction( const Matrix& A,const Matrix& B,Matrix& C )
 	  { return A.substraction(B,C); }
 	  inline Matrix substraction( const Matrix& B ) const
-	  {
-	    Matrix C((unsigned int)matrix.size1(),
-		     (unsigned int)matrix.size2());
-	    return substraction(B,C);
-	  }
+	  { Matrix C(nbRows(),nbCols()); return substraction(B,C); }
+
 	  inline Matrix& substraction( const Matrix& B,Matrix& C ) const
 	  {
 	    MAAL_CHECKVERBOSE(_checksize(matrix,B.matrix));
@@ -608,11 +586,8 @@ namespace maal
 	  inline friend Matrix& multiply( const Matrix& A,const FloatType x,Matrix& C )
 	  { return A.multiply(x,C); }
 	  inline Matrix multiply( const FloatType x ) const
-	  {
-	    Matrix C((unsigned int)matrix.size1(),
-		     (unsigned int)matrix.size2());
-	    this->multiply(x,C); return C;
-	  }
+	  { Matrix C(nbRows(),nbCols()); this->multiply(x,C); return C;}
+
 	  inline Matrix& multiply( const FloatType x,Matrix& C ) const
 	  {
 	    //_resize(matrix,C.matrix); multiply(matrix,x,C.matrix);
@@ -623,17 +598,13 @@ namespace maal
 	  inline friend Matrix& addition( const Matrix& A,const FloatType x,Matrix& C )
 	  { return A.addition(x,C);}
 	  inline Matrix addition( const FloatType x ) const
-	  {
-	    Matrix C((unsigned int)matrix.size1(),
-		     (unsigned int)matrix.size2());
-	    return this->addition(x,C);
-	  }
+	  {  Matrix C(nbRows(),nbCols()); return this->addition(x,C); }
 	  inline Matrix& addition( const FloatType x,Matrix& C ) const
 	  {
 	    //_resize(C.matrix,matrix);
 	    C.matrix=matrix;
-	    for(unsigned int i=0;i<matrix.size1();i++)
-	      {for(unsigned int j=0;j<matrix.size2();j++)
+	    for(unsigned int i=0;i<nbRows();i++)
+	      {for(unsigned int j=0;j<nbCols();j++)
 		  C.matrix(i,j) += x;
 	      }
 	    return C;
@@ -643,17 +614,13 @@ namespace maal
 	  inline friend Matrix& substraction( const Matrix& A,const FloatType x,Matrix& C )
 	  { return A.substraction(x,C);  }
 	  inline Matrix substraction( const FloatType x ) const
-	  {
-	    Matrix C((unsigned int)matrix.size1(),
-		     (unsigned int)matrix.size2());
-	    return substraction(x,C);
-	  }
+	  {  Matrix C(nbRows(),nbCols()); return substraction(x,C); }
 	  inline Matrix& substraction( const FloatType x,Matrix& C ) const
 	  {
 	    //_resize(C.matrix,matrix);
 	    C.matrix = matrix;
-	    for(unsigned int i=0;i<matrix.size1();i++)
-	      {for(unsigned int j=0;j<matrix.size2();j++)
+	    for(unsigned int i=0;i<nbRows();i++)
+	      {for(unsigned int j=0;j<nbCols();j++)
 		  C.matrix(i,j) -= x;
 	      }
 	    return C;
@@ -663,17 +630,14 @@ namespace maal
 	  inline friend Matrix& division( const Matrix& A,const FloatType x,Matrix& C )
 	  { return A.division(x,C);}
 	  inline Matrix division( const FloatType x ) const
-	  {
-	    Matrix C((unsigned int)matrix.size1(),
-		     (unsigned int)matrix.size2());
-	    return division(x,C);
-	  }
+	  {  Matrix C(nbRows(),nbCols()); return division(x,C);}
+
 	  inline Matrix& division( const FloatType x,Matrix& C ) const
 	  {
 	    //_resize(C.matrix,matrix);
 	    C.matrix = matrix;
-	    for(unsigned int i=0;i<matrix.size1();i++)
-	      {for(unsigned int j=0;j<matrix.size2();j++)
+	    for(unsigned int i=0;i<nbRows();i++)
+	      {for(unsigned int j=0;j<nbCols();j++)
 		  //C.matrix(i,j) = matrix(i,j) / x;
 		  C.matrix(i,j) /= x;
 	      }
@@ -734,7 +698,8 @@ namespace maal
 	  }
 	  inline const FloatType& elementAt( const int elmt ) const
 	  {
-	    const int l =  (int)matrix.size1();
+	    const unsigned int l =  nbRows();
+
 	    const div_t q = div(elmt,l);
 	    const int r = q.quot;
 	    const int c = q.rem;
@@ -742,7 +707,7 @@ namespace maal
 	  }
 	  inline FloatType& elementAt( const int elmt )
 	  {
-	    const int l =  (int)matrix.size1();
+	    const unsigned int l =  nbRows();
 	    const div_t q = div(elmt,l);
 	    const int r = q.quot;
 	    const int c = q.rem;
@@ -765,9 +730,7 @@ namespace maal
 	  { Vector res; getDiagonal(res); return res; }
 	  inline Vector& getDiagonal( Vector& vector ) const
 	  {
-	    const unsigned int MIN =
-	      std::min((unsigned int)matrix.size1(),
-		       (unsigned int)matrix.size2());
+	    const unsigned int MIN = std::min(nbRows(), nbCols());
 	    vector.resize( MIN );
 	    for( unsigned int i=0;i<MIN;++i )
 	      vector(i) = matrix(i,i);
@@ -843,33 +806,7 @@ namespace maal
 
 	  inline friend std::ostream& operator<< ( std::ostream& os,const Matrix& m1 )
 	    {
-	      switch( getDisplayType() )
-		{
-		case SIMPLE:
-		  return os<<m1.matrix;
-		case COMPLET:
-		  for( unsigned int i=0;i<m1.nbRows();++i )
-		    {
-		      for( unsigned int j=0;j<m1.nbCols();++j )
-			{ if(fabs(m1(i,j))>1e-6) os << m1(i,j) << "\t"; else os<<0.00<<"\t"; }
-		      os<<std::endl;
-		    }
-		  return os;
-		case MATLAB:
-		  os << "[ ";
-		  for( unsigned int i=0;i<m1.nbRows();++i )
-		    {
-		      for( unsigned int j=0;j<m1.nbCols();++j )
-			{
-			  os <<  m1(i,j) << ", ";
-			}
-		      if( m1.nbRows()!=i+1 ) { os << ";" << std::endl; }
-		      else { os << "]" << std::endl; }
-		    }
-		  return os;
-		default:
-		  ML_NOT_IMPLEMENTED(os);
-		}
+	      return os<<m1.matrix;
 	    }
 	  inline friend std::istream& operator>> ( std::istream& is,Matrix& v1 ){ return is>>v1.matrix; }
 
@@ -930,8 +867,11 @@ namespace maal
 	      return true;
 	    else
 	      {
-		std::cerr << ::boost::format("!!\tmaal::Matrix: error in matrix size for product [%dx%d] x [%dx%d].\n")
-			% (mat1.size1()) % (mat1.size2()) % (mat2.size1()) % (mat2.size2()) << std::flush;
+		std::cerr << ::boost::format
+		  ("!!\tmaal::Matrix: error in matrix size for product [%dx%d]"
+		   " x [%dx%d].\n")
+		  % (mat1.size1()) % (mat1.size2()) % (mat2.size1()) %
+		  (mat2.size2()) << std::flush;
 		return false;
 	      }
 	  }

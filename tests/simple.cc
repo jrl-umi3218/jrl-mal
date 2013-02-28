@@ -21,5 +21,11 @@
 
 BOOST_AUTO_TEST_CASE (simple)
 {
-  //FIXME: add test here.
+  unsigned int size = 30;
+  vectorN vector (size);
+
+  for (unsigned i = 0; i < size; ++i)
+    vector [i] = i;
+
+  std::cout << malIsNanVector (vector) << std::endl;
 }

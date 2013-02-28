@@ -117,7 +117,11 @@ namespace maal{  namespace boost {
 
       /** @name Modifiors */
       //@{
-      inline InternalVector::size_type size( void ) const { return vector.size();	}
+      inline unsigned int size( void ) const {
+        /* XXX static_cast to avoid modifying the interface, but the function
+         * should probably return size_t here */
+        return static_cast<unsigned int>(vector.size());
+      }
 
       inline Vector& resize( const InternalVector::size_type nbRows,const bool setZero=true )
 	{
@@ -127,7 +131,7 @@ namespace maal{  namespace boost {
 
       inline Vector& fill( const FloatType value )
 	{
-	  for(InternalVector::size_type i=0;i<vector.size();vector[i++]=value) ;
+	  for(unsigned int i=0;i<size();vector[i++]=value) ;
 	  return *this;
 	}
       inline Vector& setZero( void )
@@ -138,7 +142,7 @@ namespace maal{  namespace boost {
       inline Vector& opposite( Vector&res ) const
 	{ res.vector=vector; res.vector *=-1; return res; }
       inline Vector opposite( void ) const
-	{ Vector res(vector.size()); opposite(res); return res; }
+	{ Vector res(size()); opposite(res); return res; }
 
       //@}
 
@@ -211,7 +215,7 @@ namespace maal{  namespace boost {
       inline Vector
 	crossProduct( const Vector&v2 )
 	{
-	  Vector res(vector.size()); return crossProduct(v2,res);
+	  Vector res(size()); return crossProduct(v2,res);
 	}
 
 
@@ -219,11 +223,15 @@ namespace maal{  namespace boost {
       static Vector& multiply( const Vector&v1,const Vector&v2,Vector&res)
 	{ return v1.multiply(v2,res); }
       inline Vector multiply( const Vector&v2 ) const
-	{ Vector res(vector.size()); return multiply(v2,res); }
+	{ Vector res(size()); return multiply(v2,res); }
       inline Vector& multiply( const Vector&v2,Vector&res ) const
 	{
 	  MAAL_CHECKVERBOSE(_checksize(vector,v2.vector)); _resize(res.vector,vector);
+<<<<<<< HEAD
 	  for( InternalVector::size_type i=0;i<vector.size();++i )
+=======
+	  for( unsigned int i=0;i<size();++i )
+>>>>>>> topic/python
 	    { res.vector(i)=vector(i)*v2.vector(i); }
 	  return res;
 	}
@@ -233,7 +241,7 @@ namespace maal{  namespace boost {
       static Vector& multiply( const Vector&v1,const FloatType x,Vector&res)
 	{ return v1.multiply(x,res); }
       inline Vector multiply( const FloatType x ) const
-	{ Vector res(vector.size()); return multiply(x,res); }
+	{ Vector res(size()); return multiply(x,res); }
       inline Vector& multiply( const FloatType x,Vector&res ) const
 	{
 	  //_resize(res.vector,vector);
@@ -246,7 +254,7 @@ namespace maal{  namespace boost {
       static Vector& addition( const Vector&v1,const Vector&v2,Vector&res)
 	{ return v1.addition(v2,res); }
       inline Vector addition( const Vector&v2 ) const
-	{ Vector res(vector.size()); return addition(v2,res); }
+	{ Vector res(size()); return addition(v2,res); }
       inline Vector& addition( const Vector&v2,Vector&res ) const
 	{
 	  MAAL_CHECKVERBOSE(_checksize(vector,v2.vector));
@@ -259,7 +267,7 @@ namespace maal{  namespace boost {
       static Vector& substraction( const Vector&v1,const Vector&v2,Vector&res)
 	{ return v1.substraction(v2,res); }
       inline Vector substraction( const Vector&v2 ) const
-	{ Vector res(vector.size()); return substraction(v2,res);  }
+	{ Vector res(size()); return substraction(v2,res);  }
       inline Vector& substraction( const Vector&v2,Vector&res ) const
 	{
 	  MAAL_CHECKVERBOSE(_checksize(vector,v2.vector));
@@ -364,6 +372,7 @@ namespace maal{  namespace boost {
 
       inline friend std::ostream& operator<< ( std::ostream& os,const Vector& v1 )
 	{
+<<<<<<< HEAD
 	  //os << "Display: "<< 0+getDisplayType()<<std::endl;
 	  switch( getDisplayType() )
 	    {
@@ -385,6 +394,9 @@ namespace maal{  namespace boost {
 	    default:
 	      ML_NOT_IMPLEMENTED(os);
 	    }
+=======
+	  return os<<v1.vector;
+>>>>>>> topic/python
 	}
 
       //@}
