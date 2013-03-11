@@ -227,11 +227,8 @@ namespace maal{  namespace boost {
       inline Vector& multiply( const Vector&v2,Vector&res ) const
 	{
 	  MAAL_CHECKVERBOSE(_checksize(vector,v2.vector)); _resize(res.vector,vector);
-<<<<<<< HEAD
-	  for( InternalVector::size_type i=0;i<vector.size();++i )
-=======
+
 	  for( unsigned int i=0;i<size();++i )
->>>>>>> topic/python
 	    { res.vector(i)=vector(i)*v2.vector(i); }
 	  return res;
 	}
@@ -372,31 +369,7 @@ namespace maal{  namespace boost {
 
       inline friend std::ostream& operator<< ( std::ostream& os,const Vector& v1 )
 	{
-<<<<<<< HEAD
-	  //os << "Display: "<< 0+getDisplayType()<<std::endl;
-	  switch( getDisplayType() )
-	    {
-	    case SIMPLE:
-	      return os<<v1.vector;
-	    case COMPLET:
-	      for( InternalVector::size_type i=0;i<v1.size();++i )
-		{ if(fabs(v1(i))>1e-6) os << v1(i) << "\t"; else os<<0.00<<"\t"; }
-	      return os;
-	    case MATLAB:
-	      os << "[ ";
-	      for( InternalVector::size_type i=0;i<v1.size();++i )
-		{
-		  os <<  v1(i);
-		  if( v1.size()!=i+1 ) { os << ", "; }
-		  else { os << "]" << std::endl; }
-		}
-	      return os;
-	    default:
-	      ML_NOT_IMPLEMENTED(os);
-	    }
-=======
 	  return os<<v1.vector;
->>>>>>> topic/python
 	}
 
       //@}
