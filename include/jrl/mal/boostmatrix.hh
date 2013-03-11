@@ -143,7 +143,6 @@ namespace maal
              * function should probably return size_t here */
             return static_cast<unsigned int>(matrix.size2());
           }
->>>>>>> topic/python
 
 	  inline Matrix& setZero( void ) { matrix.clear(); return *this; }
 	  inline Matrix& setIdentity( void  )
