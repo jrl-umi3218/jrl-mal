@@ -39,6 +39,30 @@ SET(_BOOST_MATRIX_FOUND_ 1)
 SET(_VNL_MATRIX_FOUND_ 0)
 SET(_T3D_R3D_V3D_FOUND_ 0)
 
+SET(LINEAR_ALGEBRA_LIB "boost" CACHE STRING "Linear algebra library used")
+IF(LINEAR_ALGEBRA_LIB STREQUAL "boost")
+  SET(LINEAR_ALGEBRA_LIB_FOUND 1)
+  SET(_BOOST_MATRIX_FOUND_ 1)
+ENDIF(LINEAR_ALGEBRA_LIB STREQUAL "boost")
+
+IF(LINEAR_ALGEBRA_LIB STREQUAL "eigen")
+  ADD_REQUIRED_DEPENDENCY("eigen3 >= 3.0.0")
+  INCLUDE_DIRECTORIES(${EIGEN3_INCLUDE_DIRS})
+  SET(LINEAR_ALGEBRA_LIB_FOUND 1)
+  SET(_EIGEN_MATRIX_FOUND_ 1)
+ENDIF(LINEAR_ALGEBRA_LIB STREQUAL "eigen")
+
+IF(NOT ${LINEAR_ALGEBRA_LIB_FOUND})
+  MESSAGE(FATAL_ERROR
+    "No linear algebra library found or specified.\n"
+    "Two underlying linear algebra libraries are currently supported:\n"
+    "* boost - ``cmake -DLINEAR_ALGEBRA_LIB=boost''\n"
+    "* eigen - ``cmake -DLINEAR_ALGEBRA_LIB=eigen''\n"
+    )
+ENDIF(NOT ${LINEAR_ALGEBRA_LIB_FOUND})
+
+SET (SMALLMATRIX "jrl-mathtools" CACHE STRING
+  "Small matrix-vector library used.")
 IF(SMALLMATRIX STREQUAL "jrl-mathtools")
   ADD_REQUIRED_DEPENDENCY("jrl-mathtools >= 1.4")
   SET(SMALLMATRIXLIB_CXXFLAGS ${JRL_MATHTOOLS_CFLAGS})
