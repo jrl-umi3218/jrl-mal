@@ -120,7 +120,6 @@ SET(${PROJECT_NAME}_HEADERS
   include/jrl/mal/eigen.hh
   include/jrl/mal/eigenmatrix.hh
   include/jrl/mal/eigenmacros.hh
-  include/jrl/mal/eigenspecific.hh
   include/jrl/mal/eigenvector.hh
 )
 
