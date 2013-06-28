@@ -31,7 +31,7 @@ class EXTRA_QUALIFIER TYPE : public std::logic_error \
 public: \
 TYPE (const std::string& message, \
 const std::string& file, \
-unsigned line) throw () \
+unsigned) throw () \
 	: std::logic_error (file + ": " + message) \
 {} \
 }
