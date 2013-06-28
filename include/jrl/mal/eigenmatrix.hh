@@ -25,7 +25,6 @@
 # define __MAAL_EIGEN_MATRIX_
 # include <cstdio>
 # include <jrl/mal/eigenmacros.hh>
-# include <jrl/mal/eigensvd.hh>
 
 /**
  * \file eigenMatrix.h Define maal::eigen::Matrix
