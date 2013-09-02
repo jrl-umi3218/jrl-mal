@@ -32,6 +32,7 @@ void run_test()
   // Test euclidian norm
   x = v1.norm();
   tmp = sqrt(v1(0)*v1(0)+v1(1)*v1(1)+v1(2)*v1(2));
+  std::cout << "x = " << x << " ; tmp = " << tmp << std::endl;
   JRL_MAL_ASSERT(x == tmp
               && "test vector norm");
 

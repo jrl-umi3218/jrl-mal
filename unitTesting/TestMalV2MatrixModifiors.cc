@@ -49,6 +49,8 @@ void run_test()
   // Check fill with constant method
   FloatType x = randomFloat();
   m1.fill(x);
+  std::cout << "m1(0,0) = " << m1(0,0) << " ; m1(0,1) = " << m1(0,1) << std::endl;
+  std::cout << "m1(1,0) = " << m1(1,0) << " ; m1(1,1) = " << m1(1,1) << std::endl;
   JRL_MAL_ASSERT(m1(0,0) == x
               && m1(0,1) == x
               && m1(1,0) == x
