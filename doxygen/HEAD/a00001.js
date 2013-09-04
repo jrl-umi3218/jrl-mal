@@ -1,0 +1,4 @@
+var a00001 =
+[
+    [ "JRL_MAL_DEPRECATED", "a00001.html#a35a988541d860018269835a84a217705", null ]
+];
