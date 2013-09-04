@@ -1,6 +1,10 @@
 jrl-mal
 =======
 
+[![Build Status](https://travis-ci.org/jrl-umi3218/jrl-mal.png)](https://travis-ci.org/jrl-umi3218/jrl-mal)
+[![Coverage Status](https://coveralls.io/repos/jrl-umi3218/jrl-mal/badge.png?branch=master)](https://coveralls.io/r/jrl-umi3218/jrl-mal?branch=master)
+
+
 This software provides abstraction of the matrix representation and by
 consequence of the matrix manipulation library.
 
