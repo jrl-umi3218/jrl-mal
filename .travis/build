@@ -32,6 +32,7 @@ install_dependency()
 }
 
 # Install dependencies
+install_dependency jrl-umi3218/jrl-mathtools
 
 # Compile and run tests
 cd "$build_dir"
