@@ -25,6 +25,7 @@
 # define __MAAL_EIGEN_MATRIX_
 # include <cstdio>
 # include <jrl/mal/eigenmacros.hh>
+//#include <fenv.h>
 
 /**
  * \file eigenMatrix.h Define maal::eigen::Matrix
@@ -75,7 +76,9 @@ namespace maal
 	   */
 	Matrix( const unsigned int rows=0, const unsigned int cols=0 )
 	  : staticMatrix( rows,cols ),dynamicMatrix( NULL ),matrix(staticMatrix)
-	  {}
+	  {
+	    //feenableexcept(FE_DIVBYZERO| FE_INVALID|FE_OVERFLOW); // Allow to detect maths operations errors
+	  }
 
 	  /** \brief Build only the capsule around a already existing
 	   * eigen matrix object.
@@ -83,7 +86,9 @@ namespace maal
 	Matrix( InternalMatrix* clone,const bool proprio=false )
 	  : staticMatrix(0,0),dynamicMatrix( clone ),matrix(*dynamicMatrix)
 	    ,proprio(proprio)
-	  {}
+	  {
+	    //feenableexcept(FE_DIVBYZERO| FE_INVALID|FE_OVERFLOW); // Allow to detect maths operations errors
+	  }
 
 	  /** \brief Build a new internal matrix from existing
 	   * eigen matrix object by copying the data.
@@ -91,7 +96,9 @@ namespace maal
 	Matrix( const Matrix& copy )
 	  : staticMatrix( copy.matrix ),dynamicMatrix( NULL ),matrix(staticMatrix)
 	    ,proprio(false)
-	    {}
+	    {
+	      //feenableexcept(FE_DIVBYZERO| FE_INVALID|FE_OVERFLOW); // Allow to detect maths operations errors
+	    }
 
 
 	  virtual ~Matrix( void )
@@ -668,7 +675,7 @@ namespace maal
 	  inline Vector& multiply(  const Vector& v, Vector& res ) const
 	  {
 	    MAAL_CHECKVERBOSE(_checksizeProd(matrix,v.vector));
-            res.vector = matrix*v.vector;
+            res.vector.noalias() = matrix*v.vector;
 	    return res;
 	  }
 
@@ -681,7 +688,7 @@ namespace maal
 	  inline Matrix&	addition( const Matrix& B,Matrix& C ) const
 	  {
 	    MAAL_CHECKVERBOSE(_checksize(matrix,B.matrix));
-	    C.matrix = matrix + B.matrix;
+	    C.matrix.noalias() = matrix + B.matrix;
             return C;
 	  }
 
@@ -693,7 +700,7 @@ namespace maal
 	  inline Matrix& substraction( const Matrix& B,Matrix& C ) const
 	  {
 	    MAAL_CHECKVERBOSE(_checksize(matrix,B.matrix));
-	    C.matrix = matrix - B.matrix;
+	    C.matrix.noalias() = matrix - B.matrix;
             return C;
 	  }
 
