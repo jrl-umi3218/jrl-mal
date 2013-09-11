@@ -78,9 +78,11 @@ namespace maal{  namespace eigen {
        * eigen vector object.
        */
       Vector( InternalVector* clone,const bool proprio=false )
-	: staticVector(0),dynamicVector( clone ),vector(*dynamicVector)
+	: staticVector(),dynamicVector( clone ),vector(*dynamicVector)
 	,proprio(proprio)
-	{}
+	{
+	  staticVector.resize(0);
+	}
 
       /** \brief Build a new internal vector from existing
        * eigen vector object by copying the data.
