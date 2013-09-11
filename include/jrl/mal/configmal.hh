@@ -22,8 +22,12 @@
 #ifndef _CONFIG_MAL_H_
 #define _CONFIG_MAL_H_
 
-/*! Use boost for generic NxP matrix implementation. */
-#define _BOOST_MATRIX_ 1
+/*! Use eigen for generic NxP matrix implementation. */
+#define _EIGEN_MATRIX_ 1
+
+//#ifndef EIGEN_INITIALIZE_MATRICES_BY_NAN
+//#define EIGEN_INITIALIZE_MATRICES_BY_NAN
+//#endif
 
 /*! Use VNL for generic NxP matrix implementation. */
 #define _VNL_MATRIX_ 0

@@ -120,15 +120,18 @@ typedef Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor> m
 
 #define MAL_RET_TRANSPOSE(matrix)                    \
   matrix.transpose()
+  
+#define MAL_RET_TRANSPOSE_IN_PLACE(matrix)           \
+  matrix.transposeInPlace()
 
 #define MAL_TRANSPOSE_A_in_At(A,At)                  \
-  At = A.transpose()
+  At.noaliase() = A.transpose()
 
 #define MAL_RET_A_by_B(A,B)                          \
   A*B
 
 #define MAL_C_eq_A_by_B(C,A,B)                       \
-  C = A*B
+  C.noalias() = A*B
 
 #define MAL_MATRIX_SET_IDENTITY(matrix)              \
 {                                                    \
@@ -151,7 +154,7 @@ typedef Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor> m
   MRAWDATA(matrix)
 
 #define MAL_MATRIX_C_eq_EXTRACT_A(C,A,type, top,left, nbrows, nbcols) \
-  C = A.block(top,left,nbrows,nbcols)
+  C.noalias() = A.block(top,left,nbrows,nbcols)
 
 template<class type> inline double __ret_mal_matrix_ret_determinant(Eigen::Matrix<type, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor> const & m)
 {
