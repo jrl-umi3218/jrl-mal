@@ -23,6 +23,11 @@
 
 #ifndef __MAAL_EIGEN_MACROS_
 # define __MAAL_EIGEN_MACROS_
+
+//#ifndef EIGEN_INITIALIZE_MATRICES_BY_NAN
+//#define EIGEN_INITIALIZE_MATRICES_BY_NAN
+//#endif
+
 # include "Eigen/Dense"
 # include <cstdio>
 
