@@ -19,6 +19,7 @@ var a00022 =
     [ "MAL_RET_A_by_B", "a00022.html#ada73b0370275a533dc31d335cd1ac4cf", null ],
     [ "MAL_RET_MATRIX_DATABLOCK", "a00022.html#ab44a468019cddd2d5987bba78c2a6e2e", null ],
     [ "MAL_RET_TRANSPOSE", "a00022.html#af66fde72c34f603f592c944579c8e3f7", null ],
+    [ "MAL_RET_TRANSPOSE_IN_PLACE", "a00022.html#af6f40d1c4957f05a7ec1d9542a9e4ecc", null ],
     [ "MAL_RET_VECTOR_DATABLOCK", "a00022.html#af25e39b0dd5cfa1ef28f432fe96408ec", null ],
     [ "MAL_TRANSPOSE_A_in_At", "a00022.html#a6bda2ac0d19a14efd4547d314d0d6310", null ],
     [ "MAL_VECTOR", "a00022.html#a9b344bd5bde26de522800e2ee2b9ce9f", null ],
