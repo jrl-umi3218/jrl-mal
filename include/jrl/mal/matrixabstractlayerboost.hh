@@ -202,6 +202,9 @@ typedef boost_ublas::matrix<double> matrixNxP;
 
 #define MAL_TRANSPOSE_A_in_At(A,At)			\
   At=trans(A)
+  
+#define MAL_RET_TRANSPOSE_IN_PLACE(matrix) \
+  matrix=trans(matrix)
 
 #define MAL_RET_A_by_B(A,B) \
   prod(A,B)
