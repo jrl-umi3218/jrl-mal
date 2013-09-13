@@ -125,7 +125,7 @@ typedef Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor> m
   matrix.transposeInPlace()
 
 #define MAL_TRANSPOSE_A_in_At(A,At)                  \
-  At.noaliase() = A.transpose()
+  At.noalias() = A.transpose()
 
 #define MAL_RET_A_by_B(A,B)                          \
   A*B
