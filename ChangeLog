@@ -1,194 +1,381 @@
-2009-07-03  Florent Lamiraux  <florent@laas.fr>
+CHANGELOG
+----------------------
 
-	Do not export -DNDEBUG flag.
-	* CMakeLists.txt: Here.
+[Current]
+ * Add the transpose in place define to boost.
+ * Synchronize
+ * Synchronize
+ * [travis] Add missing dependency
+ * [travis] Fix push URL
+ * [travis] Add Travis and coveralls.io support
+ * Add Cache variables in CMakeLists.txt   - SMALLMATRIX with default value "jrl-mathtools"   - and LINEAR_ALGEBRA_LIB with default value "boost".
+ * Remove remaining merge trace.
+ * Fix left over of previous merge.
+ * Update .gitignore file.
+ * Fix Ubuntu 12.04 (64 bits) portability issues.
+ * Replace InternalVector::size_t by InternalVector::size_type
+ * Fix portability issues with Ubuntu 12.04 (64 bits).
+ * Synchronize.
+ * Fix conditional jump on initialized value.
 
-2009-07-03  Florent Lamiraux  <florent@laas.fr>
+[v1.19.4]
+ * Remove warning when compiling on 64 bit architectures
+ * Synchronize
+ * matrix check is not specific to boost anymore.
+ * [debian] Fix directive for cmake.
+ * [debian] Fix debian directory doc install.
+ * isnan is not defined for mac, defining one
+ * Fix wring filename when configuring with t3d.
+ * Remove warnings due to the print of size_t elements.
+ * This small space suppresses A LOT of warnings
+ * [debian] Fix install directory
+ * Fix 3D CMakeLists.txt modification
+ * Check using boost done only if boost is used.
+ * Ensure portability of isnan using boost::math version and add test.
+ * Remove warnings due to the print of size_t elements.
+ * This small space suppresses A LOT of warnings
+ * Clear matrices when JRL_MAL_DEBUG is defined.
+ * Only clear matrices in debug.
+ * Fix conditional jump on initialized value.
+ * Synchronize
+ * Output vectors and matrices as boost::ublas
 
-	Declare mal2 headers as deprecated.
-	* include/MatrixAbstractLayer/abstract.h: .
-	* include/MatrixAbstractLayer/abstractMatrix.h: .
-	* include/MatrixAbstractLayer/abstractVector.h: .
-	* include/MatrixAbstractLayer/boost.h: .
-	* include/MatrixAbstractLayer/boostMacros.h: .
-	* include/MatrixAbstractLayer/boostMatrix.h: .
-	* include/MatrixAbstractLayer/boostMatrixSvd.h: .
-	* include/MatrixAbstractLayer/boostSvd.h: .
-	* include/MatrixAbstractLayer/boostVector.h: .
+[v1.19.3]
+ * Fix wring filename when configuring with t3d.
+ * Fix dependency name when configuring with t3d.
+ * Use SIMPLE as default display type.
+ * Synchronise.
+ * Changelog for successfull ubuntu binary generation on launchpad.
+ * Fix wrong install directives (v1.9.2-4)
+ * [debian] Fix dependency problems
 
-2009-06-27  Florent Lamiraux  <florent@laas.fr>
+[v1.9.2]
+ * Synchronize
+ * isnan is not defined for mac, defining one
+ * Synchronize.
 
-	Add instruction for installation.
-	* INSTALL: Add documentation for option BOOSTNUMERICBINDINGS_DIR.
+[v1.9.1]
+ * Synchronize
+ * Synchronize
+ * Synchronize
+ * Synchronize
+ * Synchronize
+ * Synchronize.
+ * Fix cmake bugs for generating debian package for ubuntu 8.04.
+ * Synchronize.
+ * Fix warnings
+ * Introduces MAL_*_TYPE
+ * Synchronize
+ * Fix warnings.
+ * Fix warnings.
+ * Add macro for matrix declaration.
+ * Add macro for vector3 declaration with no name.
+ * Add missing cross-links.
+ * Synchronize.
+ * Do not output flags during package configuration.
+ * Fix wrong macro to include CFLAGS of jrl-mathtools.
+ * Adapt headers to new filenames
+ * Normalize namefiles
+ * Remove installation of deprecated headers
+ * Fix wrong macro to include CFLAGS of jrl-mathtools.
+ * Synchronize
+ * Add configMAL.h.in
+ * Reintroduce headers to fix dangling symlinks issue.
+ * Remove MatrixAbstractLayer.
+ * Synchronize.
+ * Adapt headers to new filenames
+ * Normalize namefiles
+ * Remove installation of deprecated headers
+ * Remove deprecated headers.
+ * Synchronize cmake
+ * Add missing guards
+ * Synchronize.
+ * Include lapack.cmake in root CMakeLists.txt.
+ * Switch to new Boost/LAPACK detection macro.
+ * Add missing header inclusion in MatrixAbstractLayerCheck.hh
+ * Correct the headers (symbolic link issue)
+ * Second try: restore CMakeLists.txt
+ * Restored wrongfully modified CMakeLists.txt
+ * Added SMALLMATRIXLIB cxxflags to test compilation.
+ * Fix include paths.
+ * Remove unused CMakeModule.
+ * Synchronize.
+ * Add minimal test suite.
+ * Add missing headers and fix installation rule.
+ * Add Lapack libraries to pkg-config file.
+ * Switch to submodule.
+ * Fix debian/watch file.
+ * Add missing dependencies.
+ * Fix AUTHORS file.
+ * Add missing build requirement to Debian pacakge.
+ * Add README.Debian file.
+ * Tag the Debian documentation package as architecture independant.
+ * Debianize jrl-mal.
+ * Add .mailmap file.
+ * Rewrite NEWS file for homogeneization.
+ * Fix list indentation in README.
+ * Remove a duplicated sentence in the READMe file.
+ * Fix description file in CMake to match new README filename.
+ * Fix typo in README.
+ * Fix syntax.
+ * Rewrite README with Markdown syntax.
+ * Reformat AUTHORS file.
+ * Remove obsolete autogen.sh.
+ * Licence LGPL v3 for public use.
+ * Corrected the "extract" methods."
+ * Correct the "Extract" functions assert.
+ * Change dependency to jrlMathTools to 1.4
 
-2009-06-26  Florent Lamiraux  <florent@laas.fr>
+[v1.9.0]
 
-	Fix cmake script that finds boost numeric bindings.
-	* CMakeModules/FindBoostNumericBindings.cmake: If variable
-	BOOSTNUMERICBINDINGS_DIR was not set at configuration, the
-	script failed.
+[1.9.0]
+ * Release 1.9.0
+ * Normalize name
+ * Add dependencies and description to MatrixAbstractLayer package.
+ * Add documentation and fix problems for package generation.
+ * Remove explicit CMAKE_INSTALL_PREFIX from INSTALL procedures.
+ * Add uninstall target.
+ * Define isnan for Win32 users
+ * Dump current version as 1.8.3.99
+ * Release 1.8.3
+ * Add const in function arguments.
+ * Install new header
+ * Add inline functions to check whether matrix and vector contain nan values.
+ * Release 1.8.2
+ * Add #include <cstdio>
+ * Remove deprecated directives in headers.
+ * Remove unnecessary dependancy in boost_thread
 
-2009-06-26  Florent Lamiraux  <florent@laas.fr>
+[1.8.3]
+ * Release 1.8.3
+ * Remove unnecessary dependancy in boost_thread
+ * Add const in function arguments.
+ * Install new header
+ * Add inline functions to check whether matrix and vector contain nan values.
 
-	Move macro that finds boost numeric bindings.
-	* CMakeLists.txt: here.
+[1.8.2]
+ * Release 1.8.2
+ * Add #include <cstdio>
+ * Remove deprecated directives in headers.
+ * Dump current version as 1.8.1.99
 
-2009-06-26  Florent Lamiraux  <florent@laas.fr>
+[1.8.1]
+ * Release 1.8.1
+ * Remove _BOOST_ flag.
+ * Add compatibility to boost 1.41.0 for MAL 2.0
+ * Fix wrong test on BOOST version.
+ * Fix test for Boost 1.40.0.
+ * Added the stdio include for compensating its automatic inclusion removed from some linux update.
+ * Fix compatibility with 1.40.0
+ * Minor bug fix.
+ * Put lapack inclusion in the second set of headers specific to 1.40.0
+ * Put binding traits before the matrix declaration.
+ * Header files included in the right order.
+ * Add version.hpp and put back appropriate headers.
+ * Handle boost 1.40.0 and boost 1.34.1
 
-	Add a macro to look for boost numeric bindings.
-	* CMakeLists.txt: Call the macro
-	* CMakeModules/FindBoostNumericBindings.cmake: New.
+[1.8.0]
+ * Correct GENERATE_DOC option definition
+ * Remove _BOOST_ flag.
+ * Generate doc by default.
+ * Increment version number to 1.8.0.
+ * Add an option allowing to (dis)able doxygen documentation generation
+ * Win32 compatibility: #warning replaced by #pragma message
+ * Do not export -DNDEBUG flag.
+ * Declare mal2 headers as deprecated.
+ * Install again mal2 headers.
+ * Get back mal2 headers.
+ * Add instruction for installation.
+ * Fix cmake script that finds boost numeric bindings.
+ * Move macro that finds boost numeric bindings.
+ * Add a macro to look for boost numeric bindings.
+ * Remove obsolete headers.
+ * Do not install mal2 headers anymore.
+ * Remove unitTesting.
+ * Dump current version as 1.7.4.99
 
-2009-06-26  Florent Lamiraux  <florent@laas.fr>
+[1.7.5]
+ * Release version 1.7.5
+ * Remove flags -DNDEBUG -D_BOOST_
 
-	Remove unitTesting.
-	* CMakeLists.txt,
-	* unitTesting/CMakeLists.txt: Remove.
-	* unitTesting/MatrixAbstractLayerTest.cpp: Remove.
-	* unitTesting/MatrixAbstractLayerTest.h: Remove.
-	* unitTesting/TimeUtilsWindows.cpp: Remove.
-	* unitTesting/TimeUtilsWindows.h: Remove.
-	* unitTesting/main.cpp: Remove.
-	* unitTesting/performance.cpp: Remove.
-	* unitTesting/tboost.cpp: Remove.
-	* unitTesting/testdampedinverse.cpp: Remove.
-	* unitTesting/testoptimizedJpJt.cpp: Remove.
-	* unitTesting/testpseudoinverse.cpp: Remove.
-	* unitTesting/tsvd.cpp: Remove.
-	* unitTesting/tsvddamped.cpp: Remove.
-	* unitTesting/tsvdpseudoinverse.cpp: Remove.
-	UnitTesting have been moved to StackOfTasks.
+[usability-test]
+ * Add an option allowing to (dis)able doxygen documentation generation
+ * Win32 compatibility: #warning replaced by #pragma message
+ * Do not export -DNDEBUG flag.
+ * Declare mal2 headers as deprecated.
+ * Install again mal2 headers.
+ * Get back mal2 headers.
+ * Add instruction for installation.
+ * Fix cmake script that finds boost numeric bindings.
+ * Move macro that finds boost numeric bindings.
+ * Add a macro to look for boost numeric bindings.
+ * Remove obsolete headers.
+ * Do not install mal2 headers anymore.
+ * Remove unitTesting.
 
-2009-06-09 Nicolas Mansard <nmansard@laas.fr>
+[pg3d-teleop.v1]
+ * - svd, matrices, vectors: ublas internal matrices and vectors cleared at construction to suppress valgrind errors - rewritten damped inverse test
+ * Dump current version as 1.7.4.99
 
-	Release 1.7.4 for StackOfTasks release 1.0.1.
-	
-2009-06-04  Olivier Stasse  <olivier.stasse@aist.go.jp>
+[1.7.4]
+ * Release 1.7.4 for SOT 1.0.1.
+ * Remove some useless characters (part 2)
+ * CMakeLists.txt : Removed access to Dart server.
+ * Removing some useless characters.
+ * Add missing macro
+ * Warning suppression
+ * Add the inclusion of "jrlMathTools/jrlConstants.h" automatically if we use jrlMathTools
+ * Typo
+ * Add a usefull macro to clean 3d vectors
+ * Testing Dart.
 
-	CMakeLists.txt : Removed access to Dart server.
-	* unitTesting/CMakeLists.txt: .
+[1.7.3]
+ * Added missing file.
+ * Modification for creating source package make package_source Moving towards new package release.
+ * Added all the unitary test files.
+ * Adding the JpJt test in CTest.
+ * Adding new unitary test for the optimized computation of pinv(Jt)*Jt.
+ * Added the missing file: testdampedinverse.cpp
+ * Fixed a last problem with boostMatrixSvd.dampedInverse. Added unitary tests to try all the instances of dgesvd_ calls. To have a report try: ctest -E experimental
+ * Correct the flags in the .pc.cmake
+ * Remove a wrong \#include
+ * Win32 compatibility: - add the missing files for time testing - use "(std::min)" rather than "std::min" due to the \#include<Windows.h>
+ * Correct the Flags : replace ${${PROJECT_NAME}} by ${PROJECT_NAME} The unitTests compiles now
+ * Minor bug.
+ * Fixed boostMatrixSvd.h
+ * Adding a quick doc for testing
+ * Removed the bindings with lapack. Mostly because it creates a #@$$%#@ bug making the pseudo-inverse computation going wrong. Introduced a real unitary test for the dampedInverse.
+ * Removed ALL the references to jrlgesvd.f Some lazy guy did only half of the job...
+ * dgesv
+ * Removed the dependency to jrlgesvd.f Now that will break OpenHRP-2.
+ * Adding information regarding the CMake variable to use when having troubles to detect BLAS.
+ * The previous commit was a mistake : this cancels it (this is the same version as bbf943)
+ * T3D flags added for linkage (.Francois)
+ * Dump current version as 1.7.2.99
+ * Revert version number to generate a correct archive of release-1.7.2.
+ * Add a spaces in require field t3d>=2.5 -> t3d >= 2.5
+ * Add space in .pc file: pkg-config sucks...
+ * Dump current version as 1.7.2.99.
 
-2009-06-04  Olivier Stasse  <olivier.stasse@aist.go.jp>
+[1.7.2]
+ * Release 1.7.2
+ * Added dependency to jrlMathTools even if t3d is chosen.
+ * Adding cpack support. To create a tgz of the source file please type: make package_source
+ * Dump current version as 1.7.1.99
 
-	Removing some useless characters.
-	* include/MatrixAbstractLayer/MatrixAbstractLayerMatrix3x3JrlMath.h: .
+[1.7.1]
+ * release 1.7.1
+ * Fixed require field in .pc file.
+ * Dump current version as 1.7.99
+ * Win32 Compatibility: correct the documentation command
+ * Correct documentation
 
-MatrixAbstractLayer 1.7.3 released March 13th, 2009
+[1.7]
+ * First version completely managed by cmake.
+ * Added test for small matrix and choice between T3D and jrlMathTools through command line options.
+ * Dump current version as 1.6.99
 
-	53. Adding unitary tests for pseudo-inverse computation.
-	52. Removed the lapack bindings introducing a bug in the pseudo-inverse.
+[1.6]
+ * Release 1.6
+ * Final version of the SVD specialized matrix.
+ * Added damped inverse optimized code.
+ * Initial version into GIT.
+ * Added Maal2:matrixSVD for optimization of the SVD/pseudoinverse calls. Modified Maal2::matrix to add the virtual property to the svd-based functions. Modified Makefile to add the tsvd test.
+ * Fixed documentation warnings.
+ * Fix a mix up between compiling and linking options.
+ * the -Wl,-R option is UNIX specific
+ * Downgrad the version asked for Boost.
+ * Fix clash with OpenHRP-3 namespace on boost.
+ * Change the way lapack is handled.
+ * Authors modification
+ * Add the win32 compatibility. Concerning the foreach (boost_lib_dir...) that replace the -L{BOOST_LIB_DIR},  it's because /LIBPATH: does not handle empty strings
+ * Changed the shortcut for ublas namespace, clash with OpenHRP ublasCommonTypes.h
+ * Fixed warnings.
+ * Fix a minor bug...
+ * Added proper LAPACK detection.
+ * Fix minor bug.
+ * Modification of the detection scheme for a proper configMAL compatible with Visual C++
+ * Fixed the problem when CMAKE_PREFIX_INSTALL is not set properly.
+ * Added files for CMake capable library.
+ * Added the damped inverse.
+ * Bump current version as 1.5.99
 
-MatrixAbstractLayer 1.7.2 released January 29nd, 2009
+[1.5]
+ * Release 1.5
+ * Correction to use T3D with jrl math tools
+ * Usage of operator * for  MAL_S4x4_C_eq_A_by_B with jrlMathTools (compatibility with GIK)
+ * Removed warning when compiling with -Wall
+ * Unit testing for both with and without OpenHRP Fixed a bug for the non OpenHRP part.
+ * Modification of the pinv to account for jrlsvd in OHRP.
+ * Handle case when m<n for the pseudo-inverse MAL 1.
+ * Added the file necessary to work inside OpenHRP-2 without crashing.
+ * Fixed the new computation of the pseudo-inverse in MAL 1 now similar to MAL 2. Added a small test in tboost.cpp (Example of mixing MAL 1 and MAL 2).
+ * Small bugs corrections.
+ * Modify the display of the vectors.
+ * Use jrlMathTools::Matrix3x3 instead of R3D even when t3d is chosen.
+ * Fixed double definition of matrix4d.
+ * Modified the boost implementation of MAL 1.0 to cope with OpenHRP static inclusion of lapack.
+ * Main documentation page.
+ * Add foot page picture.
+ * Use R3D for rotation matrices.
+ * Added dependence to jrlMathTools for small matrice and vector implementations
+ * OS: Removed useless cstring inclusion from two headers.
+ * OS: Performance test.
+ * Modify the inverse fonction: it was a SVD decomp, it is now a LU decomp. Modify the Pinv fonction: it is still a SVD but is now optimized.
+ * add const T operator()(unsigned int, unsignd int) const to Matrix3x3<T>
+ * bump current version to 1.4.99
 
-	51. Added dependency to jrlMathTools even if t3d is chosen.
-	
-MatrixAbstractLayer 1.7 released January 22nd, 2009
+[1.4]
+ * Add mising entries in ChangeLog
+ * Libtoolize in order to compile unitTesting directory and bump revision to 1.4
+ * Add missing header file in unitTesting directory.
+ * Add get/setDiagonal to the maal2::boost::Matrix.
+ * Added some compilation flags in unitTesting Makefile.
+ * Modification of the makefile to force the installation of the new files.
+ * OS: Fixed a compilation problem for unitTesting (done by default).
+ * Modify the Makefile of the tests to compile the Maal2 boost test "tboost".
+ * Introduce a new version of the Maal, based on C++-style semantics. The abstract of the new implementation is defined in abstract.h and the two dependancies abstractVector.h abstractMatrix.h. A first implementation is then proposed for the boost matrix, in boost.h. A unitary test is also given in tboost.cpp.
+ * Added operator cross product in small vector 3d.
+ * doxytag is generated
+ * Minor changes
 
-	50. Added test for small matrix and choice between T3D and jrlMathTools
-	    through command line options
+[1.3]
+ * update to 1.3
+ * remove generated files
+ * Add -R linker flags to pkg-config libs.
+ * Remove useless libtool files.
+ * add autogen script
+ * add .gitignore
+ * remove empty NEWS file
+ * OS: Fixed some bugs regarding the inversion for the 4x4 matrix
+ * Fixed a bug regarding the inversion (not by reference, so everything was lost...)
+ * Completed installation documentation.
+ * OS: - Fix the problem on vector3d::*= (previously performed a division)     - Clean the MatrixAbstratLayerBoost.h part.
+ * 2007/06/26 	1. T3D package requires has to be >= 2.3 version
+ * Pb on returned argument for MAL_S4x4_C_eq_A_by_B, should not return something.
+ * Added missing functions to be compatible to hpp Gik without t3d.
+ *  -- minor change
 
-MatrixAbstractLayer 1.6 released January 22nd, 2009
+[1.2]
+ * BUG in MAL_S4x4_RET_A_by_B and MAL_S4x4_C_eq_A_by_B with t3d implementation. Parameters of operator*(T3D, T3D) are in the same order as matrices multiplication.
+ * Added missing -lblas as a dependency of lapack, in case MAL is configured with boost.
+ * Make the 1.2 release (repository tagged).
+ * Typo in distfiles (footer.txt instead of footer.jpg)
+ * -- add comment in INSTALL
+ * -- add AC_PROG_LIBTOOL in configure.ac
+ * Added --with-lapack configure option.
+ * Added #include "configMal.h" in MatrixAbstractLayer.h".
+ * OS: Updated the AUTHORS's list
+ * OS: Fixed a problem related to the declaration of matrix3d and matrix4d in the scope 	of PatternGeneratorJRL namespace.
 
-	49. Final version of the SVD specialized matrix.
-	48. Added damped inverse optimized code.
-	47. Added Maal2:matrixSVD for optimization of the SVD/pseudoinverse calls.
-	46. Modified Maal2::matrix to add the virtual property to the svd-based functions.
-	45. Modified Makefile to add the tsvd test.
-	44. Fix a mix up between compiling and linking options.
-	43. -Wl,-R option is UNIX specific
-	42. Downgrad the version required for Boost.
-	41. Fix clash with OpenHRP-3 namespace on boost.
-	40. Change the way lapack is handled.
-	39. Add the win32 compatibility.
-	38. Changed the shortcut for ublas namespace,
-	37. Added proper LAPACK detection.
-	36. Modification of the detection scheme for a proper configMAL compatible with Visual C++
-	35. Fixed the problem when CMAKE_PREFIX_INSTALL is not set properly.
-	34. Added files for CMake capable library.
-	33. Added the damped inverse.
-	
-MatrixAbstractLayer 1.5 released September 12th, 2008
-	
-	32. Correction to use T3D with jrl math tools
-	31. Usage of operator * for  MAL_S4x4_C_eq_A_by_B with jrlMathTools
-	30. Unit testing for both with and without OpenHRP, fixed a bug for the non OpenHRP part.
-	29. Modification of the pinv to account for jrlsvd in OHRP.
-	28. Handle case when m<n for the pseudo-inverse MAL 1.
-	27. Added the file necessary to work inside OpenHRP-2 without crashing.
-	26. Fixed the new computation of the pseudo-inverse in MAL 1 now similar to MAL 2.
-	25. Use jrlMathTools::Matrix3x3 instead of R3D even when t3d is chosen.
-	24. Fixed double definition of matrix4d.
-	23. Modified the boost implementation of MAL 1.0 to cope with OpenHRP static inclusion of lapack.
-	22. Main documentation page.
-	21. Add foot page picture.
-	20. Added dependence to jrlMathTools for small matrice and vector implementations
-	19. Modify the inverse fonction: it was a SVD decomp, it is now a LU decomp.
-	18. Modify the Pinv fonction: it is still a SVD but is now optimized.
-	17. Add const T operator()(unsigned int, unsignd int) const to Matrix3x3<T>
-
-MatrixAbstractLayer 1.4 released February 16th, 2008
-
-	16. Introduce a new version of the Maal, based on C++-style semantics.
-	15. Added operator cross product in small vector 3d.
-	
-MatrixAbstractLayer 1.3 released August 30th, 2007
-	
-	14. Fixed bug regarding the 4x4 matrix inversion.
-	13. Completed installation documentation.
-	12. Fix problem on vector3d::*= (previously performed a division).
-	11. Added missing functions to be compatible to hpp Gik without t3d.	
-	10. T3D package requires has to be >= 2.3 version
-
-MatrixAbstractLayer version 1.2 released May 14, 2007
-
-	9. Added some messages to configure script.
-
-	8. Added #include "configMal.h" in MatrixAbstractLayer.h".
-
-	7. At Makefile.am MatrixAbstractLayerT3D.h have been added and
-	configMal.h have been deleted.
-
-	6. The typedef have been defined in the:
-	MatrixAbstractLayerBoost.h
-	MatrixAbstractLayerVNL.h
-	MatrixAbstractLayerSmallMatrix3x3Default.h,
-	MatrixAbstractLayerSmallMatrix4x4Default.h,
-	MatrixAbstractLayerSmallVector3Default.h,
-	MatrixAbstractLayerSmallVector4Default.h,
-	MatrixAbstractLayerT3D.h.
-
-	5. The file MatrixAbstractLayerT3D.h have been created. This file
-	has the macros to allow the use of T3D has smallVector and
-	smallMatrix. 
-	- The MAL_S4x4_* have been implemented using T3D. 
-	- The MAL_S3_VECTOR* have been implemented by V3D.
-	- The MAL_S4_VECTOR* have been implementd by V3D.
-	- The MAL_S3x3_* have been implemented by the default Matrix3x3
-	implementation (PatternGeneratorJRL::Matrix3x3<double>) (It shoud
-	be changed by the R3D implementation once it'd been created).
-
-	4. The <> of the includes of MatrixAbstractLayerBoost.h have been
-	replaced by "". 
-
-	3. The new macros added in (2) have been implemented in
-	MatrixAbstractLayerSmallMatrix3x3Default.h,
-	MatrixAbstractLayerSmallMatrix4x4Default.h,
-	MatrixAbstractLayerSmallVector3Default.h,
-	MatrixAbstractLayerSmallVector4Default.h.
-
-	2. In MatrixAbstractLayerSmall.h have been added the documentation
-	of five news macros to acces to the elements of a smallVector and
-	of a smallMatrix: 
-	MAL_S4x4_MATRIX_ACCESS_I(name,i),
-	MAL_S4x4_MATRIX_ACCESS_I_J(name,i,j),
-	MAL_S3x3_MATRIX_ACCESS_I(name,i),         
-	MAL_S3x3_MATRIX_ACCESS_I_J(name,i,j), 
-	MAL_S3_VECTOR_ACCESS(name, i).
-	
-	1. MatrixAbstractLayer.h have been modified to allow the choice of
-	T3D,R3D and V3D as Smallmatrix and SmallVector implementation. The
-	file have been simplified, now if not special SmallVector or
-	SmallMatrix is selected then the SmallVector and the SmallMatrix
-	by default are used so it's avoided the declaration of
-	DEFAULT_VECTOR3D, DEFAULT_VECTOR4D, DEFAULT_MATRIX3x3 and
-	DEFAULT_MATRIX4x4 and the use of configMal.h. 
+[1.1]
+ * Added configuration option to choose between boost and vnl for generic matrices and t3d or inlined implementation for small matrices.
+ * Use automake 'install-data-hook' target to install (and generate) doc.
+ * Remove this as we don't need libtool in this package.
+ * Use automake 'check' target. Compilation and tests are triggered by the 'make check' target.
+ * Comment out invalid syntax - I dunno what it was for...
+ * Remove syntax error.
+ * - minor changes
+ * 2007/03/07         7. At Makefile.am MatrixAbstractLayerT3D.h have been added and         configMal.h have been deleted.
+ * OS: Fix a problem in the documentation of the abstract interface 	related to MAL_MATRIX_RESIZE().
+ * Initial commit
