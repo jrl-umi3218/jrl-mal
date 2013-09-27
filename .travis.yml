@@ -9,7 +9,7 @@ env:
   - secure: "IgZg8KJ1eJukpO4Yuj9NmYas9eT3RyGAcr52yJa2H83tOpKsseGW58r/qpHDNywDq6/D4eVMlDk0HiqRBtfs/SP4DLHhPlm22tF3yQjLp7M579BbKmSDlbsIK1tTsqCgGDXZQN3XdV9h/bGuw3z++eboMDjde219YF1rB1EPhYQ="
   - secure: "EkCMPmlm+UtgK1eHyKXiF7mn7xs6HTZw6qnNbBkv8swBwdRUxtPteaNYT9oZOEL8C/dXLA2gGeQALngFFfXv5Q6kxXAQ+qjqMzHA+Sxo1H1m3o/fB+Rcf8RIJxhCxj5tK0JpyZiIWuGx7zbuiQMR/T/ULCjs7L/VAoJlHqwOcjc="
   - APT_DEPENDENCIES="doxygen libboost-dev libboost-test-dev libboost-filesystem-dev libboost-system-dev libboost-thread-dev libboost-program-options-dev liblapack-dev gfortran libeigen3-dev"
-  - GIT_DEPENDENCIES=""
+  - GIT_DEPENDENCIES="jrl-mathtools"
   - PPA_URI="stack-of-tasks/snapshot"
   - NSIQCPPSTYLE_FILEFILTERPATH=cmake/filefilter.txt
 notifications:
@@ -22,10 +22,10 @@ branches:
   only:
   - master
   - debian
-script: ./.travis/build
-after_success: ./.travis/after_success
-after_failure: ./.travis/after_failure
-before_install: ./.travis/before_install
+script: ./.travis/run build
+after_success: ./.travis/run after_success
+after_failure: ./.travis/run after_failure
+before_install: ./.travis/run  before_install
 matrix:
   allow_failures:
     - compiler: clang
