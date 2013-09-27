@@ -12,6 +12,12 @@ env:
   - GIT_DEPENDENCIES="jrl-mathtools"
   - PPA_URI="stack-of-tasks/snapshot"
   - NSIQCPPSTYLE_FILEFILTERPATH=cmake/filefilter.txt
+  matrix:
+  - DIST=unstable # Debian Sid
+  - DIST=saucy    # Ubuntu 13.10 Saucy
+  - DIST=raring   # Ubuntu 13.04 Raring
+  - DIST=quantal  # Ubuntu 12.10 Quantal
+  - DIST=precise  # Ubuntu 12.04 LTS Precise
 notifications:
   hipchat:
     rooms:
