@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>matrixabstractlayervector4jrlmath.hh File Reference</title>
+<title>warning.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -55,39 +55,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#define-members">Defines</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#define-members">Defines</a>  </div>
   <div class="headertitle">
-<div class="title">matrixabstractlayervector4jrlmath.hh File Reference</div>  </div>
+<div class="title">warning.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="elRef" doxygen="jrl-mathtools.doxytag:" href="a00018.html">jrl/mathtools/vector4.hh</a>&quot;</code><br/>
-</div><table class="memberdecls">
+<table class="memberdecls">
 <tr><td colspan="2"><h2><a name="define-members"></a>
 Defines</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00030.html#ad18ea34f8e7367e6cdbf6001ea5fc6bc">MAL_S4_VECTOR</a>(name, type)&#160;&#160;&#160;<a class="elRef" doxygen="jrl-mathtools.doxytag:" href="a00005.html">jrlMathTools::Vector4D</a>&lt;type&gt; name</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00030.html#aa98654d94c5126e4d24ee41df55f3067">MAL_S4_VECTOR_TYPE</a>(name)&#160;&#160;&#160;<a class="elRef" doxygen="jrl-mathtools.doxytag:" href="a00005.html">jrlMathTools::Vector4D</a>&lt;type&gt;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00030.html#a28b19ca66f3c58c63fc1e3d10bc81e90">MAL_S4_VECTOR_SIZE</a>(name)&#160;&#160;&#160;4</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00030.html#a70a69eab67218dc8e239d4ff58b5e3da">MAL_S4_VECTOR_FILL</a>(name, value)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00030.html#a0d119135d04ef75953c353a9dfbcb96d">MAL_S4_VECTOR_NORM</a>(name)&#160;&#160;&#160;name.norm()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00030.html#a8cdfc4b91612660441d04becceea5df7">MAL_S4_RET_VECTOR_DATABLOCK</a>(name)&#160;&#160;&#160;&amp;name</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00030.html#ad9f29bb24a0b47d3bd3dffab1590dc34">MAL_S4_VECTOR_ACCESS</a>(name, i)&#160;&#160;&#160;name[i]</td></tr>
-<tr><td colspan="2"><h2><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="elRef" doxygen="jrl-mathtools.doxytag:" href="a00005.html">jrlMathTools::Vector4D</a><br class="typebreak"/>
-&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00030.html#a7e946d05db3a8410d2384404ef297fb6">vector4d</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00030.html#a9487d5216972c79c0fe6dfb66793ffb1">JRL_MAL_WARN_STRINGISE_IMPL</a>(x)&#160;&#160;&#160;#x</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00030.html#a37876a7bccf9da281708dcbaf6ec3b3e">JRL_MAL_WARN_STRINGISE</a>(x)&#160;&#160;&#160;<a class="el" href="a00030.html#a9487d5216972c79c0fe6dfb66793ffb1">JRL_MAL_WARN_STRINGISE_IMPL</a>(x)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00030.html#a2700c0ada2228c4acbde9b61f61a2511">JRL_MAL_WARN</a>(MSG)&#160;&#160;&#160;/* nothing */</td></tr>
 </table>
 <hr/><h2>Define Documentation</h2>
-<a class="anchor" id="a8cdfc4b91612660441d04becceea5df7"></a><!-- doxytag: member="matrixabstractlayervector4jrlmath.hh::MAL_S4_RET_VECTOR_DATABLOCK" ref="a8cdfc4b91612660441d04becceea5df7" args="(name)" -->
+<a class="anchor" id="a2700c0ada2228c4acbde9b61f61a2511"></a><!-- doxytag: member="warning.hh::JRL_MAL_WARN" ref="a2700c0ada2228c4acbde9b61f61a2511" args="(MSG)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define <a class="el" href="a00030.html#a8cdfc4b91612660441d04becceea5df7">MAL_S4_RET_VECTOR_DATABLOCK</a></td>
+          <td class="memname">#define <a class="el" href="a00030.html#a2700c0ada2228c4acbde9b61f61a2511">JRL_MAL_WARN</a></td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">name</td><td>)</td>
-          <td>&#160;&#160;&#160;&amp;name</td>
+          <td class="paramname">MSG</td><td>)</td>
+          <td>&#160;&#160;&#160;/* nothing */</td>
         </tr>
       </table>
 </div>
@@ -95,26 +85,16 @@ Typedefs</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ad18ea34f8e7367e6cdbf6001ea5fc6bc"></a><!-- doxytag: member="matrixabstractlayervector4jrlmath.hh::MAL_S4_VECTOR" ref="ad18ea34f8e7367e6cdbf6001ea5fc6bc" args="(name, type)" -->
+<a class="anchor" id="a37876a7bccf9da281708dcbaf6ec3b3e"></a><!-- doxytag: member="warning.hh::JRL_MAL_WARN_STRINGISE" ref="a37876a7bccf9da281708dcbaf6ec3b3e" args="(x)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define <a class="el" href="a00030.html#ad18ea34f8e7367e6cdbf6001ea5fc6bc">MAL_S4_VECTOR</a></td>
+          <td class="memname">#define <a class="el" href="a00030.html#a37876a7bccf9da281708dcbaf6ec3b3e">JRL_MAL_WARN_STRINGISE</a></td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">name, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">type&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="elRef" doxygen="jrl-mathtools.doxytag:" href="a00005.html">jrlMathTools::Vector4D</a>&lt;type&gt; name</td>
+          <td class="paramname">x</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="a00030.html#a9487d5216972c79c0fe6dfb66793ffb1">JRL_MAL_WARN_STRINGISE_IMPL</a>(x)</td>
         </tr>
       </table>
 </div>
@@ -122,129 +102,20 @@ Typedefs</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ad9f29bb24a0b47d3bd3dffab1590dc34"></a><!-- doxytag: member="matrixabstractlayervector4jrlmath.hh::MAL_S4_VECTOR_ACCESS" ref="ad9f29bb24a0b47d3bd3dffab1590dc34" args="(name, i)" -->
+<a class="anchor" id="a9487d5216972c79c0fe6dfb66793ffb1"></a><!-- doxytag: member="warning.hh::JRL_MAL_WARN_STRINGISE_IMPL" ref="a9487d5216972c79c0fe6dfb66793ffb1" args="(x)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define <a class="el" href="a00030.html#ad9f29bb24a0b47d3bd3dffab1590dc34">MAL_S4_VECTOR_ACCESS</a></td>
+          <td class="memname">#define <a class="el" href="a00030.html#a9487d5216972c79c0fe6dfb66793ffb1">JRL_MAL_WARN_STRINGISE_IMPL</a></td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">name, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">i&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;name[i]</td>
+          <td class="paramname">x</td><td>)</td>
+          <td>&#160;&#160;&#160;#x</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a70a69eab67218dc8e239d4ff58b5e3da"></a><!-- doxytag: member="matrixabstractlayervector4jrlmath.hh::MAL_S4_VECTOR_FILL" ref="a70a69eab67218dc8e239d4ff58b5e3da" args="(name, value)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define <a class="el" href="a00030.html#a70a69eab67218dc8e239d4ff58b5e3da">MAL_S4_VECTOR_FILL</a></td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">name, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">value&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<b>Value:</b><div class="fragment"><pre class="fragment">{ name.m_x = value;       \
-    name.m_y = value;       \
-    name.m_z = value;                           \
-    name.m_w = value; }
-</pre></div>
-</div>
-</div>
-<a class="anchor" id="a0d119135d04ef75953c353a9dfbcb96d"></a><!-- doxytag: member="matrixabstractlayervector4jrlmath.hh::MAL_S4_VECTOR_NORM" ref="a0d119135d04ef75953c353a9dfbcb96d" args="(name)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define <a class="el" href="a00030.html#a0d119135d04ef75953c353a9dfbcb96d">MAL_S4_VECTOR_NORM</a></td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">name</td><td>)</td>
-          <td>&#160;&#160;&#160;name.norm()</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a28b19ca66f3c58c63fc1e3d10bc81e90"></a><!-- doxytag: member="matrixabstractlayervector4jrlmath.hh::MAL_S4_VECTOR_SIZE" ref="a28b19ca66f3c58c63fc1e3d10bc81e90" args="(name)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define <a class="el" href="a00030.html#a28b19ca66f3c58c63fc1e3d10bc81e90">MAL_S4_VECTOR_SIZE</a></td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">name</td><td>)</td>
-          <td>&#160;&#160;&#160;4</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa98654d94c5126e4d24ee41df55f3067"></a><!-- doxytag: member="matrixabstractlayervector4jrlmath.hh::MAL_S4_VECTOR_TYPE" ref="aa98654d94c5126e4d24ee41df55f3067" args="(name)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define <a class="el" href="a00030.html#aa98654d94c5126e4d24ee41df55f3067">MAL_S4_VECTOR_TYPE</a></td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">name</td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="elRef" doxygen="jrl-mathtools.doxytag:" href="a00005.html">jrlMathTools::Vector4D</a>&lt;type&gt;</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/><h2>Typedef Documentation</h2>
-<a class="anchor" id="a7e946d05db3a8410d2384404ef297fb6"></a><!-- doxytag: member="matrixabstractlayervector4jrlmath.hh::vector4d" ref="a7e946d05db3a8410d2384404ef297fb6" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="elRef" doxygen="jrl-mathtools.doxytag:" href="a00005.html">jrlMathTools::Vector4D</a>&lt;double&gt; <a class="el" href="a00028.html#a25e53e17a8cfe55d8a07e83092e6cbb9">vector4d</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>This is a very fast and simple implementation of a 4D vector class of double.</p>
-<p>01/02/2007</p>
-<p>(c) Olivier Stasse and Florent Lamiraux, JRL, CNRS-AIST, ISRI, 2007 </p>
 
 </div>
 </div>
@@ -266,6 +137,6 @@ Typedefs</h2></td></tr>
 
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00030.html">matrixabstractlayervector4jrlmath.hh</a>      </li>
+      <li class="navelem"><a class="el" href="a00030.html">warning.hh</a>      </li>
 </body>
 </html>

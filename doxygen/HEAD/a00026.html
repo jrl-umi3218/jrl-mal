@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>matrixabstractlayermatrix4x4jrlmath.hh File Reference</title>
+<title>matrixabstractlayersmall.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -55,324 +55,86 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#define-members">Defines</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#define-members">Defines</a>  </div>
   <div class="headertitle">
-<div class="title">matrixabstractlayermatrix4x4jrlmath.hh File Reference</div>  </div>
+<div class="title">matrixabstractlayersmall.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="elRef" doxygen="jrl-mathtools.doxytag:" href="a00015.html">jrl/mathtools/matrix4x4.hh</a>&quot;</code><br/>
-</div><table class="memberdecls">
+<table class="memberdecls">
 <tr><td colspan="2"><h2><a name="define-members"></a>
 Defines</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a9964287953b7b227bf1ddbcfe907490d">MAL_S4x4_MATRIX_TYPE</a>(type)&#160;&#160;&#160;<a class="elRef" doxygen="jrl-mathtools.doxytag:" href="a00003.html">jrlMathTools::Matrix4x4</a>&lt;type&gt;</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a7efa6ebbe829f66b5f44987b55100c69">MAL_S4x4_MATRIX</a>(name, type)&#160;&#160;&#160;<a class="elRef" doxygen="jrl-mathtools.doxytag:" href="a00003.html">jrlMathTools::Matrix4x4</a>&lt;type&gt; name</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a14bc735dd29560e792fe7f2f216f5d18">MAL_S4x4_MATRIX_CLEAR</a>(name)&#160;&#160;&#160;name.setZero()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a72469b5fcd8f779d201adfe0d19eea04">MAL_S4x4_MATRIX_SET_IDENTITY</a>(name)&#160;&#160;&#160;name.setIdentity()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#abb22b9ea31cdf69524ed55c7b7e55bb0">MAL_S4x4_INVERSE</a>(name, inv_matrix, type)&#160;&#160;&#160;inv_matrix = name.Inversion();</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a0abfda3d7ad7fbcf0d07248d93b9159f">MAL_S4x4_RET_TRANSPOSE</a>(matrix)&#160;&#160;&#160;matrix.Transpose();</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a5ac5fe030204ea0ed5e6c95029db9fcf">MAL_S4x4_TRANSPOSE_A_in_At</a>(A, At)&#160;&#160;&#160;A.Transpose(At);</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a3ea353ef457ec98eeb346c7df880a139">MAL_S4x4_RET_A_by_B</a>(A, B)&#160;&#160;&#160;A*B</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#afb2b7bbf3bc6d3a383e7ac6b99fbc8f8">MAL_S4x4_C_eq_A_by_B</a>(C, A, B)&#160;&#160;&#160;(C)=(A)*(B)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a2c8ae9900c599ffe4e7a3e1ca3277525">MAL_S4x4_MATRIX_ACCESS_I</a>(name, i)&#160;&#160;&#160;name[i]</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a9a4e497390e9d6fb9574e19ee76ff4e3">MAL_S4x4_MATRIX_ACCESS_I_J</a>(name, i, j)&#160;&#160;&#160;name(i,j)</td></tr>
-<tr><td colspan="2"><h2><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
-<a class="elRef" doxygen="jrl-mathtools.doxytag:" href="a00003.html">jrlMathTools::Matrix4x4</a><br class="typebreak"/>
-&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00026.html#a211846ce7e4e1babf086b2d54bc34e1b">matrix4d</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#ga0d0d1a68f2240d849b644a9d6e74afe8">MAL_S3x3_MATRIX</a>(name, type)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines a matrix named <em>name</em> and of type <em>type</em>.  <a href="a00038.html#ga0d0d1a68f2240d849b644a9d6e74afe8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#ga4f923b926bbaab3c093fb8e4283a8f84">MAL_S3x3_MATRIX_CLEAR</a>(name)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the matrix <em>name</em> , i.e. put all the value to 0. In some case, it also mean that the data is deallocated. It is wise to resize the matrix after the call to this macro. This macro acts as a function.  <a href="a00038.html#ga4f923b926bbaab3c093fb8e4283a8f84"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#gafa5df22e1b621bc0bddbe75f453c8d93">MAL_S3x3_INVERSE</a>(name, inv_matrix, type)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns in <em>inv_matrix</em>, the inverse of matrix <em>name</em>. <em>name</em> should be a square matrix. <img class="formulaInl" alt="$ inv\_matrix = name^{-1} $" src="form_5.png"/> For implementation issue, the type of the data must be specified in <em>type</em>. You should read the documentation of the specific implementation to handle properly the numerical issues. This macro acts as a function.  <a href="a00038.html#gafa5df22e1b621bc0bddbe75f453c8d93"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#gafc34d2b893113bbf1ff1f78abc6d780a">MAL_S3x3_RET_TRANSPOSE</a>(matrix)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the transpose of matrix.  <a href="a00038.html#gafc34d2b893113bbf1ff1f78abc6d780a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#ga3291a0e4c32684f66a7abe7675773de9">MAL_S3x3_RET_A_by_B</a>(A, B)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the product of <em>A</em> by <em>B</em>, i.e. <img class="formulaInl" alt="$ {\bf A B} $" src="form_7.png"/> This forces the use of a temporary matrix structure.  <a href="a00038.html#ga3291a0e4c32684f66a7abe7675773de9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#ga658de986de4ef948db43aec5721fdf5d">MAL_S3x3_C_eq_A_by_B</a>(C, A, B)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts in <em>C</em> the result of the product of <em>A</em> by <em>B</em>, i.e. <img class="formulaInl" alt="$ {\bf C} = {\bf AB} $" src="form_8.png"/>.  <a href="a00038.html#ga658de986de4ef948db43aec5721fdf5d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#gaf4733cf2dd255f787c3e3d1a75c4a4eb">MAL_S3x3_MATRIX_SET_IDENTITY</a>(matrix)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the matrix named <em>matrix</em> to the identity matrix. When <em>matrix</em> is not square, the identity matrix is set to the upper left greatest square matrix included into <em>matrix</em>. The other values are set to zero.  <a href="a00038.html#gaf4733cf2dd255f787c3e3d1a75c4a4eb"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#ga33b28a1a220a36a3d46d498f55eb4226">MAL_S3x3_MATRIX_FILL</a>(matrix, value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the matrix named <em>matrix</em> with the value <em>value</em>.  <a href="a00038.html#ga33b28a1a220a36a3d46d498f55eb4226"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#ga37452d824a732edfbf2de4ce0be7478f">MAL_S3x3_RET_MATRIX_DATABLOCK</a>(matrix)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer on the data stored for the matrix.  <a href="a00038.html#ga37452d824a732edfbf2de4ce0be7478f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#ga4d7bc0e56c91d15f940b1d4db535f4b0">MAL_S3x3_MATRIX_C_eq_EXTRACT_A</a>(C, A, type, top, left, nbrows, nbcols)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This is used to extract a submatrix <em>C</em> from <em>A</em>.  <a href="a00038.html#ga4d7bc0e56c91d15f940b1d4db535f4b0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#gab385e40d175b7e7f83fc9f29fc992cef">MAL_S3x3_MATRIX_RET_DETERMINANT</a>(name, type)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro returns the determinant of matrix <em>name</em>.  <a href="a00038.html#gab385e40d175b7e7f83fc9f29fc992cef"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#ga6bf441b891ba608e7597ac26fa11fd1d">MAL_S3x3_MATRIX_ACCESS_I</a>(name, i)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro returns the element at position i name(i)  <a href="a00038.html#ga6bf441b891ba608e7597ac26fa11fd1d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#ga5d67f85540d59a159ae614fdecf8e0d5">MAL_S3x3_MATRIX_ACCESS_I_J</a>(name, i, j)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro returns element at pos (i,j)  <a href="a00038.html#ga5d67f85540d59a159ae614fdecf8e0d5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#ga7efa6ebbe829f66b5f44987b55100c69">MAL_S4x4_MATRIX</a>(name, type)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines a matrix named <em>name</em> and of type <em>type</em>.  <a href="a00038.html#ga7efa6ebbe829f66b5f44987b55100c69"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#ga14bc735dd29560e792fe7f2f216f5d18">MAL_S4x4_MATRIX_CLEAR</a>(name)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the matrix <em>name</em> , i.e. put all the value to 0. In some case, it also mean that the data is deallocated. It is wise to resize the matrix after the call to this macro. This macro acts as a function.  <a href="a00038.html#ga14bc735dd29560e792fe7f2f216f5d18"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#gabb22b9ea31cdf69524ed55c7b7e55bb0">MAL_S4x4_INVERSE</a>(name, inv_matrix, type)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns in <em>inv_matrix</em>, the inverse of matrix <em>name</em>. <em>name</em> should be a square matrix. <img class="formulaInl" alt="$ inv\_matrix = name^{-1} $" src="form_5.png"/> For implementation issue, the type of the data must be specified in <em>type</em>. You should read the documentation of the specific implementation to handle properly the numerical issues. This macro acts as a function.  <a href="a00038.html#gabb22b9ea31cdf69524ed55c7b7e55bb0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#ga0abfda3d7ad7fbcf0d07248d93b9159f">MAL_S4x4_RET_TRANSPOSE</a>(matrix)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the transpose of matrix.  <a href="a00038.html#ga0abfda3d7ad7fbcf0d07248d93b9159f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#ga3ea353ef457ec98eeb346c7df880a139">MAL_S4x4_RET_A_by_B</a>(A, B)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the product of <em>A</em> by <em>B</em>, i.e. <img class="formulaInl" alt="$ {\bf A B} $" src="form_7.png"/> This forces the use of a temporary matrix structure.  <a href="a00038.html#ga3ea353ef457ec98eeb346c7df880a139"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#gafb2b7bbf3bc6d3a383e7ac6b99fbc8f8">MAL_S4x4_C_eq_A_by_B</a>(C, A, B)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts in <em>C</em> the result of the product of <em>A</em> by <em>B</em>, i.e. <img class="formulaInl" alt="$ {\bf C} = {\bf AB} $" src="form_8.png"/>.  <a href="a00038.html#gafb2b7bbf3bc6d3a383e7ac6b99fbc8f8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#gaf183a1352b2abe1dfbcde6f76b45c0e1">MAL_S4x4_MATRIX_SET_IDENTITY</a>(matrix)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the matrix named <em>matrix</em> to the identity matrix. When <em>matrix</em> is not square, the identity matrix is set to the upper left greatest square matrix included into <em>matrix</em>. The other values are set to zero.  <a href="a00038.html#gaf183a1352b2abe1dfbcde6f76b45c0e1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#ga75fac05bf1d1e19785ebba646fee205f">MAL_S4x4_MATRIX_FILL</a>(matrix, value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the matrix named <em>matrix</em> with the value <em>value</em>.  <a href="a00038.html#ga75fac05bf1d1e19785ebba646fee205f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#gaca218d3dedb9e0d9a56e64f633cc85ba">MAL_S4x4_RET_MATRIX_DATABLOCK</a>(matrix)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer on the data stored for the matrix.  <a href="a00038.html#gaca218d3dedb9e0d9a56e64f633cc85ba"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#ga1609e335f9ff3b5bdcccacd58e5e6574">MAL_S4x4_MATRIX_C_eq_EXTRACT_A</a>(C, A, type, top, left, nbrows, nbcols)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This is used to extract a submatrix <em>C</em> from <em>A</em>.  <a href="a00038.html#ga1609e335f9ff3b5bdcccacd58e5e6574"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#gaf58d8a25a2f244e3017dfb7876feede9">MAL_S4x4_MATRIX_RET_DETERMINANT</a>(name, type)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro returns the determinant of matrix <em>name</em>.  <a href="a00038.html#gaf58d8a25a2f244e3017dfb7876feede9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#ga2c8ae9900c599ffe4e7a3e1ca3277525">MAL_S4x4_MATRIX_ACCESS_I</a>(name, i)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro returns the element at position i name(i)  <a href="a00038.html#ga2c8ae9900c599ffe4e7a3e1ca3277525"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00038.html#ga9a4e497390e9d6fb9574e19ee76ff4e3">MAL_S4x4_MATRIX_ACCESS_I_J</a>(name, i, j)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro returns element at pos (i,j)  <a href="a00038.html#ga9a4e497390e9d6fb9574e19ee76ff4e3"></a><br/></td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00037.html#ga2bfe34ae31443b1dd13dbf73b68f033d">MAL_S3_VECTOR</a>(name, type)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">declare a vector named <em>name</em> with type <em>type</em>  <a href="a00037.html#ga2bfe34ae31443b1dd13dbf73b68f033d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00037.html#ga5b1ef3bc4c44b57334363fde62dbebeb">MAL_S3_VECTOR_SIZE</a>(name)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the size of the vector named <em>name</em>  <a href="a00037.html#ga5b1ef3bc4c44b57334363fde62dbebeb"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00037.html#ga80af787579f0f8c6bc0d1255f16658f8">MAL_S3_VECTOR_FILL</a>(name, value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the vector named <em>name</em> with the value <em>value</em>. The user is responsible to make sure that the type are compatible. It acts as a function.  <a href="a00037.html#ga80af787579f0f8c6bc0d1255f16658f8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00037.html#ga4ce607e56592148e0dadfb883f917d00">MAL_S3_VECTOR_NORM</a>(name)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the two norms of the vector named <em>name</em>. More precisely if the vector <em>name</em> is of size <img class="formulaInl" alt="$ n $" src="form_0.png"/>, the norm is defined as: <img class="formulaInl" alt="$ \sqrt{\sum_{i=0}^{i=n-1}x_i^2} $" src="form_1.png"/>.  <a href="a00037.html#ga4ce607e56592148e0dadfb883f917d00"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00037.html#ga6234b3baef5d203991869ee9be699902">MAL_S3_VECTOR_CROSS_PRODUCT</a>(res, v1, v2)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns in <em>res</em> the cross product of two vectors <img class="formulaInl" alt="$ v_1,v_2 \in \mathbb{R}^3 $" src="form_2.png"/>. The cross product <img class="formulaInl" alt="$ res = v_1 \times v_2 $" src="form_3.png"/> is defined as: </p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\begin{eqnarray*} res^x &amp;= v_1^y v_2^z - v_2^y v_1^z \\ res^y &amp;= v_1^z v_2^x - v_2^z v_1^x \\ res^z &amp;= v_1^x v_2^y - v_2^x v_1^y \\ \end{eqnarray*}" src="form_12.png"/>
+</p>
+<p>.  <a href="a00037.html#ga6234b3baef5d203991869ee9be699902"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00037.html#ga0b6a4a1cc28fdcec95f53fff6f759497">MAL_S3_RET_VECTOR_DATABLOCK</a>(name)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a direct access to the data information. It is implementation dependent. However most of the time, it is assume to be an array of data.  <a href="a00037.html#ga0b6a4a1cc28fdcec95f53fff6f759497"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00037.html#ga96d0d529bba458cd0a6f153ab3046d4c">MAL_S3_VECTOR_ACCESS</a>(name, i)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the element at position i name(i)  <a href="a00037.html#ga96d0d529bba458cd0a6f153ab3046d4c"></a><br/></td></tr>
 </table>
-<hr/><h2>Define Documentation</h2>
-<a class="anchor" id="afb2b7bbf3bc6d3a383e7ac6b99fbc8f8"></a><!-- doxytag: member="matrixabstractlayermatrix4x4jrlmath.hh::MAL_S4x4_C_eq_A_by_B" ref="afb2b7bbf3bc6d3a383e7ac6b99fbc8f8" args="(C, A, B)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define <a class="el" href="a00028.html#afb2b7bbf3bc6d3a383e7ac6b99fbc8f8">MAL_S4x4_C_eq_A_by_B</a></td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">C, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">A, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">B&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;(C)=(A)*(B)</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="abb22b9ea31cdf69524ed55c7b7e55bb0"></a><!-- doxytag: member="matrixabstractlayermatrix4x4jrlmath.hh::MAL_S4x4_INVERSE" ref="abb22b9ea31cdf69524ed55c7b7e55bb0" args="(name, inv_matrix, type)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define <a class="el" href="a00028.html#abb22b9ea31cdf69524ed55c7b7e55bb0">MAL_S4x4_INVERSE</a></td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">name, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">inv_matrix, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">type&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;inv_matrix = name.Inversion();</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7efa6ebbe829f66b5f44987b55100c69"></a><!-- doxytag: member="matrixabstractlayermatrix4x4jrlmath.hh::MAL_S4x4_MATRIX" ref="a7efa6ebbe829f66b5f44987b55100c69" args="(name, type)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define <a class="el" href="a00028.html#a7efa6ebbe829f66b5f44987b55100c69">MAL_S4x4_MATRIX</a></td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">name, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">type&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="elRef" doxygen="jrl-mathtools.doxytag:" href="a00003.html">jrlMathTools::Matrix4x4</a>&lt;type&gt; name</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a2c8ae9900c599ffe4e7a3e1ca3277525"></a><!-- doxytag: member="matrixabstractlayermatrix4x4jrlmath.hh::MAL_S4x4_MATRIX_ACCESS_I" ref="a2c8ae9900c599ffe4e7a3e1ca3277525" args="(name, i)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define <a class="el" href="a00028.html#a2c8ae9900c599ffe4e7a3e1ca3277525">MAL_S4x4_MATRIX_ACCESS_I</a></td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">name, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">i&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;name[i]</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a9a4e497390e9d6fb9574e19ee76ff4e3"></a><!-- doxytag: member="matrixabstractlayermatrix4x4jrlmath.hh::MAL_S4x4_MATRIX_ACCESS_I_J" ref="a9a4e497390e9d6fb9574e19ee76ff4e3" args="(name, i, j)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define <a class="el" href="a00028.html#a9a4e497390e9d6fb9574e19ee76ff4e3">MAL_S4x4_MATRIX_ACCESS_I_J</a></td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">name, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">i, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">j&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;name(i,j)</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a14bc735dd29560e792fe7f2f216f5d18"></a><!-- doxytag: member="matrixabstractlayermatrix4x4jrlmath.hh::MAL_S4x4_MATRIX_CLEAR" ref="a14bc735dd29560e792fe7f2f216f5d18" args="(name)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define <a class="el" href="a00028.html#a14bc735dd29560e792fe7f2f216f5d18">MAL_S4x4_MATRIX_CLEAR</a></td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">name</td><td>)</td>
-          <td>&#160;&#160;&#160;name.setZero()</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a72469b5fcd8f779d201adfe0d19eea04"></a><!-- doxytag: member="matrixabstractlayermatrix4x4jrlmath.hh::MAL_S4x4_MATRIX_SET_IDENTITY" ref="a72469b5fcd8f779d201adfe0d19eea04" args="(name)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define <a class="el" href="a00028.html#a72469b5fcd8f779d201adfe0d19eea04">MAL_S4x4_MATRIX_SET_IDENTITY</a></td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">name</td><td>)</td>
-          <td>&#160;&#160;&#160;name.setIdentity()</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a9964287953b7b227bf1ddbcfe907490d"></a><!-- doxytag: member="matrixabstractlayermatrix4x4jrlmath.hh::MAL_S4x4_MATRIX_TYPE" ref="a9964287953b7b227bf1ddbcfe907490d" args="(type)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define <a class="el" href="a00028.html#a9964287953b7b227bf1ddbcfe907490d">MAL_S4x4_MATRIX_TYPE</a></td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">type</td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="elRef" doxygen="jrl-mathtools.doxytag:" href="a00003.html">jrlMathTools::Matrix4x4</a>&lt;type&gt;</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a3ea353ef457ec98eeb346c7df880a139"></a><!-- doxytag: member="matrixabstractlayermatrix4x4jrlmath.hh::MAL_S4x4_RET_A_by_B" ref="a3ea353ef457ec98eeb346c7df880a139" args="(A, B)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define <a class="el" href="a00028.html#a3ea353ef457ec98eeb346c7df880a139">MAL_S4x4_RET_A_by_B</a></td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">A, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">B&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;A*B</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0abfda3d7ad7fbcf0d07248d93b9159f"></a><!-- doxytag: member="matrixabstractlayermatrix4x4jrlmath.hh::MAL_S4x4_RET_TRANSPOSE" ref="a0abfda3d7ad7fbcf0d07248d93b9159f" args="(matrix)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define <a class="el" href="a00028.html#a0abfda3d7ad7fbcf0d07248d93b9159f">MAL_S4x4_RET_TRANSPOSE</a></td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">matrix</td><td>)</td>
-          <td>&#160;&#160;&#160;matrix.Transpose();</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5ac5fe030204ea0ed5e6c95029db9fcf"></a><!-- doxytag: member="matrixabstractlayermatrix4x4jrlmath.hh::MAL_S4x4_TRANSPOSE_A_in_At" ref="a5ac5fe030204ea0ed5e6c95029db9fcf" args="(A, At)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define <a class="el" href="a00028.html#a5ac5fe030204ea0ed5e6c95029db9fcf">MAL_S4x4_TRANSPOSE_A_in_At</a></td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">A, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">At&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;A.Transpose(At);</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/><h2>Typedef Documentation</h2>
-<a class="anchor" id="a211846ce7e4e1babf086b2d54bc34e1b"></a><!-- doxytag: member="matrixabstractlayermatrix4x4jrlmath.hh::matrix4d" ref="a211846ce7e4e1babf086b2d54bc34e1b" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef struct <a class="elRef" doxygen="jrl-mathtools.doxytag:" href="a00003.html">jrlMathTools::Matrix4x4</a>&lt; double &gt; <a class="el" href="a00026.html#a211846ce7e4e1babf086b2d54bc34e1b">matrix4d</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>This is a very fast and simple implementation of a 3D matrix class of double. </p>
-
-</div>
-</div>
 </div><!-- contents -->
 </div>
 <!-- window showing the filter options -->
@@ -391,6 +153,6 @@ Typedefs</h2></td></tr>
 
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00026.html">matrixabstractlayermatrix4x4jrlmath.hh</a>      </li>
+      <li class="navelem"><a class="el" href="a00026.html">matrixabstractlayersmall.hh</a>      </li>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>maal::abstract::Matrix Class Reference</title>
+<title>maal::abstract::Vector Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -58,142 +58,97 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#friends">Friends</a>  </div>
   <div class="headertitle">
-<div class="title">maal::abstract::Matrix Class Reference</div>  </div>
+<div class="title">maal::abstract::Vector Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<!-- doxytag: class="maal::abstract::Matrix" -->
-<p>Abstract <a class="el" href="a00005.html" title="Abstract Matrix class.">Matrix</a> class.  
+<!-- doxytag: class="maal::abstract::Vector" -->
+<p>Abstract <a class="el" href="a00005.html" title="Abstract Vector class.">Vector</a> class.  
  <a href="a00005.html#details">More...</a></p>
 
-<p><code>#include &lt;jrl/mal/abstractmatrix.hh&gt;</code></p>
+<p><code>#include &lt;jrl/mal/abstractvector.hh&gt;</code></p>
 
 <p><a href="a00042.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a2b83a26868cc31ba41893f3815916af5">Matrix</a> (const unsigned int rows=0, const unsigned int cols=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a6df03458115743e7b12287be5c389355">Matrix</a> (InternalMatrix *clone, const bool proprio=false)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a8dc94ab8afd864d9495fe5eb9401a7ea">Matrix</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;copy)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a593ec4558822bace0da2549b4a27e862">~Matrix</a> (void)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">InternalMatrix &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a2917621ffc2c0320b0dfb9af98920983">accessToMotherLib</a> (void)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const InternalMatrix &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a419fab4dbb44383aa35fe72b396a21c5">accessToMotherLib</a> (void) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a61c5a99bed29ca9f8014d6c52af75606">initFromMotherLib</a> (const InternalMatrix &amp;bv)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ae590d104d814ff762087d431e4c8a3fb">resize</a> (const unsigned int <a class="el" href="a00005.html#acef5703c2df55b4f3a9f2b6dac3d3086">nbRows</a>, const unsigned int <a class="el" href="a00005.html#a5020cb11a602261275f3cee45bf5d324">nbCols</a>, const bool <a class="el" href="a00005.html#ae88b0398dbeb2f09660db74bcd33c2a1">setZero</a>=true)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#acef5703c2df55b4f3a9f2b6dac3d3086">nbRows</a> (void) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a5020cb11a602261275f3cee45bf5d324">nbCols</a> (void) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ae88b0398dbeb2f09660db74bcd33c2a1">setZero</a> (void)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ab6585ef66b4ee7d8109837efd1e86375">setIdentity</a> (void)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#af577b9144d0b5f00667fcb99ec65e708">fill</a> (const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> value)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#abcb5c00e4da1504c921316cdf2e8322d">determinant</a> (void) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#afcc83b740746a9b06e1fab1b320ce940">trace</a> (void) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a30abe2f4384c947669476d282141784e">norm</a> (void) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a91988e226c2f83538c809a44b793b0dd">norm1</a> (void) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ac78b195a71729cad2eba8b47bc1fce1f">normInfty</a> (void) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#af2d81133f0325094f533c5c7c6c9bdab">max</a> (void) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#afda64d17ec8947d558219690c734c3d3">min</a> (void) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ad5b64706e2cf8632ac47005938ae8275">sumSquare</a> (void) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a3afb154b016d4b19c6be3cebfec6a160">transpose</a> (<a class="el" href="a00005.html">Matrix</a> &amp;At) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a761e549f4f163de41aec5c8342bf99cc">transpose</a> (void) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a7d0b2108b90104474631a8422a14540f">inverse</a> (<a class="el" href="a00005.html">Matrix</a> &amp;invMatrix) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a7f4d14d9b92bd5c7f55df9ac2f53a142">inverse</a> (void) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#aec692715f56477c1a73b6cfb0cce15df">pseudoInverse</a> (<a class="el" href="a00005.html">Matrix</a> &amp;invMatrix, const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> threshold=1e-6, Matrix *Uref=NULL, Matrix *Sref=NULL, Matrix *Vref=NULL) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a29167114712a3a44feda22a3fba6edde">pseudoInverse</a> (const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> threshold=1e-6, Matrix *U=NULL, Matrix *S=NULL, Matrix *V=NULL) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a5dcb72c7487e5fba3cce63d0ae226fa5">dampedInverse</a> (<a class="el" href="a00005.html">Matrix</a> &amp;invMatrix, const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> threshold=1e-6, Matrix *U=NULL, Matrix *S=NULL, Matrix *V=NULL) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ad16da2dd40cfd72b46725bbed5593249">dampedInverse</a> (const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> threshold=1e-6, Matrix *U=NULL, Matrix *S=NULL, Matrix *V=NULL) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ad7b1d57e62f79cb858f7fdfb578f7113">opposite</a> (<a class="el" href="a00005.html">Matrix</a> &amp;res) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a43bf023966c3f63bd2f5023d79b168ce">opposite</a> (void) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a0ea7ce499cb0ad9922b66a0c0091de7a">multiply</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;B) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a12bbb7d82a2b0693fc649db6370b27ec">multiply</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;B, <a class="el" href="a00005.html">Matrix</a> &amp;C) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00007.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a5270116abf9dc8bfe4bd0025c11f34e6">multiply</a> (const <a class="el" href="a00007.html">Vector</a> &amp;v) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00007.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a2981ddbd08e08c068be4840444f786fb">multiply</a> (const <a class="el" href="a00007.html">Vector</a> &amp;v, <a class="el" href="a00007.html">Vector</a> &amp;res) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a075491bcd45a8522247e9165b2fc1e5f">addition</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;B) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#af3d9403e05ec592be9db86963dbc7eea">addition</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;B, <a class="el" href="a00005.html">Matrix</a> &amp;C) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ad76aa7bd6593bc8302a9524636c53315">substraction</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;B) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a49c771c1303823e6db9200bc8cda5a0a">substraction</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;B, <a class="el" href="a00005.html">Matrix</a> &amp;C) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a19488aa0a4909aa342ffa1bdc550dcae">multiply</a> (const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a9936891e1294670e1816d377b8520235">multiply</a> (const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x, <a class="el" href="a00005.html">Matrix</a> &amp;C) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a4d53a1e5fb28177e557a022ffe848018">addition</a> (const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a3a45fb6ddee06a5d93cb9cd821ace82d">addition</a> (const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x, <a class="el" href="a00005.html">Matrix</a> &amp;C) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a27d1e841164da51fa594f97f85c6e604">substraction</a> (const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a2ff2641556b3c5a075829532e27285e3">substraction</a> (const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x, <a class="el" href="a00005.html">Matrix</a> &amp;C) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a0e90ce07d016b5871e2cc5097e7fcf1a">division</a> (const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a31d901f147999baea36faebd4d9c995c">division</a> (const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x, <a class="el" href="a00005.html">Matrix</a> &amp;C) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#adfdaf663d2f31d3c87a5a2bf7afb83af">datablock</a> (void)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a5144a9baa1577c90f161bbed43aa6aec">datablock</a> (void) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a305a04109dc5cd2a0fe1c420f158bf93">extract</a> (const int top, const int left, const int nbrows, const int nbcols, <a class="el" href="a00005.html">Matrix</a> &amp;C) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a35b1e64f1a3e01329d4e2c3e7f2a487a">extract</a> (const int top, const int left, const int nbrows, const int nbcols) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a0ed03e355393da59cc59eadb8a4b6781">elementAt</a> (const int row, const int col) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a1df56a148c84d373344c88f48c3c154c">elementAt</a> (const int row, const int col)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ac92a79d6d9ee8421ba25690f8942c5c6">elementAt</a> (const int elmt) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a321e77d8c4632decce1089f7a1210636">elementAt</a> (const int elmt)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00007.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a569d3972641b00d8eeae93067a952506">getDiagonal</a> (void) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00007.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a67694b6ac9321ed8123bb81ed5ef0260">getDiagonal</a> (<a class="el" href="a00007.html">Vector</a> &amp;vector) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#aa3618f3413749e99b3c488b60dc14cc6">setDiagonal</a> (const <a class="el" href="a00007.html">Vector</a> &amp;vector)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a8007ebbb1393cb7227a950f1292de23f">stackMatrix</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;B, <a class="el" href="a00005.html">Matrix</a> &amp;C) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a6fa4ff4531e96af70784429c7cb9d79a">stackMatrix</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;B) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a79e0e2f071c6a00fd48ac61977bf3c69">juxtaposeMatrix</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;B, <a class="el" href="a00005.html">Matrix</a> &amp;C) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a2fe152f020d679c5edd72f1f22094aba">juxtaposeMatrix</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;B) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a93e9d1fdd255465b45a530ab7da2417e">operator+=</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;m1)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a64babcecfac5fb7cba1ff29fae1ed028">operator-=</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;m1)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#aa8d38f9ec879f3e1abf0bf2624aab066">operator*=</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;m1)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a686350de6524b040b5df3b0bb5b456a7">operator*=</a> (const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ab8c9b8a15f95513a526e8aed6385d8eb">operator()</a> (const int i, const int j) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ad3a51ec690f986d885889ea104f39be9">operator()</a> (const int i, const int j)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ad6ab9ca486b85b44b6ccc62c1bbed371">operator()</a> (const int n) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a251397beedc0f6f82612ad7fb31a068f">operator()</a> (const int n)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a36a669a0fadda966f2d43f0706382b7b">operator=</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;m1)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a910c9d4c2635b24c4b7ed94cc009ec69">Vector</a> (const unsigned int <a class="el" href="a00005.html#a9567e159170bf0e398a40ca1766be31c">size</a>=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a0643db63ca8d076dd695d4b2e3850ecd">Vector</a> (InternalVector *clone, const bool proprio=false)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#acf7d0eaaee3153686b58157cd1d81abe">Vector</a> (const <a class="el" href="a00005.html">Vector</a> &amp;copy)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a3f408eb9472e5ec8837185a959b7e830">~Vector</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">InternalVector &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a255d1c4f1aaaa2a35d4da45f0f1b15ba">accessToMotherLib</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const InternalVector &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ac705f0f450e1c0282336ce5f11470d57">accessToMotherLib</a> (void) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#aa59b47e94098015f637a829e021c7d88">initFromMotherLib</a> (const InternalVector &amp;bv)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a9567e159170bf0e398a40ca1766be31c">size</a> (void) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a7ad7e2a76a4d616af96bd9a84271a552">resize</a> (const unsigned int nbRows, const bool <a class="el" href="a00005.html#ab4470aba8deb32619181a92e309e6b5d">setZero</a>=true)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#aa4bd8d5812d5b222aee2941c181e5067">fill</a> (const <a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ab4470aba8deb32619181a92e309e6b5d">setZero</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a7375ebe26a981369c4e1e78182606f80">opposite</a> (<a class="el" href="a00005.html">Vector</a> &amp;res) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#aa7ad824c72a6fa27ad79c6bc72552259">opposite</a> (void) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ac631698027c8372d3f6169b06b7dad82">norm</a> (void) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a39e29a6915b3ea494af343d68838f264">norm1</a> (void) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ac46db0b8a00a61be537977bb796cbd23">max</a> (void) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a10b0d3a92f01678e7414640684a100a1">min</a> (void) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a2fbf406ecd8ec1fc3998c6497b3173d8">sumSquare</a> (void) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#aaad6329066fb94c17a50505c8d62046d">normInfty</a> (void) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a0770a11ae1c0cc8097c721437110a22f">scalarProduct</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v2) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a9ac23664d71031dde366ec725ae942d4">crossProduct</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v2, <a class="el" href="a00005.html">Vector</a> &amp;res) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a0d2e1e6d5d488a1d52a9ed5326195def">crossProduct</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v2)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ac5ab1ad0b67d8294c6a9b88dcd3b423e">multiply</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v2) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a59f4bffd1ffc14ea2b063bdee00c03d2">multiply</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v2, <a class="el" href="a00005.html">Vector</a> &amp;res) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a9ea450a7ca325be9a1f1746187e1b09c">multiply</a> (const <a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a37ccce18078ed486982159e4b47c929f">multiply</a> (const <a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x, <a class="el" href="a00005.html">Vector</a> &amp;res) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ae1d510ed0aa4a87c5f6816eb10f2b787">addition</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v2) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a7b110f0831966e0328a5045fd9bd8790">addition</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v2, <a class="el" href="a00005.html">Vector</a> &amp;res) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a60560c0097573530d05a37917cd8f78c">substraction</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v2) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ae97e38fbf7234021f82f38d72c90c0e6">substraction</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v2, <a class="el" href="a00005.html">Vector</a> &amp;res) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a5db81dda6286e8f4b54f39d961cb39aa">datablock</a> (void) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#af2e9a93fc16c689116241937ce7b1011">datablock</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a8b3f49aa14fcc81d94bf3610a219bd0d">elementAt</a> (const unsigned int row) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a43fe0085dd4f4bf9d9774af1cd482dc5">elementAt</a> (const unsigned int row)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#aceacc6b3c6eb744047d41c65545f2078">extract</a> (const unsigned int top, const unsigned int nbrows, <a class="el" href="a00005.html">Vector</a> &amp;C) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#aadaf2abc9e9766d5a4bb52e0a4a69da9">extract</a> (const unsigned int top, const unsigned int nbrows) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#acd0710be0004ab185a06b0d6927bf25a">operator-</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v1)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a5b2ad905ee04553f77f1a1dcfe5cf4f8">operator+=</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v1)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a7cb481817b8a5b09dce81fba73306cbb">operator-=</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v1)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#aa5b44cf76f3f1e3562c2d3d648509290">operator*=</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v1)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a62830b0b2eb04fd926b0b46ea2ede8bb">operator*=</a> (const <a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a02306670839276d321e8e1b100eac783">operator()</a> (const unsigned int i) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a7e0270a1d7ee6314de8748053bd7e422">operator()</a> (const unsigned int i)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ad8a9e5d137c2cf18d927ac22c393aba2">operator=</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v1)</td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#abf3cf8e3a8c1ae2b2d4a7c57e69b1226">scalarProduct</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v1, const <a class="el" href="a00005.html">Vector</a> &amp;v2)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a679e7e7c17cb7ea982696425cfff2a22">crossProduct</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v1, const <a class="el" href="a00005.html">Vector</a> &amp;v2, <a class="el" href="a00005.html">Vector</a> &amp;res)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a09685e7932aceac9534aa2a71a72aeb3">multiply</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v1, const <a class="el" href="a00005.html">Vector</a> &amp;v2, <a class="el" href="a00005.html">Vector</a> &amp;res)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a78d2694d8efe9879e38a22d548953e1b">multiply</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v1, const <a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x, <a class="el" href="a00005.html">Vector</a> &amp;res)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a8c5f430efb870c8d6d9b46358372e84c">addition</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v1, const <a class="el" href="a00005.html">Vector</a> &amp;v2, <a class="el" href="a00005.html">Vector</a> &amp;res)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#afb54902772247c5de7471cb3c935e713">substraction</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v1, const <a class="el" href="a00005.html">Vector</a> &amp;v2, <a class="el" href="a00005.html">Vector</a> &amp;res)</td></tr>
 <tr><td colspan="2"><h2><a name="friends"></a>
 Friends</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a7ad6ee2fa63e622a8a9b12e193580c4f">multiply</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;A, const <a class="el" href="a00005.html">Matrix</a> &amp;B, <a class="el" href="a00005.html">Matrix</a> &amp;C)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00007.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a814691155e951f503cbea235b7d9fd3e">multiply</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;M, const <a class="el" href="a00007.html">Vector</a> &amp;v, <a class="el" href="a00007.html">Vector</a> &amp;res)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a00e663eb7ce9eae655916201ced89279">addition</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;A, const <a class="el" href="a00005.html">Matrix</a> &amp;B, <a class="el" href="a00005.html">Matrix</a> &amp;C)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ae758bcb20936be02bfcfdd798cbf65db">substraction</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;A, const <a class="el" href="a00005.html">Matrix</a> &amp;B, <a class="el" href="a00005.html">Matrix</a> &amp;C)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a4d4a1ccfa84176a0e8d8be93790de322">multiply</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;A, const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x, <a class="el" href="a00005.html">Matrix</a> &amp;C)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a435d2a7f76fda50587485a5fc7a73b0d">addition</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;A, const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x, <a class="el" href="a00005.html">Matrix</a> &amp;C)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a5b3baf9284ac0ac7baf9a592bd45f2d5">substraction</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;A, const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x, <a class="el" href="a00005.html">Matrix</a> &amp;C)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#aea083cebab79045e12193a64030079dc">division</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;A, const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x, <a class="el" href="a00005.html">Matrix</a> &amp;C)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#aa5a9f2db2b3c1862c9c0d19241239ce7">operator+</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;m1, const <a class="el" href="a00005.html">Matrix</a> &amp;m2)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a52ad5ef4b9998529c85e8523c20d6b86">operator-</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;m1, const <a class="el" href="a00005.html">Matrix</a> &amp;m2)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a24da5fd1a21f5010ee32de71af9be3b9">operator*</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;m1, const <a class="el" href="a00005.html">Matrix</a> &amp;m2)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a6e37da6d17dbb320f437ad9c5caf8194">operator-</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;m)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00007.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a53ca5b4126b8cdf182c1073a30df42e5">operator*</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;M, const <a class="el" href="a00007.html">Vector</a> &amp;v1)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00007.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a127f1a8bccb4b8760a092a5cdb0a5b6e">operator*</a> (const <a class="el" href="a00007.html">Vector</a> &amp;v1, const <a class="el" href="a00005.html">Matrix</a> &amp;M)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ae4b58bd4210ae39b35e886ce52e9c7f2">operator+</a> (const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x, const <a class="el" href="a00005.html">Matrix</a> &amp;m1)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a5d799579d3d8496d10d0edb44ebedf43">operator-</a> (const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x, const <a class="el" href="a00005.html">Matrix</a> &amp;m1)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a2d0e6cf2639648d88cee2bb6c96f4117">operator*</a> (const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x, const <a class="el" href="a00005.html">Matrix</a> &amp;m1)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a99e0d8bf4b745c275a9724fce758f9c1">operator/</a> (const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x, const <a class="el" href="a00005.html">Matrix</a> &amp;m1)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a00114eb190da2b882ce20e854e602538">operator+</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;m1, const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ac510c2ad62230c440b6dc77c4938e593">operator-</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;m1, const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#afd5249df58771da15cf50da099d4ab86">operator*</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;m1, const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ac2b03ecb9c424d6f02f34eef590cf88c">operator/</a> (const <a class="el" href="a00005.html">Matrix</a> &amp;m1, const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a559e1892b5302c70223640c3b85602aa">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="a00005.html">Matrix</a> &amp;m1)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a6670c9f4d987d8a7fe60d0478f47ba7c">operator&gt;&gt;</a> (std::istream &amp;is, <a class="el" href="a00005.html">Matrix</a> &amp;v1)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a06ca8cbab2b706b2a4e6b21ed24e0087">operator+</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v1, const <a class="el" href="a00005.html">Vector</a> &amp;v2)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a885f29c16d9844e1629e3f4c89cf5499">operator-</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v1, const <a class="el" href="a00005.html">Vector</a> &amp;v2)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#ad686e387581e9f9c41de5ce774fb7970">operator*</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v1, const <a class="el" href="a00005.html">Vector</a> &amp;v2)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a817211ee546f466764c15698697ea33d">operator*</a> (const <a class="el" href="a00005.html">Vector</a> &amp;v1, const <a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a8445494eff51918746ac5c3873cef28b">operator*</a> (const <a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> x, const <a class="el" href="a00005.html">Vector</a> &amp;v1)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a940d38ad9236601141a84d47a61734c0">operator&gt;&gt;</a> (std::istream &amp;is, <a class="el" href="a00005.html">Vector</a> &amp;v1)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html#a381171e3e2fb8cabca2e1834670a6dd9">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="a00005.html">Vector</a> &amp;v1)</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Abstract <a class="el" href="a00005.html" title="Abstract Matrix class.">Matrix</a> class. </p>
+<div class="textblock"><p>Abstract <a class="el" href="a00005.html" title="Abstract Vector class.">Vector</a> class. </p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a2b83a26868cc31ba41893f3815916af5"></a><!-- doxytag: member="maal::abstract::Matrix::Matrix" ref="a2b83a26868cc31ba41893f3815916af5" args="(const unsigned int rows=0, const unsigned int cols=0)" -->
+<a class="anchor" id="a910c9d4c2635b24c4b7ed94cc009ec69"></a><!-- doxytag: member="maal::abstract::Vector::Vector" ref="a910c9d4c2635b24c4b7ed94cc009ec69" args="(const unsigned int size=0)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html#a2b83a26868cc31ba41893f3815916af5">maal::abstract::Matrix::Matrix</a> </td>
+          <td class="memname"><a class="el" href="a00005.html#a910c9d4c2635b24c4b7ed94cc009ec69">maal::abstract::Vector::Vector</a> </td>
           <td>(</td>
           <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>rows</em> = <code>0</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>size</em> = <code>0</code></td><td>)</td>
           <td></td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>cols</em> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div>
@@ -201,14 +156,14 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a6df03458115743e7b12287be5c389355"></a><!-- doxytag: member="maal::abstract::Matrix::Matrix" ref="a6df03458115743e7b12287be5c389355" args="(InternalMatrix *clone, const bool proprio=false)" -->
+<a class="anchor" id="a0643db63ca8d076dd695d4b2e3850ecd"></a><!-- doxytag: member="maal::abstract::Vector::Vector" ref="a0643db63ca8d076dd695d4b2e3850ecd" args="(InternalVector *clone, const bool proprio=false)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html#a2b83a26868cc31ba41893f3815916af5">maal::abstract::Matrix::Matrix</a> </td>
+          <td class="memname"><a class="el" href="a00005.html#a910c9d4c2635b24c4b7ed94cc009ec69">maal::abstract::Vector::Vector</a> </td>
           <td>(</td>
-          <td class="paramtype">InternalMatrix *&#160;</td>
+          <td class="paramtype">InternalVector *&#160;</td>
           <td class="paramname"><em>clone</em>, </td>
         </tr>
         <tr>
@@ -228,14 +183,14 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a8dc94ab8afd864d9495fe5eb9401a7ea"></a><!-- doxytag: member="maal::abstract::Matrix::Matrix" ref="a8dc94ab8afd864d9495fe5eb9401a7ea" args="(const Matrix &amp;copy)" -->
+<a class="anchor" id="acf7d0eaaee3153686b58157cd1d81abe"></a><!-- doxytag: member="maal::abstract::Vector::Vector" ref="acf7d0eaaee3153686b58157cd1d81abe" args="(const Vector &amp;copy)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html#a2b83a26868cc31ba41893f3815916af5">maal::abstract::Matrix::Matrix</a> </td>
+          <td class="memname"><a class="el" href="a00005.html#a910c9d4c2635b24c4b7ed94cc009ec69">maal::abstract::Vector::Vector</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
           <td class="paramname"><em>copy</em></td><td>)</td>
           <td></td>
         </tr>
@@ -245,12 +200,12 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a593ec4558822bace0da2549b4a27e862"></a><!-- doxytag: member="maal::abstract::Matrix::~Matrix" ref="a593ec4558822bace0da2549b4a27e862" args="(void)" -->
+<a class="anchor" id="a3f408eb9472e5ec8837185a959b7e830"></a><!-- doxytag: member="maal::abstract::Vector::~Vector" ref="a3f408eb9472e5ec8837185a959b7e830" args="(void)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="a00005.html#a593ec4558822bace0da2549b4a27e862">maal::abstract::Matrix::~Matrix</a> </td>
+          <td class="memname">virtual <a class="el" href="a00005.html#a3f408eb9472e5ec8837185a959b7e830">maal::abstract::Vector::~Vector</a> </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -263,12 +218,12 @@ Friends</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a2917621ffc2c0320b0dfb9af98920983"></a><!-- doxytag: member="maal::abstract::Matrix::accessToMotherLib" ref="a2917621ffc2c0320b0dfb9af98920983" args="(void)" -->
+<a class="anchor" id="a255d1c4f1aaaa2a35d4da45f0f1b15ba"></a><!-- doxytag: member="maal::abstract::Vector::accessToMotherLib" ref="a255d1c4f1aaaa2a35d4da45f0f1b15ba" args="(void)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">InternalMatrix&amp; <a class="el" href="a00005.html#a2917621ffc2c0320b0dfb9af98920983">maal::abstract::Matrix::accessToMotherLib</a> </td>
+          <td class="memname">InternalVector&amp; <a class="el" href="a00005.html#a255d1c4f1aaaa2a35d4da45f0f1b15ba">maal::abstract::Vector::accessToMotherLib</a> </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -280,12 +235,12 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a419fab4dbb44383aa35fe72b396a21c5"></a><!-- doxytag: member="maal::abstract::Matrix::accessToMotherLib" ref="a419fab4dbb44383aa35fe72b396a21c5" args="(void) const " -->
+<a class="anchor" id="ac705f0f450e1c0282336ce5f11470d57"></a><!-- doxytag: member="maal::abstract::Vector::accessToMotherLib" ref="ac705f0f450e1c0282336ce5f11470d57" args="(void) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const InternalMatrix&amp; <a class="el" href="a00005.html#a2917621ffc2c0320b0dfb9af98920983">maal::abstract::Matrix::accessToMotherLib</a> </td>
+          <td class="memname">const InternalVector&amp; <a class="el" href="a00005.html#a255d1c4f1aaaa2a35d4da45f0f1b15ba">maal::abstract::Vector::accessToMotherLib</a> </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -297,43 +252,32 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a075491bcd45a8522247e9165b2fc1e5f"></a><!-- doxytag: member="maal::abstract::Matrix::addition" ref="a075491bcd45a8522247e9165b2fc1e5f" args="(const Matrix &amp;B) const " -->
+<a class="anchor" id="a8c5f430efb870c8d6d9b46358372e84c"></a><!-- doxytag: member="maal::abstract::Vector::addition" ref="a8c5f430efb870c8d6d9b46358372e84c" args="(const Vector &amp;v1, const Vector &amp;v2, Vector &amp;res)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> <a class="el" href="a00005.html#a00e663eb7ce9eae655916201ced89279">maal::abstract::Matrix::addition</a> </td>
+          <td class="memname">static <a class="el" href="a00005.html">Vector</a>&amp; <a class="el" href="a00005.html#a8c5f430efb870c8d6d9b46358372e84c">maal::abstract::Vector::addition</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>B</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af3d9403e05ec592be9db86963dbc7eea"></a><!-- doxytag: member="maal::abstract::Matrix::addition" ref="af3d9403e05ec592be9db86963dbc7eea" args="(const Matrix &amp;B, Matrix &amp;C) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#a00e663eb7ce9eae655916201ced89279">maal::abstract::Matrix::addition</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>B</em>, </td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>C</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>res</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const<code> [inline]</code></td>
+          <td></td><td><code> [static]</code></td>
         </tr>
       </table>
 </div>
@@ -341,15 +285,15 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a4d53a1e5fb28177e557a022ffe848018"></a><!-- doxytag: member="maal::abstract::Matrix::addition" ref="a4d53a1e5fb28177e557a022ffe848018" args="(const FloatType x) const " -->
+<a class="anchor" id="ae1d510ed0aa4a87c5f6816eb10f2b787"></a><!-- doxytag: member="maal::abstract::Vector::addition" ref="ae1d510ed0aa4a87c5f6816eb10f2b787" args="(const Vector &amp;v2) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> <a class="el" href="a00005.html#a00e663eb7ce9eae655916201ced89279">maal::abstract::Matrix::addition</a> </td>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a> <a class="el" href="a00005.html#a8c5f430efb870c8d6d9b46358372e84c">maal::abstract::Vector::addition</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v2</em></td><td>)</td>
           <td> const<code> [inline]</code></td>
         </tr>
       </table>
@@ -358,639 +302,20 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a3a45fb6ddee06a5d93cb9cd821ace82d"></a><!-- doxytag: member="maal::abstract::Matrix::addition" ref="a3a45fb6ddee06a5d93cb9cd821ace82d" args="(const FloatType x, Matrix &amp;C) const " -->
+<a class="anchor" id="a7b110f0831966e0328a5045fd9bd8790"></a><!-- doxytag: member="maal::abstract::Vector::addition" ref="a7b110f0831966e0328a5045fd9bd8790" args="(const Vector &amp;v2, Vector &amp;res) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#a00e663eb7ce9eae655916201ced89279">maal::abstract::Matrix::addition</a> </td>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a>&amp; <a class="el" href="a00005.html#a8c5f430efb870c8d6d9b46358372e84c">maal::abstract::Vector::addition</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>C</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5dcb72c7487e5fba3cce63d0ae226fa5"></a><!-- doxytag: member="maal::abstract::Matrix::dampedInverse" ref="a5dcb72c7487e5fba3cce63d0ae226fa5" args="(Matrix &amp;invMatrix, const FloatType threshold=1e&#45;6, Matrix *U=NULL, Matrix *S=NULL, Matrix *V=NULL) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#a5dcb72c7487e5fba3cce63d0ae226fa5">maal::abstract::Matrix::dampedInverse</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>invMatrix</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>threshold</em> = <code>1e-6</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> *&#160;</td>
-          <td class="paramname"><em>U</em> = <code>NULL</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> *&#160;</td>
-          <td class="paramname"><em>S</em> = <code>NULL</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> *&#160;</td>
-          <td class="paramname"><em>V</em> = <code>NULL</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad16da2dd40cfd72b46725bbed5593249"></a><!-- doxytag: member="maal::abstract::Matrix::dampedInverse" ref="ad16da2dd40cfd72b46725bbed5593249" args="(const FloatType threshold=1e&#45;6, Matrix *U=NULL, Matrix *S=NULL, Matrix *V=NULL) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> <a class="el" href="a00005.html#a5dcb72c7487e5fba3cce63d0ae226fa5">maal::abstract::Matrix::dampedInverse</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>threshold</em> = <code>1e-6</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> *&#160;</td>
-          <td class="paramname"><em>U</em> = <code>NULL</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> *&#160;</td>
-          <td class="paramname"><em>S</em> = <code>NULL</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> *&#160;</td>
-          <td class="paramname"><em>V</em> = <code>NULL</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="adfdaf663d2f31d3c87a5a2bf7afb83af"></a><!-- doxytag: member="maal::abstract::Matrix::datablock" ref="adfdaf663d2f31d3c87a5a2bf7afb83af" args="(void)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>* <a class="el" href="a00005.html#adfdaf663d2f31d3c87a5a2bf7afb83af">maal::abstract::Matrix::datablock</a> </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5144a9baa1577c90f161bbed43aa6aec"></a><!-- doxytag: member="maal::abstract::Matrix::datablock" ref="a5144a9baa1577c90f161bbed43aa6aec" args="(void) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>* <a class="el" href="a00005.html#adfdaf663d2f31d3c87a5a2bf7afb83af">maal::abstract::Matrix::datablock</a> </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="abcb5c00e4da1504c921316cdf2e8322d"></a><!-- doxytag: member="maal::abstract::Matrix::determinant" ref="abcb5c00e4da1504c921316cdf2e8322d" args="(void) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> <a class="el" href="a00005.html#abcb5c00e4da1504c921316cdf2e8322d">maal::abstract::Matrix::determinant</a> </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0e90ce07d016b5871e2cc5097e7fcf1a"></a><!-- doxytag: member="maal::abstract::Matrix::division" ref="a0e90ce07d016b5871e2cc5097e7fcf1a" args="(const FloatType x) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> <a class="el" href="a00005.html#aea083cebab79045e12193a64030079dc">maal::abstract::Matrix::division</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a31d901f147999baea36faebd4d9c995c"></a><!-- doxytag: member="maal::abstract::Matrix::division" ref="a31d901f147999baea36faebd4d9c995c" args="(const FloatType x, Matrix &amp;C) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#aea083cebab79045e12193a64030079dc">maal::abstract::Matrix::division</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>C</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0ed03e355393da59cc59eadb8a4b6781"></a><!-- doxytag: member="maal::abstract::Matrix::elementAt" ref="a0ed03e355393da59cc59eadb8a4b6781" args="(const int row, const int col) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&amp; <a class="el" href="a00005.html#a0ed03e355393da59cc59eadb8a4b6781">maal::abstract::Matrix::elementAt</a> </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>row</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>col</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a1df56a148c84d373344c88f48c3c154c"></a><!-- doxytag: member="maal::abstract::Matrix::elementAt" ref="a1df56a148c84d373344c88f48c3c154c" args="(const int row, const int col)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&amp; <a class="el" href="a00005.html#a0ed03e355393da59cc59eadb8a4b6781">maal::abstract::Matrix::elementAt</a> </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>row</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>col</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac92a79d6d9ee8421ba25690f8942c5c6"></a><!-- doxytag: member="maal::abstract::Matrix::elementAt" ref="ac92a79d6d9ee8421ba25690f8942c5c6" args="(const int elmt) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&amp; <a class="el" href="a00005.html#a0ed03e355393da59cc59eadb8a4b6781">maal::abstract::Matrix::elementAt</a> </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>elmt</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a321e77d8c4632decce1089f7a1210636"></a><!-- doxytag: member="maal::abstract::Matrix::elementAt" ref="a321e77d8c4632decce1089f7a1210636" args="(const int elmt)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&amp; <a class="el" href="a00005.html#a0ed03e355393da59cc59eadb8a4b6781">maal::abstract::Matrix::elementAt</a> </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>elmt</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a305a04109dc5cd2a0fe1c420f158bf93"></a><!-- doxytag: member="maal::abstract::Matrix::extract" ref="a305a04109dc5cd2a0fe1c420f158bf93" args="(const int top, const int left, const int nbrows, const int nbcols, Matrix &amp;C) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#a305a04109dc5cd2a0fe1c420f158bf93">maal::abstract::Matrix::extract</a> </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>top</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>left</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>nbrows</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>nbcols</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>C</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a35b1e64f1a3e01329d4e2c3e7f2a487a"></a><!-- doxytag: member="maal::abstract::Matrix::extract" ref="a35b1e64f1a3e01329d4e2c3e7f2a487a" args="(const int top, const int left, const int nbrows, const int nbcols) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> <a class="el" href="a00005.html#a305a04109dc5cd2a0fe1c420f158bf93">maal::abstract::Matrix::extract</a> </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>top</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>left</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>nbrows</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>nbcols</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af577b9144d0b5f00667fcb99ec65e708"></a><!-- doxytag: member="maal::abstract::Matrix::fill" ref="af577b9144d0b5f00667fcb99ec65e708" args="(const FloatType value)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#af577b9144d0b5f00667fcb99ec65e708">maal::abstract::Matrix::fill</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a569d3972641b00d8eeae93067a952506"></a><!-- doxytag: member="maal::abstract::Matrix::getDiagonal" ref="a569d3972641b00d8eeae93067a952506" args="(void) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00007.html">Vector</a> <a class="el" href="a00005.html#a569d3972641b00d8eeae93067a952506">maal::abstract::Matrix::getDiagonal</a> </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a67694b6ac9321ed8123bb81ed5ef0260"></a><!-- doxytag: member="maal::abstract::Matrix::getDiagonal" ref="a67694b6ac9321ed8123bb81ed5ef0260" args="(Vector &amp;vector) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00007.html">Vector</a>&amp; <a class="el" href="a00005.html#a569d3972641b00d8eeae93067a952506">maal::abstract::Matrix::getDiagonal</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00007.html">Vector</a> &amp;&#160;</td>
-          <td class="paramname"><em>vector</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a61c5a99bed29ca9f8014d6c52af75606"></a><!-- doxytag: member="maal::abstract::Matrix::initFromMotherLib" ref="a61c5a99bed29ca9f8014d6c52af75606" args="(const InternalMatrix &amp;bv)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#a61c5a99bed29ca9f8014d6c52af75606">maal::abstract::Matrix::initFromMotherLib</a> </td>
-          <td>(</td>
-          <td class="paramtype">const InternalMatrix &amp;&#160;</td>
-          <td class="paramname"><em>bv</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7d0b2108b90104474631a8422a14540f"></a><!-- doxytag: member="maal::abstract::Matrix::inverse" ref="a7d0b2108b90104474631a8422a14540f" args="(Matrix &amp;invMatrix) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#a7d0b2108b90104474631a8422a14540f">maal::abstract::Matrix::inverse</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>invMatrix</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7f4d14d9b92bd5c7f55df9ac2f53a142"></a><!-- doxytag: member="maal::abstract::Matrix::inverse" ref="a7f4d14d9b92bd5c7f55df9ac2f53a142" args="(void) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> <a class="el" href="a00005.html#a7d0b2108b90104474631a8422a14540f">maal::abstract::Matrix::inverse</a> </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a79e0e2f071c6a00fd48ac61977bf3c69"></a><!-- doxytag: member="maal::abstract::Matrix::juxtaposeMatrix" ref="a79e0e2f071c6a00fd48ac61977bf3c69" args="(const Matrix &amp;B, Matrix &amp;C) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#a79e0e2f071c6a00fd48ac61977bf3c69">maal::abstract::Matrix::juxtaposeMatrix</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>B</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>C</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a2fe152f020d679c5edd72f1f22094aba"></a><!-- doxytag: member="maal::abstract::Matrix::juxtaposeMatrix" ref="a2fe152f020d679c5edd72f1f22094aba" args="(const Matrix &amp;B) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> <a class="el" href="a00005.html#a79e0e2f071c6a00fd48ac61977bf3c69">maal::abstract::Matrix::juxtaposeMatrix</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>B</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af2d81133f0325094f533c5c7c6c9bdab"></a><!-- doxytag: member="maal::abstract::Matrix::max" ref="af2d81133f0325094f533c5c7c6c9bdab" args="(void) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> <a class="el" href="a00005.html#af2d81133f0325094f533c5c7c6c9bdab">maal::abstract::Matrix::max</a> </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="afda64d17ec8947d558219690c734c3d3"></a><!-- doxytag: member="maal::abstract::Matrix::min" ref="afda64d17ec8947d558219690c734c3d3" args="(void) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> <a class="el" href="a00005.html#afda64d17ec8947d558219690c734c3d3">maal::abstract::Matrix::min</a> </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0ea7ce499cb0ad9922b66a0c0091de7a"></a><!-- doxytag: member="maal::abstract::Matrix::multiply" ref="a0ea7ce499cb0ad9922b66a0c0091de7a" args="(const Matrix &amp;B) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> <a class="el" href="a00005.html#a7ad6ee2fa63e622a8a9b12e193580c4f">maal::abstract::Matrix::multiply</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>B</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a12bbb7d82a2b0693fc649db6370b27ec"></a><!-- doxytag: member="maal::abstract::Matrix::multiply" ref="a12bbb7d82a2b0693fc649db6370b27ec" args="(const Matrix &amp;B, Matrix &amp;C) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#a7ad6ee2fa63e622a8a9b12e193580c4f">maal::abstract::Matrix::multiply</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>B</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>C</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5270116abf9dc8bfe4bd0025c11f34e6"></a><!-- doxytag: member="maal::abstract::Matrix::multiply" ref="a5270116abf9dc8bfe4bd0025c11f34e6" args="(const Vector &amp;v) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00007.html">Vector</a> <a class="el" href="a00005.html#a7ad6ee2fa63e622a8a9b12e193580c4f">maal::abstract::Matrix::multiply</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00007.html">Vector</a> &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a2981ddbd08e08c068be4840444f786fb"></a><!-- doxytag: member="maal::abstract::Matrix::multiply" ref="a2981ddbd08e08c068be4840444f786fb" args="(const Vector &amp;v, Vector &amp;res) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00007.html">Vector</a>&amp; <a class="el" href="a00005.html#a7ad6ee2fa63e622a8a9b12e193580c4f">maal::abstract::Matrix::multiply</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00007.html">Vector</a> &amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00007.html">Vector</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
           <td class="paramname"><em>res</em>&#160;</td>
         </tr>
         <tr>
@@ -1004,15 +329,92 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a19488aa0a4909aa342ffa1bdc550dcae"></a><!-- doxytag: member="maal::abstract::Matrix::multiply" ref="a19488aa0a4909aa342ffa1bdc550dcae" args="(const FloatType x) const " -->
+<a class="anchor" id="a679e7e7c17cb7ea982696425cfff2a22"></a><!-- doxytag: member="maal::abstract::Vector::crossProduct" ref="a679e7e7c17cb7ea982696425cfff2a22" args="(const Vector &amp;v1, const Vector &amp;v2, Vector &amp;res)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> <a class="el" href="a00005.html#a7ad6ee2fa63e622a8a9b12e193580c4f">maal::abstract::Matrix::multiply</a> </td>
+          <td class="memname">static <a class="el" href="a00005.html">Vector</a>&amp; <a class="el" href="a00005.html#a679e7e7c17cb7ea982696425cfff2a22">maal::abstract::Vector::crossProduct</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>res</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9ac23664d71031dde366ec725ae942d4"></a><!-- doxytag: member="maal::abstract::Vector::crossProduct" ref="a9ac23664d71031dde366ec725ae942d4" args="(const Vector &amp;v2, Vector &amp;res) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a>&amp; <a class="el" href="a00005.html#a679e7e7c17cb7ea982696425cfff2a22">maal::abstract::Vector::crossProduct</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>res</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0d2e1e6d5d488a1d52a9ed5326195def"></a><!-- doxytag: member="maal::abstract::Vector::crossProduct" ref="a0d2e1e6d5d488a1d52a9ed5326195def" args="(const Vector &amp;v2)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a> <a class="el" href="a00005.html#a679e7e7c17cb7ea982696425cfff2a22">maal::abstract::Vector::crossProduct</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v2</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5db81dda6286e8f4b54f39d961cb39aa"></a><!-- doxytag: member="maal::abstract::Vector::datablock" ref="a5db81dda6286e8f4b54f39d961cb39aa" args="(void) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>* <a class="el" href="a00005.html#a5db81dda6286e8f4b54f39d961cb39aa">maal::abstract::Vector::datablock</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td> const<code> [inline]</code></td>
         </tr>
       </table>
@@ -1021,20 +423,77 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a9936891e1294670e1816d377b8520235"></a><!-- doxytag: member="maal::abstract::Matrix::multiply" ref="a9936891e1294670e1816d377b8520235" args="(const FloatType x, Matrix &amp;C) const " -->
+<a class="anchor" id="af2e9a93fc16c689116241937ce7b1011"></a><!-- doxytag: member="maal::abstract::Vector::datablock" ref="af2e9a93fc16c689116241937ce7b1011" args="(void)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#a7ad6ee2fa63e622a8a9b12e193580c4f">maal::abstract::Matrix::multiply</a> </td>
+          <td class="memname"><a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>* <a class="el" href="a00005.html#a5db81dda6286e8f4b54f39d961cb39aa">maal::abstract::Vector::datablock</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8b3f49aa14fcc81d94bf3610a219bd0d"></a><!-- doxytag: member="maal::abstract::Vector::elementAt" ref="a8b3f49aa14fcc81d94bf3610a219bd0d" args="(const unsigned int row) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&amp; <a class="el" href="a00005.html#a8b3f49aa14fcc81d94bf3610a219bd0d">maal::abstract::Vector::elementAt</a> </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>row</em></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a43fe0085dd4f4bf9d9774af1cd482dc5"></a><!-- doxytag: member="maal::abstract::Vector::elementAt" ref="a43fe0085dd4f4bf9d9774af1cd482dc5" args="(const unsigned int row)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&amp; <a class="el" href="a00005.html#a8b3f49aa14fcc81d94bf3610a219bd0d">maal::abstract::Vector::elementAt</a> </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>row</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aceacc6b3c6eb744047d41c65545f2078"></a><!-- doxytag: member="maal::abstract::Vector::extract" ref="aceacc6b3c6eb744047d41c65545f2078" args="(const unsigned int top, const unsigned int nbrows, Vector &amp;C) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a>&amp; <a class="el" href="a00005.html#aceacc6b3c6eb744047d41c65545f2078">maal::abstract::Vector::extract</a> </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>top</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>nbrows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
           <td class="paramname"><em>C</em>&#160;</td>
         </tr>
         <tr>
@@ -1048,106 +507,21 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a5020cb11a602261275f3cee45bf5d324"></a><!-- doxytag: member="maal::abstract::Matrix::nbCols" ref="a5020cb11a602261275f3cee45bf5d324" args="(void) const " -->
+<a class="anchor" id="aadaf2abc9e9766d5a4bb52e0a4a69da9"></a><!-- doxytag: member="maal::abstract::Vector::extract" ref="aadaf2abc9e9766d5a4bb52e0a4a69da9" args="(const unsigned int top, const unsigned int nbrows) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int <a class="el" href="a00005.html#a5020cb11a602261275f3cee45bf5d324">maal::abstract::Matrix::nbCols</a> </td>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a> <a class="el" href="a00005.html#aceacc6b3c6eb744047d41c65545f2078">maal::abstract::Vector::extract</a> </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="acef5703c2df55b4f3a9f2b6dac3d3086"></a><!-- doxytag: member="maal::abstract::Matrix::nbRows" ref="acef5703c2df55b4f3a9f2b6dac3d3086" args="(void) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int <a class="el" href="a00005.html#acef5703c2df55b4f3a9f2b6dac3d3086">maal::abstract::Matrix::nbRows</a> </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a30abe2f4384c947669476d282141784e"></a><!-- doxytag: member="maal::abstract::Matrix::norm" ref="a30abe2f4384c947669476d282141784e" args="(void) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> <a class="el" href="a00005.html#a30abe2f4384c947669476d282141784e">maal::abstract::Matrix::norm</a> </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a91988e226c2f83538c809a44b793b0dd"></a><!-- doxytag: member="maal::abstract::Matrix::norm1" ref="a91988e226c2f83538c809a44b793b0dd" args="(void) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> <a class="el" href="a00005.html#a91988e226c2f83538c809a44b793b0dd">maal::abstract::Matrix::norm1</a> </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac78b195a71729cad2eba8b47bc1fce1f"></a><!-- doxytag: member="maal::abstract::Matrix::normInfty" ref="ac78b195a71729cad2eba8b47bc1fce1f" args="(void) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> <a class="el" href="a00005.html#ac78b195a71729cad2eba8b47bc1fce1f">maal::abstract::Matrix::normInfty</a> </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab8c9b8a15f95513a526e8aed6385d8eb"></a><!-- doxytag: member="maal::abstract::Matrix::operator()" ref="ab8c9b8a15f95513a526e8aed6385d8eb" args="(const int i, const int j) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&amp; maal::abstract::Matrix::operator() </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>top</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>j</em>&#160;</td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>nbrows</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1160,26 +534,16 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ad3a51ec690f986d885889ea104f39be9"></a><!-- doxytag: member="maal::abstract::Matrix::operator()" ref="ad3a51ec690f986d885889ea104f39be9" args="(const int i, const int j)" -->
+<a class="anchor" id="aa4bd8d5812d5b222aee2941c181e5067"></a><!-- doxytag: member="maal::abstract::Vector::fill" ref="aa4bd8d5812d5b222aee2941c181e5067" args="(const FloatType value)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&amp; maal::abstract::Matrix::operator() </td>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a>&amp; <a class="el" href="a00005.html#aa4bd8d5812d5b222aee2941c181e5067">maal::abstract::Vector::fill</a> </td>
           <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>j</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [inline]</code></td>
+          <td class="paramtype">const <a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -1187,15 +551,32 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ad6ab9ca486b85b44b6ccc62c1bbed371"></a><!-- doxytag: member="maal::abstract::Matrix::operator()" ref="ad6ab9ca486b85b44b6ccc62c1bbed371" args="(const int n) const " -->
+<a class="anchor" id="aa59b47e94098015f637a829e021c7d88"></a><!-- doxytag: member="maal::abstract::Vector::initFromMotherLib" ref="aa59b47e94098015f637a829e021c7d88" args="(const InternalVector &amp;bv)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&amp; maal::abstract::Matrix::operator() </td>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a>&amp; <a class="el" href="a00005.html#aa59b47e94098015f637a829e021c7d88">maal::abstract::Vector::initFromMotherLib</a> </td>
           <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>n</em></td><td>)</td>
+          <td class="paramtype">const InternalVector &amp;&#160;</td>
+          <td class="paramname"><em>bv</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac46db0b8a00a61be537977bb796cbd23"></a><!-- doxytag: member="maal::abstract::Vector::max" ref="ac46db0b8a00a61be537977bb796cbd23" args="(void) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> <a class="el" href="a00005.html#ac46db0b8a00a61be537977bb796cbd23">maal::abstract::Vector::max</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td> const<code> [inline]</code></td>
         </tr>
       </table>
@@ -1204,15 +585,254 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a251397beedc0f6f82612ad7fb31a068f"></a><!-- doxytag: member="maal::abstract::Matrix::operator()" ref="a251397beedc0f6f82612ad7fb31a068f" args="(const int n)" -->
+<a class="anchor" id="a10b0d3a92f01678e7414640684a100a1"></a><!-- doxytag: member="maal::abstract::Vector::min" ref="a10b0d3a92f01678e7414640684a100a1" args="(void) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&amp; maal::abstract::Matrix::operator() </td>
+          <td class="memname"><a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> <a class="el" href="a00005.html#a10b0d3a92f01678e7414640684a100a1">maal::abstract::Vector::min</a> </td>
           <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>n</em></td><td>)</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a09685e7932aceac9534aa2a71a72aeb3"></a><!-- doxytag: member="maal::abstract::Vector::multiply" ref="a09685e7932aceac9534aa2a71a72aeb3" args="(const Vector &amp;v1, const Vector &amp;v2, Vector &amp;res)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00005.html">Vector</a>&amp; <a class="el" href="a00005.html#a09685e7932aceac9534aa2a71a72aeb3">maal::abstract::Vector::multiply</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>res</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac5ab1ad0b67d8294c6a9b88dcd3b423e"></a><!-- doxytag: member="maal::abstract::Vector::multiply" ref="ac5ab1ad0b67d8294c6a9b88dcd3b423e" args="(const Vector &amp;v2) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a> <a class="el" href="a00005.html#a09685e7932aceac9534aa2a71a72aeb3">maal::abstract::Vector::multiply</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v2</em></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a59f4bffd1ffc14ea2b063bdee00c03d2"></a><!-- doxytag: member="maal::abstract::Vector::multiply" ref="a59f4bffd1ffc14ea2b063bdee00c03d2" args="(const Vector &amp;v2, Vector &amp;res) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a>&amp; <a class="el" href="a00005.html#a09685e7932aceac9534aa2a71a72aeb3">maal::abstract::Vector::multiply</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>res</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a78d2694d8efe9879e38a22d548953e1b"></a><!-- doxytag: member="maal::abstract::Vector::multiply" ref="a78d2694d8efe9879e38a22d548953e1b" args="(const Vector &amp;v1, const FloatType x, Vector &amp;res)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00005.html">Vector</a>&amp; <a class="el" href="a00005.html#a09685e7932aceac9534aa2a71a72aeb3">maal::abstract::Vector::multiply</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>res</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9ea450a7ca325be9a1f1746187e1b09c"></a><!-- doxytag: member="maal::abstract::Vector::multiply" ref="a9ea450a7ca325be9a1f1746187e1b09c" args="(const FloatType x) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a> <a class="el" href="a00005.html#a09685e7932aceac9534aa2a71a72aeb3">maal::abstract::Vector::multiply</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a37ccce18078ed486982159e4b47c929f"></a><!-- doxytag: member="maal::abstract::Vector::multiply" ref="a37ccce18078ed486982159e4b47c929f" args="(const FloatType x, Vector &amp;res) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a>&amp; <a class="el" href="a00005.html#a09685e7932aceac9534aa2a71a72aeb3">maal::abstract::Vector::multiply</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>res</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac631698027c8372d3f6169b06b7dad82"></a><!-- doxytag: member="maal::abstract::Vector::norm" ref="ac631698027c8372d3f6169b06b7dad82" args="(void) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> <a class="el" href="a00005.html#ac631698027c8372d3f6169b06b7dad82">maal::abstract::Vector::norm</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a39e29a6915b3ea494af343d68838f264"></a><!-- doxytag: member="maal::abstract::Vector::norm1" ref="a39e29a6915b3ea494af343d68838f264" args="(void) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> <a class="el" href="a00005.html#a39e29a6915b3ea494af343d68838f264">maal::abstract::Vector::norm1</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aaad6329066fb94c17a50505c8d62046d"></a><!-- doxytag: member="maal::abstract::Vector::normInfty" ref="aaad6329066fb94c17a50505c8d62046d" args="(void) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> <a class="el" href="a00005.html#aaad6329066fb94c17a50505c8d62046d">maal::abstract::Vector::normInfty</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a02306670839276d321e8e1b100eac783"></a><!-- doxytag: member="maal::abstract::Vector::operator()" ref="a02306670839276d321e8e1b100eac783" args="(const unsigned int i) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&amp; maal::abstract::Vector::operator() </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7e0270a1d7ee6314de8748053bd7e422"></a><!-- doxytag: member="maal::abstract::Vector::operator()" ref="a7e0270a1d7ee6314de8748053bd7e422" args="(const unsigned int i)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&amp; maal::abstract::Vector::operator() </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
       </table>
@@ -1221,15 +841,15 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aa8d38f9ec879f3e1abf0bf2624aab066"></a><!-- doxytag: member="maal::abstract::Matrix::operator*=" ref="aa8d38f9ec879f3e1abf0bf2624aab066" args="(const Matrix &amp;m1)" -->
+<a class="anchor" id="aa5b44cf76f3f1e3562c2d3d648509290"></a><!-- doxytag: member="maal::abstract::Vector::operator*=" ref="aa5b44cf76f3f1e3562c2d3d648509290" args="(const Vector &amp;v1)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; maal::abstract::Matrix::operator*= </td>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a>&amp; maal::abstract::Vector::operator*= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m1</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v1</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
       </table>
@@ -1238,14 +858,14 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a686350de6524b040b5df3b0bb5b456a7"></a><!-- doxytag: member="maal::abstract::Matrix::operator*=" ref="a686350de6524b040b5df3b0bb5b456a7" args="(const FloatType x)" -->
+<a class="anchor" id="a62830b0b2eb04fd926b0b46ea2ede8bb"></a><!-- doxytag: member="maal::abstract::Vector::operator*=" ref="a62830b0b2eb04fd926b0b46ea2ede8bb" args="(const FloatType x)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; maal::abstract::Matrix::operator*= </td>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a>&amp; maal::abstract::Vector::operator*= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
@@ -1255,15 +875,15 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a93e9d1fdd255465b45a530ab7da2417e"></a><!-- doxytag: member="maal::abstract::Matrix::operator+=" ref="a93e9d1fdd255465b45a530ab7da2417e" args="(const Matrix &amp;m1)" -->
+<a class="anchor" id="a5b2ad905ee04553f77f1a1dcfe5cf4f8"></a><!-- doxytag: member="maal::abstract::Vector::operator+=" ref="a5b2ad905ee04553f77f1a1dcfe5cf4f8" args="(const Vector &amp;v1)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; maal::abstract::Matrix::operator+= </td>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a>&amp; maal::abstract::Vector::operator+= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m1</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v1</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
       </table>
@@ -1272,15 +892,15 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a64babcecfac5fb7cba1ff29fae1ed028"></a><!-- doxytag: member="maal::abstract::Matrix::operator&#45;=" ref="a64babcecfac5fb7cba1ff29fae1ed028" args="(const Matrix &amp;m1)" -->
+<a class="anchor" id="acd0710be0004ab185a06b0d6927bf25a"></a><!-- doxytag: member="maal::abstract::Vector::operator&#45;" ref="acd0710be0004ab185a06b0d6927bf25a" args="(const Vector &amp;v1)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; maal::abstract::Matrix::operator-= </td>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a>&amp; maal::abstract::Vector::operator- </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m1</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v1</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
       </table>
@@ -1289,15 +909,15 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a36a669a0fadda966f2d43f0706382b7b"></a><!-- doxytag: member="maal::abstract::Matrix::operator=" ref="a36a669a0fadda966f2d43f0706382b7b" args="(const Matrix &amp;m1)" -->
+<a class="anchor" id="a7cb481817b8a5b09dce81fba73306cbb"></a><!-- doxytag: member="maal::abstract::Vector::operator&#45;=" ref="a7cb481817b8a5b09dce81fba73306cbb" args="(const Vector &amp;v1)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; maal::abstract::Matrix::operator= </td>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a>&amp; maal::abstract::Vector::operator-= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m1</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v1</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
       </table>
@@ -1306,14 +926,31 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ad7b1d57e62f79cb858f7fdfb578f7113"></a><!-- doxytag: member="maal::abstract::Matrix::opposite" ref="ad7b1d57e62f79cb858f7fdfb578f7113" args="(Matrix &amp;res) const " -->
+<a class="anchor" id="ad8a9e5d137c2cf18d927ac22c393aba2"></a><!-- doxytag: member="maal::abstract::Vector::operator=" ref="ad8a9e5d137c2cf18d927ac22c393aba2" args="(const Vector &amp;v1)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#ad7b1d57e62f79cb858f7fdfb578f7113">maal::abstract::Matrix::opposite</a> </td>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a>&amp; maal::abstract::Vector::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v1</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7375ebe26a981369c4e1e78182606f80"></a><!-- doxytag: member="maal::abstract::Vector::opposite" ref="a7375ebe26a981369c4e1e78182606f80" args="(Vector &amp;res) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a>&amp; <a class="el" href="a00005.html#a7375ebe26a981369c4e1e78182606f80">maal::abstract::Vector::opposite</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
           <td class="paramname"><em>res</em></td><td>)</td>
           <td> const<code> [inline]</code></td>
         </tr>
@@ -1323,12 +960,12 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a43bf023966c3f63bd2f5023d79b168ce"></a><!-- doxytag: member="maal::abstract::Matrix::opposite" ref="a43bf023966c3f63bd2f5023d79b168ce" args="(void) const " -->
+<a class="anchor" id="aa7ad824c72a6fa27ad79c6bc72552259"></a><!-- doxytag: member="maal::abstract::Vector::opposite" ref="aa7ad824c72a6fa27ad79c6bc72552259" args="(void) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> <a class="el" href="a00005.html#ad7b1d57e62f79cb858f7fdfb578f7113">maal::abstract::Matrix::opposite</a> </td>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a>&amp; <a class="el" href="a00005.html#a7375ebe26a981369c4e1e78182606f80">maal::abstract::Vector::opposite</a> </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -1340,105 +977,15 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aec692715f56477c1a73b6cfb0cce15df"></a><!-- doxytag: member="maal::abstract::Matrix::pseudoInverse" ref="aec692715f56477c1a73b6cfb0cce15df" args="(Matrix &amp;invMatrix, const FloatType threshold=1e&#45;6, Matrix *Uref=NULL, Matrix *Sref=NULL, Matrix *Vref=NULL) const " -->
+<a class="anchor" id="a7ad7e2a76a4d616af96bd9a84271a552"></a><!-- doxytag: member="maal::abstract::Vector::resize" ref="a7ad7e2a76a4d616af96bd9a84271a552" args="(const unsigned int nbRows, const bool setZero=true)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#aec692715f56477c1a73b6cfb0cce15df">maal::abstract::Matrix::pseudoInverse</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>invMatrix</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>threshold</em> = <code>1e-6</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> *&#160;</td>
-          <td class="paramname"><em>Uref</em> = <code>NULL</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> *&#160;</td>
-          <td class="paramname"><em>Sref</em> = <code>NULL</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> *&#160;</td>
-          <td class="paramname"><em>Vref</em> = <code>NULL</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a29167114712a3a44feda22a3fba6edde"></a><!-- doxytag: member="maal::abstract::Matrix::pseudoInverse" ref="a29167114712a3a44feda22a3fba6edde" args="(const FloatType threshold=1e&#45;6, Matrix *U=NULL, Matrix *S=NULL, Matrix *V=NULL) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> <a class="el" href="a00005.html#aec692715f56477c1a73b6cfb0cce15df">maal::abstract::Matrix::pseudoInverse</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>threshold</em> = <code>1e-6</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> *&#160;</td>
-          <td class="paramname"><em>U</em> = <code>NULL</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> *&#160;</td>
-          <td class="paramname"><em>S</em> = <code>NULL</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> *&#160;</td>
-          <td class="paramname"><em>V</em> = <code>NULL</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ae590d104d814ff762087d431e4c8a3fb"></a><!-- doxytag: member="maal::abstract::Matrix::resize" ref="ae590d104d814ff762087d431e4c8a3fb" args="(const unsigned int nbRows, const unsigned int nbCols, const bool setZero=true)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#ae590d104d814ff762087d431e4c8a3fb">maal::abstract::Matrix::resize</a> </td>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a>&amp; <a class="el" href="a00005.html#a7ad7e2a76a4d616af96bd9a84271a552">maal::abstract::Vector::resize</a> </td>
           <td>(</td>
           <td class="paramtype">const unsigned int&#160;</td>
           <td class="paramname"><em>nbRows</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const unsigned int&#160;</td>
-          <td class="paramname"><em>nbCols</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1457,16 +1004,16 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aa3618f3413749e99b3c488b60dc14cc6"></a><!-- doxytag: member="maal::abstract::Matrix::setDiagonal" ref="aa3618f3413749e99b3c488b60dc14cc6" args="(const Vector &amp;vector)" -->
+<a class="anchor" id="a0770a11ae1c0cc8097c721437110a22f"></a><!-- doxytag: member="maal::abstract::Vector::scalarProduct" ref="a0770a11ae1c0cc8097c721437110a22f" args="(const Vector &amp;v2) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#aa3618f3413749e99b3c488b60dc14cc6">maal::abstract::Matrix::setDiagonal</a> </td>
+          <td class="memname"><a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> <a class="el" href="a00005.html#a0770a11ae1c0cc8097c721437110a22f">maal::abstract::Vector::scalarProduct</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00007.html">Vector</a> &amp;&#160;</td>
-          <td class="paramname"><em>vector</em></td><td>)</td>
-          <td><code> [inline]</code></td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v2</em></td><td>)</td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -1474,55 +1021,132 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ab6585ef66b4ee7d8109837efd1e86375"></a><!-- doxytag: member="maal::abstract::Matrix::setIdentity" ref="ab6585ef66b4ee7d8109837efd1e86375" args="(void)" -->
+<a class="anchor" id="abf3cf8e3a8c1ae2b2d4a7c57e69b1226"></a><!-- doxytag: member="maal::abstract::Vector::scalarProduct" ref="abf3cf8e3a8c1ae2b2d4a7c57e69b1226" args="(const Vector &amp;v1, const Vector &amp;v2)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#ab6585ef66b4ee7d8109837efd1e86375">maal::abstract::Matrix::setIdentity</a> </td>
+          <td class="memname">static <a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> <a class="el" href="a00005.html#a0770a11ae1c0cc8097c721437110a22f">maal::abstract::Vector::scalarProduct</a> </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ae88b0398dbeb2f09660db74bcd33c2a1"></a><!-- doxytag: member="maal::abstract::Matrix::setZero" ref="ae88b0398dbeb2f09660db74bcd33c2a1" args="(void)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#ae88b0398dbeb2f09660db74bcd33c2a1">maal::abstract::Matrix::setZero</a> </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a8007ebbb1393cb7227a950f1292de23f"></a><!-- doxytag: member="maal::abstract::Matrix::stackMatrix" ref="a8007ebbb1393cb7227a950f1292de23f" args="(const Matrix &amp;B, Matrix &amp;C) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#a8007ebbb1393cb7227a950f1292de23f">maal::abstract::Matrix::stackMatrix</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>B</em>, </td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>C</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline, static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab4470aba8deb32619181a92e309e6b5d"></a><!-- doxytag: member="maal::abstract::Vector::setZero" ref="ab4470aba8deb32619181a92e309e6b5d" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a>&amp; <a class="el" href="a00005.html#ab4470aba8deb32619181a92e309e6b5d">maal::abstract::Vector::setZero</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9567e159170bf0e398a40ca1766be31c"></a><!-- doxytag: member="maal::abstract::Vector::size" ref="a9567e159170bf0e398a40ca1766be31c" args="(void) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="a00005.html#a9567e159170bf0e398a40ca1766be31c">maal::abstract::Vector::size</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afb54902772247c5de7471cb3c935e713"></a><!-- doxytag: member="maal::abstract::Vector::substraction" ref="afb54902772247c5de7471cb3c935e713" args="(const Vector &amp;v1, const Vector &amp;v2, Vector &amp;res)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00005.html">Vector</a>&amp; <a class="el" href="a00005.html#afb54902772247c5de7471cb3c935e713">maal::abstract::Vector::substraction</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>res</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a60560c0097573530d05a37917cd8f78c"></a><!-- doxytag: member="maal::abstract::Vector::substraction" ref="a60560c0097573530d05a37917cd8f78c" args="(const Vector &amp;v2) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a> <a class="el" href="a00005.html#afb54902772247c5de7471cb3c935e713">maal::abstract::Vector::substraction</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v2</em></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae97e38fbf7234021f82f38d72c90c0e6"></a><!-- doxytag: member="maal::abstract::Vector::substraction" ref="ae97e38fbf7234021f82f38d72c90c0e6" args="(const Vector &amp;v2, Vector &amp;res) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a>&amp; <a class="el" href="a00005.html#afb54902772247c5de7471cb3c935e713">maal::abstract::Vector::substraction</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>res</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1535,168 +1159,12 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a6fa4ff4531e96af70784429c7cb9d79a"></a><!-- doxytag: member="maal::abstract::Matrix::stackMatrix" ref="a6fa4ff4531e96af70784429c7cb9d79a" args="(const Matrix &amp;B) const " -->
+<a class="anchor" id="a2fbf406ecd8ec1fc3998c6497b3173d8"></a><!-- doxytag: member="maal::abstract::Vector::sumSquare" ref="a2fbf406ecd8ec1fc3998c6497b3173d8" args="(void) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> <a class="el" href="a00005.html#a8007ebbb1393cb7227a950f1292de23f">maal::abstract::Matrix::stackMatrix</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>B</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad76aa7bd6593bc8302a9524636c53315"></a><!-- doxytag: member="maal::abstract::Matrix::substraction" ref="ad76aa7bd6593bc8302a9524636c53315" args="(const Matrix &amp;B) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> <a class="el" href="a00005.html#ae758bcb20936be02bfcfdd798cbf65db">maal::abstract::Matrix::substraction</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>B</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a49c771c1303823e6db9200bc8cda5a0a"></a><!-- doxytag: member="maal::abstract::Matrix::substraction" ref="a49c771c1303823e6db9200bc8cda5a0a" args="(const Matrix &amp;B, Matrix &amp;C) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#ae758bcb20936be02bfcfdd798cbf65db">maal::abstract::Matrix::substraction</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>B</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>C</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a27d1e841164da51fa594f97f85c6e604"></a><!-- doxytag: member="maal::abstract::Matrix::substraction" ref="a27d1e841164da51fa594f97f85c6e604" args="(const FloatType x) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> <a class="el" href="a00005.html#ae758bcb20936be02bfcfdd798cbf65db">maal::abstract::Matrix::substraction</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a2ff2641556b3c5a075829532e27285e3"></a><!-- doxytag: member="maal::abstract::Matrix::substraction" ref="a2ff2641556b3c5a075829532e27285e3" args="(const FloatType x, Matrix &amp;C) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#ae758bcb20936be02bfcfdd798cbf65db">maal::abstract::Matrix::substraction</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>C</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad5b64706e2cf8632ac47005938ae8275"></a><!-- doxytag: member="maal::abstract::Matrix::sumSquare" ref="ad5b64706e2cf8632ac47005938ae8275" args="(void) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> <a class="el" href="a00005.html#ad5b64706e2cf8632ac47005938ae8275">maal::abstract::Matrix::sumSquare</a> </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="afcc83b740746a9b06e1fab1b320ce940"></a><!-- doxytag: member="maal::abstract::Matrix::trace" ref="afcc83b740746a9b06e1fab1b320ce940" args="(void) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> <a class="el" href="a00005.html#afcc83b740746a9b06e1fab1b320ce940">maal::abstract::Matrix::trace</a> </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a3afb154b016d4b19c6be3cebfec6a160"></a><!-- doxytag: member="maal::abstract::Matrix::transpose" ref="a3afb154b016d4b19c6be3cebfec6a160" args="(Matrix &amp;At) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#a3afb154b016d4b19c6be3cebfec6a160">maal::abstract::Matrix::transpose</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>At</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a761e549f4f163de41aec5c8342bf99cc"></a><!-- doxytag: member="maal::abstract::Matrix::transpose" ref="a761e549f4f163de41aec5c8342bf99cc" args="(void) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> <a class="el" href="a00005.html#a3afb154b016d4b19c6be3cebfec6a160">maal::abstract::Matrix::transpose</a> </td>
+          <td class="memname"><a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a> <a class="el" href="a00005.html#a2fbf406ecd8ec1fc3998c6497b3173d8">maal::abstract::Vector::sumSquare</a> </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -1709,27 +1177,21 @@ Friends</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Friends And Related Function Documentation</h2>
-<a class="anchor" id="a00e663eb7ce9eae655916201ced89279"></a><!-- doxytag: member="maal::abstract::Matrix::addition" ref="a00e663eb7ce9eae655916201ced89279" args="(const Matrix &amp;A, const Matrix &amp;B, Matrix &amp;C)" -->
+<a class="anchor" id="ad686e387581e9f9c41de5ce774fb7970"></a><!-- doxytag: member="maal::abstract::Vector::operator*" ref="ad686e387581e9f9c41de5ce774fb7970" args="(const Vector &amp;v1, const Vector &amp;v2)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#a00e663eb7ce9eae655916201ced89279">addition</a> </td>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a> operator* </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>A</em>, </td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>B</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>C</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1742,212 +1204,47 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a435d2a7f76fda50587485a5fc7a73b0d"></a><!-- doxytag: member="maal::abstract::Matrix::addition" ref="a435d2a7f76fda50587485a5fc7a73b0d" args="(const Matrix &amp;A, const FloatType x, Matrix &amp;C)" -->
+<a class="anchor" id="a817211ee546f466764c15698697ea33d"></a><!-- doxytag: member="maal::abstract::Vector::operator*" ref="a817211ee546f466764c15698697ea33d" args="(const Vector &amp;v1, const FloatType x)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#a00e663eb7ce9eae655916201ced89279">addition</a> </td>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a> operator* </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>A</em>, </td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [friend]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8445494eff51918746ac5c3873cef28b"></a><!-- doxytag: member="maal::abstract::Vector::operator*" ref="a8445494eff51918746ac5c3873cef28b" args="(const FloatType x, const Vector &amp;v1)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a> operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00032.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>C</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aea083cebab79045e12193a64030079dc"></a><!-- doxytag: member="maal::abstract::Matrix::division" ref="aea083cebab79045e12193a64030079dc" args="(const Matrix &amp;A, const FloatType x, Matrix &amp;C)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#aea083cebab79045e12193a64030079dc">division</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>A</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>C</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7ad6ee2fa63e622a8a9b12e193580c4f"></a><!-- doxytag: member="maal::abstract::Matrix::multiply" ref="a7ad6ee2fa63e622a8a9b12e193580c4f" args="(const Matrix &amp;A, const Matrix &amp;B, Matrix &amp;C)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#a7ad6ee2fa63e622a8a9b12e193580c4f">multiply</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>A</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>B</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>C</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a814691155e951f503cbea235b7d9fd3e"></a><!-- doxytag: member="maal::abstract::Matrix::multiply" ref="a814691155e951f503cbea235b7d9fd3e" args="(const Matrix &amp;M, const Vector &amp;v, Vector &amp;res)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00007.html">Vector</a>&amp; <a class="el" href="a00005.html#a7ad6ee2fa63e622a8a9b12e193580c4f">multiply</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>M</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00007.html">Vector</a> &amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00007.html">Vector</a> &amp;&#160;</td>
-          <td class="paramname"><em>res</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a4d4a1ccfa84176a0e8d8be93790de322"></a><!-- doxytag: member="maal::abstract::Matrix::multiply" ref="a4d4a1ccfa84176a0e8d8be93790de322" args="(const Matrix &amp;A, const FloatType x, Matrix &amp;C)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#a7ad6ee2fa63e622a8a9b12e193580c4f">multiply</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>A</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>C</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a24da5fd1a21f5010ee32de71af9be3b9"></a><!-- doxytag: member="maal::abstract::Matrix::operator*" ref="a24da5fd1a21f5010ee32de71af9be3b9" args="(const Matrix &amp;m1, const Matrix &amp;m2)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> operator* </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a53ca5b4126b8cdf182c1073a30df42e5"></a><!-- doxytag: member="maal::abstract::Matrix::operator*" ref="a53ca5b4126b8cdf182c1073a30df42e5" args="(const Matrix &amp;M, const Vector &amp;v1)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00007.html">Vector</a> operator* </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>M</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00007.html">Vector</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
           <td class="paramname"><em>v1</em>&#160;</td>
         </tr>
         <tr>
@@ -1961,21 +1258,21 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a127f1a8bccb4b8760a092a5cdb0a5b6e"></a><!-- doxytag: member="maal::abstract::Matrix::operator*" ref="a127f1a8bccb4b8760a092a5cdb0a5b6e" args="(const Vector &amp;v1, const Matrix &amp;M)" -->
+<a class="anchor" id="a06ca8cbab2b706b2a4e6b21ed24e0087"></a><!-- doxytag: member="maal::abstract::Vector::operator+" ref="a06ca8cbab2b706b2a4e6b21ed24e0087" args="(const Vector &amp;v1, const Vector &amp;v2)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00007.html">Vector</a> operator* </td>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a> operator+ </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00007.html">Vector</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
           <td class="paramname"><em>v1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>M</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1988,21 +1285,21 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a2d0e6cf2639648d88cee2bb6c96f4117"></a><!-- doxytag: member="maal::abstract::Matrix::operator*" ref="a2d0e6cf2639648d88cee2bb6c96f4117" args="(const FloatType x, const Matrix &amp;m1)" -->
+<a class="anchor" id="a885f29c16d9844e1629e3f4c89cf5499"></a><!-- doxytag: member="maal::abstract::Vector::operator&#45;" ref="a885f29c16d9844e1629e3f4c89cf5499" args="(const Vector &amp;v1, const Vector &amp;v2)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> operator* </td>
+          <td class="memname"><a class="el" href="a00005.html">Vector</a> operator- </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m1</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -2015,267 +1312,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="afd5249df58771da15cf50da099d4ab86"></a><!-- doxytag: member="maal::abstract::Matrix::operator*" ref="afd5249df58771da15cf50da099d4ab86" args="(const Matrix &amp;m1, const FloatType x)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> operator* </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>x</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa5a9f2db2b3c1862c9c0d19241239ce7"></a><!-- doxytag: member="maal::abstract::Matrix::operator+" ref="aa5a9f2db2b3c1862c9c0d19241239ce7" args="(const Matrix &amp;m1, const Matrix &amp;m2)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> operator+ </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ae4b58bd4210ae39b35e886ce52e9c7f2"></a><!-- doxytag: member="maal::abstract::Matrix::operator+" ref="ae4b58bd4210ae39b35e886ce52e9c7f2" args="(const FloatType x, const Matrix &amp;m1)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> operator+ </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m1</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a00114eb190da2b882ce20e854e602538"></a><!-- doxytag: member="maal::abstract::Matrix::operator+" ref="a00114eb190da2b882ce20e854e602538" args="(const Matrix &amp;m1, const FloatType x)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> operator+ </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>x</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a52ad5ef4b9998529c85e8523c20d6b86"></a><!-- doxytag: member="maal::abstract::Matrix::operator&#45;" ref="a52ad5ef4b9998529c85e8523c20d6b86" args="(const Matrix &amp;m1, const Matrix &amp;m2)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> operator- </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a6e37da6d17dbb320f437ad9c5caf8194"></a><!-- doxytag: member="maal::abstract::Matrix::operator&#45;" ref="a6e37da6d17dbb320f437ad9c5caf8194" args="(const Matrix &amp;m)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> operator- </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m</em></td><td>)</td>
-          <td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5d799579d3d8496d10d0edb44ebedf43"></a><!-- doxytag: member="maal::abstract::Matrix::operator&#45;" ref="a5d799579d3d8496d10d0edb44ebedf43" args="(const FloatType x, const Matrix &amp;m1)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> operator- </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m1</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac510c2ad62230c440b6dc77c4938e593"></a><!-- doxytag: member="maal::abstract::Matrix::operator&#45;" ref="ac510c2ad62230c440b6dc77c4938e593" args="(const Matrix &amp;m1, const FloatType x)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> operator- </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>x</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a99e0d8bf4b745c275a9724fce758f9c1"></a><!-- doxytag: member="maal::abstract::Matrix::operator/" ref="a99e0d8bf4b745c275a9724fce758f9c1" args="(const FloatType x, const Matrix &amp;m1)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> operator/ </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m1</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac2b03ecb9c424d6f02f34eef590cf88c"></a><!-- doxytag: member="maal::abstract::Matrix::operator/" ref="ac2b03ecb9c424d6f02f34eef590cf88c" args="(const Matrix &amp;m1, const FloatType x)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a> operator/ </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>x</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a559e1892b5302c70223640c3b85602aa"></a><!-- doxytag: member="maal::abstract::Matrix::operator&lt;&lt;" ref="a559e1892b5302c70223640c3b85602aa" args="(std::ostream &amp;os, const Matrix &amp;m1)" -->
+<a class="anchor" id="a381171e3e2fb8cabca2e1834670a6dd9"></a><!-- doxytag: member="maal::abstract::Vector::operator&lt;&lt;" ref="a381171e3e2fb8cabca2e1834670a6dd9" args="(std::ostream &amp;os, const Vector &amp;v1)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -2288,34 +1325,7 @@ Friends</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m1</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a6670c9f4d987d8a7fe60d0478f47ba7c"></a><!-- doxytag: member="maal::abstract::Matrix::operator&gt;&gt;" ref="a6670c9f4d987d8a7fe60d0478f47ba7c" args="(std::istream &amp;is, Matrix &amp;v1)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::istream&amp; operator&gt;&gt; </td>
-          <td>(</td>
-          <td class="paramtype">std::istream &amp;&#160;</td>
-          <td class="paramname"><em>is</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
           <td class="paramname"><em>v1</em>&#160;</td>
         </tr>
         <tr>
@@ -2329,60 +1339,21 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae758bcb20936be02bfcfdd798cbf65db"></a><!-- doxytag: member="maal::abstract::Matrix::substraction" ref="ae758bcb20936be02bfcfdd798cbf65db" args="(const Matrix &amp;A, const Matrix &amp;B, Matrix &amp;C)" -->
+<a class="anchor" id="a940d38ad9236601141a84d47a61734c0"></a><!-- doxytag: member="maal::abstract::Vector::operator&gt;&gt;" ref="a940d38ad9236601141a84d47a61734c0" args="(std::istream &amp;is, Vector &amp;v1)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#ae758bcb20936be02bfcfdd798cbf65db">substraction</a> </td>
+          <td class="memname">std::istream&amp; operator&gt;&gt; </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>A</em>, </td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>is</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>B</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>C</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5b3baf9284ac0ac7baf9a592bd45f2d5"></a><!-- doxytag: member="maal::abstract::Matrix::substraction" ref="a5b3baf9284ac0ac7baf9a592bd45f2d5" args="(const Matrix &amp;A, const FloatType x, Matrix &amp;C)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00005.html">Matrix</a>&amp; <a class="el" href="a00005.html#ae758bcb20936be02bfcfdd798cbf65db">substraction</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>A</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00033.html#a94e376b986b77a16b4c01b52f315ebb2">FloatType</a>&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00005.html">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>C</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00005.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v1</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -2413,8 +1384,8 @@ Friends</h2></td></tr>
 
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00032.html">maal</a>      </li>
-      <li class="navelem"><a class="el" href="a00033.html">abstract</a>      </li>
-      <li class="navelem"><a class="el" href="a00005.html">Matrix</a>      </li>
+      <li class="navelem"><a class="el" href="a00031.html">maal</a>      </li>
+      <li class="navelem"><a class="el" href="a00032.html">abstract</a>      </li>
+      <li class="navelem"><a class="el" href="a00005.html">Vector</a>      </li>
 </body>
 </html>
