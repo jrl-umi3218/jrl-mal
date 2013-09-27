@@ -1,9 +1,0 @@
-Document: jrl-mal
-Title: Debian jrl-mal Manual
-Author: Thomas Moulard <thomas.moulard@gmail.com>
-Abstract: Doxygen documentation of jrl-mal.
-Section: Programming
-
-Format: HTML
-Index: /usr/share/doc/MatrixAbstractLayer/html/index.html
-Files: /usr/share/doc/MatrixAbstractLayer/html/*.html
