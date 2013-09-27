@@ -38,6 +38,13 @@ located in the `$prefix/share/doc/jrl-mal` directoy where
 `$prefix` is your installation prefix (`/usr/local` by default).
 
 
+Getting Help
+------------
+
+Support is provided through:
+ * the HPP mailing-list: hpp@laas.fr
+ * the following HipChat room: http://www.hipchat.com/gh4wQrZeV
+
 
 How can I install jrl-mal?
 --------------------------
