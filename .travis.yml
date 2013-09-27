@@ -1,29 +1,31 @@
-script: ./.travis/build
+language: cpp
+compiler:
+  - gcc
+  - clang
 env:
   global:
-    secure: X5oJJc3Xt3pL4P9fIyqItrMwpma4+zJzci1eV85T8O7eDJL3Dhrjc2I+XhCPTLSakLloD4Gdvvf6An2YcjutUk6DnrSu+XaGmpNpyqrJz9AexTBhomZ3yCHH9wg5jjKjC3kOvheOlgt+3jYiTUMss8UoGjql/TKNfPqBhz7P0Ko=
-after_success:
-- coveralls -e _travis/install -e tests
-- git config --global user.name "Travis CI"
-- git config --global user.email "thomas.moulard+travis@gmail.com"
-- git remote set-url origin https://thomas-moulard:${GH_TOKEN}@github.com/jrl-umi3218/jrl-mal.git
-- git fetch origin gh-pages:gh-pages
-- cd _travis/build/doc && ../../../cmake/github/update-doxygen-doc.sh
-compiler:
-- clang
-- gcc
-matrix:
-  allow_failures:
-  - compiler: clang
-before_install:
-- git submodule update --init --recursive
-- sudo apt-get update -qq
-- sudo apt-get install -qq doxygen doxygen-latex libboost-all-dev libeigen3-dev liblapack-dev libblas-dev gfortran
-- sudo pip install cpp-coveralls --use-mirrors
+  - DEBSIGN_KEYID=5AE5CD75
+  - secure: "GagAes7Ut41F3nosPSLdvnfYd0m8fbMrDNdbqH4RsD/9YkrsYnBNOXZpaRLs3tT2LSecTmBaX8gbOz5QOPOAHpt/255RCLkP6N3r1WFAv7HZhpFJw/LUxvq8TtJRhKXXpJzdqq9xXjlGb++TRidwDKuU4ZrJLilzmhe1vmDjxeA="
+  - secure: "IgZg8KJ1eJukpO4Yuj9NmYas9eT3RyGAcr52yJa2H83tOpKsseGW58r/qpHDNywDq6/D4eVMlDk0HiqRBtfs/SP4DLHhPlm22tF3yQjLp7M579BbKmSDlbsIK1tTsqCgGDXZQN3XdV9h/bGuw3z++eboMDjde219YF1rB1EPhYQ="
+  - secure: "EkCMPmlm+UtgK1eHyKXiF7mn7xs6HTZw6qnNbBkv8swBwdRUxtPteaNYT9oZOEL8C/dXLA2gGeQALngFFfXv5Q6kxXAQ+qjqMzHA+Sxo1H1m3o/fB+Rcf8RIJxhCxj5tK0JpyZiIWuGx7zbuiQMR/T/ULCjs7L/VAoJlHqwOcjc="
+  - APT_DEPENDENCIES="doxygen libboost-dev libboost-test-dev libboost-filesystem-dev libboost-system-dev libboost-thread-dev libboost-program-options-dev liblapack-dev gfortran libeigen3-dev"
+  - GIT_DEPENDENCIES=""
+  - PPA_URI="stack-of-tasks/snapshot"
+  - NSIQCPPSTYLE_FILEFILTERPATH=cmake/filefilter.txt
 notifications:
+  hipchat:
+    rooms:
+      - secure: "Q0PEPkoFSKNayQWiShvf14dbeyThq4vfy/xWfGUMGJvvdu936RRxa8WMj53fmSB6kmE9GWDdCk0DGQBYkO2bBlq7TrmgXNXqYEBYr+nVYppwwyig9NrHtyhAEKQz9/fXSy05B5C4VTY8bql9wr6sbq7Jv6kkHwW5CBS24Oylw34="
   email:
   - hpp-source@laas.fr
 branches:
   only:
   - master
-language: cpp
+  - debian
+script: ./.travis/build
+after_success: ./.travis/after_success
+after_failure: ./.travis/after_failure
+before_install: ./.travis/before_install
+matrix:
+  allow_failures:
+    - compiler: clang
