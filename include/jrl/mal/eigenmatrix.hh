@@ -301,7 +301,6 @@ namespace maal
             ::Eigen::Matrix<FloatType, Eigen::Dynamic, 1> s(std::min(NR,NC));
 	    char Jobu='A'; // Compute complete U Matrix
 	    char Jobvt='A'; // Compute complete VT Matrix
-	    char Lw; Lw='O'; // Compute the optimal size for the working vector
 
 
 	    {
@@ -484,7 +483,6 @@ namespace maal
             ::Eigen::Matrix<FloatType, Eigen::Dynamic, 1> s(std::min(NR,NC));
 	    char Jobu='A'; // Compute complete U Matrix
 	    char Jobvt='A'; // Compute complete VT Matrix
-	    char Lw; Lw='O'; // Compute the optimal size for the working vector
 
 
 	    {
